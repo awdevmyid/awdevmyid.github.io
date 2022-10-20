@@ -1,0 +1,84 @@
+
+nav button{
+    width: 50px;
+ 
+    font-size: 24px;
+}
+#navigationbar{
+    width: 100%;
+    min-width: 329px;
+   
+    padding: 3px 5px;
+    background-color: rgb(238, 238, 238);
+    border-radius: 0px;
+}
+header{
+    background-image: none;
+}
+section{
+    width: 95%;
+    
+    margin-top: 60px;
+}
+#search{
+    width: 100%;
+}
+
+h1{
+    font-size: 40px;
+    padding: 0px;
+    text-align: center;
+}
+
+#divalert{
+    width: 330px;
+    position: fixed;
+    height: 440px;
+    top: 50%;
+    left: 50%;
+    margin-top: -220px;
+    margin-left: -165px;
+}
+
+#btnsalert{
+    padding: 0;
+}
+
+.btnalerterror{
+    left: 110px;
+  }
+
+
+  #divHomePage,#divLiveReportsPage,#divAboutPage{
+      margin-top: 220px;
+  }
+
+  #replace:enabled {
+    background-color: rgb(47, 248, 91);
+    color: rgb(7, 2, 2);
+    font-weight: 600;
+  }
+
+
+  .card {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    
+   
+  }
+
+  #lgsused {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.coin-search {
+    background-color: rgba(245, 243, 243, 0.85);
+    color: rgb(17, 17, 17);
+    transform: scale(1.07);
+    transition: 0.5s;
+    border: 2px solid black;
+    
+  }

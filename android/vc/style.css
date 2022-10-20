@@ -1,0 +1,57 @@
+body 
+ {
+ background-color: black;
+ }
+ logo
+ {
+ width: 10px;
+ height: 2px;
+ position:center;
+ }
+ iframe {
+ bottom: 0;
+ color: #fff;
+ position: relative;
+ width: 95%;
+ height: 20em;
+ background-color: rgb(49, 49, 49);
+ }
+ 
+ body{
+ font-family: 'Ubuntu Mono', monospace;
+ }
+ 
+ h1 {
+ text-align: center;
+ color: #fff;
+ border: 3px;
+ 
+ 
+ }
+
+ h3 {
+ text-align: center;
+ color: #fff;
+ border: 3px;
+ 
+ 
+ }
+ textarea {
+ width: 30%;
+ min-height: 250px;
+ overflow: scroll;
+ margin: auto;
+ color: #fff;
+ background-color: rgb(49, 49, 49);
+ outline: none;
+ font-family: 'Ubuntu Mono', monospace;
+ font-size: 14px;
+ }
+ 
+ html{
+ background-color: rgb(49, 49, 49);
+ font-size: 30px;
+ }
+ 
+ 
+

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<!-- Created By Awdev - www.awdev.my.id-->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <title>ROOLS VERSION 1 - AWDEV</title>   
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.awdev.my.id/favicon.ico"/>  
+    <meta name="keywords" content="AWDEV WELLCOME TO ROOLS V 1  - Neumorphism Clock - TIMER ROOLER" />
+    <meta name="description" content="WELLCOME TO ROOLS V 1 - 30 seconds remaining |
+    Neumorphism Analog Clock UI Design Using HTML, CSS & JS AWDEV CORPORATION" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="page" type="url" href="https://www.awdev.my.id/android/auto/rools.html"/>      
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TCFM42D');</script>
+    <!-- End Google Tag Manager -->    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876"
+    crossorigin="anonymous">
+    <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+    <style type="text/css">
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+    }
+    body{
+    background: #ecf0f3;
+    }
+    .side_bar{
+    position: relative;
+    top: 0;
+    left: -100%;
+    width: 300px;
+    height: 100vh;
+    background: #ecf0f3;
+    padding: 12px;
+    box-shadow: -3px -3px 7px #ffffff,
+    3px 3px 5px #ceced1,
+    inset -3px -3px 7px #ffffff,
+    inset 3px 3px 5px #ceced1;
+    transition: all 0.3s ease;
+    }
+    .side_bar .title{
+    display: flex;
+    justify-content: space-evenly;
+    }
+    .side_bar .title .logo{
+    font-size: 27px;
+    font-weight: 600;
+    color: #31344b;
+    }
+    .side_bar ul{
+    margin-top: 35px;
+    list-style: none;
+    }
+    .side_bar ul a{
+    color: #31344b;
+    text-decoration: none;
+    display: block;
+    margin-top: 12px;
+    font-size: 18px;
+    font-weight: 400;
+    padding : 10px 25px;
+    border-radius: 6px;
+    box-shadow: -3px -3px 7px #ffffff,
+    3px 3px 5px #ceced1;
+    position: relative;
+    transition: all 0.2s ease;
+    }
+    .side_bar ul i{
+    margin-right: 10px;
+    }
+    .media_icons{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    }
+    .media_icons a{
+    position: relative;
+    margin: 0 4px;
+    font-size: 17px;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    text-decoration: none;
+    box-shadow: -3px -3px 7px #ffffff,
+    3px 3px 5px #ceced1;
+    transition: all 0.3s ease;
+    }
+    .side_bar ul a:hover:before,
+    .media_icons a:hover:before{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset -3px -3px 7px #ffffff,
+    inset 3px 3px 5px #ceced1;
+    }
+    .side_bar ul a:hover:before{
+    border-radius: 6px;
+    }
+    .media_icons a:hover:before{
+    border-radius: 50%;
+    }
+    .side_bar ul a:hover{
+    color: #3498db;
+    }
+    
+    .media_icons a:nth-child(1){
+    color: #4267b2;
+    }
+    .media_icons a:nth-child(2){
+    color: #1da1f2;
+    }
+    .media_icons a:nth-child(3){
+    color: #e1306c;
+    }
+    .media_icons a:nth-child(4){
+    color: #ff0000;
+    }
+    label{
+    font-size: 17px;
+    color: #31344b;
+    box-shadow: -3px -3px 7px #ffffff,
+    3px 3px 5px #ceced1;
+    height: 37px;
+    width: 37px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 37px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    }
+    label:hover{
+    box-shadow: inset -3px -3px 7px #ffffff,
+    inset 3px 3px 5px #ceced1;
+    color: #3498db;
+    }
+    #check{
+    display: none;
+    }
+    .bars{
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    }
+    #check:checked ~ .side_bar{
+    left: 0;
+    }
+    </style>
+    <style type="text/css">
+    * {
+    margin: 10;
+    padding: 10;
+    box-sizing: border-box;
+    }
+    body {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #dde1e7;
+    }
+    .clock {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #dde1e7;
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    box-shadow: -3px -3px 7px #ffffff73 , 3px 3px 5px rgba(94,104,121,0.288);
+    }
+    .clock::before {
+    content: '';
+    position: absolute;
+    height: 220px;
+    width: 220px;
+    background-color: #dde1e7;
+    border-radius: 50%;
+    box-shadow: inset -3px -3px 7px #ffffff73 , inset 3px 3px 5px rgba(94,104,121,0.288);
+    }
+    .clock::after {
+    content: '';
+    position: absolute;
+    height: 120px;
+    width: 120px;
+    background-color: #dde1e7;
+    border-radius: 50%;
+    box-shadow: -1px -1px 5px #ffffff73 , 1px 1px 3px rgba(94,104,121,0.288);
+    }
+    .center--hr {
+    height: 15px;
+    width: 15px;
+    background-color: #404040;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 2;
+    }
+    .center--hr2 {
+    height: 9px;
+    width: 9px;
+    background-color: #c0392b;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 20;
+    }
+    .indicators span {
+    position: absolute;
+    width: 2px;
+    height: 5px;
+    background-color: #404040;
+    }
+    .indicators span:nth-child(1) {
+    transform: rotate(30deg) translateY(-100px);
+    }
+    .indicators span:nth-child(2) {
+    transform: rotate(60deg) translateY(-100px);
+    }
+    .indicators span:nth-child(3) {
+    background-color: #c0392b;
+    transform: rotate(90deg) translateY(-100px);
+    }
+    .indicators span:nth-child(4) {
+    transform: rotate(120deg) translateY(-100px);
+    }
+    .indicators span:nth-child(5) {
+    transform: rotate(150deg) translateY(-100px);
+    }
+    .indicators span:nth-child(6) {
+    background-color: #c0392b;
+    transform: rotate(180deg) translateY(-100px);
+    }
+    .indicators span:nth-child(7) {
+    transform: rotate(210deg) translateY(-100px);
+    }
+    .indicators span:nth-child(8) {
+    transform: rotate(240deg) translateY(-100px);
+    }
+    .indicators span:nth-child(9) {
+    background-color: #c0392b;
+    transform: rotate(270deg) translateY(-100px);
+    }
+    .indicators span:nth-child(10) {
+    transform: rotate(300deg) translateY(-100px);
+    }
+    .indicators span:nth-child(11) {
+    transform: rotate(330deg) translateY(-100px);
+    }
+    .indicators span:nth-child(12) {
+    background-color: #c0392b;
+    transform: rotate(360deg) translateY(-100px);
+    }
+    .sec--hand , .min--hand , .hr--hand {
+    position: absolute;
+    }
+    .sec--hand , .sec {
+    height: 180px;
+    width: 180px;
+    z-index: 6;
+    }
+    .min--hand , .min {
+    height: 140px;
+    width: 140px;
+    z-index: 5;
+    }
+    .hr--hand , .hr {
+    height: 110px;
+    width: 110px;
+    z-index: 4;
+    }
+    .sec , .min , .hr {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    }
+    .sec::before {
+    position: absolute;
+    content: '';
+    height: 110px;
+    width: 3px;
+    background-color: #c0392b;
+    }
+    .sec::after {
+    position: absolute;
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: #c0392b;
+    border-radius: 50%;
+    top: 105px;
+    }
+    .min::after {
+    position: absolute;
+    content: '';
+    width: 4px;
+    height: 70px;
+    border-radius: 50px;
+    background-color: #2980b9;
+    top: 4px;
+    }
+    .hr::after {
+    position: absolute;
+    content: '';
+    width: 5px;
+    height: 50px;
+    top: 0;
+    border-radius: 50px;
+    background-color: #303030;
+    }
+    .clock--num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    font-size: 22px;
+    font-family: 'Orbitron' , sans-serif;
+    height: 50px;
+    width: 200px;
+    font-weight: bold;
+    background-color: #3688cf;
+    background: linear-gradient(to right , #3688cf 15% , #cf2b2b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-radius: 10px;
+    box-shadow: -3px -3px 7px #ffffff73 , 3px 3px 5px rgba(94,104,121,0.288);
+    }</style>
+    
+    <style type="text/css">
+    {
+    margin: 10;
+    padding: 10;
+    box-sizing: border-box;
+    }
+    body {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #dde1e7;
+    }
+    .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;    
+    font-size: 22px;
+    font-family: 'Orbitron' , sans-serif;
+    height: 50px;
+    width: 450px;
+    font-weight: bold;
+    background-color: #3688cf;
+    background: linear-gradient(to right , #3688cf 15% , #cf2b2b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-radius: 10px;
+    box-shadow: -3px -3px 7px #ffffff73 , 3px 3px 5px rgba(94,104,121,0.288);
+    }
+    
+    </style>
+    </head>
+<body>
+<div class="header">AWDEV</div>
+<center>
+ <h1>WELLCOME TO ROOLS V 1</h1>
+ <div>
+ 
+ <center>
+ <script type="text/javascript">
+ {
+ var url="https://wahyu9kdl.github.io/HTML/rools.html" ;
+ document.write("WELLCOME TO ROOLS V 1 ");
+ setTimeout(function(){window.location = url;}, 30000);
+ }
+ {
+ var timeleft = 30;
+ var downloadTimer = setInterval(function(){
+ if(timeleft <= 0){
+ clearInterval(downloadTimer);
+ document.getElementById("countdown").innerHTML = "Finished";
+ } else {
+ document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
+ }
+ timeleft -= 1;
+ }, 1000);}</script>
+ <div id="countdown">HELLO ! AWDEV</div>
+ </center>
+ </div>
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOL0io_PHmTF75IWEvUSWDKY7g9VOE6TSgXS0z0wI3s8tjQ4AEYGV2fPKeS9FrwKFsMRWgE5aVBZVFKHMizqZSkn6-PdVOHDpZ64gmJWOXMr8w00K5DBGveq9GUQJORsy0tuzaIdEh-htj5E2Z-ZXPLAK-Gf4F21weyCvt0JeoV9tH2LlsF3Lab0fp/s320/indonesia-77-awdev.png "  width="200px" height="250px"></img>    
+    <marquee><b><span style="font-size: x-large;"><span style="color: #9CA0EE; ">AW</span><span style="color: red;">DEV  <span style="color: black;">CORPORATION</span> <span style="color: #9CA0EE; "><b>MENGUCAPKAN<span style="color: red;"><b> DIRGAHAYU</b></span><span style="color: #33DAE3;"><b> REPUBLIK</b></span> <span style="color: Red;">INDONESIA 🇮🇩🇮🇩🇮🇩  KE - 77</span></b></span>
+    </span></span></b></marquee>
+     </center>
+<div class="clock">
+        <div class="center--hr"></div>
+        <div class="center--hr2"></div>
+        <div class="indicators">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="sec--hand">
+            <div class="sec"></div>
+        </div>
+        <div class="min--hand">
+            <div class="min"></div>
+        </div>
+        <div class="hr--hand">
+            <div class="hr"></div>
+        </div>
+    </div>
+    <div class="clock--num"></div>
+    <script>
+        const sec = document.querySelector('.sec');
+        const min = document.querySelector('.min');
+        const hr = document.querySelector('.hr')
+        const clockNum = document.querySelector('.clock--num')
+        setInterval(function() {
+            let time = new Date();
+            let seconds = time.getSeconds();
+            let minutes = time.getMinutes();
+            let hours = time.getHours();
+            let dayNight = 'AM';
+            sec.style.transform = `rotate(${seconds * 6}deg)`;
+            min.style.transform = `rotate(${minutes * 6}deg)`;
+            hr.style.transform = `rotate(${hours * 30 + (minutes/2)}deg)`;
+
+            if(hours > 12) {
+                dayNight = 'PM';
+                hours = hours -12;
+            }
+            if(seconds <10) {
+                seconds = '0' + seconds;
+            }
+            if(minutes < 10) {
+                minutes = '0' + minutes;
+            }
+            if(hours < 10) {
+                hours = '0' +hours;
+            }
+
+            clockNum.textContent = hours + ':' + minutes + ':' + seconds + ' ' + dayNight;
+        })
+    </script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-5295583488737876"
+     data-ad-slot="6408396068"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+ <div>
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876"
+ crossorigin="anonymous"></script>
+ <ins class="adsbygoogle"
+ style="display:block"
+ data-ad-format="autorelaxed"
+ data-ad-client="ca-pub-5295583488737876"
+ data-ad-slot="1958340468"></ins>
+ <script>
+ (adsbygoogle = window.adsbygoogle || []).push({});
+ </script>
+ <amp-ad width="100vw" height="320"
+ type="adsense"
+ data-ad-client="ca-pub-5295583488737876"
+ data-ad-slot="1958340468"
+ data-auto-format="mcrspv"
+ data-full-width="">
+ <div overflow=""></div>
+ </amp-ad>
+ </div>
+  <input type="checkbox" id="check">
+  <label class="button bars" for="check"><i class="fas fa-bars"></i></label>
+  <div class="side_bar">
+    <div class="title">
+      <div class="logo">AWDEV</div>
+      <label class=" button cancel" for="check"><i class="fas fa-times"></i></label>
+    </div>
+    <ul>
+          <li><a href="https://www.awdev.my.id/thema/"><i class="fas fa-qrcode"></i>Dashboard</a></li>
+          <li><a href="#"><i class="fas fa-link"></i>Shortcuts</a></li>
+          <li><a href="https://www.awdev.eu.org"><i class="fas fa-stream"></i>Overview</a></li>
+          <li><a href="https://wahyu9kdl.github.io/islami"><i class="fas fa-calendar-week"></i>APP</a></li>
+          <li><a href="#"><i class="fas fa-question-circle"></i>About</a></li>
+          <li><a href="https://devoloper.awdev.eu.org"><i class="fas fa-sliders-h"></i>Services</a></li>
+          <li><a href="#"><i class="fas fa-phone-volume"></i>Contact</a></li>
+          <li><a href="#"><i class="fas fa-comments"></i>Feedback</a></li>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-5295583488737876"
+     data-ad-slot="6408396068"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</ul>
+        <div class="media_icons">
+          <a href="https://web.facebook.com/Awfanspage"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com/Awfanspage"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="https://youtube.com/channel/UCyp-Fn_0Ek4_aXIFbcWaq0w"><i class="fab fa-youtube"></i></a>
+        </div>
+
+</body>
+</html>

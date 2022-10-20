@@ -1,0 +1,652 @@
+@import url("https://fonts.googleapis.com/css?family=Audiowide");
+
+body {
+  margin: 0px;
+  background-image: url("../imgs/back.png");
+  background-size: cover;
+  background-attachment: fixed;
+  /* position: relative; */
+}
+
+header {
+  /* height: 100px; */
+  width: 100%;
+  /* background-color: lightgray; */
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  background-image: url("../imgs/back.png");
+  background-size: cover;
+  background-attachment: fixed;
+  
+  
+}
+
+h1 {
+  font-family: "Audiowide", sans-serif;
+  color: rgb(248, 239, 239);
+  text-shadow: rgba(17, 17, 17, 1) 0px 1px 2px;
+  font-size: 60px;
+  display: flex;
+ justify-content: center;
+ background-color: rgba(17, 17, 17, 0.8);
+ padding: 5px;
+}
+
+header > h1 {
+  text-align: left;
+  padding: 2px 0 0 50px;
+}
+
+h1 span {
+  color: rgb(41, 164, 235);
+  font-size: 40px;
+}
+
+section {
+  width: 80%;
+  max-width: 1300px;
+  min-width: 328px;
+  min-height: 1000px;
+  margin: auto;
+  margin-top: 152px;
+  /* border: 1px gray solid; */
+}
+
+.navigationbar {
+  width: 80%;
+  margin: 0 auto;
+ 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border: 1px lightgray solid;
+  padding: 10px 20px;
+  /* margin-bottom: 1px; */
+  border-radius: 10px;
+  box-shadow: #303030 0px 1px 3px;
+  background-color: rgba(241, 236, 236, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+
+
+nav button, #clear-selection-live {
+  background-color: rgb(102, 101, 101);
+  border: none;
+  border-bottom: 2px rgb(102, 88, 81) solid;
+
+  color: white;
+
+  
+  padding: 10px;
+  width:fit-content;
+  height: fit-content;
+  font-size: 28px;
+  font-weight: 700;
+  border-radius: 5px;
+  margin: 3px;
+}
+
+nav button:hover,
+nav button:focus,
+#clear-selection-live:hover,
+#clear-selection-live:focus {
+
+  border-bottom: 2px rgb(59, 87, 243) solid;
+
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+.btn-on {
+  background-color:  rgb(41, 164, 235);
+  border-bottom: 2px rgb(59, 87, 243) solid;
+  
+}
+
+#clear-selection-live:hover,
+#clear-selection-live:focus  {
+  background-color:  rgb(241, 107, 130);
+  border-bottom: 2px rgb(243, 59, 59) solid;
+  
+}
+
+.btn-on:hover,
+.btn-on:focus {
+  border-bottom: 2px rgb(102, 88, 81) solid;
+}
+
+
+
+#formsearch {
+  
+  
+
+  justify-content: space-between;
+  align-items:flex-end;
+
+  border: 1px lightgray solid;
+  padding: 10px 20px;
+  /* margin-bottom: 1px; */
+  border-radius: 10px;
+  box-shadow: #303030 0px 1px 3px;
+  background-color: rgba(241, 236, 236, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+
+#search {
+  width: 150px;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 8px;
+  border-radius: 5px 0 0 5px;
+  border: none; /* 1px gray solid; */
+  color: #111111;
+  /* width: 120px; */
+}
+
+#search:focus {
+  outline: none;
+}
+
+#formsearch button {
+  background-color: rgb(102, 88, 81);
+  color: white;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  padding: 0 10px;
+}
+
+#formsearch button:hover,
+#formsearch button:focus {
+  background-color:  rgb(41, 164, 235);
+  color: lightgray;
+}
+
+#divHomePage {
+  margin-top: 180px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#search-icon{
+  height: 30px;
+}
+
+.card {
+  width: 300px;
+  height: 170px;
+  color: black;
+  font-weight: 700;
+  
+  border-radius: 10px;
+  margin: 5px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  
+  position: relative;
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+.symbolcrypt {
+  font-size: 30px;
+}
+
+.imgsymname {
+  margin: 10px 0 0 15px;
+  display: flex;
+  align-items: center;
+}
+
+.coin-description {
+  margin: 0 10px;
+}
+.moreinfo {
+  position: absolute;
+  bottom: 0px;
+  height: 35px;
+  width: 100%;
+ 
+  background-color: rgb(102, 101, 101);
+  color: white;
+  font-size: 18px;
+  border-radius: 0 0 10px 10px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: rgb(204, 219, 232) 0px 0px 6px 0px inset, rgba(255, 255, 255, 0.5) 0px -3px 6px 1px inset;
+  
+}
+
+.moreinfo:hover {
+
+  background-color:  rgb(41, 164, 235);
+  color: black;
+  font-weight: 700;
+ 
+}
+
+.moreinfo:hover .triangle {
+  border-bottom: 8px solid rgb(41, 164, 235);
+}
+
+.lessinfo {
+  height: 85px;
+ 
+  background-color: lightgray;
+ 
+  color: #111111;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  border-radius: 0 0 10px 10px;
+  cursor: pointer;
+  padding: 4px 35px 0 40px;
+  font-weight: 500;
+}
+
+
+
+.trianglebas {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 8px solid rgba(17, 17, 17, 0.96);
+  position: absolute;
+  top: 0px;
+  right: 142px;
+}
+
+.infowp24 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.p24p {
+  color: rgb(33, 109, 33);
+  font-size: 25px;
+}
+.p24m {
+  color: rgb(194, 28, 28);
+  font-size: 25px;
+}
+
+.switch {
+  position: absolute;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+}
+
+.imgsymname .switch {
+  right: 15px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(165, 165, 165);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: rgb(0, 153, 255);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px rgb(41, 164, 235);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(21px);
+  -ms-transform: translateX(21px);
+  transform: translateX(21px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 28px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+#alert-box {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: 3;
+}
+
+#divalert {
+  width: 600px;
+  height: 400px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -200px;
+  margin-left: -275px;
+  padding: 20px;
+  background-color: rgba(17, 17, 17, 0.99);
+  border: 1px white solid;
+  color: white;
+}
+#divalert h2 {
+  color: lightgray;
+}
+
+.divswi {
+  width: 300px;
+  height: 40px;
+  margin-left: 40px;
+}
+.divswi div {
+  margin-left: 60px;
+  font-size: 18px;
+}
+
+h4 {
+  font-family: "Black Ops One", cursive;
+  text-align: center;
+}
+
+h2 {
+  margin-top: 40px;
+  color: black;
+  text-align: center;
+  font-size: 50px;
+}
+
+h6 strong {
+  font-size: 18px;
+  color: rgb(13, 125, 216);
+}
+
+#btnsalert {
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.btnalerterror {
+  position: absolute;
+  left: 190px;
+  bottom: 30px;
+}
+
+#btnsalert button {
+  width: 120px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+}
+
+#cancel:hover {
+  background-color: rgb(189, 50, 26);
+  color: rgb(223, 223, 223);
+}
+
+#replace:hover:enabled {
+  background-color: rgb(47, 248, 91);
+  color: rgb(7, 2, 2);
+  font-weight: 600;
+}
+
+#modal-coins {
+  margin: 20px 0 15px 0;
+}
+
+.coin-search {
+  background-color: rgba(211, 211, 211, 0.85);
+  color: rgb(17, 17, 17);
+  transform: scale(1.07);
+  transition: 0.5s;
+  border: 2px solid black;
+  
+}
+.coin-search .moreinfo {
+  background-color: rgba(17, 17, 17, 0.96);
+  color: lightgray;
+}
+
+.coin-search .lessinfo {
+  background-color: rgb(175, 175, 175);
+  color: #111111;
+}
+
+.coin-search .trianglebas {
+  border-top: 8px solid lightgray;
+}
+
+.coin-search .moreinfo:hover {
+  background-color: rgb(41, 164, 235);
+  color: #111111;
+}
+
+.coin-search .triangle {
+  border-bottom: 8px solid rgba(17, 17, 17, 0.96);
+}
+
+.coin-search .slider {
+  background-color: #1a1a1a;
+}
+
+#divLiveReportsPage {
+  width: 95%;
+  margin: auto;
+  
+}
+
+#live{
+  margin-top: 180px;
+
+}
+
+#chartContainer {
+  border: 1px #1a1a1a solid;
+}
+
+.imgiggg {
+  background-size: cover;
+  
+  width: 204px;
+  height: 204px;
+  border-radius: 50%;
+  border: 2px #111111 solid;
+
+}
+.imgiglobal {
+  background-size: cover;
+  
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  
+}
+
+.imgif {
+  background-size: cover;
+
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+
+}
+
+.imgif img {
+  display: none;
+}
+
+#divAboutPage {
+  background-color: rgba(17, 17, 17, 0.94);
+  width: 95%;
+  margin: auto;
+  border-radius: 10px;
+  color: white;
+  padding: 20px;
+}
+#divAboutPage h1 {
+  color: lightgray;
+}
+
+#imgandauthor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 40px;
+  align-items: center;
+}
+
+img{
+  filter: saturate(4);
+}
+
+.firstinfoaut,
+.secondinfoaut {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  
+}
+.infoauthor {
+  display: flex;
+  font-size: 22px;
+  width: 300px;
+ 
+  margin: 10px 20px;
+}
+.winfoauthor {
+  background-color: rgb(101, 176, 226);
+  color: #111111;
+  width: 80px;
+  border-radius: 5px 0 0 5px;
+  padding: 5px;
+  text-align: center;
+}
+.xinfoauthor {
+  color: #111111;
+  background-color: lightgray;
+  width: 255px;
+  padding-left: 2px;
+  border-radius: 0 5px 5px 0;
+}
+#aboutproject {
+  font-size: 22px;
+  color: lightgray;
+  margin: 20px;
+}
+#titleabpr {
+  /* font-size:  */
+  text-align: center;
+  font-size: 30px;
+  text-decoration: underline;
+}
+
+.titleapi {
+  /* font-size:  */
+  text-align: left;
+  font-size: 30px;
+  font-weight: 700;
+ 
+}
+#lgsused {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.about-info {
+  background-color: rgb(26, 83, 189);
+  padding: 2px 5px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+#idforbtninabout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.btninabout {
+  width: 230px;
+  padding: 8px;
+  text-align: center;
+  background-color: rgb(2, 69, 114);
+  color: lightgray;
+  border: none;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+footer {
+  padding: 0.5rem 0 0;
+  opacity: 0.7;
+  background-color: rgba(17, 17, 17, 0.904);
+  justify-content: center;
+}
+
+.fnav ul {
+  display: flex;
+  justify-content: center;
+}
+
+.fnav li {
+  padding: 0 0.25em;
+  font-size: 1.75em;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.copyright {
+  text-align: center;
+  font-size: 1em;
+  padding: 0 0.5rem 0.5rem;
+  color: antiquewhite;
+  justify-content: center;
+}
+
+i {
+  color: azure;
+}
+
+i:hover {
+  color:   rgb(94, 220, 251);
+}
+
+

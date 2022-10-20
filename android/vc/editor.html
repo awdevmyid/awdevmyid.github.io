@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>EDITOR CODE ONLINE - AWDEV</title>
+<meta name="description" content="Wellcome to EDITOR CODE ONLINE - AWDEV. Free online HTML EDITOR." />
+<meta name="keywords" content="AWDEV,HTML EDITOR,AWDEV HTML EDITOR,ONLINE CODE EDITOR,EDITOR CODE ONLINE - AWDEV" />
+<link rel="icon" type="image/png" href="/favicon.png"/>
+<link rel="icon" type="image/png" href="/favicon.ico"/>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TCFM42D');</script>
+<!-- End Google Tag Manager -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876"
+crossorigin="anonymous"></script>
+<script async custom-element="amp-auto-ads"
+src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+</script> 
+
+<!-- =======================================================
+* Template Name: Personal - v1.1.1
+* Template URL: https://www.awdev.my.id
+* Author: awdev - Prenium ( https://github.com/marketplace/awdev-corporation/upgrade/1/CUSTOMER_ACCOUNT_ID )
+* License: https://www.awdev.my.id/license/
+======================================================== -->
+
+</head>
+<body>
+
+<div class='tl' data-text='Editor Code '></div>
+</div>
+<h1 class='pTtl aTtl sml itm'>
+<span>
+Editor Code
+</span>
+</h1>
+
+<div class='tl' data-text='Live Code Editor'></div>
+</div>
+<h1 class="pTtl aTtl sml itm">
+<span>
+</span>
+</h1>
+<div class="pInr">
+<div class="pS post-body postBody" id="postBody"> <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"></link>
+<style>
+
+.frame{
+
+display: flex;
+
+flex-direction: row;
+
+justify-content: space-around;
+
+align-items: center;
+
+height: 80px;
+
+width: auto;
+
+position: relative;
+
+box-shadow:
+
+-7px -7px 20px 0px #fff9,
+
+-4px -4px 5px 0px #fff9,
+
+7px 7px 20px 0px #0002,
+
+4px 4px 5px 0px #0001,
+
+inset 0px 0px 0px 0px #fff9,
+
+inset 0px 0px 0px 0px #0001,
+
+inset 0px 0px 0px 0px #fff9,        inset 0px 0px 0px 0px #0001;
+
+transition:box-shadow 0.6s cubic-bezier(.79,.21,.06,.81);
+
+border-radius: 10px;
+
+}
+
+.btn{
+
+height: 50px;
+
+width: 50px;
+
+border-radius: 3px;
+
+background: #e0e5ec;
+
+display: flex;
+
+flex-direction: column;
+
+justify-content: center;
+
+align-items: center;
+
+-webkit-tap-highlight-color: rgba(0,0,0,0);
+
+-webkit-tap-highlight-color: transparent;
+
+box-shadow:
+
+-7px -7px 20px 0px #fff9,
+
+-4px -4px 5px 0px #fff9,
+
+7px 7px 20px 0px #0002,
+
+4px 4px 5px 0px #0001;
+
+transition:box-shadow 0.6s cubic-bezier(.79,.21,.06,.81);
+
+font-size: 26px;
+
+color: #666;
+
+text-decoration: none;
+
+}
+
+.btn:hover{
+
+background: radial-gradient(circle,  #0ff 0%, #e0e5ec 60%);
+
+color: rgba(102,102,102,.5); 
+
+animation: colorchange 3s linear infinite;
+
+}
+
+.btn:active{
+
+box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+
+-4px -4px 6px 0 rgba(116, 125, 136, .2), 
+
+inset -4px -4px 6px 0 rgba(255,255,255,.5),
+
+inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+
+}
+
+@keyframes colorchange {
+
+to {filter: hue-rotate(360deg);}
+
+}
+
+/*ace*/
+
+.ace_editor {
+
+font-size: 14px !important;
+
+}
+
+#ide-parent {
+
+min-width: 100%;
+
+max-width: 100%;
+
+width: 100%;
+
+height: 600px;
+
+border-radius: 1em;
+
+overflow:hidden;
+
+margin: 5px auto;
+
+box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.3);
+
+resize: horizontal;
+
+}
+
+#button-wrapper {
+
+display: flex;
+
+width: 100%;
+
+height: 60px;
+
+}
+
+#button-wrapper button {
+
+width: 25%;
+
+border: none;
+
+background: #202020;
+
+cursor: pointer;
+
+text-transform: uppercase;
+
+color: #ddd;
+
+font-family: "Arial", sans-serif;
+
+letter-spacing: 2px;
+
+font-size: 13px;
+
+outline: none;
+
+transition-duration: 300ms;
+
+}
+
+#button-wrapper button:hover {
+
+background:#303030;
+
+}
+
+#button-wrapper button:active {
+
+background:#303030;
+
+}
+
+#ide-container {
+
+width: 100%;
+
+height: 100%;
+
+overflow:auto;
+
+}
+
+.panel-wrapper {
+
+position: relative;
+
+width: 100%;
+
+height: 100%;
+
+}
+
+#html {
+
+position: absolute;
+
+top: 0;
+
+right: 0;
+
+bottom: 0;
+
+left: 0;
+
+}
+
+#css {
+
+position: absolute;
+
+top: 0;
+
+right: 0;
+
+bottom: 0;
+
+left: 0;
+
+}
+
+#js {
+
+position: absolute;
+
+top: 0;
+
+right: 0;
+
+bottom: 0;
+
+left: 0;
+
+}
+
+#result {
+
+width: 100%;
+
+height: 100%;
+
+background:white;
+
+border: none;
+
+}
+
+.modal {
+
+display: none; 
+
+position: fixed; 
+
+z-index: 1;
+
+padding-top: 100px;
+
+left: 0;
+
+top: 0;
+
+width: 100%; 
+
+height: 100%; 
+
+overflow: auto; 
+
+background-color: rgb(0,0,0); 
+
+background-color: rgba(0,0,0,.4); 
+
+}
+
+.modal-content {
+
+display: flex;
+
+align-content: center;
+
+justify-items: center;
+
+align-items: center;
+
+position:absolute;
+
+top:60px;
+
+right:33.3%;
+
+background-color: #12192c;
+
+margin: auto;
+
+padding: 20px;
+
+width: 33%;
+
+height:auto;
+
+border-radius:12px;
+
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.closemodal {
+
+position: absolute;
+
+color: #000;
+
+top:5px;
+
+right:8px;
+
+font-size: 30px;
+
+font-weight: bold;
+
+background-color: #887fff;
+
+border-radius: 50%;
+
+height: 30px;
+
+width:30px;
+
+text-align: center;
+
+}
+
+.closemodal:hover,
+
+.closemodal:focus {
+
+color: #fff;
+
+text-decoration: none;
+
+cursor: pointer;
+
+}
+
+.downloadarea{
+
+height:20px;
+
+outline: none;
+
+border:none;
+
+background-color: transparent;
+
+border-bottom:2px solid #887fff;
+
+margin:10px;
+
+width:200px;
+
+color:#fff;
+
+font-size:18px;
+
+}
+
+.downloadfilebtn{
+
+outline:none;
+
+border:none;
+
+border-radius:6px;
+
+padding:7px;
+
+cursor:pointer;
+
+border:1.5px solid #887fff;
+
+background-color: transparent;
+
+color:whitesmoke;
+
+width:150px;
+
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.downloadfilebtn:hover{
+
+color:#887fff;
+
+}
+
+@media screen and (max-width:900px) {
+
+.modal-content{
+
+width:60%;
+
+top:60px;
+
+right:5px;
+
+}
+
+.downloadarea{
+
+margin: 20px 0;
+
+}
+
+}         
+
+.ace-dracula {
+
+background-color: #162447 !important;
+
+}
+
+.ace-dracula .ace_gutter {
+
+background: #162447 !important;
+
+}
+
+.ace_scrollbar-h {
+
+scrollbar-color: #1f4068 #162447 !important;
+
+scrollbar-width: thin !important;
+
+cursor: pointer;
+
+}
+
+.ace_scrollbar-v {
+
+scrollbar-color: #1f4068 #162447 !important;
+
+scrollbar-width: thin !important;
+
+cursor: pointer;
+
+}
+
+.ace_scrollbar-h::-webkit-scrollbar {
+
+border: none;
+
+height: 0.6em;
+
+}
+
+.ace_scrollbar-h::-webkit-scrollbar-thumb {
+
+background: #1f4068;
+
+border: none;
+
+}
+
+.ace_scrollbar-h::-webkit-scrollbar-thumb:hover {
+
+background: #173458;
+
+}
+
+.ace_scrollbar-h::-webkit-scrollbar-track {
+
+background: transparent;
+
+}
+
+.ace_scrollbar-v::-webkit-scrollbar {
+
+border: none;
+
+width: 0.6em;
+
+}
+
+.ace_scrollbar-v::-webkit-scrollbar-thumb {
+
+background: #1f4068;
+
+border: none;
+
+}
+
+.ace_scrollbar-v::-webkit-scrollbar-thumb:hover {
+
+background: #173458;
+
+}
+
+.ace_scrollbar-v::-webkit-scrollbar-track {
+
+background: transparent;
+
+}
+
+.accordion {
+
+width: 90%;
+
+max-width: 1000px;
+
+margin: 2rem auto;
+
+}
+
+.accordion-item {
+
+background-color: #202124;
+
+color: #ddd;
+
+border:1px solid #887fff;
+
+margin: 1rem 0;
+
+border-radius: 0.8rem;
+
+box-shadow: 0 2px 5px 0 rgba(0,0,0,0.25);
+
+}
+
+.accordion-item-header {
+
+padding: 0.5rem 3rem 0.5rem 1rem;
+
+min-height: 3.5rem;
+
+line-height: 1.25rem;
+
+font-weight: bold;
+
+display: flex;
+
+align-items: center;
+
+position: relative;
+
+cursor: pointer;
+
+}
+
+.accordion-item-header::after {
+
+content: "\002B";
+
+font-size: 2rem;
+
+position: absolute;
+
+right: 1rem;
+
+}
+
+.accordion-item-header.active::after {
+
+content: "\2212";
+
+}
+
+.accordion-item-body {
+
+max-height: 0;
+
+overflow: hidden;
+
+transition: max-height 0.2s ease-out;
+
+}
+
+.accordion-item-body-content {
+
+padding: 1rem;
+
+line-height: 1.5rem;
+
+border-top: 1px solid;
+
+border-image: linear-gradient(to right, transparent, #887fff, transparent) 1;
+
+}
+
+</style>
+<div class="frame">
+<button class="btn" id="mydownBtn" style="float: right;" title="Download"><i class="fas fa-download"></i></button>
+<button class="btn" onclick="reset();" style="float: right;" title="Reset"><i class="fas fa-trash"></i></button>
+<button class="btn" onclick="fullscreen();" style="float: right;" title="Fullscreen"><i class="fas fa-expand"></i></button>
+</div>
+<div id="ide-parent">
+<div id="button-wrapper">
+<button onclick="switchPanel(0)">HTML</button>
+<button onclick="switchPanel(1)">CSS</button>
+<button onclick="switchPanel(2)">js</button>
+<button onclick="runEdit(3)">Result</button>
+</div>
+<div id="ide-container">
+<div class="panel-wrapper">
+<div id="html">&lt;h3&gt;Welcome To AWDEV HTML Editor Live Preview&lt;/h3&gt;
+</div>
+</div>
+<div class="panel-wrapper">
+<div id="css"> /*predefined CSS, but editable*/
+body {
+text-align: center;
+font-family: Arial, Helvetica, sans-serif;
+}
+h3 {color: #12192c;
+font-weight:900;
+}
+</div>
+</div>
+<div class="panel-wrapper">
+<div id="js">
+// your javascript//
+</div>
+</div>
+<div class="panel-wrapper">
+<iframe id="result"></iframe>
+
+</div>
+</div>
+</div>
+<div class="accordion">
+<h2 style="text-align: center;">FAQ</h2>
+<div class="accordion-item">
+<div class="accordion-item-header">
+Mengapa kami menggunakan editor online?
+</div>
+<div class="accordion-item-body">
+<div class="accordion-item-body-content">
+Editor kode online atau alat pengujian akan membantu Anda menguji proyek pengembangan Anda, berapa pun ukurannya, ini akan membantu Anda menguji sebelum mengirimkan ke server Anda.
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<div class="accordion-item-header">
+Bagaimana cara menggunakan editor online?
+</div>
+<div class="accordion-item-body">
+<div class="accordion-item-body-content">
+Ini adalah alat online gratis di mana Anda dapat melihat hasil kode atau menulis kode sumber. Akrab dengan alat editor untuk meningkatkan pekerjaan pengembangan Anda.
+</div>
+</div>
+</div>
+</div>
+<div class="modal" id="mydownModal">
+<div class="modal-content">
+<div class="modelsec">
+<input autocomplete="off" class="downloadarea" id="inputFilehtNameToSaveAs" type="text" />
+<button class="downloadfilebtn" onclick="saveashtml();">Download HTML</button><br />
+<input autocomplete="off" class="downloadarea" id="inputFilecsNameToSaveAs" type="text" />
+<button class="downloadfilebtn" onclick="saveascss();">Download CSS</button><br />
+<input autocomplete="off" class="downloadarea" id="inputFilejsNameToSaveAs" type="text" />
+<button class="downloadfilebtn" onclick="saveasjs();">Download JS</button>
+</div>
+<span class="closemodal">&#215;</span>
+</div>
+<script>
+
+var htmlEDitor = ace.edit("html");
+
+htmlEDitor.setTheme("ace/theme/monokai");
+
+htmlEDitor.session.setMode("ace/mode/html");
+
+htmlEDitor.resize();
+
+htmlEDitor.setHighlightActiveLine(false);
+
+htmlEDitor.setShowPrintMargin(false);
+
+var cssEDitor = ace.edit("css");
+
+cssEDitor.setTheme("ace/theme/monokai");
+
+cssEDitor.session.setMode("ace/mode/css");
+
+cssEDitor.resize();
+
+cssEDitor.setHighlightActiveLine(false);
+
+cssEDitor.setShowPrintMargin(false);
+
+var jsEDitor = ace.edit("js");
+
+jsEDitor.setTheme("ace/theme/monokai");
+
+jsEDitor.session.setMode("ace/mode/javascript");
+
+jsEDitor.resize();
+
+jsEDitor.setHighlightActiveLine(false);
+
+jsEDitor.setShowPrintMargin(false);
+
+function compiler() {
+
+var htmlValue = htmlEDitor.getValue();
+
+var cssValue = cssEDitor.getValue();
+
+var jsValue = jsEDitor.getValue();
+
+var result = document.getElementById("result").contentWindow.document;
+
+result.open();
+
+result.writeln(
+
+"<style>" +
+
+cssValue +
+
+"</style>" +
+
+htmlValue +
+
+"<script>"+
+
+jsValue +
+
+"</"+"script>"
+
+
+
+);
+
+result.close();
+
+}
+
+var allButtons = document.querySelectorAll("#button-wrapper button");
+
+var allPanels = document.querySelectorAll("#ide-container .panel-wrapper");
+
+function switchPanel(panelIndex) {
+
+switcher(panelIndex);
+
+}
+
+switchPanel(0);
+
+function runEdit(panelIndex) {
+
+switcher(panelIndex);
+
+compiler();
+
+}
+
+function switcher(panelIndex) {
+
+allButtons.forEach(function (node) {
+
+node.style.background = "";
+
+});
+
+allButtons[panelIndex].style.background = "#383838";
+
+allPanels.forEach(function (node) {
+
+node.style.display = "none";
+
+});
+
+allPanels[panelIndex].style.display = "block";
+
+}
+
+htmlEDitor.setOptions({
+
+fontSize: "11pt",
+
+showLineNumbers: true,
+
+showGutter: true,
+
+vScrollBarAlwaysVisible: true,
+
+enableBasicAutocompletion: true,
+
+enableLiveAutocompletion: true,
+
+highlightGutterLine:true,
+
+enableMultiselect:true,
+
+enableSnippets:true
+
+});
+
+cssEDitor.setOptions({
+
+fontSize: "11pt",
+
+showLineNumbers: true,
+
+showGutter: true,
+
+vScrollBarAlwaysVisible: true,
+
+enableBasicAutocompletion: true,
+
+enableLiveAutocompletion: true,
+
+highlightGutterLine:true,
+
+enableMultiselect:true,
+
+enableSnippets:true
+
+});
+
+jsEDitor.setOptions({
+
+fontSize: "11pt",
+
+showLineNumbers: true,
+
+showGutter: true,
+
+vScrollBarAlwaysVisible: true,
+
+enableBasicAutocompletion: true,
+
+enableLiveAutocompletion: true,
+
+highlightGutterLine:true,
+
+enableMultiselect:true,
+
+enableSnippets:true
+
+});
+
+function reset(){
+
+htmlEDitor.setValue("");
+
+cssEDitor.setValue("");
+
+jsEDitor.setValue("");
+
+}
+
+
+
+var elem1 = document.getElementById("ide-parent");
+
+function fullscreen() {
+
+if (elem1.requestFullscreen) {
+
+elem1.requestFullscreen();
+
+} else if (elem1.webkitRequestFullscreen) { /* Safari */
+
+elem1.webkitRequestFullscreen();
+
+} else if (elem1.msRequestFullscreen) { /* IE11 */
+
+elem1.msRequestFullscreen();
+
+}
+
+}
+
+
+
+
+
+function saveashtml()
+
+{
+
+var textToSave = htmlEDitor.getValue();
+
+var textToSaveAsBlob = new Blob([textToSave], {type:"text/html"});
+
+var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+
+var fileNameToSaveAs =document.getElementById("inputFilehtNameToSaveAs").value;
+
+var downloadLink = document.createElement("a");
+
+downloadLink.download = fileNameToSaveAs;
+
+downloadLink.innerHTML = "Download File";
+
+downloadLink.href = textToSaveAsURL;
+
+downloadLink.onclick = destroyClickedElement;
+
+downloadLink.style.display = "none";
+
+document.body.appendChild(downloadLink);
+
+downloadLink.click();
+
+document.getElementById("inputFilehtNameToSaveAs").value="";
+
+}
+
+function destroyClickedElement(event)
+
+{
+
+document.body.removeChild(event.target);
+
+
+
+}
+
+function saveascss()
+
+{
+
+var textToSave = cssEDitor.getValue();
+
+var textToSaveAsBlob = new Blob([textToSave], {type:"text/css"});
+
+var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+
+var fileNameToSaveAs = document.getElementById("inputFilecsNameToSaveAs").value;
+
+var downloadLink = document.createElement("a");
+
+downloadLink.download = fileNameToSaveAs;
+
+downloadLink.innerHTML = "Download File";
+
+downloadLink.href = textToSaveAsURL;
+
+downloadLink.onclick = destroyClickedElement;
+
+downloadLink.style.display = "none";
+
+document.body.appendChild(downloadLink);
+
+downloadLink.click();
+
+document.getElementById("inputFilecsNameToSaveAs").value="";
+
+}
+
+function destroyClickedElement(event)
+
+{
+
+document.body.removeChild(event.target);
+
+}
+
+function saveasjs()
+
+{
+
+var textToSave = jsEDitor.getValue();
+
+var textToSaveAsBlob = new Blob([textToSave], {type:"text/js"});
+
+var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+
+var fileNameToSaveAs = document.getElementById("inputFilejsNameToSaveAs").value;
+
+var downloadLink = document.createElement("a");
+
+downloadLink.download = fileNameToSaveAs;
+
+downloadLink.innerHTML = "Download File";
+
+downloadLink.href = textToSaveAsURL;
+
+downloadLink.onclick = destroyClickedElement;
+
+downloadLink.style.display = "none";
+
+document.body.appendChild(downloadLink);
+
+downloadLink.click();
+
+document.getElementById("inputFilejsNameToSaveAs").value="";
+
+}
+
+function destroyClickedElement(event)
+
+{
+
+document.body.removeChild(event.target);
+
+}
+
+var modal = document.getElementById("mydownModal");
+
+var btn = document.getElementById("mydownBtn");
+
+var span = document.getElementsByClassName("closemodal")[0];
+
+btn.onclick = function() {
+
+modal.style.display = "block";
+
+}
+
+span.onclick = function() {
+
+modal.style.display = "none";
+
+}
+
+window.onclick = function(event) {
+
+if (event.target == modal) {
+
+modal.style.display = "none";
+
+}
+
+}          
+
+</script>
+<script>
+
+const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
+
+accordionItemHeaders.forEach(accordionItemHeader => {
+
+accordionItemHeader.addEventListener("click", event => {
+
+
+
+
+
+
+
+const currentlyActiveAccordionItemHeader = document.querySelector(".accordion-item-header.active");
+
+if(currentlyActiveAccordionItemHeader && currentlyActiveAccordionItemHeader!==accordionItemHeader) {
+
+currentlyActiveAccordionItemHeader.classList.toggle("active");
+
+currentlyActiveAccordionItemHeader.nextElementSibling.style.maxHeight = 0;
+
+}
+
+accordionItemHeader.classList.toggle("active");
+
+const accordionItemBody = accordionItemHeader.nextElementSibling;
+
+if(accordionItemHeader.classList.contains("active")) {
+
+accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+
+}
+
+else {
+
+accordionItemBody.style.maxHeight = 0;
+
+}
+
+
+
+});
+
+});
+
+</script> </div>
+</div>
+
+</body>
+</html>

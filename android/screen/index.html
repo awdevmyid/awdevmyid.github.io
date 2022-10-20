@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools Screen Shot Awdev Get FULL Page Website Screenshot</title>
+    <meta name="description" content="Free Online Tools Screen Shot Awdev Get FULL Page Website Screenshot" />
+    <meta name="keywords" content="Awdev,screenshot,website,image,tools,generator screen,cara screen website" />
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.awdev.my.id/favicon.ico">
+	<link rel="shortcut icon" type="image/x-icon" href="https://www.awdev.my.id/favicon.png">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- =======================================================
+  * Template Name: Screenshot FULL Website - v1.1.1
+  * Template URL: https://wahyu9kdl.github.io
+  * Author: awdev - https://www.awdev.my.id
+  * License: https://www.awdev.my.id/license/
+  ======================================================== -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0HHQXQQ9ZR"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+  gtag('config', 'G-0HHQXQQ9ZR');
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876"
+  crossorigin="admin"></script>
+<!--And Global site tag (gtag.js) - Google Analytics -->
+
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+<div class="container-fluid">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="javascript:void(0);">Screenshot Website</a>
+</div>
+<div id="navbar" class="navbar-collapse collapse">
+<ul class="nav navbar-nav pull-right">
+<li>
+<a href="#" target="_blank">Home</a>
+</li>
+<li>
+<a href="https://bit.ly/3weJFOn" target="_blank">Work</a>
+</li>
+<li>
+<a href="https://wahyu9kdl.github.io/HTML/index.html" target="_blank">Skill</a>
+</li>
+<li>
+<a href="https://wahyu9kdl.github.io/hero/app/refresh/index.html" target="_blank">Hero Refesh</a>
+</li>
+<li>
+<a href="https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/ANIMATION/RGB-COLOR.html" target="_blank">RGB Collor</a>
+</li>
+<li>
+<a href="https://wahyu9kdl.github.io/hero/app/twibbon/index.html " target="_blank">Twibbon</a>
+</li>
+<li>
+<a href="https://wahyu9kdl.github.io/animation/" target="_blank">Animation</a>
+</li>
+<li>
+<a href="https://wahyu9kdl.github.io/HTML/TOOLS/visitor-badge.html" target="_blank">Visitor Badge</a>
+</li>
+<li>
+<a href="https://wahyu9kdl.github.io/HTML/TOOLS/Markdown.html" target="_blank">Markdown</a>
+</li>
+<li>
+<a href="https://bit.ly/37Nuan1" target="_blank">Readme Generator</a>
+</li>
+<li>
+<a href="https://wahyu9kdl.github.io/HTML/TOOLS/QR.html " target="_blank">QR Generator</a>
+</li>
+<li>
+<a href="https://wahyu9kdl.github.io/link-lock/create/" target="_blank">Link-Lock</a>
+</li>
+<li>
+<a href="https://wahyu9kdl.github.io/DASHBOARD/TOOLS/ONLINE/" target="_blank">Online Tools</a>
+</li>
+<li>
+<a href="https://wahyu9kdl.github.io/DASHBOARD/PROJECTS/archers-island-master/" target="_blank">Archer's Island</a>
+</li>
+<li>
+<a href="https://www.awdev.eu.org" target="_blank">Courses</a>
+</li>
+<li>
+<a href="https://www.awdev.my.id" target="_blank">Devoloper Profile</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+    <div class="inputContainer">
+        <input id="url" type="url" class="urlInput" placeholder="Enter Website to Screenshot" required>
+        <button onclick="ss(document.getElementById('url').value)" class="btn">Submit</button>
+    </div>
+    <div style="width: 70vw;margin: 1em auto; padding: 0.5em" id="image"></div>
+    <script>
+        // const key = ""; //👈 you can uncomment and put your own api key here
+        const container = document.getElementById("image");
+        function ss(url) {
+            if(url == '') {
+                alert("You need to enter a URL");
+                return;
+            }
+            container.innerHTML = "Loading...";
+            fetch(`https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(url)}${(typeof key != "undefined") ? "&key="+key : ""}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    if(data['error'] && data['error']['code'] == 429) {
+                        container.innerHTML = `You got rate limited, you should set an API key. Get it for free from <a href="https://console.cloud.google.com/apis/credentials">https://console.cloud.google.com/apis/credentials</a> `;   
+                        return;
+                    }
+                    container.innerHTML = `
+                    <h2>Screenshot</h2>
+                    <div class="wrapper">
+                        <img width="100%" src="${data['lighthouseResult']['audits']['final-screenshot']['details']['data']}">
+                    </div>
+                    <h2>Full Page Screenshot</h2>
+                    <div class="wrapper">
+                        <img width="100%" src="${data['lighthouseResult']['audits']['full-page-screenshot']['details']['screenshot']['data']}">
+                    </div>
+                    `;
+                }).catch(error => {
+                    console.log(error);
+                });
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,500&display=swap');
+        *,* {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto Flex', sans-serif;
+        }
+        .wrapper {
+            overflow: hidden;
+            border: 1px solid #8b8a8a;
+            border-radius: 1em;
+            margin-bottom: 1em;
+        }
+        .inputContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 3em;
+        }
+        .urlInput {
+            padding: 0.4em 1em;
+            border: 1px solid #8b8a8a;
+            border-radius: 0.5em;
+            font-size: 1.2em;
+            width: 13em;
+        }
+        .btn {
+            padding: 0.4em 1em;
+            margin-top: 1em;
+            border-radius: 0.5em;
+            border: none;
+            font-size: 1em;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876"
+    crossorigin="anonymous"></script>
+    <ins class="adsbygoogle"
+    style="display:block"
+    data-ad-format="autorelaxed"
+    data-ad-client="ca-pub-5295583488737876"
+    data-ad-slot="1958340468"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    <!-- And Adsense -->
+</body>
+</html>

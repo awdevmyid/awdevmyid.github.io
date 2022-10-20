@@ -1,0 +1,37 @@
+{
+	"name": "awdev",
+	"version": "1.0.0",
+	"description": "Awdev Personal Portfolio",
+	"homepage": "https://github.com/awdev-corporation/awdev",
+	"website": "https://www.awdev.my.id/",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [
+		"AWDEV",
+		"AWDEV QR",
+		"AWDEV CORPORATION",
+		"WEB AWDEV",
+		"BLOOG AWDEV",
+		"ORGANITATION",
+		"COMUNITY",
+		"AWDEV SOURCE",
+		"AWDEV CLIENTS",
+		"AWDEV COMUNITY",
+		"AWDEV UPDATE",
+		"AWDEV NEWS"
+	],
+	"author": "awdev (https://www.awdev.my.id)",
+	"url": "https://awdev-corporation.github.io/awdev",
+	"Github CLI": "gh repo clone awdev-corporation/awdev",
+	"repository": "https://github.com/awdev-corporation/qr.git",
+	"ssh": "git@github.com:awdev-corporation/awdev.git",
+	"favicon": "/favicon.ico",
+	"license": "GNU Lesser General Public License v2.1",
+	"funding": "https://saweria.co/AwGroupChannel",
+	"dependencies": {
+		"express": "^1.1.0",
+		"jsonwebtoken": "^1.1.1"
+	}
+}

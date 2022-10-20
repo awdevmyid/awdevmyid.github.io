@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Downloader - AWDEV</title>
+     <meta content="AWDEV,YOUTUBE DOWNLOADER" name="keywords">
+     <meta name="google-site-verification" content="mPlUTgdFTI4g-MwH3_kr53M-Kuue9t6eArZ3fOzoShs " />
+     <meta name="facebook-domain-verification" content="yll6e5f6kpoicwzq8rychnidgfuxk8" />
+     <meta name="description" content="AWDEV | Download and Convert Youtube videos to MP3, MP4, 3GP for free with our Youtube Downloader. " /><link rel="icon" type="image/png" href="/favicon.png"/>
+     <link rel="icon" type="image/png" href="/favicon.ico"/>
+     <link rel="canocial" href="https://www.awdev.my.id/youtube/downloader.html">
+     <link href="https://fonts.googleapis.com/css?family=Montserrat%7CRaleway&amp;display=swap" rel="stylesheet"/>
+<style type="text/css">
+* {
+    box-sizing: border-box;
+    border: none;
+    margin: none;
+    padding: none;
+
+  }
+  html, body{
+    height: 100%;
+    width: 100%;
+
+  }
+body{
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    padding: 0;
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+
+}
+
+.initial{   
+    background-image: 
+    linear-gradient(
+        rgba(99, 81, 91, .1),
+        rgba(13 ,75, 9, 0.87)
+    ),
+    url( https://www.awdev.my.id/thema/assets/img/theme/unass.jpg );
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.light-body{
+    background-color: white;
+}
+
+.dark-body{
+    background-color: black;
+    color: white;
+}
+  
+
+/* ------------------------ 
+        NAVBAR
+------------------------ */
+
+[role="navigation"]{
+    color: red;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 20px;
+    padding: 5px;
+}
+
+/* ------------------------ 
+        NAVBAR - JS FORM
+------------------------ */
+
+#js-form{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items:center;
+}
+
+input[type="button"], input[type="text"] {
+    padding: 5px;
+}
+
+[role="navigation"] .search-box-label{
+    margin-left: 10px;
+    margin-right: 27px;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.search-box-label a{
+    text-decoration: none;
+    color: red;
+    cursor: pointer;
+}
+
+.search-box, .enter, .settings, .max-results{
+    margin: none;
+    border: 2px solid grey;
+    background-color: white;
+    color: black;
+    font-size: 20px;
+}
+  
+input[type="button"]:hover, button[type="submit"]:hover {
+    cursor: pointer;
+}
+
+.search-box{
+      width: 60%;
+      height: 30px;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-right: none;
+
+      margin: none;
+      background-color: white;
+}
+
+.enter{
+    width: 30px;    
+    height: 30px;
+    margin-left:none;
+    background: url( https://www.awdev.my.id/thema/assets/img/theme/dropbox.png );
+    background-size: 70%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: white;
+}
+
+.settings{
+    width: 15px;
+    height: 30px;
+    border-left: none;
+    background: url(https://www.awdev.my.id/thema/assets/img/theme/unass.jpg );
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 150%;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: white;
+}
+  
+.break{
+    flex-basis: 100%;
+    height:0;
+}
+
+.max-results{
+    width: 30%;
+    border-radius: 5px;
+
+    width: 60%;
+    height: 30px;
+
+    margin-top: 10px;    
+    background-color: white;
+}
+
+.mode{
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    color: black;
+    border: none;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+
+.search-box-label a:hover, .search-box-label a:focus{
+    text-decoration: underline;
+}
+
+.search-box:focus, .search-box:hover, 
+.enter:focus, .enter:hover, 
+.settings:focus, .settings:hover, 
+.max-results:focus, .max-results:hover{
+    border: 2px solid red;
+    outline: none;  
+}
+.mode:focus, .mode:hover{
+    color: red;
+    outline: none;
+}
+  
+
+
+.mode-dark{
+    background-color: black;
+    color: white;
+}
+
+/* ------------------------ 
+        MAIN
+------------------------ */
+
+.intro{
+    width: 90%;
+    height: 40%;
+    max-height: 600px;
+    margin-top: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+
+    background:
+    linear-gradient(
+      rgba(0, 0, 0, .2),
+      rgba(0, 0, 0, .2)
+    );
+}
+
+.intro h1{
+    text-align: center;
+}
+
+.intro .summary{
+    text-align: center;
+
+}
+/* ------------------------ 
+          RESULTS
+------------------------ */
+
+
+.error-message {
+    color: red;
+    text-align: center;
+}
+
+.video-results{
+    padding-left: 0;
+}
+
+.video-info{
+    margin-top: 50px;
+    color: grey;
+    list-style-type: none;
+    margin-bottom: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.video-info h3{
+    text-align: center;
+}
+
+iframe.video{
+    width: 60%;
+    max-width: 560px;
+    height: 315px; 
+    margin-bottom: 0;
+
+    margin-left: 0 auto;
+    margin-right: 0 auto;
+}
+
+/* ------------------------ 
+        DOWNLOAD LINKS
+------------------------ */
+
+.link-boxes{
+    list-style-type: none;
+    padding-left: 0;
+    width: 60%;
+    max-width: 560px;
+    margin-top: 0;
+
+}
+  
+.link-boxes li a {
+    text-decoration: none;
+  
+    padding: 5px 30px 5px 10px;
+    display: block;
+  
+    background-color: black;
+    color: white;
+  
+    border: 1px solid black;
+    border-top: 1px solid grey;
+
+    margin-top: 0;
+}
+
+.link-boxes li a:hover, .link-boxes li a:focus{
+    color: red;       
+}
+
+  /* --------
+  toggle styles
+  ----------- */
+.hidden {
+    display: none;
+}
+
+.light{
+    background-color: whitesmoke;
+    padding: 5px;
+}
+
+.dark{
+    background-color: #100c08;
+    color: white;
+}
+  
+/*---------------- RESPONSIVE LAYOUT ----------------*/
+
+
+/* ----------
+        COMPUTER SCREEN REGULAR 
+----------------------*/
+@media screen and (min-width: 768px) {
+    [role="navigation"]{
+        font-size: 30px;
+    }
+
+    /* ---------  NAVBAR - JS FORM --------- */
+
+    input[type="button"], input[type="text"] {
+        padding: 5px;
+    }
+
+    [role="navigation"] .search-box-label{
+        margin-left: 10px;
+
+        font-weight: bold;
+        font-size: 30px;
+    }
+
+    
+    
+    .search-box{
+        width: 60%;
+        max-width: 300px;
+
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-right: none;
+  
+        margin: none;
+        background-color: white;
+        margin-left: auto;
+        
+  }
+  
+    .search-box, .enter, .settings, .max-results{
+        font-size: 24px;
+        height: 30px;
+        
+        margin: none;
+        border: 2px solid grey;
+        background-color: white;
+        color: black;
+    }
+    .settings{
+        width: 25px;
+        border-left: none;
+        background: url(  );
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 90%;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background-color: white;
+        margin-right: auto;
+    }
+
+    .enter{
+        width: 40px;    
+        margin-left:none;
+        background: url( https://www.awdev.my.id/thema/assets/img/theme/dropbox.png );
+        background-size: 70%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-color: white;
+        border-left: none;
+    }
+    
+    .max-results{
+        position: relative;
+        
+        background-color: white;
+        
+        height: 30px;
+        width: 60%;
+        max-width: 300px;
+
+        border-radius: 5px;
+    
+        margin-top: 10px; 
+        margin-left: auto;
+        margin-right: auto;
+        
+        left: -31px;
+    }
+        
+    .mode{
+        font-size: 24px;
+    }
+
+    /* ----------   MAIN ------------ */
+        
+    .intro{
+        width: 90%;
+        height: 40%;
+        max-height: 600px;
+        max-width: 600px;
+        padding: 5px;
+
+        margin-top: 100px;
+        margin-right: auto;
+        margin-left: auto;
+        color: white;
+        border: 1px solid white;
+        border-radius: 5px;
+        
+        background:
+        linear-gradient(
+            rgba(0, 0, 0, .2),
+            rgba(0, 0, 0, .2)
+        );
+    }
+
+
+    .intro h1{
+        text-align: center;
+        font-size: 40px;
+    }
+        
+    .intro .summary{
+        text-align: center;
+        font-size: 30px;
+    }
+
+    /* -----------  RESULTS ------------ */
+    .error-message {
+        color: red;
+        text-align: center;
+        font-size: 40px;
+    }
+
+    .video-results{
+        padding-left: 0;
+    }
+
+    .video-info h3{
+        font-size: 35px;
+    }
+
+    /* ----------  DOWNLOAD LINKS ----------- */    
+    .link-boxes li a {
+        font-size: 24px;
+    }
+    
+}
+  
+
+/* ---------------------- 
+        COMPUTER SCREEN LARGE 
+----------------------*/
+@media screen and (min-width: 1024px) {
+    [role="navigation"]{
+        font-size: 36px;
+    }
+
+    /* ---------  NAVBAR - JS FORM ------------*/ 
+
+   
+
+    [role="navigation"] .search-box-label{
+        margin-left: 10px;
+        font-weight: bold;
+        font-size: 40px;
+    }
+
+    
+    .max-results{
+        position: relative;
+        
+        background-color: white;
+        
+        height: 30px;
+        width: 60%;
+        max-width: 300px;
+    
+        border-radius: 5px;
+      
+        margin-top: 10px; 
+        margin-left: auto;
+        margin-right: auto;
+        
+        left: -36px;
+      }
+
+    .search-box, .enter, .settings, .max-results{
+        font-size: 30px;
+        height: 35px;
+        
+        margin: none;
+        border: 2px solid grey;
+        background-color: white;
+         color: black;
+    }
+    
+    .settings{
+        width: 35px;
+        border-left: none;
+        background: url(https://www.awdev.my.id/thema/assets/img/theme/unass.jpg );
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 70%;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background-color: white;
+    }    
+
+    .enter{
+        width: 40px;    
+        margin-left:none;
+        background: url( );
+        background-size: 70%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-color: white;
+        border-left: none;
+    }
+    .mode{
+        font-size: 30px;
+    }
+
+}
+</style>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TCFM42D');</script>
+<!-- End Google Tag Manager -->
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876"
+     crossorigin="anonymous"></script>
+     <script async custom-element="amp-auto-ads"
+     src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+     </script> 
+</head>
+
+<body class='initial'>
+    <nav role="navigation">
+        <label class="search-box-label" for="js-search-term">
+        <a href="https://www.awdev.my.id/youtube/downloader.html ">
+        AWDEV</a></label>
+
+        <form id='js-form' class="js-form start">
+            <input class="search-box" type="text" name="search-term" id="js-search-term" placeholder="Search" required>
+            <button class="enter" type="submit"></button>   
+            
+            <input class="settings" type="button" onClick="btnSettings()" value=" ">
+            
+            <!-- This div will allow "max-results" to appear on a new line
+                even tho the flex-direction is a row. -->
+            <div class='break'></div>
+            <input class="max-results hidden" type="text" name="max-results" id="js-max-results" placeholder="Max amount of results">
+
+        </form>
+
+        <input class="mode hidden" onclick="btnModeClick()" type="button" value="&#9789;">
+        
+    </nav>	
+
+
+    <main role="main" class='container'>
+
+        <div class="intro">
+            <center><h1>YOUTUBE                 
+            <p> VIDIO / AUDIO </p>
+             DOWNLOADER</h1></center>
+            <p class='summary'>Search any YouTube video then watch or download the content</p>
+        </div>
+
+        <p id="js-error-message" class="error-message hidden"></p>
+
+        <section id="results" class="hidden">
+            <!-- dynamically added list elements -->
+            <ul class="video-results" id="results-list">
+            </ul>
+
+        </section>
+
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script>
+    'use strict';
+    
+    const YVAC_STORE = {
+    apiKey: 'AIzaSyBxBsXHbC2hu6qRO6NBOcZTvLcoxxChWvA',
+    searchURL: 'https://www.googleapis.com/youtube/v3/search',
+    }
+    
+    
+    // this function will clear the results //
+    function clearList(){
+    $('#results-list').empty();
+    }
+    
+    // This function will update the classes from the initial screen //
+    function styleUpdate(){
+    hide('.intro');
+    show('.mode');
+    
+    $('body').removeClass('initial');
+    $('body').addClass('light-body');
+    
+    $('.container').addClass('light');
+    }
+    
+    //--------------------- to hide display and to show display --------------------//
+    
+    function hide(element){
+    //this function will hide a class
+    if( !$(element).hasClass('hidden') ){
+    $(element).addClass('hidden');
+    }
+    }
+    
+    function show(element){
+    //this function will reverse the "hide" function
+    if( $(element).hasClass('hidden') ){
+    $(element).removeClass('hidden');
+    }
+    }
+    
+    // ------- BUTTONS --------- //
+    function btnModeClick(){
+    $('.light-body').toggleClass('dark-body');
+    $('.light').toggleClass('dark');
+    $('.mode').toggleClass('mode-dark');
+    }
+    
+    function btnSettings(){
+    $('.max-results').toggleClass('hidden');
+    $('.max-results-label').toggleClass('hidden');
+    $("#js-max-results").val(''); //whenever "settings" button is clicked
+    // then it will be cleared
+    }
+    
+    // formating the query parameter //
+    function formatQueryParams(params) {
+    const queryItems = Object.keys(params)
+    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+    return queryItems.join('&');
+    }
+    
+    // Displaying the results //
+    function displayResults(responseJson) {
+    // if there are previous results, remove them
+    
+    
+    clearList();
+    
+    if(responseJson.items.length<=0){
+    $('#js-error-message').text(`No results found. Try using changing your search entry.`);
+    show('.error-message');
+    return;
+    }
+    // iterate through the items array
+    for (let i = 0; i < responseJson.items.length; i++){
+    // for each video object in the items 
+    //array, add a list item to the results 
+    //list with the video title, description,
+    //and thumbnail
+    $('#results-list').append(
+    `<li class="video-info">
+    
+    <h3>${responseJson.items[i].snippet.title}</h3>
+    <iframe class="video" src='https://www.youtube.com/embed/${responseJson.items[i].id.videoId}' frameborder="0" allow="autoplay; encrypted-meda gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <ul class="link-boxes">
+    <li><a href="https://youtubemp3.today/?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D${responseJson.items[i].id.videoId}" target="_blank">Download Audio</a></li>
+    <li><a href="https://onlinevideoconverter.party/?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D${responseJson.items[i].id.videoId}" target="_blank">Download Video</a></li>
+    </ul>
+    
+    </li>`
+    )};
+    
+    $('#results').removeClass('hidden');
+    };
+    
+    // Fetching the youtube videos from the API //
+    function getYouTubeVideos(query, maxResults) {
+    let tempMaxResults = $('#js-max-results').val();
+    
+    hide('.error-message');
+    
+    if( !(isNaN(tempMaxResults)) ){
+    if(tempMaxResults>1 && tempMaxResults<=50){
+    maxResults = tempMaxResults;
+    }
+    else if(tempMaxResults<0 || tempMaxResults>50){
+    $('#js-error-message').text(`Invalid Entry: out of range.`);
+    clearList();
+    show('.error-message');
+    return;
+    
+    }
+    else if(tempMaxResults==1){
+    $('#js-error-message').text(`Invalid Entry: enter more than one.`);
+    clearList();
+    show('.error-message');
+    return;
+    }
+    
+    }
+    else{
+    $('#js-error-message').text(`Invalid Entry: not a number.`);
+    clearList();
+    show('.error-message');
+    return;
+    }
+    
+    //setting the parameters
+    const params = {
+    key: YVAC_STORE.apiKey,
+    q: query,
+    part: 'snippet',
+    maxResults,
+    type: 'video'
+    };
+    const queryString = formatQueryParams(params)
+    const url = YVAC_STORE.searchURL + '?' + queryString; 
+    
+    fetch(url)
+    .then(response => {
+    if (response.ok) {
+    return response.json();
+    }
+    throw new Error(response.statusText);
+    })
+    .then(responseJson => displayResults(responseJson))
+    .catch(err => {
+    $('#js-error-message').text(`Something went wrong: ${err.message}`);
+    });
+    }
+    
+    // Watching for a form sumbission //
+    function watchForm() {
+    $('#js-form').submit(event => {
+    event.preventDefault();
+    
+    styleUpdate();
+    
+    const searchTerm = $('#js-search-term').val(); //grabbing the string that was searched
+    let maxResults=15;
+    getYouTubeVideos(searchTerm, maxResults); //15 videos is the default 
+    });
+    }
+    
+    $(watchForm);
+    </script>
+    <!-- Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295583488737876"
+    crossorigin="anonymous"></script>
+    <ins class="adsbygoogle"
+    style="display:block"
+    data-ad-format="autorelaxed"
+    data-ad-client="ca-pub-5295583488737876"
+    data-ad-slot="1958340468"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+    <!-- And Adsense -->
+</body>
+</html>
