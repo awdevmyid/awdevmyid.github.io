@@ -1,15 +1,15 @@
 <br/>
 <p align="center">
   
-![favicon.png](https://awdev-corporation.github.io/awdev/favicon.png)</p>
+![favicon.png](ico.png)</p>
 
 </a>
 
-  <h3 align="center">AWDEV CORPORATION</h3>
+  <h3 align="center">MIKRODINET CORPORATION</h3>
 
   <p align="center">
-    AWDEV FREE OPPEN SOURCE GENERAL TO PROJECTS DEVOLOPER , DESIGNER , AND PROGRAMER  <br/>
-    Note This Project Is Still @AWDEV
+   MIKRODINET FREE OPPEN SOURCE GENERAL TO PROJECTS DEVOLOPER , DESIGNER , AND PROGRAMER  <br/>
+    Note This Project Is Still @MIKRODINET
     <br/>
     <br/>
     <a href="https://www.awdev.my.id"><strong>View Demo »</strong></a>
