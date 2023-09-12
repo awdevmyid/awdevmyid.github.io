@@ -1,15 +1,14 @@
-<br/>
-<p align="center">
-  
-![favicon.png](ico.png)</p>
 
-</a>
+<p align="center">  
+![ico.pn](ico.png)
+</p>
 
-  <h3 align="center">MIKRODINET CORPORATION</h3>
+
+  <h3 align="center">AWDEV CORPORATION</h3>
 
   <p align="center">
-   MIKRODINET FREE OPPEN SOURCE GENERAL TO PROJECTS DEVOLOPER , DESIGNER , AND PROGRAMER  <br/>
-    Note This Project Is Still @MIKRODINET
+AWDEV FREE OPPEN SOURCE GENERAL TO PROJECTS DEVOLOPER , DESIGNER , AND PROGRAMER  <br/>
+    Note This Project Is Still @AWDEV
     <br/>
     <br/>
     <a href="https://www.awdev.my.id"><strong>View Demo »</strong></a>
@@ -106,13 +105,7 @@
 - [FAQ](https://www.awdev.my.id/faq.html)
 - [PRIVASY](https://www.awdev.my.id/privasy.html)
 - [404](https://www.awdev.my.id/404.html)
-- [APP](https://www.awdev.my.id/app/htmleditor-2-1.apk)
-  - [awdev-2-2.aab.zip](app/awdev-2-2.aab.zip)
-  - [awdev-2-2.apk](app/awdev-2-2.apk)
-  - [htmleditor-2-1.aab.zip](app/htmleditor-2-1.aab.zip)
-  - [htmleditor-2-1.apk](app/htmleditor-2-1.apk)
-  - [CoinTracker.apk](http://www.awdev.my.id/search/crypto/CoinTracker.apk)
-  - [Youtube-Downloader.apk](http://www.awdev.my.id/youtube/youtube-downloader.apk)
+
 - [Wiki](https://github.com/awdev-corporation/awdev.wiki.git)
 - [Pull Requests](https://github.com/awdev-corporation/awdev/pulls)
 - [License](LICENSE)
