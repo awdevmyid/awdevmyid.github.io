@@ -1,6 +1,8 @@
 
-<p align="center">  
-![ico.pn](ico.png)
+<p align="center"> 
+  
+![ico.png](ico.png)
+
 </p>
 
 
