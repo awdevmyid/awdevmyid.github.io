@@ -40,8 +40,32 @@ src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
 
   gtag('config', 'G-5BKVKF0V39');
 </script>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDzIarG4tYrkA2xOOBx5hd66kdRLQ929Js",
+    authDomain: "awdevmyid.firebaseapp.com",
+    projectId: "awdevmyid",
+    storageBucket: "awdevmyid.appspot.com",
+    messagingSenderId: "1025289085908",
+    appId: "1:1025289085908:web:08228b4c81b0c215b9ac41",
+    measurementId: "G-D4FMFSEHC2"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>     
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f1dd3a23888f4a4b8ff7e83c28643e07"}'></script><!-- End Cloudflare Web Analytics -->     
 <!-- Google Fonts -->
+     
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">  
 <!-- Vendor CSS Files -->
 <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
