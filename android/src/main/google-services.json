@@ -1,0 +1,50 @@
+{
+  "project_info": {
+    "project_number": "1025289085908",
+    "firebase_url": "https://awdevmyid-default-rtdb.firebaseio.com",
+    "project_id": "awdevmyid",
+    "storage_bucket": "awdevmyid.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1025289085908:android:6929ca341841d0c1b9ac41",
+        "android_client_info": {
+          "package_name": "io.github.awdevmyid"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzIwDxNHi4_NVua7bJrKEjyooFNyvIXAs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1025289085908:android:faf2129447d17179b9ac41",
+        "android_client_info": {
+          "package_name": "my.id.awdev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzIwDxNHi4_NVua7bJrKEjyooFNyvIXAs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      },
+      "admob_app_id": "ca-app-pub-8796768128400226~2343148844"
+    }
+  ],
+  "configuration_version": "1"
+}
