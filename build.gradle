@@ -1,0 +1,7 @@
+maven {
+    url 'https://pkgs.dev.azure.com/awdevmyid/_packaging/awdevmyid/maven/v1'
+    name 'awdevmyid'
+    authentication {
+        basic(BasicAuthentication)
+    }
+}
