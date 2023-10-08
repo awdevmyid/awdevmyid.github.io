@@ -2,6 +2,10 @@ registry=https://pkgs.dev.azure.com/awdevmyid/_packaging/awdevmyid/npm/registry/
                         
 always-auth=true
 {
+  "route": "/index.html",
+  "allowedRoles": ["authenticated"]
+}
+{
 	"name": "awdev",
 	"version": "1.0.0",
 	"description": "Awdev Personal Portfolio",
