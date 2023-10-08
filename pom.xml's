@@ -1,0 +1,10 @@
+<repository>
+  <id>awdevmyid</id>
+  <url>https://pkgs.dev.azure.com/awdevmyid/_packaging/awdevmyid/maven/v1</url>
+  <releases>
+    <enabled>true</enabled>
+  </releases>
+  <snapshots>
+    <enabled>true</enabled>
+  </snapshots>
+</repository>
