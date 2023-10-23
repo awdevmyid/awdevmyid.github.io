@@ -9,7 +9,7 @@ always-auth=true
 	"name": "awdev",
 	"version": "1.0.0",
 	"description": "Awdev Personal Portfolio",
-	"homepage": "https://github.com/awdev-corporation/awdev",
+	"homepage": "https://github.com/awdevmyid/awdevmyid.github.io",
 	"website": "https://www.awdev.my.id/",
 	"main": "index.js",
 	"scripts": {
@@ -30,10 +30,10 @@ always-auth=true
 		"AWDEV NEWS"
 	],
 	"author": "awdev (https://www.awdev.my.id)",
-	"url": "https://awdev-corporation.github.io/awdev",
-	"Github CLI": "gh repo clone awdev-corporation/awdev",
-	"repository": "https://github.com/awdev-corporation/qr.git",
-	"ssh": "git@github.com:awdev-corporation/awdev.git",
+	"url": "https://awdevmyid.github.io",
+	"Github CLI": "gh repo clone awdevmyid/awdevmyid.github.io",
+	"repository": "https://github.com/awdevmyid/awdevmyid.github.io.git",
+	"ssh": "git@github.com:awdevmyid/awdevmyid.github.io.git",
 	"favicon": "/favicon.ico",
 	"license": "GNU Lesser General Public License v2.1",
 	"funding": "https://saweria.co/AwGroupChannel",
