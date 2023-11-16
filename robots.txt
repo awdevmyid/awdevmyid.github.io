@@ -1,2 +1,20 @@
 User-agent: Mediapartners-Google
-Disallow: /
+Disallow:
+
+User-agent: *
+Disallow: /search
+Allow: /
+Sitemap: https://awdev.my.id/sitemap.txt
+Sitemap: https://www.awdev.my.id/sitemap.txt
+Sitemap: https://blog.awdev.my.id/sitemap.txt
+Sitemap: https://blog.awdev.my.id/sitemap.xml
+Sitemap: https://docker.awdev.my.id/sitemap.txt
+Sitemap: https://docker.awdev.my.id/sitemap.xml
+Sitemap: https://aframe.awdev.my.id/sitemap.txt
+Sitemap: https://aframe.awdev.my.id/sitemap.xml
+Sitemap: https://codeigniter.awdev.my.id/sitemap.txt
+Sitemap: https://codeigniter.awdev.my.id/sitemap.xml
+Sitemap: https://app.awdev.my.id/sitemap.txt
+Sitemap: https://app.awdev.my.id/sitemap.xml
+Sitemap: https://qr.awdev.my.id/sitemap.txt
+Sitemap: https://qr.awdev.my.id/sitemap.xml
