@@ -1,0 +1,42 @@
+"name": "Awdev Progressive Web App",
+	"short_name": "Awdev PWA",
+	"description": "App Awdev for progressive web app with push notifications, background sync etc.",
+	"start_url": "./index.html?utm=homescreen",
+	"display": "standalone",
+	"orientation": "portrait",
+	"background_color": "#f5f5f5",
+	"theme_color": "#29434d",
+	"icons": [
+		{
+			"src": "./ico.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "./ico.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		},
+		{
+            "src": "./ico.png",
+            "type": "image/png",
+			"sizes": "192x192",
+			"purpose": "awdev"
+        },
+        {
+            "src": "./ico.png",
+            "type": "image/png",
+            "sizes": "512x512",
+			"purpose": "awdev"
+        }
+	],
+	"author": {
+		"name": "awdevmyid",
+		"website": "https://awdevmyid.github.io",
+		"github": "https://github.com/awdevmyid",
+		"source-repo": "https://github.com/awdevmyid/awdevmyid.github.io"
+	},
+	"gcm_sender_id": "1025289085908",
+	"gcm_user_visible_only": true
+	
+	
