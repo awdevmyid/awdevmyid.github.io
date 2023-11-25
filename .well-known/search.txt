@@ -1,0 +1,6 @@
+google.com
+bing.com
+yandex.com
+brave.com
+baidu.com
+yahoo.com
