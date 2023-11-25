@@ -1,4 +1,3 @@
-
 <p align="center"> 
   
 ![ico.png](ico.png)
@@ -25,7 +24,10 @@ AWDEV FREE OPPEN SOURCE GENERAL TO PROJECTS DEVOLOPER , DESIGNER , AND PROGRAMER
     <a href="https://www.awdev.my.id/youtube/downloader.html">Youtube Downloader</a>
     .
     <a href="https://www.awdev.my.id/thema">Templates</a>    
-  </p>
+    .
+    <a href="https://blog.awdev.my.id/">Blog</a>    
+  
+</p>
 </p>
 
 
@@ -100,8 +102,8 @@ AWDEV FREE OPPEN SOURCE GENERAL TO PROJECTS DEVOLOPER , DESIGNER , AND PROGRAMER
   - [Buy APP Crypto](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=82DLHDSRV7J68)
   - [Github Profile Repo](http://www.awdev.my.id/search/github/index.html)
 - [BLOOG](http://www.awdev.my.id/blog)
-  - [BLOOG 1](http://www.awdev.my.id/blog/a1.html)
-  - [BLOOG 2](http://www.awdev.my.id/blog/a2.html)
+  - [BLOOG 1](https://blog.awdev.my.id/)
+  - [BLOOG 2](https://blog.awdev.my.id/)
 - [urls.cfg](http://www.awdev.my.id/urls.cfg)
 - [SITEMAP](https://www.awdev.my.id/sitemap.txt)
 - [FAQ](https://www.awdev.my.id/faq.html)
@@ -121,16 +123,16 @@ AWDEV FREE OPPEN SOURCE GENERAL TO PROJECTS DEVOLOPER , DESIGNER , AND PROGRAMER
 
 GITHUB CLI
 ```
-gh repo clone awdev-corporation/awdev
+gh repo clone awdevmyid/awdevmyid.github.io
 ```
 HTTP/HTTPS
 
 ```
-https://github.com/awdev-corporation/awdev.git
+https://github.com/awdevmyid/awdevmyid.github.io.git
 ```
 ZIP
 ```
-https://github.com/awdev-corporation/awdev/archive/refs/heads/main.zip
+https://github.com/awdevmyid/awdevmyid.github.io/archive/refs/heads/main.zip
 ```
 # SERVICE
 
@@ -140,13 +142,13 @@ OPPEN ON THIS SITE
 
 [https://qr.awdev.my.id](https://qr.awdev.my.id)
 
-[https://m.awdev.my.id](https://m.awdev.my.id)
+[https://blog.awdev.my.id](https://blog.awdev.my.id)
 
 [https://go.awdev.my.id](https://go.awdev.my.id)
 
 [https://app.awdev.my.id](https://app.awdev.my.id)
 
-[https://www.awdev.eu.org](https://www.awdev.eu.org)
+[https://ide.awdev.my.id](https://ide.awdev.my.id)
 
 
 
