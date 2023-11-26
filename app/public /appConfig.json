@@ -1,0 +1,112 @@
+{
+    "launchUrl": "https://app.awdev.my.id",
+    "stickyFooter": {
+        "enable": false
+    },
+    "biometricAuth": {
+        "enable": false
+    },
+    "socialLogin": {
+        "enable": false
+    },
+    "openLinkInSameWebview": true,
+    "enableInAppPurchase": false,
+    "appsflyer": {
+        "enable": false
+    },
+    "enableFBAppEvents": false,
+    "enableFirebaseEvents": false,
+    "enableFirebaseNotification": false,
+    "enableNativeContacts": false,
+    "enableHapticEffect": false,
+    "customUrlScheme": "",
+    "enableBackgroundLocation": false,
+    "keepScreenOn": false,
+    "enableInAppReview": false,
+    "requestTrackingConsentOnLoad": true,
+    "bannerAdUnitId": "",
+    "oneSignalSoftPrompt": false,
+    "enableBarcode": false,
+    "customUserAgent": {
+        "type": "APPEND",
+        "value": "w2n/iOS"
+    },
+    "enablePullToRefresh": false,
+    "pageNavigationLoader": false,
+    "oneSignalId": "",
+    "globalCssString": "",
+    "globalJsString": "",
+    "showTopSafeArea": true,
+    "statusBarColor": "#FFFFFF",
+    "showBottomSafeArea": false,
+    "safeAreaColor": "#FFFFFF",
+    "splashIconWidth": 200,
+    "splashIconHeight": 200,
+    "showSplashImage": false,
+    "splashWithAnimation": true,
+    "loopAnimation": false,
+    "animationBGColor": "#000000",
+    "animationEndType": "onAnimationEnd",
+    "loopTimes": 0,
+    "enableLocalSetting": false,
+    "enableAppUpdatePopup": false,
+    "appId": "",
+    "regexInternalExternal": {
+        "rules": [
+            {
+                "regex": "^(?!https?://).*",
+                "pageType": "CUSTOM",
+                "label": "Non-web links",
+                "type": "EXTERNAL"
+            },
+            {
+                "regex": "https?://([-\\w]+\\.)*facebook\\.com.*",
+                "pageType": "CUSTOM",
+                "label": "Facebook",
+                "type": "EXTERNAL"
+            },
+            {
+                "regex": "https?://([-\\w]+\\.)*twitter\\.com/.*",
+                "pageType": "CUSTOM",
+                "label": "Twitter",
+                "type": "EXTERNAL"
+            },
+            {
+                "regex": "https?://([-\\w]+\\.)*instagram\\.com/.*",
+                "pageType": "CUSTOM",
+                "label": "Instagram",
+                "type": "EXTERNAL"
+            },
+            {
+                "regex": "https?://maps\\.google\\.com.*",
+                "pageType": "CUSTOM",
+                "label": "Google Maps",
+                "type": "EXTERNAL"
+            },
+            {
+                "regex": "https?://([-\\w]+\\.)*google\\.com/maps/search/.*",
+                "pageType": "CUSTOM",
+                "label": "Google Maps Search",
+                "type": "EXTERNAL"
+            },
+            {
+                "regex": "https?://([-\\w]+\\.)*linkedin\\.com/.*",
+                "pageType": "CUSTOM",
+                "label": "LinkedIn",
+                "type": "EXTERNAL"
+            },
+            {
+                "regex": "https?://([-\\w]+\\.)*whatsapp\\.com/.*",
+                "pageType": "CUSTOM",
+                "label": "Whatsapp",
+                "type": "EXTERNAL"
+            },
+            {
+                "regex": ".*",
+                "pageType": "ALL_PAGES",
+                "label": "All Other Links",
+                "type": "INTERNAL"
+            }
+        ]
+    }
+}
