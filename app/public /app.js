@@ -84,7 +84,7 @@ function getUiConfig() {
     'tosUrl': 'https://www.google.com',
     // Privacy policy url.
     'privacyPolicyUrl': 'https://www.google.com',
-    'credentialHelper': CLIENT_ID && CLIENT_ID != 'YOUR_OAUTH_CLIENT_ID' ?
+    'credentialHelper': CLIENT_ID && CLIENT_ID != '113599090510855126310' ?
         firebaseui.auth.CredentialHelper.GOOGLE_YOLO :
         firebaseui.auth.CredentialHelper.NONE,
     'adminRestrictedOperation': {
