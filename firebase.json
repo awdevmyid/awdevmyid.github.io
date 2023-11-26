@@ -1,0 +1,8 @@
+{
+  "hosting": {
+    "site": "awdev",
+
+    "public": "public",
+    ...
+  }
+}
