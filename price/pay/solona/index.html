@@ -1,0 +1,95 @@
+<html>
+<head>
+<!-- Entre el 1.41.4 i la 1.44.1(La +recent fins ara) done un error de objecte Buffer no definit -->
+<script src="https://unpkg.com/@solana/web3.js@1.41.3/lib/index.iife.min.js"></script>
+<script language="javascript">
+var to_b58 = function(
+    B,            //Uint8Array raw byte input
+    A             //Base58 characters (i.e. "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz")
+) {
+    var d = [],   //the array for storing the stream of base58 digits
+        s = "",   //the result string variable that will be returned
+        i,        //the iterator variable for the byte input
+        j,        //the iterator variable for the base58 digit array (d)
+        c,        //the carry amount variable that is used to overflow from the current base58 digit to the next base58 digit
+        n;        //a temporary placeholder variable for the current base58 digit
+    for(i in B) { //loop through each byte in the input stream
+        j = 0,                           //reset the base58 digit iterator
+        c = B[i];                        //set the initial carry amount equal to the current byte amount
+        s += c || s.length ^ i ? "" : 1; //prepend the result string with a "1" (0 in base58) if the byte stream is zero and non-zero bytes haven't been seen yet (to ensure correct decode length)
+        while(j in d || c) {             //start looping through the digits until there are no more digits and no carry amount
+            n = d[j];                    //set the placeholder for the current base58 digit
+            n = n ? n * 256 + c : c;     //shift the current base58 one byte and add the carry amount (or just add the carry amount if this is a new digit)
+            c = n / 58 | 0;              //find the new carry amount (floored integer of current digit divided by 58)
+            d[j] = n % 58;               //reset the current base58 digit to the remainder (the carry amount will pass on the overflow)
+            j++                          //iterate to the next base58 digit
+        }
+    }
+    while(j--){        //since the base58 digits are backwards, loop through them in reverse order
+        s += A[d[j]]; //lookup the character associated with each base58 digit
+        console.log("phantom",j+":"+d[j]+":"+A[d[j]]);
+        }
+    return s          //return the final base58 string
+}
+</script>
+
+</head>
+<body>
+<script>
+var result="ini";
+
+    function gen_transaction(from,to)
+    {
+    (async () => {
+    var web3=solanaWeb3;
+
+      // Connect to cluster
+      var connection = new web3.Connection(
+        web3.clusterApiUrl('devnet'),
+        'confirmed',
+      );
+
+    const from_pk = new web3.PublicKey(from);
+    //const to_pk = new web3.PublicKey(to);
+    const to_meu=new web3.PublicKey("CsPNHNkwpYRBPAtNQWL836vMPP4gQ4a4B8e7iKu4VjaC");
+
+      var transaction = new web3.Transaction().add(
+        web3.SystemProgram.transfer({
+          fromPubkey: from_pk,
+          toPubkey: to_meu,
+          lamports: web3.LAMPORTS_PER_SOL / 100,
+        }),
+      );
+
+    transaction.feePayer = from_pk;
+    //const anyTransaction: any = transaction;
+    var anyTransaction = transaction;
+    anyTransaction.recentBlockhash = (await connection.getLatestBlockhash()).blockhash;
+
+    const serializedTransaction = transaction.serialize({
+      requireAllSignatures: false,
+    });
+
+    //result = new String(serializedTransaction, "UTF-8");
+    //result=String.fromCharCode.apply(null, serializedTransaction);
+    //result=to_b58(serializedTransaction,"123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz");
+
+    var result_temp="";
+	for(var i=0;i<serializedTransaction.length;i++)
+	{
+		if(i>0){result_temp+=",";};
+		//if(serializedTransaction[i]>254){alert("ooooo:"+serializedTransaction[i]);};
+		result_temp+=(""+serializedTransaction[i]);
+	}
+    result=result_temp;
+
+	})();
+    }
+
+    function return_result()
+    {
+    return result;
+    }
+</script>
+</body>
+</html>
