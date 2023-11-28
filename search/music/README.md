@@ -1,6 +1,6 @@
-# My-Music
+# Smart Music Awdev
 
-## live link for project [My-Music](https://deepaksuthar40128.github.io/My-Music/)
+## live link for project [Smart Music Awdev](https://www.awdev.my.id)
 
 ## Table of contents
 
@@ -14,14 +14,14 @@
 
 There is a basic music player web app which is compitable in both mobile as well as desktop view.
 
- ![image](  )
+
 
  ## features
  
  - You can uploads songs and then list them
       
  
- - Images and song information will automatically extracted from music files. Thanks to [jsmediatags](https://github.com/aadsm/jsmediatags)
+ - Images and song information will automatically extracted from music files. Thanks to [awdev](https://app.awdev.my.id)
  
  - You can suffle music,repeat music and change repeat modes,error songs,and a lot more from settings.
     
