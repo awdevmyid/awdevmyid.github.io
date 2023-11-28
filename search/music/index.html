@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Music Collection Awdev</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anek+Devanagari&family=BhuTuka+Expanded+One&family=Lato&family=Nerko+One&family=Rubik+Microbe&display=swap');
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style2.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
+<meta name="google-site-verification" content="k_p5qv-UQtNSyHHGKcGrnWigY5k1B9jxaCqjRlz5-BA" />
+<meta name="google-adsense-account" content="ca-pub-8796768128400226">
+
+<!-- Meta Owner -->
+ <meta content='awdev' name='Author'/>
+ <link href='https://www.facebook.com/awdevglobal' rel='me'/>
+ <link href='https://www.facebook.com/awdevglobal' rel='author'/>
+ <link href='https://www.facebook.com/awdevglobal' rel='publisher'/>
+ <meta content='109009995214313' property='fb:admins'/>
+ <meta content='109009995214313' property='fb:pages'/>
+ <meta content='109009995214313' property='fb:app_id'/>
+ <meta content='https://www.facebook.com/109009995214313' property='article:author'/>
+ <meta content='https://m.facebook.com/reel/702619268448369/' property='fb:reels'/>
+ <meta content='https://www.facebook.com/313099858158801' property='article:publisher'/>  
+<meta content="Awdev Personal Portofolio - Free Projects Oppensouce - Get Landing Page Templates" name="descriptison"/>
+<meta content="awdev" name="keywords"/>
+<link rel="icon" type="image/png" href="https://www.awdev.my.id/ico.png"/>
+<link rel="icon" type="image/png" href="https://www.awdev.my.id/favicon.png"/>     
+<link rel="icon" type="image/png" href="/ico.png"/>
+<link rel="icon" type="image/png" href="/favicon.png"/>
+<link rel="icon" type="image/png" href="/favicon.ico"/>  
+<link rel="manifest" href="/manifest.json">
+<!-- Meta Icon -->
+ <link expr:href='data:blog.homepageUrl + &quot;/favicon.ico&quot;' rel='icon' type='image/x-icon'/>
+ <link href='https://www.awdev.my.id/favicon.ico' rel='apple-touch-icon'/>
+ <link href='https://www.awdev.my.id/favicon.png' rel='apple-touch-icon' sizes='57x57'/>
+ <link href='https://www.awdev.my.id/favicon.ico' rel='apple-touch-icon' sizes='72x72'/>
+ <link href='https://www.awdev.my.id/favicon.png' rel='apple-touch-icon' sizes='76x76'/>
+ <link href='https://www.awdev.my.id/favicon.ico' rel='apple-touch-icon' sizes='114x114'/>
+ <link href='https://www.awdev.my.id/favicon.png' rel='apple-touch-icon' sizes='120x120'/>
+ <link href='https://www.awdev.my.id/favicon.ico' rel='apple-touch-icon' sizes='144x144'/>
+ <link href='https://www.awdev.my.id/favicon.png' rel='apple-touch-icon' sizes='152x152'/>
+ <link href='https://www.awdev.my.id/favicon.ico' rel='apple-touch-icon' sizes='180x180'/>
+ <link href='https://www.awdev.my.id/favicon.ico' rel='icon' sizes='192x192' type='image/png'/>
+ <link href='https://www.awdev.my.id/favicon.ico' rel='icon' sizes='96x96' type='image/png'/>
+ <link href='https://www.awdev.my.id/favicon.png' rel='icon' sizes='32x32' type='image/png'/>
+ <link href='https://www.awdev.my.id/favicon.ico' rel='msapplication-TitleImage'/>
+    
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8796768128400226"
+ crossorigin="anonymous"></script>
+ 
+
+</head>
+
+<body translate="no" id="main_body">
+    <audio playsinline src=""></audio>
+    <div class="wrapper">
+        <div class="player__container">
+            <div class="demo-preview ">
+                <div class="alert alert-danger alert-dismissable fade in">
+                    <button onclick="hide_error()" type="button" data-dismiss="alert" aria-label="close"
+                        class="close"><span aria-hidden="true">×</span></button>
+                    <strong>Oh No!</strong>
+                    <p> Change a few things up and try submitting again.</p>
+                </div>
+            </div>
+            <div class="menu">
+                <div class="header">
+                    <div class="name_com">Deepak</div>
+                    <div class="cancel" onclick="close_double_window()"><svg class="w-6 h-6" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg></div>
+                </div>
+                <div class="user">
+                    <div class="tag">User - - - - - - - - - - - - - - - - </div>
+                    <div class="user" id="user">
+
+                    </div>
+                </div>
+                <div class="playlist">
+                    <div class="tag">Menu - - - - - - - - - - - - - - - - </div>
+                    <ul>
+                        <li class="options"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3">
+                                </path>
+                            </svg> <label for="file">Load Song</label></li>
+                        <input hidden type="file" name="file" id="file" multiple >
+                        <li class="options" onclick="location.reload()"><svg class="w-6 h-6" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+                                </path>
+                            </svg>Refresh</li>
+                        <li onclick="show_playlist()" class="options"><svg class="w-6 h-6" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
+                            </svg>Playlist<span style="margin-left: 28px;"> 0 </span></li>
+                        <li onclick="show_settings()" class="options"><svg class="w-6 h-6" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>Settings</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="menu">
+                <div class="header" style="background-color: green;">
+                    <div class="name_com">Playlist</div>
+                    <div class="cancel" onclick="close_single_window()"><svg class="w-6 h-6" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg></div>
+                </div>
+                <div class="songs" style="text-align: center;">
+                    <p>List Empty</p>
+                </div>
+            </div>
+            <div class="menu">
+                <div class="header" style="background-color: rgb(238, 255, 0);">
+                    <div class="name_com" style="color: #d10000;">Settings</div>
+                    <div class="cancel" style="color: black;" onclick="close_single_window()"><svg class="w-6 h-6"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg></div>
+                </div>
+                <div class="songs" style="text-align: center;">
+                   
+                </div>
+            </div>
+            <div class="menu" style="z-index: 7;">
+            </div>
+            <div class="menu">
+                <div class="header" style="background-color: rgb(189 134 0);">
+                    <div class="name_com" style="color: #ffffff;">Sign In</div>
+                    <div class="cancel" style="color: rgb(255, 255, 255);" onclick="close_signin()"><svg class="w-6 h-6"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg></div>
+                </div>
+                <div class="login">
+                    <div class="login-img">
+                        <img src="img/music.jpg" alt="music">
+                    </div>
+                    <h2>Login Now</h2>
+                    <div class="show-off">Enter Details for <span class="show-off-word"
+                            style="color:#d10000">Music</span></div>
+                    <form action="" method="post" id="form-1">
+                        <input required placeholder="Enter Email" type="email" name="email" id="email"><br>
+                        <input required placeholder="Enter Password" type="password" name="password" id="password"><br>
+                        <div class="forgot-password">Forgot Password?</div>
+                        <div class="btn"><button>Login</button></div>
+                    </form>
+                    <p>Don't have an account!<span onclick="goto_logup()">Register</span></p>
+                </div>
+            </div>
+            <div class="menu">
+                <div class="header" style="background-color: rgb(78 157 210)">
+                    <div class="name_com" style="color: #ffffff;">Sign Up</div>
+                    <div class="cancel" style="color: rgb(255, 255, 255);" onclick="close_signup()"><svg class="w-6 h-6"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg></div>
+                </div>
+                <div class="login">
+                    <div class="user-img">
+                        <label for="user-img"><img src="img/fake_user.jpg" alt="music"></label>
+                        <input hidden type="file" name="user-img" id="user-img">
+                    </div>
+                    <h2>SignUp Now</h2>
+                    <div class="show-off">Enter Details for <span class="show-off-word"
+                            style="color:#d10000">Music</span></div>
+                    <form action="" method="post" id="form-2">
+                        <input required type="text" placeholder="Enter Name"><br>
+                        <input required placeholder="Enter Email" type="email" name="email"><br>
+                        <input required placeholder="Enter Password" type="password" name="password"><br>
+                        <div class="btn"><button>Sign Up</button></div>
+                    </form>
+                    <p>Have an account!<span onclick="goto_login()" style="color: rgb(78 157 210);">Login</span></p>
+                </div>
+            </div>
+            <div class="menu">
+                <div class="header" style="background-color: rgb(78, 210, 107)">
+                    <div class="name_com" style="color: #ffffff;">User Profile</div>
+                    <div class="cancel" style="color: rgb(255, 255, 255);" onclick="close_user_profile()"><svg
+                            class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg></div>
+                </div>
+                <div class="login">
+                    
+                </div>
+            </div>
+            <div class="player__body">
+                <div class="body__cover">
+                    <ul class="list list--cover">
+                        <li>
+                            <a class="list__link" onclick="show_menu()"><i class="fa fa-navicon"></i></a>
+                        </li>
+
+                        <li>
+                            <a class="list__link" href=""></a>
+                        </li>
+
+                        <li>
+                            <a class="list__link" href=""><i class="fa fa-search"></i></a>
+                        </li>
+                    </ul>
+                    <img id="main-img" src="img/helo.jpg" alt="Album cover">
+                    <div class="range"></div>
+                    <div class="ball"></div>
+                    <div class="line_ind"></div>
+                </div>
+
+                <div class="body__info">
+                    <div class="info__album">The Hunting Party</div>
+
+                    <div class="info__song">Final Masquerade</div>
+
+                    <div class="info__artist">Linkin Park</div>
+                </div>
+                <div class="body__buttons">
+                    <ul class="list list--buttons">
+                        <li><a href="#" onclick="previous_music()" class="list__link"><i
+                                    class="fa fa-step-backward"></i></a></li>
+
+                        <li><a href="#" class="list__link"><i class="fa fa-play"></i></a></li>
+
+                        <li><a href="#" onclick="next_music()" class="list__link"><i class="fa fa-step-forward"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="player__footer">
+                <ul class="list list--footer">
+                    <li><a href="#" class="list__link"><i class="fa fa-heart"></i></a></li>
+
+                    <li><a onclick="shuffle()" class="list__link"><i class="fa fa-random"></i></a></li>
+
+                    <li><a onclick="replay()" class="list__link"><i class="fa fa-undo"></i></a></li>
+
+                    <li><a onclick="show_menu(); show_playlist()" class="list__link"><i class="fa fa-list"></i></a></li>
+                </ul>
+                
+            </div>
+            
+            <center>
+           
+           <a href="https://www.awdev.my.id" > 
+            <h3 style="color: grey ">AWDEV</h3>
+            </a>
+            </center>
+        </div>
+    </div>
+    
+    
+    
+    <div>
+    
+    
+    <script src="js/script.js"></script>
+    <script src="js/script2.js"></script>
+    <script src="js/script3.js"></script>
+    <script src="js/script4.js"></script>
+    <script src="js/script5.js"></script>
+    <script src="js/script6.js"></script>
+    <script src="js/script7.js"></script>
+    <script src="js/script8.js"></script>
+</body>
+
+</html>
