@@ -87,3 +87,17 @@ public class MainActivity extends Activity {
     }
 
 }
+MobileAds.initialize(this);
+String adUnitID = "ca-app-pub-8796768128400226/2015095724";
+AdView adView = new AdView(this);
+adView.setAdSize(AdSize.BANNER);
+adView.setAdUnitId(adUnitID);
+AdRequest adRequest = new AdRequest.Builder().build();
+adView.loadAd(adRequest);
+
+FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
+params.gravity = Gravity.BOTTOM;
+
+FrameLayout mainLayout = findViewById(R.id.mainLayout);
+mainLayout.addView(adView, params);
