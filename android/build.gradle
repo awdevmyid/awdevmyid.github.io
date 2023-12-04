@@ -66,3 +66,23 @@ dependencies {
   // Add the dependencies for any other desired Firebase products
   // https://firebase.google.com/docs/android/setup#available-libraries
 }
+
+apply plugin: 'java-library'
+
+repositories {
+jcenter()
+}
+
+dependencies {
+implementation 'androidx.webkit:webkit:1.4.0'
+}
+
+jar {
+manifest {
+attributes(
+'Implementation-Title': 'WebViewSDK',
+'Implementation-Version': '1.0',
+'Main-Class': 'id.my.awdev'
+)
+}
+}
