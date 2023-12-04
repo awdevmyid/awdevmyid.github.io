@@ -1,0 +1,4 @@
+String url = "https://www.awdev.my.id";
+CustomTabsIntent intent = new CustomTabsIntent.Builder()
+        .build();
+intent.launchUrl(MainActivity.this, Uri.parse(url));
