@@ -1,0 +1,18 @@
+# Swift SDK code for fetching this post
+
+# API Docs https://buttercms.com/docs/api/?swift#get-your-blog-posts
+
+import ButterCMSSDK
+
+var butter = ButterCMSClient(apiKey: "c2dbb2fa175168a2919320e373b5d59f84c1d56c")
+
+butter.getPost(
+  slug: "example-post"
+) { result in
+    switch result {
+    case .success(let page):
+        print(page)
+    case .failure(let error):
+        print(error)
+    }
+}
