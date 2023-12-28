@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+
+#paste-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 2em;
+}
+
+.CodeMirror {
+    height: 100%;
+    font-size: 1em;
+}
+
+.nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2em;
+    line-height: 2em;
+    text-align: right;
+    vertical-align: middle;
+    background: #21252B;
+    color: rgb(167, 174, 187);
+    white-space: nowrap;
+}
+
+.nav .nav-left {
+    float: left;
+}
+
+.nav a {
+    display: inline-block;
+    padding: 0 .5em;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.nav input {
+    height: 100%;
+    vertical-align: middle;
+    
+    border: 1px solid #999999;
+    background: transparent;
+    color: inherit;
+    margin-right: 5px;
+
+
+}
+
+.nav a:hover {
+    background: #666666;
+}
+
+#defaultNav input {
+    margin-left: 5px;
+}
+
+#copyUrlNav {
+    display: none;
+}
+
+#copyUrlNav #copyUrl {
+    border: 1px solid #999999;
+    background: transparent;
+    width: calc(100vw - 12em);
+    text-overflow: ellipsis;
+    color: inherit;
+    margin-right: 5px;
+}
+
+#iFrameNav {
+    display: none;
+}
