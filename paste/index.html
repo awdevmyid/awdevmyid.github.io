@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>paste</title>
+
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/combine/npm/codemirror@5.58.1/lib/codemirror.min.css,npm/codemirror-one-dark-theme@1.1.1/one-dark.css" />
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <script
+        src="https://cdn.jsdelivr.net/combine/npm/lzma@2.3.2/src/lzma_worker.min.js,npm/codemirror@5.58.1,npm/codemirror@5.58.1/addon/mode/loadmode.min.js,npm/codemirror@5.58.1/mode/meta.min.js">
+    </script>
+
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div id="paste-wrapper"></div>
+
+    <div class="nav" id="defaultNav">
+        <a class="nav-left" onclick="toggleLineWrap()">[toggle line wrap]</a>
+        <span class="nav-left" onclick="">[language: </span>
+        <input class="nav-left" id="langInput" onchange="langInputChanged()">
+        <span class="nav-left langBracket">]</span>
+
+        <a onclick="generateUrl()">[generate url]</a>
+        <a href="https://github.com/awdevmyid/paste" target="_blank">[github]</a>
+    </div>
+
+    <div class="nav" id="copyUrlNav">
+        <input class="nav-left" id="copyUrl" />
+        <a onclick="copyUrl()">[copy]</a>
+        <a onclick="cancelUrl()">[cancel]</a>
+    </div>
+
+    <div class="nav" id="iFrameNav">
+        <a class="nav-left" onclick="toggleLineWrap()">[toggle line wrap]</a>
+        <a onclick="openInTab()">[edit]</a>
+    </div>
+</body>
+</html>
+
