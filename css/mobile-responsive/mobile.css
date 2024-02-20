@@ -1,0 +1,122 @@
+@media screen and (max-width: 768px) {
+  * {
+    cursor: default !important;
+  }
+  .Container {
+    width: 95%;
+  }
+  .section_title {
+    text-align: center;
+    margin: 10px 0px 40px 0px;
+  }
+  .section_title h2 {
+    font-size: 1.7rem;
+  }
+  .section_title p {
+    letter-spacing: 1.5px;
+    font-size: 1rem;
+    margin: 10px 0px;
+  }
+  .top {
+    z-index: 5;
+  }
+  nav .nav_links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background: #23272a;
+    -webkit-transform: translate(100%);
+            transform: translate(100%);
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+  nav .nav_links li {
+    margin: 15px 0px;
+  }
+  nav .bars {
+    display: block;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  nav .bars .line {
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+  header .HeaderContentWrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  header .HeaderContentWrapper .HeaderDesc {
+    width: 100%;
+    text-align: center;
+  }
+  header .HeaderContentWrapper .HeaderImg {
+    display: none;
+  }
+  #About .AboutContentWrapper .aboutImg {
+    width: 90%;
+    margin: 15px auto;
+  }
+  #About .AboutContentWrapper .aboutDesc {
+    width: 100%;
+  }
+  #About .AboutContentWrapper .aboutDesc h2 {
+    font-size: 1.7rem;
+  }
+  #About .AboutContentWrapper .aboutDesc p {
+    word-spacing: -1px;
+  }
+  #recent_works .recent_works_content_Wrapper .singleWork {
+    width: 100%;
+  }
+  #recent_works .recent_works_content_Wrapper .singleWork .projectDesc {
+    overflow-y: scroll;
+    padding: 200px 0px;
+  }
+  #recent_works .recent_works_content_Wrapper .singleWork .projectDesc .links {
+    text-align: center;
+  }
+  #recent_works .recent_works_content_Wrapper .singleWork .projectDesc .links div {
+    margin: 5px 0px;
+  }
+  #Skills .skillContentWrapper .skillRightImage {
+    width: 90%;
+    margin: 10px auto;
+  }
+  #Skills .skillContentWrapper .skillsContainer {
+    width: 100%;
+  }
+  #Slider .swiper-slide .sliderDesc h2 {
+    font-size: 1.5rem;
+  }
+  #Slider .swiper-slide .sliderDesc p {
+    width: 95%;
+  }
+  #Contact .ContactContentWrapper .contactImage {
+    width: 100%;
+    margin: 30px 0px;
+  }
+  #Contact .ContactContentWrapper .ContactForm {
+    width: 100%;
+  }
+  #reviews .reviewContentWrapper {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+/*# sourceMappingURL=mobile.css.map */
