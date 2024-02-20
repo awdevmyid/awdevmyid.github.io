@@ -1,0 +1,48 @@
+@media screen and (max-width: 1024px) {
+  .Container {
+    width: 750px;
+  }
+  header .HeaderContentWrapper .HeaderDesc {
+    width: 50%;
+  }
+  header .HeaderContentWrapper .HeaderDesc h1 {
+    font-size: 2rem;
+  }
+  header .HeaderContentWrapper .HeaderDesc p {
+    font-size: 1.2rem;
+  }
+  header .HeaderContentWrapper .HeaderDesc a {
+    font-size: 1.1rem;
+  }
+  header .HeaderContentWrapper .HeaderImg {
+    width: 50%;
+  }
+  #About .AboutContentWrapper .aboutImg {
+    width: 30%;
+  }
+  #About .AboutContentWrapper .aboutDesc {
+    width: 65%;
+  }
+  #recent_works .recent_works_content_Wrapper .singleWork {
+    width: 48%;
+  }
+  #Skills .skillContentWrapper .skillRightImage {
+    width: 250px;
+  }
+  #Skills .skillContentWrapper .skillsContainer {
+    width: 400px;
+  }
+  #Skills .skillContentWrapper .skillsContainer .singleSkill {
+    padding: 5px 0px;
+  }
+  #Contact .ContactContentWrapper .contactImage {
+    width: 250px;
+  }
+  #Contact .ContactContentWrapper .contactImage .getInTouch h2 {
+    display: none;
+  }
+  #Contact .ContactContentWrapper .ContactForm {
+    width: 450px;
+  }
+}
+/*# sourceMappingURL=tab.css.map */
