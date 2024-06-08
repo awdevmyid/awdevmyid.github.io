@@ -1,4 +1,0 @@
-This is a Brave Creators publisher verification file.
-
-Domain: awdev.my.id
-Token: 9ff513e2deb50cb824ee037faef0e0bb3014fafb596b94d0090007065eaea7fe
