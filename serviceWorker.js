@@ -186,7 +186,7 @@ self.addEventListener('sync', (event) => {
 
 //Adding `notification` click event listener
 self.addEventListener('notificationclick', (event) => {
-  var url = 'https://demopwa.in/';
+  var url = 'https://awdev.my.id/';
 
   //Listen to custom action buttons in push notification
   if (event.action === 'yes') {
