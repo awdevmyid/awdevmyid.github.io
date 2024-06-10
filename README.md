@@ -171,6 +171,35 @@ Started Now
 
 https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-8MU20167P66356111MYMSC5Q
 
+# Projects Categories
+
+Android
+Free Code
+Plugins
+Joomla Extensions
+WordPress Plugins
+Scripts & Code
+ASP/ASP.NET
+C & C++
+C#
+iOS
+Java
+JavaScript
+Joomla Source Code
+NodeJS
+Other
+PHP Scripts
+Python
+VB.NET
+Visual Basic
+WordPress Source Code
+Themes & Templates
+Blogspot Templates
+HTML Templates
+Joomla Templates
+Magento Themes
+WordPress Themes
+
 
 ## Sponsor this project
 
