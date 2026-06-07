@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Awdev Music</title>
+
+<meta name="theme-color" content="#0B0F1A"/>
+<meta name="description" content="RumusMusic - Cari musik, trending video, dan playlist favorit dengan cepat"/>
+
+<!-- Google Verification -->
+<meta name="google-site-verification" content="c5Cc9r8Eyp-IXdjJjJEtiGejzN98C7KM5g8ONi9ddSk" />
+<meta content='ca-pub-5407249785989200' name='google-adsense-account'/>
+   <script async='async' crossorigin='anonymous' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5407249785989200'/>
+<meta content='QT96Rd0InOuqkb4s1Wu5BlgGD_pCNOy8CsCtveF1zEA' name='google-site-verification'/>
+<meta content='ca-pub-6718454554209533' name='google-adsense-account'/>
+  <script async='async' crossorigin='anonymous' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6718454554209533'/>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-14JZJ43WTF"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-14JZJ43WTF');
+</script>
+
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0B0F1A;
+  --card:rgba(255,255,255,0.06);
+  --stroke:rgba(255,255,255,0.12);
+  --text:#fff;
+  --muted:#9ca3af;
+  --p1:#7C3AED;
+  --p2:#2563EB;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;}
+
+body{
+  background: radial-gradient(circle at top,#111827,#0B0F1A);
+  color:var(--text);
+  min-height:100vh;
+}
+
+/* HEADER */
+header{
+  padding:20px;
+  text-align:center;
+  font-weight:700;
+  font-size:22px;
+  background:linear-gradient(90deg,var(--p1),var(--p2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* SEARCH */
+.search-box{
+  display:flex;
+  gap:10px;
+  padding:15px;
+}
+
+.search-box input{
+  flex:1;
+  padding:12px;
+  border-radius:12px;
+  border:1px solid var(--stroke);
+  background:var(--card);
+  color:#fff;
+  outline:none;
+}
+
+.search-box button{
+  padding:12px 16px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--p1),var(--p2));
+  color:#fff;
+  cursor:pointer;
+}
+
+/* SECTION */
+.section{
+  padding:15px;
+}
+
+h2{
+  margin:10px 0;
+  font-size:16px;
+  color:#fff;
+}
+
+/* CARD */
+.card{
+  background:var(--card);
+  border:1px solid var(--stroke);
+  border-radius:16px;
+  padding:12px;
+  margin-bottom:12px;
+  backdrop-filter:blur(12px);
+}
+
+/* VIDEO */
+iframe{
+  width:100%;
+  height:200px;
+  border-radius:12px;
+  border:none;
+}
+
+/* BUTTON */
+.btn{
+  display:inline-block;
+  margin-top:8px;
+  padding:8px 12px;
+  border-radius:10px;
+  font-size:12px;
+  text-decoration:none;
+  color:#fff;
+  background:linear-gradient(135deg,#22c55e,#16a34a);
+}
+
+/* TRENDING */
+.trending{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+}
+
+.badge{
+  padding:8px 12px;
+  border-radius:20px;
+  background:var(--card);
+  border:1px solid var(--stroke);
+  white-space:nowrap;
+  font-size:12px;
+}
+
+/* HISTORY */
+.history-item{
+  font-size:12px;
+  padding:8px;
+  border-bottom:1px solid var(--stroke);
+  cursor:pointer;
+}
+
+/* BOTTOM NAV */
+.nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  display:flex;
+  justify-content:space-around;
+  padding:10px;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(10px);
+  border-top:1px solid var(--stroke);
+}
+
+.nav div{
+  font-size:12px;
+  color:var(--muted);
+}
+
+/* LOADING */
+.skeleton{
+  height:200px;
+  background:linear-gradient(90deg,#1f2937,#374151,#1f2937);
+  background-size:200% 100%;
+  animation:shimmer 1.5s infinite;
+  border-radius:12px;
+}
+
+@keyframes shimmer{
+  0%{background-position:200% 0}
+  100%{background-position:-200% 0}
+}
+</style>
+</head>
+
+<body>
+
+<header>🎵 RumusMusic</header>
+
+<!-- SEARCH -->
+<div class="search-box">
+<input id="search" placeholder="Cari lagu / video...">
+<button onclick="searchVideo()">Cari</button>
+</div>
+
+<!-- TRENDING -->
+<div class="section">
+<h2>🔥 Trending</h2>
+<div class="trending">
+<div class="badge">Top Indonesia</div>
+<div class="badge">Global Hits</div>
+<div class="badge">Viral TikTok</div>
+<div class="badge">Remix</div>
+<div class="badge">Pop</div>
+</div>
+</div>
+
+<!-- RESULTS -->
+<div class="section">
+<h2>🎧 Hasil</h2>
+<div id="results"></div>
+</div>
+
+<!-- HISTORY -->
+<div class="section">
+<h2>🕘 Riwayat</h2>
+<div id="history"></div>
+</div>
+
+<!-- ADSENSE -->
+<div class="section">
+<ins class="adsbygoogle"
+style="display:block"
+data-ad-client="ca-pub-4848025323084395"
+data-ad-slot="9841106664"
+data-ad-format="auto"
+data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="nav">
+<div>Home</div>
+<div>Trending</div>
+<div>History</div>
+<div>Profile</div>
+</div>
+
+<script>
+const API_KEY = "AIzaSyBxBsXHbC2hu6qRO6NBOcZTvLcoxxChWvA";
+
+function searchVideo(){
+const q = document.getElementById("search").value;
+if(!q) return;
+
+saveHistory(q);
+
+document.getElementById("results").innerHTML =
+'<div class="skeleton"></div>';
+
+fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=10&q=${q}&key=${API_KEY}`)
+.then(res=>res.json())
+.then(data=>{
+let html = "";
+
+data.items.forEach(v=>{
+html += `
+<div class="card">
+<h3 style="font-size:14px;margin-bottom:8px;">${v.snippet.title}</h3>
+
+<iframe src="https://www.youtube.com/embed/${v.id.videoId}" allowfullscreen></iframe>
+
+<a class="btn" href="https://www.youtube.com/watch?v=${v.id.videoId}" target="_blank">
+Buka YouTube
+</a>
+</div>`;
+});
+
+document.getElementById("results").innerHTML = html;
+});
+}
+
+/* HISTORY */
+function saveHistory(q){
+let data = JSON.parse(localStorage.getItem("history")||"[]");
+data.unshift(q);
+data = [...new Set(data)].slice(0,5);
+localStorage.setItem("history", JSON.stringify(data));
+renderHistory();
+}
+
+function renderHistory(){
+let data = JSON.parse(localStorage.getItem("history")||"[]");
+document.getElementById("history").innerHTML =
+data.map(d=>`<div class="history-item" onclick="document.getElementById('search').value='${d}'">${d}</div>`).join("");
+}
+
+renderHistory();
+</script>
+
+</body>
+</html>
+
+
