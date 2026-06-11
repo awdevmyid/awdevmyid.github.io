@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Awdev Best Modrn Smart UI Players</title>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9308517202792186"
+     crossorigin="anonymous"></script>
+   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9176187708210895"
+     crossorigin="anonymous"></script>
+     <meta name="google-adsense-account" content="ca-pub-9176187708210895">
+     <script async custom-element="amp-auto-ads"
+     src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+     </script>
+     
+     <meta content='ca-pub-5407249785989200' name='google-adsense-account'/>
+     <script async='async' crossorigin='anonymous' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5407249785989200'/>
+     
+<style>
+:root{
+  --bg:#0b1020;
+  --panel:rgba(255,255,255,0.06);
+  --panel2:rgba(255,255,255,0.1);
+  --text:#fff;
+  --accent:#7c3aed;
+  --accent2:#22c55e;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:system-ui,Arial;
+  background:radial-gradient(circle at top, #1a1f3a, var(--bg));
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* APP LAYOUT */
+.app{
+  display:flex;
+  height:100vh;
+}
+
+/* SIDEBAR */
+#sidebar{
+  width:280px;
+  background:var(--panel);
+  backdrop-filter:blur(12px);
+  border-right:1px solid rgba(255,255,255,0.08);
+  padding:15px;
+  overflow-y:auto;
+  transition:.3s;
+}
+
+.brand{
+  font-size:18px;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
+.item{
+  padding:10px;
+  margin:6px 0;
+  border-radius:10px;
+  background:var(--panel2);
+  cursor:pointer;
+  transition:.2s;
+}
+.item:hover{
+  transform:scale(1.02);
+  background:rgba(124,58,237,0.3);
+}
+
+/* MAIN */
+#main{
+  flex:1;
+  padding:15px;
+  overflow:auto;
+}
+
+/* TOP BAR */
+.topbar{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  margin-bottom:10px;
+}
+
+.hamburger{
+  display:none;
+  font-size:22px;
+  cursor:pointer;
+}
+
+/* SEARCH */
+.search-box{
+  display:flex;
+  gap:10px;
+  margin:10px 0;
+}
+
+input{
+  flex:1;
+  padding:12px;
+  border-radius:10px;
+  border:none;
+  outline:none;
+  background:var(--panel);
+  color:white;
+}
+
+button{
+  padding:10px 14px;
+  border:none;
+  border-radius:10px;
+  background:var(--accent);
+  color:white;
+  cursor:pointer;
+  transition:.2s;
+}
+button:hover{
+  transform:scale(1.05);
+}
+
+/* GRID RESULTS */
+#results{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:10px;
+}
+
+.card{
+  background:var(--panel);
+  border-radius:14px;
+  padding:10px;
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+iframe{
+  width:100%;
+  height:180px;
+  border-radius:10px;
+  border:none;
+}
+
+/* EQ */
+#eq{
+  width:100%;
+  height:100px;
+  border-radius:12px;
+  background:rgba(0,0,0,0.3);
+  margin:10px 0;
+}
+
+/* PLAYER */
+#playerBar{
+  position:fixed;
+  bottom:0;
+  left:280px;
+  right:0;
+  height:70px;
+  background:rgba(20,20,20,0.8);
+  backdrop-filter:blur(10px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  border-top:1px solid rgba(255,255,255,0.1);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+  #sidebar{
+    position:fixed;
+    left:-300px;
+    top:0;
+    bottom:0;
+    z-index:1000;
+  }
+
+  #sidebar.active{
+    left:0;
+  }
+
+  #playerBar{
+    left:0;
+  }
+
+  .hamburger{
+    display:block;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- SIDEBAR -->
+<div id="sidebar">
+  <div class="brand">🎵 RumusMusic</div>
+
+  <div>Playlists</div>
+  <div id="playlistList"></div>
+  <button onclick="createNewPlaylist()">+ Playlist</button>
+
+  <div>Queue</div>
+  <div id="queueList"></div>
+  <button onclick="clearQueue()">Clear</button>
+
+  <div>History</div>
+  <div id="historyList"></div>
+</div>
+
+<!-- MAIN -->
+<div id="main">
+
+  <div class="topbar">
+    <div class="hamburger" onclick="toggleSidebar()">☰</div>
+    <h3>Search Music</h3>
+  </div>
+
+  <div class="search-box">
+    <input id="search" placeholder="Cari lagu...">
+    <button onclick="searchVideo()">Cari</button>
+  </div>
+
+  <canvas id="eq"></canvas>
+
+  <div id="results"></div>
+
+</div>
+
+</div>
+
+<!-- PLAYER -->
+<div id="playerBar">
+  <button onclick="prevSong()">⏮</button>
+  <button onclick="togglePlay()">▶️/⏸</button>
+  <button onclick="nextSong()">⏭</button>
+</div>
+
+<script>
+/* SIDEBAR TOGGLE */
+function toggleSidebar(){
+  document.getElementById("sidebar").classList.toggle("active");
+}
+
+/* DB */
+const DB_NAME="music_db";
+let db;
+
+function openDB(){
+return new Promise(r=>{
+const req=indexedDB.open(DB_NAME,1);
+
+req.onupgradeneeded=e=>{
+db=e.target.result;
+db.createObjectStore("playlists",{keyPath:"id",autoIncrement:true});
+db.createObjectStore("queue",{keyPath:"id",autoIncrement:true});
+db.createObjectStore("history",{keyPath:"id",autoIncrement:true});
+db.createObjectStore("state");
+};
+
+req.onsuccess=()=>{db=req.result;r()};
+});
+}
+
+function tx(s,m="readonly"){return db.transaction(s,m).objectStore(s);}
+
+/* PLAYLIST */
+function createNewPlaylist(){
+const name=prompt("Playlist:");
+if(!name)return;
+tx("playlists","readwrite").add({name,songs:[]});
+loadPlaylists();
+}
+
+function loadPlaylists(){
+const req=tx("playlists").getAll();
+req.onsuccess=()=>{
+document.getElementById("playlistList").innerHTML=
+req.result.map(p=>`<div class="item">${p.name}</div>`).join("");
+};
+}
+
+/* QUEUE */
+function clearQueue(){
+tx("queue","readwrite").clear();
+loadQueue();
+}
+
+function loadQueue(){
+const req=tx("queue").getAll();
+req.onsuccess=()=>{
+document.getElementById("queueList").innerHTML=
+req.result.map(q=>`<div class="item">${q.title}</div>`).join("");
+};
+}
+
+/* HISTORY */
+function loadHistory(){
+const req=tx("history").getAll();
+req.onsuccess=()=>{
+document.getElementById("historyList").innerHTML=
+req.result.slice(-10).reverse()
+.map(h=>`<div class="item">${h.song.title||h.song}</div>`).join("");
+};
+}
+
+/* YT */
+const API_KEY="AIzaSyBxBsXHbC2hu6qRO6NBOcZTvLcoxxChWvA";
+
+function searchVideo(){
+const q=document.getElementById("search").value;
+if(!q)return;
+
+document.getElementById("results").innerHTML="loading...";
+
+fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=6&q=${q}&key=${API_KEY}`)
+.then(r=>r.json())
+.then(data=>{
+document.getElementById("results").innerHTML=
+data.items.map(v=>`
+<div class="card">
+<h4>${v.snippet.title}</h4>
+<iframe src="https://www.youtube.com/embed/${v.id.videoId}"></iframe>
+</div>
+`).join("");
+});
+}
+
+/* EQ */
+const canvas=document.getElementById("eq");
+const ctx=canvas.getContext("2d");
+
+function resize(){
+canvas.width=window.innerWidth;
+canvas.height=100;
+}
+resize();
+window.addEventListener("resize",resize);
+
+let bars=40;
+let data=new Array(bars).fill(0);
+
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+let w=canvas.width/bars;
+
+for(let i=0;i<bars;i++){
+data[i]+=(Math.random()*100-data[i])*0.2;
+ctx.fillStyle="#7c3aed";
+ctx.fillRect(i*w,100-data[i],w-2,data[i]);
+}
+requestAnimationFrame(draw);
+}
+
+/* INIT */
+window.onload=async()=>{
+await openDB();
+loadPlaylists();
+loadQueue();
+loadHistory();
+draw();
+};
+</script>
+
+</body>
+</html>
