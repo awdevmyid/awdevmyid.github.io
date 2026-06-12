@@ -1,0 +1,42 @@
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. Tentukan elemen pembungkus konten artikel Anda (sesuaikan class/id dengan template Anda)
+    var articleBody = document.querySelector(".post-content") || document.querySelector("article");
+    
+    if (articleBody) {
+        // 2. Cari semua elemen paragraf di dalam artikel
+        var paragraphs = articleBody.querySelectorAll("p");
+        
+        // 3. Tentukan setelah paragraf ke berapa iklan akan muncul (contoh: paragraf ke-3)
+        var targetParagraphIndex = 2; // Index dimulai dari 0, jadi 2 berarti paragraf ke-3
+        
+        // Pastikan jumlah paragraf di artikel cukup sebelum menyisipkan iklan
+        if (paragraphs.length > targetParagraphIndex) {
+            
+            // 4. Buat kontainer untuk elemen iklan AdSense
+            var adContainer = document.createElement("div");
+            adContainer.className = "auto-inserted-ad";
+            adContainer.style.margin = "25px 0";
+            adContainer.style.textAlign = "center";
+            
+            // 5. Masukkan struktur HTML Google AdSense Anda ke dalam kontainer
+            adContainer.innerHTML = `
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6718454554209533" crossorigin="anonymous"><\/script>
+                <ins class="adsbygoogle"
+                     style="display:block; text-align:center;"
+                     data-ad-layout="in-article"
+                     data-ad-format="fluid"
+                     data-ad-client="ca-pub-6718454554209533"
+                     data-ad-slot="1981588166"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                <\/script>
+            `;
+            
+            // 6. Sisipkan iklan tepat setelah paragraf target
+            var targetParagraph = paragraphs[targetParagraphIndex];
+            targetParagraph.parentNode.insertBefore(adContainer, targetParagraph.nextSibling);
+        }
+    }
+});
+</script>
