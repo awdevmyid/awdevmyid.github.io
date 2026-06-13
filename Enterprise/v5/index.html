@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise WebOffice v5 - AWDEV Official Edition</title>
+    
+    <link rel="icon" type="image/png" href="https://awdev.my.id/assets/img/logo.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Segoe+UI:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/luckysheet/dist/plugins/css/pluginsCss.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/luckysheet/dist/css/luckysheet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/luckysheet/dist/assets/iconfont/iconfont.css" />
+    <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/plugins/js/plugin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/luckysheet.umd.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/tinymce@6/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html-docx-js/0.3.1/html-docx.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/exceljs@4.3.0/dist/exceljs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        :root {
+            --sidebar-bg: #201f1e;
+            --topbar-bg: #f3f2f1;
+            --word-theme: #2b579a;
+            --excel-theme: #107c41;
+            --pdf-theme: #a80000;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+        body, html { height: 100%; overflow: hidden; background-color: #f3f2f1; }
+        .app-container { display: flex; height: 100vh; width: 100vw; }
+
+        /* Sidebar Navigasi */
+        .office-sidebar {
+            width: 65px; background-color: var(--sidebar-bg);
+            display: flex; flex-direction: column; align-items: center; padding-top: 15px; gap: 20px; flex-shrink: 0;
+        }
+        .app-logo-icon {
+            width: 40px; height: 40px; object-fit: contain; border-radius: 6px; margin-bottom: 10px;
+        }
+        .sidebar-btn {
+            width: 45px; height: 45px; border-radius: 8px; border: none; background: none;
+            color: #fff; font-size: 1.4rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.2s;
+        }
+        .sidebar-btn:hover { background-color: #323130; }
+        .sidebar-btn.active[data-mod="word"] { background-color: var(--word-theme); }
+        .sidebar-btn.active[data-mod="excel"] { background-color: var(--excel-theme); }
+        .sidebar-btn.active[data-mod="pdf-suite"] { background-color: var(--pdf-theme); }
+
+        /* Workspace Main Area */
+        .main-workspace { flex-grow: 1; display: flex; flex-direction: column; height: 100%; position: relative; }
+        
+        /* Ribbon Topbar */
+        .office-topbar {
+            height: 55px; background-color: var(--topbar-bg); border-bottom: 1px solid #edebe9;
+            display: flex; align-items: center; padding: 0 20px; justify-content: space-between; flex-shrink: 0;
+        }
+        .app-title { font-size: 1rem; font-weight: 600; color: #323130; display: flex; align-items: center; gap: 10px; }
+        .action-group { display: flex; gap: 8px; }
+        
+        .topbar-btn {
+            background: #fff; border: 1px solid #8a8886; padding: 6px 12px; border-radius: 4px;
+            cursor: pointer; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 6px;
+        }
+        .topbar-btn:hover { background-color: #f3f2f1; }
+        .btn-export { background-color: #107c41; color: white; border: none; }
+        .btn-export:hover { background-color: #0b592e; }
+
+        /* Module Wrappers */
+        .module-container { flex-grow: 1; position: relative; width: 100%; height: calc(100% - 55px - 25px); }
+        .office-module { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: none; }
+        .office-module.active { display: block; }
+
+        /* Wadah khusus Excel agar Grid & Baris Kolom Tidak Terpotong */
+        #luckysheet-container {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Status Bar Bawah */
+        .office-statusbar {
+            height: 25px; background-color: #0078d4; color: white; font-size: 0.8rem;
+            display: flex; align-items: center; padding: 0 15px; justify-content: space-between; flex-shrink: 0;
+        }
+
+        /* PDF Interface Layout */
+        .pdf-suite-layout { display: flex; height: 100%; background: #eaeaea; padding: 15px; gap: 15px; }
+        .pdf-box-panel { flex: 1; background: #ffffff; border-radius: 8px; display: flex; flex-direction: column; padding: 15px; }
+        .pdf-box-panel h3 { font-size: 1rem; padding-bottom: 8px; margin-bottom: 12px; border-bottom: 2px solid #f3f2f1; color: #201f1e; }
+        
+        .camera-stream-frame { background: #000; flex-grow: 1; min-height: 200px; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        #scanner-video { width: 100%; height: 100%; object-fit: cover; }
+        
+        .preview-render-area { flex-grow: 1; min-height: 200px; border: 2px dashed #cbd5e1; border-radius: 6px; background: #f8fafc; display: flex; align-items: center; justify-content: center; }
+        #scanned-canvas { max-width: 100%; max-height: 100%; object-fit: contain; display: none; }
+        
+        .form-element { margin-bottom: 12px; display: flex; flex-direction: column; gap: 4px; }
+        .form-element label { font-size: 0.85rem; font-weight: 600; color: #475569; }
+        .form-element input, .form-element select { padding: 7px; border: 1px solid #cbd5e1; border-radius: 4px; }
+
+        .tox-tinymce { border: none !important; height: 100% !important; }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <aside class="office-sidebar">
+            <img src="https://awdev.my.id/assets/img/logo.png" alt="AWDEV" class="app-logo-icon">
+            <button class="sidebar-btn active" data-mod="word" title="MS Word Suite"><i class="fa-solid fa-file-word" style="color: #2b579a;"></i></button>
+            <button class="sidebar-btn" data-mod="excel" title="MS Excel Suite"><i class="fa-solid fa-file-excel" style="color: #107c41;"></i></button>
+            <button class="sidebar-btn" data-mod="pdf-suite" title="PDF Converter & Camera Scanner"><i class="fa-solid fa-file-pdf" style="color: #a80000;"></i></button>
+        </aside>
+
+        <main class="main-workspace">
+            <header class="office-topbar">
+                <div class="app-title">
+                    <i class="fa-solid fa-file-word" style="color: var(--word-theme);" id="title-icon"></i> 
+                    <span id="title-text">Microsoft Word Pro Workspace</span>
+                </div>
+                
+                <div class="action-group">
+                    <button class="topbar-btn btn-export" id="btn-action-export"><i class="fa-solid fa-file-arrow-down"></i> Export File</button>
+                    <button class="topbar-btn" id="btn-action-share" style="background: #fdf2e9; color: #a44c00;"><i class="fa-solid fa-share-nodes"></i> Share</button>
+                    <button class="topbar-btn" id="btn-action-save" style="background: #0078d4; color: white; border:none;"><i class="fa-solid fa-floppy-disk"></i> Simpan Data</button>
+                </div>
+            </header>
+
+            <div class="module-container">
+                
+                <div id="mod-word" class="office-module active">
+                    <textarea id="word-editor-instance">
+                        <p style="text-align: center;"><span style="font-size: 18pt; font-family: 'Times New Roman';"><strong>DOKUMEN INTEGRASI SUITE V5.1</strong></span></p>
+                        <p>&nbsp;</p>
+                        <p dir="rtl" style="text-align: right;"><span style="font-family: 'Amiri', serif; font-size: 16pt;">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ - لوحة مفاتيح اللغة العربية جاهزة للعمل</span></p>
+                        <p>&nbsp;</p>
+                        <p>Platform pengeditan dokumen kata terpadu. Klik toolbar untuk kustomisasi ukuran halaman (A4, Letter, F4), batas margin, tabel, gambar, diagram, serta pengetikan aksara Arab.</p>
+                    </textarea>
+                </div>
+
+                <div id="mod-excel" class="office-module">
+                    <div id="luckysheet-container"></div>
+                </div>
+
+                <div id="mod-pdf-suite" class="office-module">
+                    <div class="pdf-suite-layout">
+                        <div class="pdf-box-panel">
+                            <h3><i class="fa-solid fa-camera"></i> Intel Camera Scanner</h3>
+                            <div class="camera-stream-frame">
+                                <video id="scanner-video" autoplay playsinline></video>
+                            </div>
+                            <div style="margin-top: 10px;">
+                                <button class="topbar-btn" id="btn-capture-camera" style="width:100%; justify-content:center; background:#a80000; color:white; border:none;"><i class="fa-solid fa-circle-dot"></i> Ambil Foto Dokumen</button>
+                            </div>
+                        </div>
+
+                        <div class="pdf-box-panel">
+                            <h3><i class="fa-solid fa-file-pdf" style="color: #a80000;"></i> PDF File Converter Options</h3>
+                            <div class="form-element">
+                                <label>Nama Output File PDF</label>
+                                <input type="text" id="pdf-output-name" value="Dokumen_AWDEV_Suite">
+                            </div>
+                            <div class="form-element">
+                                <label>Ukuran Lembar Halaman</label>
+                                <select id="pdf-output-size">
+                                    <option value="a4">A4 (Standard)</option>
+                                    <option value="letter">Letter</option>
+                                    <option value="legal">F4 / Folio / Legal</option>
+                                </select>
+                            </div>
+                            <div class="preview-render-area">
+                                <canvas id="scanned-canvas"></canvas>
+                                <div id="preview-placeholder-text" style="color:#64748b; text-align:center; padding:15px;">
+                                    <i class="fa-solid fa-file-image fa-3x" style="color:#cbd5e1; margin-bottom:8px;"></i>
+                                    <p>Hasil tangkapan kamera scanner dokumen atau file eksternal akan di-render di sini.</p>
+                                </div>
+                            </div>
+                            <div style="margin-top: 12px;">
+                                <button class="topbar-btn" id="btn-generate-pdf-file" style="width:100%; justify-content:center; background:#107c41; color:white; border:none;"><i class="fa-solid fa-wand-magic-sparkles"></i> Build & Download PDF</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <footer class="office-statusbar">
+                <div id="status-display-info">System: Ready | Terhubung ke Database AWDEV</div>
+                <div>Server Status: <span style="font-weight:bold; color:#dcfce7;"><i class="fa-solid fa-circle-nodes"></i> Cloud Online</span></div>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        let activeModule = 'word';
+        let mediaStreamTrack = null;
+
+        // --- APPS ROUTER NAVIGASI ---
+        const navButtons = document.querySelectorAll('.sidebar-btn');
+        const modules = document.querySelectorAll('.office-module');
+        const titleText = document.getElementById('title-text');
+        const titleIcon = document.getElementById('title-icon');
+
+        navButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                navButtons.forEach(b => b.classList.remove('active'));
+                modules.forEach(m => m.classList.remove('active'));
+
+                btn.classList.add('active');
+                activeModule = btn.dataset.mod;
+                document.getElementById(`mod-${activeModule}`).classList.add('active');
+
+                if (activeModule !== 'pdf-suite' && mediaStreamTrack) {
+                    mediaStreamTrack.getTracks().forEach(t => t.stop());
+                    mediaStreamTrack = null;
+                }
+
+                if (activeModule === 'word') {
+                    titleText.innerText = "Microsoft Word Pro Workspace";
+                    titleIcon.className = "fa-solid fa-file-word";
+                    titleIcon.style.color = "var(--word-theme)";
+                } else if (activeModule === 'excel') {
+                    titleText.innerText = "Microsoft Excel Pro Workspace";
+                    titleIcon.className = "fa-solid fa-file-excel";
+                    titleIcon.style.color = "var(--excel-theme)";
+                    
+                    // CRITICAL: Memaksa engine excel menghitung ulang ukuran layar agar tabel A, B, C dan 1, 2, 3 muncul utuh
+                    setTimeout(() => {
+                        luckysheet.resize();
+                    }, 50);
+                } else if (activeModule === 'pdf-suite') {
+                    titleText.innerText = "PDF Converter & Camera Suite";
+                    titleIcon.className = "fa-solid fa-file-pdf";
+                    titleIcon.style.color = "var(--pdf-theme)";
+                    activateCameraStream();
+                }
+            });
+        });
+
+        // --- INIT MS WORD ---
+        tinymce.init({
+            selector: '#word-editor-instance',
+            plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table code help wordcount pagebreak emoticons',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline | forecolor backcolor | alignleft aligncenter alignright alignjustify dirrtl dirltr | bullist numlist | table image insertdiagram | papersizeop | help',
+            menubar: 'file edit view insert format tools table',
+            font_family_formats: 'Segoe UI=Segoe UI; Arial=arial,helvetica,sans-serif; Times New Roman=times new roman,times; Amiri (Arab)=Amiri,serif; Courier New=courier new,courier',
+            branding: false,
+            promotion: false,
+            height: '100%',
+            setup: function (editor) {
+                editor.ui.registry.addMenuButton('papersizeop', {
+                    text: 'Layout Halaman',
+                    fetch: function (callback) {
+                        const items = [
+                            { type: 'menuitem', text: 'Set Kertas: A4 Standard', onAction: () => alert('Halaman diatur ke A4') },
+                            { type: 'menuitem', text: 'Set Kertas: Letter', onAction: () => alert('Halaman diatur ke Letter') },
+                            { type: 'menuitem', text: 'Set Kertas: F4 / Folio', onAction: () => alert('Halaman diatur ke F4') }
+                        ];
+                        callback(items);
+                    }
+                });
+
+                editor.ui.registry.addButton('insertdiagram', {
+                    text: 'Sisipkan Diagram',
+                    icon: 'add-comment',
+                    onAction: function () {
+                        const diagStructure = `<div style="text-align:center; margin:12px 0;"><table style="margin:auto; border-collapse:collapse;"><tr><td style="border:2px solid #2b579a; padding:8px 12px; background:#eff6ff; font-weight:bold; border-radius:4px;">Start Terminal</td><td style="padding:0 10px; font-weight:bold;">&rarr;</td><td style="border:2px solid #107c41; padding:8px 12px; background:#f0fdf4; font-weight:bold; border-radius:4px;">Process Execute</td></tr></table></div>`;
+                        editor.insertContent(diagStructure);
+                    }
+                });
+
+                editor.on('init', function () {
+                    const saved = localStorage.getItem('v5_word_store');
+                    if (saved) editor.setContent(saved);
+                });
+            }
+        });
+
+        // --- INIT MS EXCEL (Konfigurasi Lembar Kerja Asli Ber-Grid) ---
+        let savedExcel = localStorage.getItem('v5_excel_store');
+        let prefilledExcelData = [{
+            "name": "Sheet1", 
+            "status": "1", 
+            "order": "0", 
+            "data": [], 
+            "config": {},
+            "celldata": [
+                { "r": 0, "c": 0, "v": { "v": "ID Barang", "bl": 1, "bg": "#f3f2f1" } },
+                { "r": 0, "c": 1, "v": { "v": "Anggaran Pengembangan (Rp)", "bl": 1, "bg": "#f3f2f1" } },
+                { "r": 1, "c": 0, "v": "AWDEV-01" }, { "r": 1, "c": 1, "v": 12500000 },
+                { "r": 2, "c": 0, "v": "AWDEV-02" }, { "r": 2, "c": 1, "v": 8200000 },
+                { "r": 3, "c": 0, "v": { "v": "Total Otomatis Rumus Excel SUM:", "bl": 1 } },
+                { "r": 3, "c": 1, "v": { "f": "=SUM(B2:B3)", "v": 20700000, "bl": 1, "bg": "#dbeafe" } }
+            ]
+        }];
+        if (savedExcel) { try { prefilledExcelData = JSON.parse(savedExcel); } catch(e){} }
+
+        $(function () {
+            luckysheet.create({
+                container: 'luckysheet-container',
+                lang: 'en',
+                showinfobar: false,       // Menyembunyikan bar info atas kustom bawaan
+                showsheetbar: true,       // Menampilkan bar perpindahan Sheet di bawah (+ Sheet1, Sheet2)
+                showstatisticBar: true,   // Menampilkan status kalkulasi angka di bawah
+                allowEdit: true,
+                gridLinesEnable: true,    // MEMAKSA garis grid abu-abu excel selalu aktif terlihat
+                data: prefilledExcelData,
+                plugins: ['chart']
+            });
+        });
+
+        // --- CAMERA SCANNER ENGINE ---
+        async function activateCameraStream() {
+            const video = document.getElementById('scanner-video');
+            try {
+                mediaStreamTrack = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" }, audio: false });
+                video.srcObject = mediaStreamTrack;
+            } catch (err) {
+                console.log("Akses hardware kamera ditolak atau tidak tersedia.");
+            }
+        }
+
+        document.getElementById('btn-capture-camera').addEventListener('click', () => {
+            const video = document.getElementById('scanner-video');
+            const canvas = document.getElementById('scanned-canvas');
+            const ctx = canvas.getContext('2d');
+            const infoPlaceholder = document.getElementById('preview-placeholder-text');
+
+            if (!mediaStreamTrack) { alert("Aktifkan izin kamera perangkat Anda terlebih dahulu!"); return; }
+
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            
+            canvas.style.display = 'block';
+            infoPlaceholder.style.display = 'none';
+        });
+
+        document.getElementById('btn-generate-pdf-file').addEventListener('click', () => {
+            const canvas = document.getElementById('scanned-canvas');
+            const name = document.getElementById('pdf-output-name').value || "Dokumen_Cetak";
+            const size = document.getElementById('pdf-output-size').value;
+
+            if (canvas.style.display === 'none') {
+                alert("Silahkan ambil jepretan kamera terlebih dahulu!");
+                return;
+            }
+
+            const imgBase64 = canvas.toDataURL("image/jpeg", 0.96);
+            const options = {
+                margin: 5, filename: `${name}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: size, orientation: 'portrait' }
+            };
+
+            const docElement = document.createElement('div');
+            docElement.innerHTML = `<div style="text-align:center;"><img src="${imgBase64}" style="width:100%; height:auto;" /></div>`;
+            
+            html2pdf().set(options).from(docElement).save();
+        });
+
+        // --- GLOBAL ACTIONS HUB (EXPORT, SHARE, SAVE) ---
+        document.getElementById('btn-action-export').addEventListener('click', () => {
+            if (activeModule === 'word') {
+                const htmlSrc = tinymce.get('word-editor-instance').getContent();
+                const blobWord = htmlDocx.asBlob(htmlSrc);
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(blobWord);
+                a.download = 'Berkas_Word.docx';
+                a.click();
+            } else if (activeModule === 'excel') {
+                const workbook = new ExcelJS.Workbook();
+                const worksheet = workbook.addWorksheet('Sheet1');
+                const matrixData = luckysheet.getluckysheetfile()[0].data;
+
+                matrixData.forEach((row, rIdx) => {
+                    row.forEach((cell, cIdx) => {
+                        if (cell && cell.v !== null) {
+                            const gridCell = worksheet.getCell(rIdx + 1, cIdx + 1);
+                            gridCell.value = cell.f ? { formula: cell.f.replace('=', '') } : cell.v;
+                        }
+                    });
+                });
+
+                workbook.xlsx.writeBuffer().then(buffer => {
+                    const blobExcel = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+                    const a = document.createElement('a');
+                    a.href = URL.createObjectURL(blobExcel);
+                    a.download = 'Berkas_Excel.xlsx';
+                    a.click();
+                });
+            } else {
+                alert('Silahkan klik tombol "Build & Download PDF" pada panel konverter kanan bawah.');
+            }
+        });
+
+        document.getElementById('btn-action-share').addEventListener('click', async () => {
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: 'WebOffice AWDEV Link Share',
+                        text: 'Tinjau pengerjaan lembar dokumen office saya langsung dari platform WebOffice AWDEV.',
+                        url: window.location.href
+                    });
+                } catch (e) {}
+            } else {
+                alert("Browser tidak mendukung share API otomatis. Silahkan salin link secara manual.");
+            }
+        });
+
+        document.getElementById('btn-action-save').addEventListener('click', () => {
+            localStorage.setItem('v5_word_store', tinymce.get('word-editor-instance').getContent());
+            localStorage.setItem('v5_excel_store', JSON.stringify(luckysheet.getAllSheets()));
+            alert('Sukses menyinkronkan seluruh pengerjaan ke dalam penyimpanan browser!');
+        });
+    </script>
+</body>
+</html>
