@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enterprise WebOffice v5 - AWDEV Official Edition</title>
+    <title>Enterprise WebOffice v5.0 - AWDEV Official Edition</title>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6718454554209533"
      crossorigin="anonymous"></script>
     <link rel="icon" type="image/png" href="https://awdev.my.id/assets/img/logo.png">
-    
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0078d4">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Segoe+UI:wght@300;400;600&display=swap" rel="stylesheet">
     
@@ -428,5 +429,14 @@
             alert('Sukses menyinkronkan seluruh pengerjaan ke dalam penyimpanan browser!');
         });
     </script>
+    <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js')
+        .then(reg => console.log('PWA Service Worker Berhasil Didaftarkan!', reg.scope))
+        .catch(err => console.log('PWA Service Worker Gagal:', err));
+    });
+  }
+</script>
 </body>
 </html>
