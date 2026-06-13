@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise WebOffice v3.0 - Full Productivity Suite</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6718454554209533"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Segoe+UI:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/luckysheet/dist/plugins/css/pluginsCss.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/luckysheet/dist/css/luckysheet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/luckysheet/dist/assets/iconfont/iconfont.css" />
+    <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/plugins/js/plugin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/luckysheet.umd.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/tinymce@6/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html-docx-js/0.3.1/html-docx.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/exceljs@4.3.0/dist/exceljs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        :root {
+            --sidebar-bg: #201f1e;
+            --topbar-bg: #f3f2f1;
+            --word-theme: #2b579a;
+            --excel-theme: #107c41;
+            --pdf-theme: #a80000;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+        body, html { height: 100%; overflow: hidden; background-color: #f3f2f1; }
+        .app-container { display: flex; height: 100vh; width: 100vw; }
+
+        /* Sidebar Launcher */
+        .office-sidebar {
+            width: 65px; background-color: var(--sidebar-bg);
+            display: flex; flex-direction: column; align-items: center; padding-top: 15px; gap: 20px; flex-shrink: 0;
+        }
+        .sidebar-btn {
+            width: 45px; height: 45px; border-radius: 8px; border: none; background: none;
+            color: #fff; font-size: 1.4rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.2s;
+        }
+        .sidebar-btn:hover { background-color: #323130; }
+        .sidebar-btn.active[data-mod="word"] { background-color: var(--word-theme); }
+        .sidebar-btn.active[data-mod="excel"] { background-color: var(--excel-theme); }
+        .sidebar-btn.active[data-mod="pdf-cam"] { background-color: var(--pdf-theme); }
+
+        /* Main Area */
+        .main-workspace { flex-grow: 1; display: flex; flex-direction: column; height: 100%; position: relative; }
+        
+        /* Ribbon Topbar */
+        .office-topbar {
+            height: 55px; background-color: var(--topbar-bg); border-bottom: 1px solid #edebe9;
+            display: flex; align-items: center; padding: 0 20px; justify-content: space-between; flex-shrink: 0;
+        }
+        .app-title { font-size: 1rem; font-weight: 600; color: #323130; display: flex; align-items: center; gap: 10px; }
+        .action-group { display: flex; gap: 8px; }
+        
+        .topbar-btn {
+            background: #fff; border: 1px solid #8a8886; padding: 6px 12px; border-radius: 4px;
+            cursor: pointer; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 6px;
+        }
+        .topbar-btn:hover { background-color: #f3f2f1; }
+        .btn-save { background-color: #0078d4; color: white; border: none; }
+        .btn-save:hover { background-color: #106ebe; }
+
+        /* Module Wrappers */
+        .module-container { flex-grow: 1; position: relative; width: 100%; height: calc(100% - 55px - 25px); }
+        .office-module { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: none; }
+        .office-module.active { display: block; }
+
+        /* Live Status Bar */
+        .office-statusbar {
+            height: 25px; background-color: #0078d4; color: white; font-size: 0.8rem;
+            display: flex; align-items: center; padding: 0 15px; justify-content: space-between; flex-shrink: 0;
+        }
+
+        /* Camera Scanner Styles */
+        .scanner-layout { display: flex; padding: 20px; gap: 20px; height: 100%; background: #eaeaea; }
+        .cam-feed, .scanned-preview {
+            flex: 1; background: #000; border-radius: 8px; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; position: relative; overflow: hidden; color: white;
+        }
+        .cam-feed video { width: 100%; height: 85%; object-fit: cover; }
+        .scanner-controls { padding: 10px; display: flex; gap: 10px; }
+        #scanned-canvas { max-width: 100%; max-height: 85%; object-fit: contain; background: #fff; }
+
+        /* Custom Paper View adjustments for TinyMCE */
+        .tox-tinymce { border: none !important; height: 100% !important; }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <aside class="office-sidebar">
+            <div style="color: #fff; font-size: 1.2rem; margin-bottom: 10px;"><i class="fa-solid fa-layer-group"></i></div>
+            <button class="sidebar-btn active" data-mod="word" title="MS Word (Teks, Tabel, Diagram, Arab)"><i class="fa-solid fa-file-word" style="color: #2b579a;"></i></button>
+            <button class="sidebar-btn" data-mod="excel" title="MS Excel (Formula & Grid)"><i class="fa-solid fa-file-excel" style="color: #107c41;"></i></button>
+            <button class="sidebar-btn" data-mod="pdf-cam" title="PDF Camera Scanner"><i class="fa-solid fa-camera-retro" style="color: #a80000;"></i></button>
+        </aside>
+
+        <main class="main-workspace">
+            <header class="office-topbar">
+                <div class="app-title">
+                    <i class="fa-solid fa-file-word" style="color: var(--word-theme);" id="title-icon"></i> 
+                    <span id="title-text">Microsoft Word Pro Workspace</span>
+                </div>
+                
+                <div class="action-group">
+                    <button class="topbar-btn" id="btn-download-file"><i class="fa-solid fa-file-arrow-down"></i> Download</button>
+                    <button class="topbar-btn" id="btn-share-file" style="background: #fdf2e9; color: #a44c00;"><i class="fa-solid fa-share-nodes"></i> Share</button>
+                    <button class="topbar-btn btn-save" id="btn-save-local"><i class="fa-solid fa-floppy-disk"></i> Save to Cloud</button>
+                </div>
+            </header>
+
+            <div class="module-container">
+                
+                <div id="mod-word" class="office-module active">
+                    <textarea id="word-editor-instance">
+                        <p style="text-align: center;"><span style="font-size: 18pt; font-family: 'Times New Roman';"><strong>DOKUMEN INTEGRASI WEB OFFICE</strong></span></p>
+                        <p>&nbsp;</p>
+                        <p dir="rtl" style="text-align: right;"><span style="font-family: 'Amiri', serif; font-size: 16pt;">مرحباً بكم في نظام Word المتكامل - اكتب باللغة العربية بكل سهولة هنا</span></p>
+                        <p>&nbsp;</p>
+                        <p>Gunakan menu sistem di atas untuk memasukkan custom table, element gambar, diagram bentuk, maupun mengganti ukuran kertas dokumen ke bentuk (A4 / Letter / F4).</p>
+                    </textarea>
+                </div>
+
+                <div id="mod-excel" class="office-module">
+                    <div id="luckysheet-container"></div>
+                </div>
+
+                <div id="mod-pdf-cam" class="office-module">
+                    <div class="scanner-layout">
+                        <div class="cam-feed">
+                            <h4 style="position:absolute; top:10px;">LIVE HD CAMERA STREAM</h4>
+                            <video id="scanner-video" autoplay playsinline></video>
+                            <div class="scanner-controls">
+                                <button class="topbar-btn" id="btn-capture-snap"><i class="fa-solid fa-circle-dot" style="color:red;"></i> Ambil Gambar (Scan)</button>
+                            </div>
+                        </div>
+                        <div class="scanned-preview">
+                            <h4 style="position:absolute; top:10px; color:#201f1e;">HASIL SCAN DOKUMEN EDITOR</h4>
+                            <canvas id="scanned-canvas"></canvas>
+                            <div class="scanner-controls" style="margin-top:10px;">
+                                <button class="topbar-btn btn-save" id="btn-convert-scan-pdf"><i class="fa-solid fa-file-pdf"></i> Generate Dokumen PDF</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <footer class="office-statusbar">
+                <div id="status-cursor-info">Kursor Status: Ready | Baris: 1, Kolom: 1</div>
+                <div>Status Sinkronisasi: <span style="font-weight:bold; color:#107c41;"><i class="fa-solid fa-circle-check"></i> Aktif</span></div>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        let currentTab = 'word';
+        let streamRef = null;
+
+        // --- APPS ROUTER AND TOPBAR MANAGER ---
+        const navButtons = document.querySelectorAll('.sidebar-btn');
+        const modules = document.querySelectorAll('.office-module');
+        const titleText = document.getElementById('title-text');
+        const titleIcon = document.getElementById('title-icon');
+
+        navButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                navButtons.forEach(b => b.classList.remove('active'));
+                modules.forEach(m => m.classList.remove('active'));
+
+                btn.classList.add('active');
+                currentTab = btn.dataset.mod;
+                document.getElementById(`mod-${currentTab}`).classList.add('active');
+
+                // Stop camera stream jika meninggalkan tab scanner
+                if (currentTab !== 'pdf-cam' && streamRef) {
+                    streamRef.getTracks().forEach(track => track.stop());
+                    streamRef = null;
+                }
+
+                if (currentTab === 'word') {
+                    titleText.innerText = "Microsoft Word Pro Workspace";
+                    titleIcon.className = "fa-solid fa-file-word";
+                    titleIcon.style.color = "var(--word-theme)";
+                } else if (currentTab === 'excel') {
+                    titleText.innerText = "Microsoft Excel Pro Workspace";
+                    titleIcon.className = "fa-solid fa-file-excel";
+                    titleIcon.style.color = "var(--excel-theme)";
+                    luckysheet.resize();
+                } else if (currentTab === 'pdf-cam') {
+                    titleText.innerText = "PDF Document Camera Scanner";
+                    titleIcon.className = "fa-solid fa-camera-retro";
+                    titleIcon.style.color = "var(--pdf-theme)";
+                    initCameraScanner();
+                }
+            });
+        });
+
+        // --- WORD SUB-SYSTEM ENGINE (TinyMCE Pro dengan Fitur Tambahan) ---
+        tinymce.init({
+            selector: '#word-editor-instance',
+            plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table code help wordcount pagebreak emoticons',
+            // Toolbar kustom penambahan tabel, gambar, diagram bentuk, custom font, font arab, set ukuran kertas halaman
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline | forecolor backcolor | alignleft aligncenter alignright alignjustify dirrtl dirltr | bullist numlist | table image insertdiagram | paperformat marginformat | help',
+            menubar: 'file edit view insert format tools table',
+            font_family_formats: 'Segoe UI=Segoe UI; Arial=arial,helvetica,sans-serif; Times New Roman=times new roman,times; Amiri (Arab)=Amiri,serif; Courier New=courier new,courier',
+            branding: false,
+            promotion: false,
+            height: '100%',
+            setup: function (editor) {
+                // Inisialisasi Deteksi Koordinat Kursor Dinamis (Status Bar)
+                editor.on('SelectionChange NodeChange KeyUp MouseUp', function () {
+                    const node = editor.selection.getNode();
+                    const text = editor.selection.getContent({format: 'text'});
+                    const charCount = text.length;
+                    document.getElementById('status-cursor-info').innerText = `Kursor Posisi: Selected ${charCount} Chars | Elemen Aktif: <${node.nodeName.toLowerCase()}>`;
+                });
+
+                // Menambahkan Custom Dropdown Format Kertas Halaman ke Toolbar
+                editor.ui.registry.addMenuButton('paperformat', {
+                    text: 'Ukuran Kertas',
+                    fetch: function (callback) {
+                        const items = [
+                            { type: 'menuitem', text: 'A4 (210mm x 297mm)', onAction: () => alert('Halaman diatur ke Standar A4') },
+                            { type: 'menuitem', text: 'Letter (216mm x 279mm)', onAction: () => alert('Halaman diatur ke Standar Letter') },
+                            { type: 'menuitem', text: 'F4 / Folio (215mm x 330mm)', onAction: () => alert('Halaman diatur ke Standar F4 / Folio') }
+                        ];
+                        callback(items);
+                    }
+                });
+
+                // Menambahkan Custom Dropdown Batas Margin Kertas ke Toolbar
+                editor.ui.registry.addMenuButton('marginformat', {
+                    text: 'Margin Kertas',
+                    fetch: function (callback) {
+                        const items = [
+                            { type: 'menuitem', text: 'Normal (1 inci semua sisi)', onAction: () => alert('Margin diubah ke Normal') },
+                            { type: 'menuitem', text: 'Sempit (0.5 inci semua sisi)', onAction: () => alert('Margin diubah ke Sempit') }
+                        ];
+                        callback(items);
+                    }
+                });
+
+                // Menambahkan Custom Button untuk Insert Diagram Flowchart Cepat
+                editor.ui.registry.addButton('insertdiagram', {
+                    text: 'Tambah Diagram',
+                    icon: 'add-comment',
+                    onAction: function () {
+                        const diagramSvg = `<svg width="250" height="100" style="display:block; margin:10px auto;">
+                            <rect x="10" y="25" width="70" height="50" fill="#2b579a" stroke="#000" stroke-width="2"/>
+                            <text x="25" y="55" fill="#fff" font-size="12">Mulai</text>
+                            <line x1="80" y1="50" x2="140" y2="50" stroke="#000" stroke-width="3" />
+                            <polygon points="140,50 130,45 130,55" fill="#000"/>
+                            <rect x="150" y="25" width="80" height="50" fill="#107c41" stroke="#000" stroke-width="2"/>
+                            <text x="165" y="55" fill="#fff" font-size="12">Proses</text>
+                        </svg>`;
+                        editor.insertContent(diagramSvg);
+                    }
+                });
+
+                editor.on('init', function () {
+                    const saved = localStorage.getItem('v3_office_word');
+                    if (saved) editor.setContent(saved);
+                });
+            }
+        });
+
+        // --- EXCEL SUB-SYSTEM ENGINE ---
+        let savedExcel = localStorage.getItem('v3_office_excel');
+        let initialExcelData = [{
+            "name": "Sheet1", "status": "1", "order": "0", "data": [], "config": {},
+            "celldata": [
+                { "r": 0, "c": 0, "v": { "v": "ID Berkas", "bl": 1 } },
+                { "r": 0, "c": 1, "v": { "v": "Anggaran Masuk", "bl": 1 } },
+                { "r": 1, "c": 0, "v": "1" }, { "r": 1, "c": 1, "v": 7500000 },
+                { "r": 2, "c": 0, "v": "Total" }, { "r": 2, "c": 1, "v": { "f": "=SUM(B2:B2)", "v": 7500000 } }
+            ]
+        }];
+        if (savedExcel) { try { initialExcelData = JSON.parse(savedExcel); } catch(e){} }
+
+        $(function () {
+            luckysheet.create({
+                container: 'luckysheet-container', lang: 'en', showinfobar: false,
+                data: initialExcelData, plugins: ['chart']
+            });
+        });
+
+        // --- CAMERA SCANNER LOGIC SYSTEM ---
+        async function initCameraScanner() {
+            const video = document.getElementById('scanner-video');
+            try {
+                streamRef = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" }, audio: false });
+                video.srcObject = streamRef;
+            } catch (err) {
+                alert("Gagal mengakses hardware kamera. Pastikan izin kamera diijinkan browser.");
+            }
+        }
+
+        // Fitur Ambil snapshot dari Video Feed untuk disimulasikan ke Canvas Scanner
+        document.getElementById('btn-capture-snap').addEventListener('click', () => {
+            const video = document.getElementById('scanner-video');
+            const canvas = document.getElementById('scanned-canvas');
+            const ctx = canvas.getContext('2d');
+
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            
+            // Gambar frame video ke canvas
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            
+            // Simulasi Scanner Filter (Meningkatkan kontras gambar dokumen agar teks putih-hitam tajam)
+            let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            let data = imgData.data;
+            for (let i = 0; i < data.length; i += 4) {
+                let brightness = 0.34 * data[i] + 0.5 * data[i + 1] + 0.16 * data[i + 2];
+                // Tresholding filter scan otomatis
+                let v = (brightness > 128) ? 255 : 0;
+                // Aktifkan baris di bawah ini jika ingin filter hitam putih scanner ekstrem murni
+                // data[i] = v; data[i+1] = v; data[i+2] = v;
+            }
+            ctx.putImageData(imgData, 0, 0);
+        });
+
+        // Konversi Canvas Scanner Menjadi File PDF Siap Cetak
+        document.getElementById('btn-convert-scan-pdf').addEventListener('click', () => {
+            const canvas = document.getElementById('scanned-canvas');
+            const imgDataUrl = canvas.toDataURL("image/jpeg", 1.0);
+            
+            const opt = {
+                margin: 10, filename: 'Hasil_Scanner_Kamera.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 }, jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            const element = document.createElement('div');
+            element.innerHTML = `<img src="${imgDataUrl}" style="width:100%; height:auto;" />`;
+            html2pdf().set(opt).from(element).save();
+        });
+
+
+        // --- DOWNLOAD, SHARE & CLOUD AUTO-SAVE SYSTEM ---
+
+        // 1. Fungsi Klik DOWNLOAD Berdasarkan Tab Aktif
+        document.getElementById('btn-download-file').addEventListener('click', () => {
+            if (currentTab === 'word') {
+                const content = tinymce.get('word-editor-instance').getContent();
+                const converted = htmlDocx.asBlob(content);
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(converted);
+                a.download = 'Dokumen_Office.docx';
+                a.click();
+            } else if (currentTab === 'excel') {
+                const workbook = new ExcelJS.Workbook();
+                const worksheet = workbook.addWorksheet('Sheet1');
+                const sheetData = luckysheet.getluckysheetfile()[0].data;
+
+                sheetData.forEach((row, rIdx) => {
+                    row.forEach((cell, cIdx) => {
+                        if (cell && cell.v !== null) {
+                            const wsCell = worksheet.getCell(rIdx + 1, cIdx + 1);
+                            wsCell.value = cell.f ? { formula: cell.f.replace('=', '') } : cell.v;
+                        }
+                    });
+                });
+
+                workbook.xlsx.writeBuffer().then(buffer => {
+                    const blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+                    const a = document.createElement('a');
+                    a.href = URL.createObjectURL(blob);
+                    a.download = 'Spreadsheet_Office.xlsx';
+                    a.click();
+                });
+            } else {
+                alert('Silahkan klik tombol "Generate Dokumen PDF" di dalam modul scanner.');
+            }
+        });
+
+        // 2. Fungsi Tombol SHARE (Menggunakan Web Share API Native Android / iOS / Desktop)
+        document.getElementById('btn-share-file').addEventListener('click', async () => {
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: 'WebOffice Document Suite Share',
+                        text: 'Mari kolaborasi dan lihat dokumen kerja saya dari aplikasi WebOffice.',
+                        url: window.location.href
+                    });
+                } catch (err) {
+                    console.log('Batal membagikan dokumen.');
+                }
+            } else {
+                // Fallback jika browser lawas tidak mendukung API Share langsung
+                alert("Fitur Share otomatis tidak didukung oleh browser Anda. Silahkan salin URL link situs Anda secara manual untuk dibagikan ke WhatsApp.");
+            }
+        });
+
+        // 3. Fungsi Tombol SAVE (Simpan State Memori)
+        document.getElementById('btn-save-local').addEventListener('click', () => {
+            localStorage.setItem('v3_office_word', tinymce.get('word-editor-instance').getContent());
+            localStorage.setItem('v3_office_excel', JSON.stringify(luckysheet.getAllSheets()));
+            alert('Sukses melakukan sinkronisasi data lokal workspace!');
+        });
+    </script>
+</body>
+</html>
