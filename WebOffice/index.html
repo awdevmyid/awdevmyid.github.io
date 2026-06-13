@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebOffice Suite - All-in-One</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6718454554209533"
+     crossorigin="anonymous"></script>
+    <style>
+        /* === GLOBAL STYLES (app.css) === */
+        :root {
+            --bg-primary: #f4f5f7;
+            --sidebar-bg: #1e1e2f;
+            --sidebar-text: #b5b5c3;
+            --accent-color: #4f46e5;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body, html {
+            height: 100%;
+            overflow: hidden;
+            background-color: var(--bg-primary);
+        }
+
+        .app-container {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 260px;
+            background-color: var(--sidebar-bg);
+            color: var(--sidebar-text);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px 0;
+            flex-shrink: 0;
+        }
+
+        .logo {
+            padding: 0 20px 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid #2d2d44;
+        }
+
+        .nav-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 20px 10px;
+            flex-grow: 1;
+        }
+
+        .nav-item {
+            background: none;
+            border: none;
+            color: var(--sidebar-text);
+            padding: 12px 15px;
+            text-align: left;
+            font-size: 0.95rem;
+            cursor: pointer;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background-color: var(--accent-color);
+            color: #fff;
+        }
+
+        .storage-status {
+            padding: 10px 20px;
+        }
+
+        .storage-status button {
+            width: 100%;
+            padding: 10px;
+            background-color: #22c55e;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Main Workspace Area */
+        .main-content {
+            flex-grow: 1;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .office-module {
+            display: none;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            overflow-y: auto;
+        }
+
+        .office-module.active {
+            display: flex;
+        }
+
+        /* Toolbars */
+        .toolbar {
+            height: 50px;
+            background-color: #fff;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .toolbar button, .toolbar select {
+            padding: 6px 12px;
+            border: 1px solid var(--border-color);
+            background: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .toolbar button:hover {
+            background-color: #f8fafc;
+        }
+
+        .info-text {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-left: auto;
+        }
+
+        /* === EDITOR SPECIFIC STYLES (editor.css) === */
+        /* Word Module */
+        .editor-paper {
+            margin: 30px auto;
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            padding: 20mm;
+            outline: none;
+        }
+
+        /* Spreadsheet Module */
+        .spreadsheet-container {
+            flex-grow: 1;
+            overflow: auto;
+            background: #fff;
+            padding: 10px;
+        }
+
+        .sheet-table {
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .sheet-table th, .sheet-table td {
+            border: 1px solid #cbd5e1;
+            min-width: 90px;
+            height: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .sheet-table th {
+            background-color: #f1f5f9;
+            font-weight: 600;
+        }
+
+        .sheet-table td input {
+            width: 100%;
+            height: 100%;
+            border: none;
+            padding: 0 5px;
+            outline: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .sheet-table td input:focus {
+            background-color: #e0e7ff;
+            box-shadow: inset 0 0 0 2px var(--accent-color);
+            z-index: 10;
+        }
+
+        /* Presentation Module */
+        .presentation-stage {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #475569;
+            padding: 20px;
+        }
+
+        .slide-canvas {
+            width: 800px;
+            height: 450px;
+            background: white;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+            padding: 40px;
+            outline: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* PDF Viewer Module */
+        .pdf-viewer-area {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #94a3b8;
+        }
+
+        .pdf-placeholder {
+            text-align: center;
+            color: #475569;
+        }
+
+        /* Diagram Module */
+        .canvas-container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #cbd5e1;
+            overflow: auto;
+        }
+
+        #diagram-canvas {
+            background: #fff;
+            border: 2px dashed #94a3b8;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            cursor: crosshair;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-cubes"></i> <span>WebOffice Suite</span>
+            </div>
+            <nav class="nav-menu">
+                <button class="nav-item active" data-target="word"><i class="fa-solid fa-file-lines"></i> Word</button>
+                <button class="nav-item" data-target="spreadsheet"><i class="fa-solid fa-table"></i> Spreadsheet</button>
+                <button class="nav-item" data-target="presentation"><i class="fa-solid fa-file-powerpoint"></i> Presentation</button>
+                <button class="nav-item" data-target="pdf"><i class="fa-solid fa-file-pdf"></i> PDF Exporter</button>
+                <button class="nav-item" data-target="diagram"><i class="fa-solid fa-diagram-project"></i> Diagram</button>
+            </nav>
+            <div class="storage-status">
+                <button id="btn-save-global"><i class="fa-solid fa-floppy-disk"></i> Simpan Workspace</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            
+            <section id="mod-word" class="office-module active">
+                <div class="toolbar">
+                    <button onclick="document.execCommand('bold', false, '')" title="Bold"><i class="fa-solid fa-bold"></i></button>
+                    <button onclick="document.execCommand('italic', false, '')" title="Italic"><i class="fa-solid fa-italic"></i></button>
+                    <button onclick="document.execCommand('underline', false, '')" title="Underline"><i class="fa-solid fa-underline"></i></button>
+                    <select onchange="document.execCommand('fontSize', false, this.value)">
+                        <option value="3">Normal</option>
+                        <option value="5">Besar</option>
+                        <option value="7">Sangat Besar</option>
+                    </select>
+                </div>
+                <div class="editor-paper" contenteditable="true" id="word-editor">
+                    <h1>Dokumen Utama</h1>
+                    <p>Mulai ketik isi dokumen Word Anda di sini...</p>
+                </div>
+            </section>
+
+            <section id="mod-spreadsheet" class="office-module">
+                <div class="toolbar">
+                    <span class="info-text" style="margin-left: 0;">Gunakan rumus dasar seperti: <code>=SUM(A1:A5)</code></span>
+                </div>
+                <div class="spreadsheet-container" id="sheet-grid"></div>
+            </section>
+
+            <section id="mod-presentation" class="office-module">
+                <div class="toolbar">
+                    <button id="pres-add-slide"><i class="fa-solid fa-circle-plus"></i> Slide Baru</button>
+                    <button id="pres-prev"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="pres-slide-index">Slide 1 / 1</span>
+                    <button id="pres-next"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <div class="presentation-stage">
+                    <div class="slide-canvas" id="slide-canvas" contenteditable="true">
+                        <h1>Judul Presentasi</h1>
+                        <p>Klik di sini untuk mengedit subjudul presentasi Anda</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="mod-pdf" class="office-module">
+                <div class="toolbar">
+                    <button id="pdf-export-doc"><i class="fa-solid fa-file-pdf"></i> Cetak / Ekspor Word ke PDF</button>
+                </div>
+                <div class="pdf-viewer-area">
+                    <div class="pdf-placeholder">
+                        <i class="fa-solid fa-file-import fa-4x" style="color: #4f46e5; margin-bottom: 15px;"></i>
+                        <h3>Mesin Generator PDF Siap</h3>
+                        <p style="margin-top: 5px; color: #475569;">Klik tombol di toolbar atas untuk mengonversi isi modul Word Anda saat ini menjadi dokumen PDF.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="mod-diagram" class="office-module">
+                <div class="toolbar">
+                    <button id="diag-add-rect"><i class="fa-regular fa-square"></i> Tambah Kotak Process</button>
+                    <button id="diag-add-circle"><i class="fa-regular fa-circle"></i> Tambah Lingkaran Start/End</button>
+                    <button id="diag-clear"><i class="fa-solid fa-trash"></i> Bersihkan Canvas</button>
+                </div>
+                <div class="canvas-container">
+                    <canvas id="diagram-canvas" width="800" height="500"></canvas>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        // --- STORAGE ENGINE ---
+        const StorageEngine = {
+            save(key, data) {
+                localStorage.setItem(key, typeof data === 'object' ? JSON.stringify(data) : data);
+            },
+            load(key) {
+                const data = localStorage.getItem(key);
+                if (!data) return null;
+                try { return JSON.parse(data); } catch(e) { return data; }
+            }
+        };
+
+        // --- WORD SUB-SYSTEM ---
+        const WordEditor = {
+            el: null,
+            init() {
+                this.el = document.getElementById('word-editor');
+                const saved = StorageEngine.load('office_word');
+                if (saved) this.el.innerHTML = saved;
+            },
+            getData() { return this.el.innerHTML; }
+        };
+
+        // --- SPREADSHEET SUB-SYSTEM ---
+        const Spreadsheet = {
+            container: null,
+            rows: 15,
+            cols: 8,
+            init() {
+                this.container = document.getElementById('sheet-grid');
+                this.render();
+            },
+            render() {
+                let html = '<table class="sheet-table"><tr><th></th>';
+                for (let c = 0; c < this.cols; c++) {
+                    html += `<th>${String.fromCharCode(65 + c)}</th>`;
+                }
+                html += '</tr>';
+
+                for (let r = 1; r <= this.rows; r++) {
+                    html += `<tr><th>${r}</th>`;
+                    for (let c = 0; c < this.cols; c++) {
+                        const cellId = `${String.fromCharCode(65 + c)}${r}`;
+                        html += `<td><input type="text" id="cell-${cellId}" data-cell="${cellId}"></td>`;
+                    }
+                    html += '</tr>';
+                }
+                html += '</table>';
+                this.container.innerHTML = html;
+                this.bindEvents();
+                this.loadSavedData();
+            },
+            bindEvents() {
+                this.container.querySelectorAll('input').forEach(input => {
+                    input.addEventListener('focus', (e) => {
+                        if (e.target.dataset.formula) e.target.value = e.target.dataset.formula;
+                    });
+                    input.addEventListener('blur', (e) => {
+                        const val = e.target.value;
+                        if (val.startsWith('=')) {
+                            e.target.dataset.formula = val;
+                            e.target.value = this.evalFormula(val);
+                        } else {
+                            e.target.removeAttribute('data-formula');
+                        }
+                    });
+                });
+            },
+            evalFormula(formula) {
+                try {
+                    const clean = formula.toUpperCase().replace('=', '');
+                    if (clean.startsWith('SUM')) {
+                        const range = clean.match(/\(([^)]+)\)/)[1];
+                        const [start, end] = range.split(':');
+                        const colIndex = start.charCodeAt(0) - 65;
+                        const startRow = parseInt(start.substring(1));
+                        const endRow = parseInt(end.substring(1));
+                        
+                        let total = 0;
+                        for (let r = startRow; r <= endRow; r++) {
+                            const id = `cell-${String.fromCharCode(65 + colIndex)}${r}`;
+                            const cellEl = document.getElementById(id);
+                            total += cellEl ? (parseFloat(cellEl.value) || 0) : 0;
+                        }
+                        return total;
+                    }
+                    return "ERROR: Unknown";
+                } catch(e) { return "ERR!"; }
+            },
+            loadSavedData() {
+                const saved = StorageEngine.load('office_sheet');
+                if (saved) {
+                    Object.keys(saved).forEach(key => {
+                        const el = document.getElementById(`cell-${key}`);
+                        if (el) {
+                            if (saved[key].startsWith('=')) {
+                                el.dataset.formula = saved[key];
+                                el.value = this.evalFormula(saved[key]);
+                            } else {
+                                el.value = saved[key];
+                            }
+                        }
+                    });
+                }
+            },
+            getData() {
+                const data = {};
+                this.container.querySelectorAll('input').forEach(input => {
+                    const val = input.dataset.formula || input.value;
+                    if (val) data[input.dataset.cell] = val;
+                });
+                return data;
+            }
+        };
+
+        // --- PRESENTATION SUB-SYSTEM ---
+        const Presentation = {
+            canvas: null,
+            slides: ["<h1>Judul Presentasi</h1><p>Klik di sini untuk mengedit subjudul presentasi Anda</p>"],
+            idx: 0,
+            init() {
+                this.canvas = document.getElementById('slide-canvas');
+                document.getElementById('pres-add-slide').addEventListener('click', () => this.addSlide());
+                document.getElementById('pres-prev').addEventListener('click', () => this.nav(-1));
+                document.getElementById('pres-next').addEventListener('click', () => this.nav(1));
+                this.canvas.addEventListener('input', () => { this.slides[this.idx] = this.canvas.innerHTML; });
+                
+                const saved = StorageEngine.load('office_pres');
+                if (saved && saved.length > 0) this.slides = saved;
+                this.render();
+            },
+            addSlide() {
+                this.slides.push("<h1>Slide Baru</h1><p>Klik di sini untuk mengisi teks slide baru Anda</p>");
+                this.idx = this.slides.length - 1;
+                this.render();
+            },
+            nav(dir) {
+                this.idx = Math.max(0, Math.min(this.slides.length - 1, this.idx + dir));
+                this.render();
+            },
+            render() {
+                this.canvas.innerHTML = this.slides[this.idx];
+                document.getElementById('pres-slide-index').innerText = `Slide ${this.idx + 1} / ${this.slides.length}`;
+            },
+            getData() { return this.slides; }
+        };
+
+        // --- PDF ENGINE ---
+        const PDFEngine = {
+            init() {
+                document.getElementById('pdf-export-doc').addEventListener('click', () => {
+                    const content = WordEditor.getData();
+                    const printWindow = window.open('', '_blank');
+                    printWindow.document.write(`
+                        <html>
+                        <head><title>Ekspor Cetak PDF</title></head>
+                        <body style="padding:40px; font-family:sans-serif;" onload="window.print(); window.close();">
+                            ${content}
+                        </body>
+                        </html>
+                    `);
+                    printWindow.document.close();
+                });
+            }
+        };
+
+        // --- DIAGRAM ENGINE (CANVAS 2D) ---
+        const DiagramEditor = {
+            canvas: null,
+            ctx: null,
+            shapes: [],
+            init() {
+                this.canvas = document.getElementById('diagram-canvas');
+                this.ctx = this.canvas.getContext('2d');
+                document.getElementById('diag-add-rect').addEventListener('click', () => this.add('rect'));
+                document.getElementById('diag-add-circle').addEventListener('click', () => this.add('circle'));
+                document.getElementById('diag-clear').addEventListener('click', () => this.clear());
+                
+                const saved = StorageEngine.load('office_diag');
+                if (saved) { this.shapes = saved; this.draw(); }
+            },
+            add(type) {
+                this.shapes.push({
+                    type,
+                    x: Math.random() * 500 + 50,
+                    y: Math.random() * 300 + 50,
+                    w: 140, h: 60,
+                    color: type === 'rect' ? '#4f46e5' : '#10b981'
+                });
+                this.draw();
+            },
+            draw() {
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                this.shapes.forEach(s => {
+                    this.ctx.fillStyle = s.color;
+                    if (s.type === 'rect') {
+                        this.ctx.fillRect(s.x, s.y, s.w, s.h);
+                    } else {
+                        this.ctx.beginPath();
+                        this.ctx.arc(s.x + 70, s.y + 30, 40, 0, 2 * Math.PI);
+                        this.ctx.fill();
+                    }
+                });
+            },
+            clear() { this.shapes = []; this.draw(); },
+            getData() { return this.shapes; }
+        };
+
+        // --- CORE APPLICATION ROUTER & DRIVER ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Router Navigasi Modul
+            const navItems = document.querySelectorAll('.nav-item');
+            const modules = document.querySelectorAll('.office-module');
+
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    navItems.forEach(n => n.classList.remove('active'));
+                    modules.forEach(m => m.classList.remove('active'));
+
+                    item.classList.add('active');
+                    document.getElementById(`mod-${item.dataset.target}`).classList.add('active');
+                });
+            });
+
+            // Jalankan seluruh modul secara simultan
+            WordEditor.init();
+            Spreadsheet.init();
+            Presentation.init();
+            PDFEngine.init();
+            DiagramEditor.init();
+
+            // Mekanisme Global Auto-Save ke Browser LocalStorage
+            document.getElementById('btn-save-global').addEventListener('click', () => {
+                StorageEngine.save('office_word', WordEditor.getData());
+                StorageEngine.save('office_sheet', Spreadsheet.getData());
+                StorageEngine.save('office_pres', Presentation.getData());
+                StorageEngine.save('office_diag', DiagramEditor.getData());
+                alert('Seluruh berkas workspace berhasil disimpan secara lokal!');
+            });
+        });
+    </script>
+</body>
+</html>
