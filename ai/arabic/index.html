@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Arabic MS Word Clone</title>
+<meta name="ezoic-site-verification" content="xlAEVSfKBUnB18TgIfiiCVhWbGKmRu" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9308517202792186"
+     crossorigin="anonymous"></script>
+   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9176187708210895"
+     crossorigin="anonymous"></script>
+     <meta name="google-adsense-account" content="ca-pub-9176187708210895">
+     <script async custom-element="amp-auto-ads"
+     src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+     </script>
+<link rel="icon" type="image/png" href="/favicon.png"/>
+<link rel="icon" type="image/png" href="/favicon.ico"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- TinyMCE -->
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js"></script>
+
+<!-- Simple Keyboard -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/css/index.css">
+<script src="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/index.js"></script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Amiri&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+font-family:Cairo,sans-serif;
+background:#e5e7eb;
+height:100vh;
+overflow:hidden;
+}
+
+/* Ribbon */
+.ribbon{
+background:#107c41;
+color:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px;
+flex-wrap:wrap;
+}
+
+.ribbon button{
+margin:3px;
+padding:6px 10px;
+border-radius:6px;
+background:rgba(255,255,255,.2);
+font-size:13px;
+}
+
+/* Word A4 Page */
+.word-workspace{
+height:calc(100vh - 120px);
+overflow:auto;
+padding:20px;
+}
+
+.word-page{
+width:794px;
+min-height:1123px;
+background:white;
+margin:auto;
+padding:80px;
+box-shadow:0 0 20px rgba(0,0,0,.2);
+}
+
+/* Mobile */
+@media(max-width:900px){
+.word-page{
+width:100%;
+padding:20px;
+min-height:auto;
+}
+}
+
+/* Keyboard */
+.simple-keyboard{
+max-width:100%;
+margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="ribbon">
+
+<div><b>MS Word Arabic Editor</b></div>
+
+<div>
+<button onclick="triggerOpenFile()">Open</button>
+<button onclick="downloadHTML()">HTML</button>
+<button onclick="downloadDOC()">DOC</button>
+<button onclick="shareURL()">Share</button>
+<button onclick="printDoc()">Print</button>
+</div>
+
+</div>
+
+<!-- RIBBON MENU -->
+<div class="bg-white flex overflow-x-auto border-b text-sm">
+<button class="px-4 py-2 border-b-2 border-green-600">Home</button>
+<button class="px-4 py-2">Insert</button>
+<button class="px-4 py-2">Layout</button>
+<button class="px-4 py-2">Review</button>
+<button class="px-4 py-2">View</button>
+</div>
+
+<input type="file" id="fileInput" class="hidden" onchange="openFile(event)">
+
+<!-- EDITOR -->
+<div class="word-workspace">
+
+<div class="word-page">
+
+<textarea id="editor"></textarea>
+
+</div>
+
+<!-- KEYBOARD -->
+<div id="keyboard" class="simple-keyboard hidden"></div>
+
+</div>
+
+<script>
+
+let editorInstance;
+let keyboard;
+let shift=false;
+
+/* INIT TINYMCE */
+tinymce.init({
+selector:"#editor",
+height:900,
+menubar:true,
+branding:false,
+directionality:"rtl",
+toolbar_mode:"sliding",
+plugins:"lists table code preview wordcount fullscreen",
+toolbar:[
+"undo redo | fontfamily fontsize",
+"bold italic underline | forecolor backcolor",
+"alignleft aligncenter alignright alignjustify",
+"bullist numlist | table | removeformat | fullscreen"
+].join(" | "),
+
+content_style:`
+body{
+direction:rtl;
+font-family:Cairo;
+font-size:16px;
+line-height:1.8;
+margin:0;
+padding:0;
+}
+`,
+
+setup:(ed)=>{
+editorInstance=ed;
+
+ed.on("init",()=>{
+let saved=localStorage.getItem("doc");
+if(saved) ed.setContent(saved);
+loadShared();
+});
+}
+});
+
+/* AUTOSAVE */
+setInterval(()=>{
+if(editorInstance){
+localStorage.setItem("doc",editorInstance.getContent());
+}
+},3000);
+
+/* KEYBOARD */
+document.addEventListener("DOMContentLoaded",()=>{
+
+keyboard=new SimpleKeyboard.default({
+onKeyPress:onKey,
+layout:{
+default:[
+"ض ص ث ق ف غ ع ه خ ح ج",
+"ش س ي ب ل ا ت ن م ك ط",
+"{shift} ئ ء ؤ ر لا ى ة و ز ظ",
+"{bksp} {space}"
+],
+shift:[
+"َ ً ُ ٌ ِ ٍ ْ",
+"أ إ آ ة",
+"{shift} {bksp} {space}"
+]
+}
+});
+
+});
+
+function onKey(btn){
+
+if(!editorInstance)return;
+
+if(btn==="{bksp}"){
+editorInstance.execCommand("Delete");
+
+}else if(btn==="{space}"){
+
+editorInstance.execCommand("mceInsertContent",false," ");
+
+}else if(btn==="{shift}"){
+
+shift=!shift;
+keyboard.setOptions({layoutName:shift?"shift":"default"});
+
+}else{
+
+editorInstance.execCommand("mceInsertContent",false,btn);
+
+}
+
+}
+
+/* FILE */
+function triggerOpenFile(){
+document.getElementById("fileInput").click();
+}
+
+function openFile(e){
+let file=e.target.files[0];
+let r=new FileReader();
+r.onload=ev=>{
+editorInstance.setContent(ev.target.result);
+}
+r.readAsText(file);
+}
+
+/* EXPORT HTML */
+function downloadHTML(){
+let blob=new Blob([editorInstance.getContent()],{type:"text/html"});
+let a=document.createElement("a");
+a.href=URL.createObjectURL(blob);
+a.download="doc.html";
+a.click();
+}
+
+/* EXPORT DOC */
+function downloadDOC(){
+
+let html=`
+<html xmlns:o='urn:schemas-microsoft-com:office:office'
+xmlns:w='urn:schemas-microsoft-com:office:word'
+xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+<meta charset="utf-8">
+<style>
+body{direction:rtl;font-family:Cairo;padding:50px;}
+</style>
+</head>
+<body>
+${editorInstance.getContent()}
+</body>
+</html>`;
+
+let blob=new Blob(['\ufeff'+html],{type:"application/msword"});
+let a=document.createElement("a");
+a.href=URL.createObjectURL(blob);
+a.download="doc.doc";
+a.click();
+
+}
+
+/* SHARE */
+function shareURL(){
+
+let data=btoa(unescape(encodeURIComponent(editorInstance.getContent())));
+
+let url=location.href+"?data="+data;
+
+navigator.clipboard.writeText(url);
+
+alert("Copied!");
+
+}
+
+function loadShared(){
+let p=new URLSearchParams(location.search);
+let d=p.get("data");
+if(d){
+editorInstance.setContent(decodeURIComponent(escape(atob(d))));
+}
+}
+
+/* PRINT */
+function printDoc(){
+window.print();
+}
+
+</script>
+
+</body>
+</html>
