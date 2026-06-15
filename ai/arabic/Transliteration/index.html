@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>Arabic Transliteration Editor (Yamli Clone)</title>
+
+<style>
+body{
+font-family:Arial;
+background:#e5e7eb;
+display:flex;
+justify-content:center;
+padding:30px;
+}
+
+.container{
+width:800px;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 15px rgba(0,0,0,0.2);
+}
+
+textarea{
+width:100%;
+height:200px;
+font-size:18px;
+padding:10px;
+direction:ltr;
+}
+
+.output{
+min-height:120px;
+border:1px solid #ccc;
+padding:10px;
+font-size:22px;
+direction:rtl;
+margin-top:10px;
+}
+
+.suggest{
+margin-top:10px;
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+}
+
+.suggest button{
+padding:6px 10px;
+border:1px solid #ccc;
+background:#f3f4f6;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Arabic Transliteration (Yamli Style Offline)</h2>
+
+<textarea id="input" placeholder="Type like: marhaban, salam, kitab..."></textarea>
+
+<div class="output" id="output"></div>
+
+<div class="suggest" id="suggest"></div>
+
+</div>
+
+<script>
+
+/* SIMPLE DICTIONARY (offline core) */
+const dict = {
+"marhaban":"مرحبا",
+"salam":"سلام",
+"assalam":"السلام",
+"kitab":"كتاب",
+"qalam":"قلم",
+"bint":"بنت",
+"rajul":"رجل",
+"madrasa":"مدرسة",
+"arab":"عرب",
+"allah":"الله"
+};
+
+/* TRANSLITERATION RULES (basic Yamli-like fallback) */
+function transliterate(word){
+
+word = word.toLowerCase();
+
+/* direct match first */
+if(dict[word]) return dict[word];
+
+/* fallback phonetic rules */
+return word
+.replace(/aa/g,"ا")
+.replace(/kh/g,"خ")
+.replace(/sh/g,"ش")
+.replace(/th/g,"ث")
+.replace(/dh/g,"ذ")
+.replace(/gh/g,"غ")
+.replace(/a/g,"ا")
+.replace(/b/g,"ب")
+.replace(/t/g,"ت")
+.replace(/j/g,"ج")
+.replace(/h/g,"ه")
+.replace(/d/g,"د")
+.replace(/r/g,"ر")
+.replace(/z/g,"ز")
+.replace(/s/g,"س")
+.replace(/k/g,"ك")
+.replace(/l/g,"ل")
+.replace(/m/g,"م")
+.replace(/n/g,"ن")
+.replace(/w/g,"و")
+.replace(/y/g,"ي");
+}
+
+/* SUGGESTION ENGINE */
+function getSuggestions(word){
+return Object.keys(dict)
+.filter(k=>k.startsWith(word.toLowerCase()))
+.map(k=>dict[k]);
+}
+
+/* MAIN INPUT */
+const input=document.getElementById("input");
+const output=document.getElementById("output");
+const suggest=document.getElementById("suggest");
+
+input.addEventListener("input",()=>{
+
+let words=input.value.split(" ");
+
+let result=words.map(w=>transliterate(w)).join(" ");
+
+output.innerText=result;
+
+/* suggestions */
+let last=words[words.length-1];
+let s=getSuggestions(last);
+
+suggest.innerHTML="";
+
+s.forEach(item=>{
+let btn=document.createElement("button");
+btn.innerText=item;
+btn.onclick=()=>{
+output.innerText+= " " + item;
+};
+suggest.appendChild(btn);
+});
+
+});
+
+</script>
+
+</body>
+</html>
