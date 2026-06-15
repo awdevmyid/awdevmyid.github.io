@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Logo Generator Keren</title>
+   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6718454554209533"
+     crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="https://awdev.my.id/assets/img/logo.png">
+    <link rel="manifest" href="manifest.json">
+<meta name="ezoic-site-verification" content="xlAEVSfKBUnB18TgIfiiCVhWbGKmRu" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9308517202792186"
+     crossorigin="anonymous"></script>
+   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9176187708210895"
+     crossorigin="anonymous"></script>
+     <meta name="google-adsense-account" content="ca-pub-9176187708210895">
+     <script async custom-element="amp-auto-ads"
+     src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+     </script>
+<link rel="icon" type="image/png" href="/favicon.png"/>
+
+  
+  <meta name="theme-color" content="#0078d4">
+<style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #2563eb;
+            --accent-hover: #3b82f6;
+            --text: #f8fafc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            background-color: #0f172a;
+            color: white;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--accent);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background-color: var(--accent-hover);
+        }
+
+        button:disabled {
+            background-color: #475569;
+            cursor: not-allowed;
+        }
+
+        .result-box {
+            margin-top: 25px;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #0f172a;
+            min-height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border: 2px dashed #334155;
+        }
+
+        #logo-image {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+
+        .loader {
+            display: none;
+            border: 4px solid #334155;
+            border-top: 4px solid var(--accent);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #download-btn {
+            margin-top: 15px;
+            background-color: #10b981;
+            display: none;
+        }
+
+        #download-btn:hover {
+            background-color: #059669;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>AI Logo Generator</h1>
+        
+        <div class="input-group">
+            <label for="prompt">Nama Bisnis / Konsep Logo</label>
+            <input type="text" id="prompt" placeholder="Contoh: Coffee Shop, Cyber Security Tech">
+        </div>
+
+        <div class="input-group">
+            <label for="style">Gaya Desain Logo</label>
+            <select id="style">
+                <option value="minimalist vector logo, flat design, white background">Minimalis / Flat</option>
+                <option value="futuristic cyberpunk logo, neon glowing, dark background">Cyberpunk / Futuristik</option>
+                <option value="luxury gold logo, elegant typography, premium, black background">Mewah / Elegan</option>
+                <option value="mascot gaming logo, e-sports style, vibrant colors">Maskot Gaming / Esport</option>
+                <option value="vintage retro logo, classic emblem, badge design">Vintage / Retro</option>
+            </select>
+        </div>
+
+        <button id="generate-btn">Buat Logo Sekarang</button>
+
+        <div class="result-box">
+            <div class="loader" id="loader"></div>
+            <span id="placeholder-text" style="color: #475569;">Logo Anda akan muncul di sini</span>
+            <img id="logo-image" alt="Logo Hasil AI">
+        </div>
+
+        <button id="download-btn">Unduh Logo (PNG)</button>
+    </div>
+
+    <script>
+        const promptInput = document.getElementById('prompt');
+        const styleSelect = document.getElementById('style');
+        const generateBtn = document.getElementById('generate-btn');
+        const downloadBtn = document.getElementById('download-btn');
+        const logoImage = document.getElementById('logo-image');
+        const loader = document.getElementById('loader');
+        const placeholderText = document.getElementById('placeholder-text');
+
+        generateBtn.addEventListener('click', async () => {
+            const promptText = promptInput.value.trim();
+            if (!promptText) {
+                alert('Silakan masukkan nama atau konsep logo terlebih dahulu!');
+                return;
+            }
+
+            // Atur status UI saat loading
+            generateBtn.disabled = true;
+            generateBtn.innerText = 'Sedang Merancang...';
+            loader.style.display = 'block';
+            placeholderText.style.display = 'none';
+            logoImage.style.display = 'none';
+            downloadBtn.style.display = 'none';
+
+            // Gabungkan konsep user dengan gaya yang dipilih agar hasilnya fokus ke logo
+            const fullPrompt = encodeURIComponent(`professional logo for ${promptText}, ${styleSelect.value}, sharp details, 4k`);
+            const seed = Math.floor(Math.random() * 100000); // Agar hasil selalu unik tiap klik
+            const imageUrl = `https://pollinations.ai{fullPrompt}?width=512&height=512&seed=${seed}&nologo=true`;
+
+            // Validasi gambar dengan memuatnya ke memori terlebih dahulu
+            const img = new Image();
+            img.src = imageUrl;
+            img.onload = () => {
+                logoImage.src = imageUrl;
+                logoImage.style.display = 'block';
+                loader.style.display = 'none';
+                downloadBtn.style.display = 'block';
+                
+                generateBtn.disabled = false;
+                generateBtn.innerText = 'Buat Logo Sekarang';
+            };
+
+            img.onerror = () => {
+                alert('Gagal membuat logo. Silakan coba lagi.');
+                generateBtn.disabled = false;
+                generateBtn.innerText = 'Buat Logo Sekarang';
+                loader.style.display = 'none';
+                placeholderText.style.display = 'block';
+            };
+        });
+
+        // Fungsi untuk mengunduh gambar hasil AI
+        downloadBtn.addEventListener('click', async () => {
+            try {
+                const response = await fetch(logoImage.src);
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `logo-${Date.now()}.png`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+            } catch (error) {
+                alert('Gagal mengunduh gambar secara langsung. Silakan klik kanan pada gambar dan pilih "Simpan Gambar".');
+            }
+        });
+    </script>
+</body>
+</html>
