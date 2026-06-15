@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word 365 Lite</title>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9308517202792186"
+     crossorigin="anonymous"></script>
+   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9176187708210895"
+     crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="k_p5qv-UQtNSyHHGKcGrnWigY5k1B9jxaCqjRlz5-BA" />
+<meta content='ca-pub-5407249785989200' name='google-adsense-account'/>
+   <script async='async' crossorigin='anonymous' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5407249785989200'/>
+<meta content='QT96Rd0InOuqkb4s1Wu5BlgGD_pCNOy8CsCtveF1zEA' name='google-site-verification'/>
+<meta content='ca-pub-6718454554209533' name='google-adsense-account'/>
+  <script async='async' crossorigin='anonymous' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6718454554209533'/>
+   <script async='async' crossorigin='anonymous' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8503937381422956'/>
+    <script async custom-element="amp-auto-ads"
+     src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+     </script>
+<link rel="icon" type="image/png" href="/favicon.png"/>
+
+<style>
+body{
+margin:0;
+font-family:Segoe UI, Arial;
+background:#d0d7de;
+display:flex;
+height:100vh;
+overflow:hidden;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar{
+width:220px;
+background:#111827;
+color:white;
+display:flex;
+flex-direction:column;
+padding:10px;
+gap:10px;
+}
+
+.sidebar h3{
+margin:5px 0;
+font-size:14px;
+}
+
+.file{
+padding:8px;
+background:#1f2937;
+border-radius:6px;
+cursor:pointer;
+font-size:13px;
+}
+
+/* ===== MAIN ===== */
+.main{
+flex:1;
+display:flex;
+flex-direction:column;
+}
+
+/* ===== RIBBON ===== */
+.ribbon{
+background:#107c41;
+color:white;
+display:flex;
+flex-direction:column;
+}
+
+.tabs{
+display:flex;
+gap:10px;
+padding:6px 10px;
+font-size:13px;
+}
+
+.tabs div{
+cursor:pointer;
+padding:6px 10px;
+border-radius:5px;
+background:rgba(255,255,255,0.15);
+}
+
+.toolbar{
+display:flex;
+flex-wrap:wrap;
+gap:5px;
+padding:6px;
+background:#0f6c3a;
+}
+
+.toolbar button, .toolbar select{
+padding:6px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+/* ===== CANVAS ===== */
+.canvas{
+flex:1;
+overflow:auto;
+background:#e5e7eb;
+padding:20px;
+display:flex;
+justify-content:center;
+}
+
+.page{
+width:800px;
+min-height:1100px;
+background:white;
+padding:80px;
+box-shadow:0 0 20px rgba(0,0,0,0.2);
+outline:none;
+direction:ltr;
+font-size:16px;
+line-height:1.8;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:900px){
+.sidebar{display:none;}
+.page{width:100%;padding:30px;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== SIDEBAR ===== -->
+<div class="sidebar">
+<h3>📁 Files</h3>
+<div class="file">Document 1</div>
+<div class="file">Report</div>
+<div class="file">Arabic Letter</div>
+</div>
+
+<!-- ===== MAIN ===== -->
+<div class="main">
+
+<!-- ===== RIBBON ===== -->
+<div class="ribbon">
+
+<!-- TABS -->
+<div class="tabs">
+<div onclick="setTab('home')">Home</div>
+<div onclick="setTab('insert')">Insert</div>
+<div onclick="setTab('layout')">Layout</div>
+<div onclick="setTab('review')">Review</div>
+<div onclick="setTab('view')">View</div>
+</div>
+
+<!-- TOOLBAR -->
+<div class="toolbar" id="toolbar">
+
+<!-- default HOME -->
+<select onchange="changeFont(this.value)">
+<option>Arial</option>
+<option>Tahoma</option>
+<option>Times New Roman</option>
+<option>Naskh</option>
+<option>Diwani</option>
+<option>Kufi</option>
+<option>Thuluth</option>
+</select>
+
+<button onclick="cmd('bold')"><b>B</b></button>
+<button onclick="cmd('italic')"><i>I</i></button>
+<button onclick="cmd('underline')"><u>U</u></button>
+
+<button onclick="cmd('justifyRight')">➡</button>
+<button onclick="cmd('justifyCenter')">⬌</button>
+<button onclick="cmd('justifyLeft')">⬅</button>
+
+</div>
+
+</div>
+
+<!-- ===== CANVAS ===== -->
+<div class="canvas">
+
+<div class="page" contenteditable="true" id="page">
+ابدأ الكتابة هنا... Word 365 Clone UI
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let page=document.getElementById("page");
+
+/* ===== COMMANDS ===== */
+function cmd(c){
+document.execCommand(c,false,null);
+}
+
+/* FONT */
+function changeFont(f){
+document.execCommand("fontName",false,f);
+}
+
+/* ===== RIBBON TABS ===== */
+function setTab(tab){
+let bar=document.getElementById("toolbar");
+
+if(tab==="home"){
+bar.innerHTML=`
+<select onchange="changeFont(this.value)">
+<option>Arial</option>
+<option>Tahoma</option>
+<option>Naskh</option>
+<option>Diwani</option>
+<option>Kufi</option>
+<option>Thuluth</option>
+</select>
+<button onclick="cmd('bold')"><b>B</b></button>
+<button onclick="cmd('italic')"><i>I</i></button>
+<button onclick="cmd('underline')"><u>U</u></button>
+<button onclick="cmd('justifyRight')">➡</button>
+<button onclick="cmd('justifyCenter')">⬌</button>
+<button onclick="cmd('justifyLeft')">⬅</button>
+`;
+}
+
+if(tab==="insert"){
+bar.innerHTML=`
+<button onclick="insertImage()">🖼 Image</button>
+<button onclick="insertTable()">📊 Table</button>
+<button onclick="insertFile()">📎 File</button>
+`;
+}
+
+if(tab==="layout"){
+bar.innerHTML=`
+<button onclick="alert('Margins feature soon')">Margins</button>
+<button onclick="alert('Orientation feature soon')">Orientation</button>
+`;
+}
+
+if(tab==="review"){
+bar.innerHTML=`
+<button onclick="cmd('undo')">Undo</button>
+<button onclick="cmd('redo')">Redo</button>
+`;
+}
+
+if(tab==="view"){
+bar.innerHTML=`
+<button onclick="document.body.classList.toggle('dark')">Dark Mode</button>
+`;
+}
+}
+
+/* ===== INSERT IMAGE ===== */
+function insertImage(){
+let i=document.createElement("input");
+i.type="file";
+i.accept="image/*";
+i.onchange=e=>{
+let file=e.target.files[0];
+let r=new FileReader();
+r.onload=ev=>{
+page.innerHTML += `<img src="${ev.target.result}" style="max-width:100%">`;
+};
+r.readAsDataURL(file);
+};
+i.click();
+}
+
+/* ===== TABLE ===== */
+function insertTable(){
+page.innerHTML += `
+<table border="1" style="width:100%;border-collapse:collapse">
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+</table>`;
+}
+
+/* FILE */
+function insertFile(){
+let i=document.createElement("input");
+i.type="file";
+i.onchange=e=>{
+page.innerHTML += `<p>📎 ${e.target.files[0].name}</p>`;
+};
+i.click();
+}
+
+</script>
+
+</body>
+</html>
