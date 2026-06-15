@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Pro Max Offline</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:#cfd4dc;
+overflow:hidden;
+}
+
+/* TOP BAR */
+.topbar{
+background:#107c41;
+color:#fff;
+display:flex;
+flex-wrap:wrap;
+justify-content:space-between;
+align-items:center;
+padding:8px;
+}
+
+.topbar button{
+margin:3px;
+padding:6px 10px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+background:rgba(255,255,255,0.2);
+color:white;
+}
+
+/* TOOLBAR */
+.toolbar{
+background:#fff;
+display:flex;
+flex-wrap:wrap;
+gap:5px;
+padding:6px;
+border-bottom:1px solid #ccc;
+}
+
+.toolbar button, .toolbar input{
+padding:5px;
+border:1px solid #ccc;
+border-radius:5px;
+font-size:13px;
+}
+
+/* WORKSPACE */
+.workspace{
+height:calc(100vh - 120px);
+overflow:auto;
+background:#e5e7eb;
+padding:20px;
+}
+
+/* PAGE */
+.page{
+width:794px;
+min-height:1123px;
+background:white;
+margin:20px auto;
+padding:80px;
+box-shadow:0 0 20px rgba(0,0,0,0.2);
+outline:none;
+direction:rtl;
+font-size:16px;
+line-height:1.8;
+position:relative;
+}
+
+/* HEADER FOOTER */
+.header,.footer{
+position:absolute;
+left:0;
+right:0;
+padding:5px 10px;
+font-size:12px;
+color:#666;
+}
+
+.header{top:0;border-bottom:1px solid #ddd;}
+.footer{bottom:0;border-top:1px solid #ddd;text-align:center;}
+
+/* PAGE NUMBER */
+.pagenum{
+position:absolute;
+bottom:5px;
+left:10px;
+font-size:12px;
+color:#444;
+}
+
+/* TABLE */
+table,td,th{
+border:1px solid #000;
+border-collapse:collapse;
+padding:5px;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+.page{
+width:100%;
+padding:20px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+
+<div><b>Word Pro Max Offline</b></div>
+
+<div>
+<button onclick="saveDoc()">Save</button>
+<button onclick="exportDOC()">DOC</button>
+<button onclick="printDoc()">Print</button>
+<button onclick="zoomIn()">+</button>
+<button onclick="zoomOut()">-</button>
+</div>
+
+</div>
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+
+<button onclick="cmd('bold')"><b>B</b></button>
+<button onclick="cmd('italic')"><i>I</i></button>
+<button onclick="cmd('underline')"><u>U</u></button>
+
+<button onclick="cmd('justifyRight')">➡</button>
+<button onclick="cmd('justifyCenter')">⬌</button>
+<button onclick="cmd('justifyLeft')">⬅</button>
+
+<button onclick="cmd('insertUnorderedList')">•</button>
+
+<button onclick="insertTable()">Table</button>
+<button onclick="insertImage()">Image</button>
+
+<button onclick="findText()">Find</button>
+<button onclick="replaceText()">Replace</button>
+
+</div>
+
+<!-- WORKSPACE -->
+<div class="workspace" id="workspace">
+
+<div class="page" contenteditable="true" oninput="updatePages()" id="page">
+
+<div class="header">Header</div>
+
+<p>ابدأ الكتابة هنا...</p>
+
+<div class="footer">Footer</div>
+<div class="pagenum">1</div>
+
+</div>
+
+</div>
+
+<script>
+
+let zoom=100;
+
+/* EXEC */
+function cmd(c){
+document.execCommand(c,false,null);
+}
+
+/* FIND */
+function findText(){
+let f=prompt("Find:");
+if(!f) return;
+window.find(f);
+}
+
+/* REPLACE */
+function replaceText(){
+let f=prompt("Find:");
+let r=prompt("Replace:");
+if(!f||!r) return;
+page.innerHTML=page.innerHTML.split(f).join(r);
+}
+
+/* TABLE */
+function insertTable(){
+page.innerHTML+=`
+<table>
+<tr><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td></tr>
+</table>`;
+}
+
+/* IMAGE */
+function insertImage(){
+let i=document.createElement("input");
+i.type="file";
+i.accept="image/*";
+i.onchange=e=>{
+let file=e.target.files[0];
+let r=new FileReader();
+r.onload=ev=>{
+page.innerHTML+=`<img src="${ev.target.result}" style="max-width:100%">`;
+};
+r.readAsDataURL(file);
+};
+i.click();
+}
+
+/* ZOOM */
+function zoomIn(){
+zoom+=10;
+document.body.style.transform=`scale(${zoom/100})`;
+document.body.style.transformOrigin="top";
+}
+
+function zoomOut(){
+zoom-=10;
+document.body.style.transform=`scale(${zoom/100})`;
+}
+
+/* PAGE BREAK (CTRL+ENTER) */
+document.addEventListener("keydown",e=>{
+if(e.ctrlKey && e.key==="Enter"){
+page.innerHTML+=`<div style="page-break-after:always"></div>`;
+}
+});
+
+/* PAGE NUM UPDATE */
+function updatePages(){
+let pages=document.querySelectorAll(".page");
+pages.forEach((p,i)=>{
+let n=p.querySelector(".pagenum");
+if(n) n.innerText=i+1;
+});
+}
+
+/* SAVE */
+function saveDoc(){
+localStorage.setItem("wordmax",document.getElementById("workspace").innerHTML);
+alert("Saved");
+}
+
+/* LOAD */
+window.onload=()=>{
+let d=localStorage.getItem("wordmax");
+if(d) document.getElementById("workspace").innerHTML=d;
+}
+
+/* EXPORT DOC */
+function exportDOC(){
+let html=`
+<html xmlns:o='urn:schemas-microsoft-com:office:office'
+xmlns:w='urn:schemas-microsoft-com:office:word'
+xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+<meta charset="utf-8">
+</head>
+<body style="direction:rtl;font-family:Arial;">
+${document.getElementById("workspace").innerHTML}
+</body>
+</html>`;
+
+let blob=new Blob(['\ufeff'+html],{type:"application/msword"});
+let a=document.createElement("a");
+a.href=URL.createObjectURL(blob);
+a.download="WordProMax.doc";
+a.click();
+}
+
+/* PRINT */
+function printDoc(){
+window.print();
+}
+
+</script>
+
+</body>
+</html>
