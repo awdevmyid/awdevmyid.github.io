@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word 365 AI Keyboard Advanced</title>
+<meta name="ezoic-site-verification" content="xlAEVSfKBUnB18TgIfiiCVhWbGKmRu" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9308517202792186"
+     crossorigin="anonymous"></script>
+   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9176187708210895"
+     crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="k_p5qv-UQtNSyHHGKcGrnWigY5k1B9jxaCqjRlz5-BA" />
+<meta content='ca-pub-5407249785989200' name='google-adsense-account'/>
+   <script async='async' crossorigin='anonymous' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5407249785989200'/>
+<meta content='QT96Rd0InOuqkb4s1Wu5BlgGD_pCNOy8CsCtveF1zEA' name='google-site-verification'/>
+<meta content='ca-pub-6718454554209533' name='google-adsense-account'/>
+  <script async='async' crossorigin='anonymous' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6718454554209533'/>
+   <script async='async' crossorigin='anonymous' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8503937381422956'/>
+    <script async custom-element="amp-auto-ads"
+     src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+     </script>
+<link rel="icon" type="image/png" href="/favicon.png"/>
+
+<style>
+body{
+margin:0;
+font-family:Segoe UI;
+background:#d0d7de;
+overflow:hidden;
+}
+
+/* ===== RIBBON SIMPLE ===== */
+.ribbon{
+background:#107c41;
+color:white;
+padding:6px;
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+}
+
+/* ===== EDITOR ===== */
+.editor{
+height:calc(100vh - 50px);
+overflow:auto;
+padding:20px;
+background:#e5e7eb;
+}
+
+.page{
+width:800px;
+min-height:1100px;
+background:white;
+margin:auto;
+padding:60px;
+outline:none;
+font-size:16px;
+line-height:1.8;
+}
+
+/* ===== KEYBOARD ===== */
+.keyboard{
+position:fixed;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+width:600px;
+max-width:95%;
+background:#111827;
+color:white;
+border-radius:12px;
+padding:10px;
+z-index:9999;
+box-shadow:0 10px 40px rgba(0,0,0,0.5);
+resize:both;
+overflow:auto;
+min-width:260px;
+min-height:160px;
+}
+
+/* drag bar */
+.kbar{
+cursor:move;
+background:#1f2937;
+padding:5px;
+display:flex;
+justify-content:space-between;
+font-size:12px;
+}
+
+/* keys */
+.keys{
+display:flex;
+flex-wrap:wrap;
+gap:5px;
+margin-top:8px;
+}
+
+.key{
+padding:8px 10px;
+background:#374151;
+border-radius:6px;
+cursor:pointer;
+user-select:none;
+font-size:13px;
+}
+
+.key:hover{background:#4b5563}
+
+/* harakat */
+.harakat{
+display:flex;
+gap:5px;
+margin-top:5px;
+flex-wrap:wrap;
+}
+
+.small{
+font-size:11px;
+padding:5px;
+background:#2563eb;
+}
+
+/* suggestion */
+.suggest{
+display:flex;
+gap:5px;
+flex-wrap:wrap;
+margin-top:6px;
+}
+
+.sug{
+background:#0ea5e9;
+padding:5px;
+border-radius:5px;
+cursor:pointer;
+font-size:12px;
+}
+
+/* hidden */
+.hidden{display:none;}
+</style>
+</head>
+
+<body>
+
+<!-- ===== RIBBON ===== -->
+<div class="ribbon">
+<button onclick="toggleKeyboard()">⌨ Keyboard</button>
+<button onclick="startVoice()">🎤 Voice</button>
+<button onclick="copyText()">📋 Copy</button>
+<button onclick="pasteText()">📥 Paste</button>
+</div>
+
+<!-- ===== EDITOR ===== -->
+<div class="editor">
+<div class="page" contenteditable="true" id="page">
+ابدأ الكتابة هنا...
+</div>
+</div>
+
+<!-- ===== KEYBOARD ===== -->
+<div id="keyboard" class="keyboard hidden">
+
+<div class="kbar" id="dragbar">
+<span>Virtual Keyboard</span>
+<button onclick="toggleKeyboard()">✖</button>
+</div>
+
+<!-- suggestions -->
+<div id="suggest" class="suggest"></div>
+
+<!-- keys -->
+<div id="keys" class="keys"></div>
+
+<!-- harakat -->
+<div class="harakat">
+<div class="key small" onclick="insert('َ')">َ</div>
+<div class="key small" onclick="insert('ِ')">ِ</div>
+<div class="key small" onclick="insert('ُ')">ُ</div>
+<div class="key small" onclick="insert('ّ')">ّ</div>
+<div class="key small" onclick="insert('ْ')">ْ</div>
+</div>
+
+</div>
+
+<script>
+
+let page=document.getElementById("page");
+let keyboard=document.getElementById("keyboard");
+
+/* ===== BASIC KEYSETS ===== */
+let latin=["Q","W","E","R","T","Y","U","I","O","P",
+"A","S","D","F","G","H","J","K","L",
+"Z","X","C","V","B","N","M","Space","Back"];
+
+let arabic=["ض","ص","ث","ق","ف","غ","ع","ه","خ","ح","ج",
+"ش","س","ي","ب","ل","ا","ت","ن","م",
+"ك","ط","ذ","د","ز","ر","و","Space","Back"];
+
+let isArabic=true;
+
+/* ===== RENDER KEYS ===== */
+function render(){
+let keys=document.getElementById("keys");
+keys.innerHTML="";
+let arr=isArabic?arabic:latin;
+
+arr.forEach(k=>{
+let d=document.createElement("div");
+d.className="key";
+d.innerText=k;
+d.onclick=()=>typeKey(k);
+keys.appendChild(d);
+});
+}
+
+function typeKey(k){
+if(k==="Space"){
+insert(" ");
+}else if(k==="Back"){
+document.execCommand("delete");
+}else{
+insert(k);
+}
+
+autoSuggest();
+}
+
+function insert(t){
+document.execCommand("insertText",false,t);
+}
+
+/* ===== KEYBOARD TOGGLE ===== */
+function toggleKeyboard(){
+keyboard.classList.toggle("hidden");
+render();
+}
+
+/* ===== DRAG ===== */
+let drag=false,offsetX=0,offsetY=0;
+
+document.getElementById("dragbar").onmousedown=(e)=>{
+drag=true;
+offsetX=e.clientX-keyboard.offsetLeft;
+offsetY=e.clientY-keyboard.offsetTop;
+};
+
+document.onmousemove=(e)=>{
+if(drag){
+keyboard.style.left=(e.clientX-offsetX)+"px";
+keyboard.style.top=(e.clientY-offsetY)+"px";
+keyboard.style.transform="none";
+}
+};
+
+document.onmouseup=()=>drag=false;
+
+/* ===== RESIZE already via CSS resize ===== */
+
+/* ===== ARABIC SUGGESTION (simple) ===== */
+let dict=["السلام","عليكم","محمد","الله","رحمن","رحيم","كتاب","مدرسة","لغة","قلم","Word","Hello","Office"];
+
+function autoSuggest(){
+let text=page.innerText.split(" ").pop();
+let sug=document.getElementById("suggest");
+sug.innerHTML="";
+
+dict.filter(w=>w.startsWith(text)).slice(0,5).forEach(w=>{
+let s=document.createElement("div");
+s.className="sug";
+s.innerText=w;
+s.onclick=()=>{
+insert(w+" ");
+};
+sug.appendChild(s);
+});
+}
+
+/* ===== VOICE TYPING ===== */
+function startVoice(){
+let rec=new (window.SpeechRecognition||window.webkitSpeechRecognition)();
+rec.lang="ar-SA"; // bisa ubah en-US
+rec.start();
+
+rec.onresult=(e)=>{
+let t=e.results[0][0].transcript;
+insert(t+" ");
+};
+}
+
+/* ===== CLIPBOARD ===== */
+function copyText(){
+navigator.clipboard.writeText(page.innerText);
+alert("Copied");
+}
+
+function pasteText(){
+navigator.clipboard.readText().then(t=>{
+insert(t);
+});
+}
+
+/* init */
+render();
+autoSuggest();
+
+</script>
+
+</body>
+</html>
