@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Pro Max Enterprise v5</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:#cfd4dc;
+overflow-x:hidden;
+}
+
+/* ================= FEATURED ================= */
+.featured{
+background:linear-gradient(135deg,#0f6c3a,#1b9c5a);
+color:white;
+padding:15px;
+}
+
+.hero h1{
+margin:0;
+font-size:22px;
+text-align:center;
+}
+
+.hero p{
+text-align:center;
+font-size:13px;
+opacity:0.9;
+}
+
+/* QUICK ACTION */
+.quick-actions{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+justify-content:center;
+margin-top:10px;
+}
+
+.quick-actions button{
+background:rgba(255,255,255,0.2);
+border:none;
+color:white;
+padding:8px 10px;
+border-radius:8px;
+cursor:pointer;
+}
+
+/* CARDS */
+.featured-cards{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+justify-content:center;
+margin-top:10px;
+}
+
+.card{
+background:rgba(255,255,255,0.15);
+padding:10px;
+border-radius:10px;
+width:180px;
+backdrop-filter:blur(8px);
+}
+
+/* ================= MENU ================= */
+.menubar{
+background:#0f6c3a;
+color:#fff;
+display:flex;
+gap:6px;
+padding:6px;
+overflow-x:auto;
+white-space:nowrap;
+}
+
+.menubar button{
+flex:0 0 auto;
+background:rgba(255,255,255,0.15);
+border:none;
+color:white;
+padding:6px 10px;
+border-radius:5px;
+cursor:pointer;
+}
+
+/* ================= TOOLBAR ================= */
+.toolbar{
+background:#fff;
+display:flex;
+gap:5px;
+padding:6px;
+overflow-x:auto;
+white-space:nowrap;
+border-bottom:1px solid #ccc;
+}
+
+.toolbar button, .toolbar select{
+flex:0 0 auto;
+padding:5px;
+border:1px solid #ccc;
+border-radius:5px;
+font-size:13px;
+}
+
+/* ================= WORKSPACE ================= */
+.workspace{
+height:calc(100vh - 340px);
+overflow:auto;
+background:#e5e7eb;
+padding:10px;
+}
+
+/* ================= PAGE ================= */
+.page{
+width:794px;
+min-height:1123px;
+background:white;
+margin:20px auto;
+padding:60px;
+box-shadow:0 0 20px rgba(0,0,0,0.2);
+outline:none;
+direction:rtl;
+font-size:16px;
+line-height:1.8;
+position:relative;
+max-width:100%;
+}
+
+.header,.footer{
+position:absolute;
+left:0;
+right:0;
+padding:5px 10px;
+font-size:12px;
+color:#666;
+}
+
+.header{top:0;border-bottom:1px solid #ddd;}
+.footer{bottom:0;border-top:1px solid #ddd;text-align:center;}
+
+.pagenum{
+position:absolute;
+bottom:5px;
+left:10px;
+font-size:12px;
+color:#444;
+}
+
+/* TABLE */
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+td,th{
+border:1px solid #000;
+padding:5px;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width:768px){
+
+.hero h1{font-size:18px;}
+
+.card{width:140px;}
+
+.page{padding:20px;}
+
+.quick-actions button{font-size:12px;}
+
+.toolbar,.menubar{font-size:12px;}
+}
+
+@media (max-width:480px){
+
+.hero h1{font-size:16px;}
+
+.card{width:100%;}
+
+.page{padding:15px;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= FEATURED ================= -->
+<div class="featured">
+
+  <div class="hero">
+    <h1>Word Pro Max Enterprise v5</h1>
+    <p>Offline Word Editor • Arabic Calligraphy • Responsive System</p>
+  </div>
+
+  <div class="quick-actions">
+    <button onclick="saveDoc()">Save</button>
+    <button onclick="cmd('undo')">Undo</button>
+    <button onclick="cmd('redo')">Redo</button>
+    <button onclick="insertImage()">Image</button>
+    <button onclick="insertTable()">Table</button>
+    <button onclick="pasteText()">Paste</button>
+  </div>
+
+  <div class="featured-cards">
+    <div class="card">📄 New Document</div>
+    <div class="card">🧾 Templates</div>
+    <div class="card">✒ Arabic Fonts</div>
+  </div>
+
+</div>
+
+<!-- ================= MENU ================= -->
+<div class="menubar">
+<button onclick="saveDoc()">File</button>
+<button onclick="cmd('undo')">Edit</button>
+<button onclick="printDoc()">View</button>
+<button onclick="insertImage()">Insert</button>
+<button onclick="cmd('bold')">Format</button>
+<button onclick="insertTable()">Table</button>
+</div>
+
+<!-- ================= TOOLBAR ================= -->
+<div class="toolbar">
+
+<select onchange="changeFont(this.value)">
+<option>Arial</option>
+<option>Tahoma</option>
+<option>Naskh</option>
+<option>Diwani</option>
+<option>Kufi</option>
+<option>Thuluth</option>
+<option>Ruqah</option>
+<option>Farisi</option>
+<option>Maghribi</option>
+</select>
+
+<button onclick="cmd('bold')"><b>B</b></button>
+<button onclick="cmd('italic')"><i>I</i></button>
+<button onclick="cmd('underline')"><u>U</u></button>
+
+<button onclick="cmd('justifyRight')">➡</button>
+<button onclick="cmd('justifyCenter')">⬌</button>
+<button onclick="cmd('justifyLeft')">⬅</button>
+
+</div>
+
+<!-- ================= WORKSPACE ================= -->
+<div class="workspace" id="workspace">
+
+<div class="page" contenteditable="true" id="page">
+
+<div class="header">Header</div>
+
+<p>ابدأ الكتابة هنا...</p>
+
+<div class="footer">Footer</div>
+<div class="pagenum">1</div>
+
+</div>
+
+</div>
+
+<script>
+
+let page=document.getElementById("page");
+
+/* BASIC COMMAND */
+function cmd(c){
+document.execCommand(c,false,null);
+}
+
+/* FONT */
+function changeFont(f){
+document.execCommand("fontName",false,f);
+}
+
+/* PASTE */
+function pasteText(){
+navigator.clipboard.readText().then(text=>{
+document.execCommand("insertText",false,text);
+});
+}
+
+/* TABLE */
+function insertTable(){
+page.innerHTML += `
+<table>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+</table>`;
+}
+
+/* IMAGE */
+function insertImage(){
+let i=document.createElement("input");
+i.type="file";
+i.accept="image/*";
+i.onchange=e=>{
+let file=e.target.files[0];
+let r=new FileReader();
+r.onload=ev=>{
+page.innerHTML += `<img src="${ev.target.result}" style="max-width:100%">`;
+};
+r.readAsDataURL(file);
+};
+i.click();
+}
+
+/* SAVE */
+function saveDoc(){
+localStorage.setItem("wordmax",document.getElementById("workspace").innerHTML);
+alert("Saved");
+}
+
+/* LOAD */
+window.onload=()=>{
+let d=localStorage.getItem("wordmax");
+if(d) document.getElementById("workspace").innerHTML=d;
+}
+
+/* PRINT */
+function printDoc(){
+window.print();
+}
+
+</script>
+
+</body>
+</html>
