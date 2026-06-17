@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alhikmah.my.id - Portal Islam Terpercaya untuk Pendidikan, Sejarah, Sosial, dan Budaya</title>
+    
+    <link rel="icon" type="image/png" href="https://blogger.googleusercontent.com/img/a/AVvXsEiW2Sfw5ogSKhZbFiB-VdNXwmZoMGLTGPgx5ZYrTY8859clBvRGxgx-Dwc3i03YiUs1WiiL84uTSAlZ8civ17IWTI5Emt2vXmpuT-yRTzf4620rY_4Ib_vmUEGFfLXjzMiCfmQoWUg1mmj5hQu1IpD1CYguF9GocJ81MhsQTuPgt79-I8uOaPyGT0Qzs00=s200">
+    
+    <meta content='QT96Rd0InOuqkb4s1Wu5BlgGD_pCNOy8CsCtveF1zEA' name='google-site-verification'/>
+    <meta content='Alhikmah.my.id adalah situs Islam yang menyajikan informasi terkini tentang pendidikan, sejarah, budaya, sosial, serta tokoh-tokoh penting dalam kehidupan masyarakat dan bernegara.' name='description'/>
+    <meta content='Islam, Pendidikan, Sejarah, Sosial, Budaya, Tokoh Islam, Kehidupan Masyarakat, Bernegara, Islam Terpercaya' name='keywords'/>
+    <meta content='Alhikmah.my.id' name='author'/>
+    <meta content='Alhikmah.my.id' name='copyright'/>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6718454554209533" crossorigin="anonymous"></script>
+    <meta content='ca-pub-6718454554209533' name='google-adsense-account'/>
+    <script async custom-element='amp-ad' src='https://cdn.ampproject.org/v0/amp-ad-0.1.js'></script>
+    
+    <script>
+    window.googletag = window.googletag || {cmd: []};
+    googletag.cmd.push(function() {
+        const swgPpsTaxonomies = JSON.parse(localStorage.getItem('subscribe.google.com:ppstaxonomies'));
+        googletag.setConfig({
+            pps: { taxonomies: swgPpsTaxonomies }
+        });
+    });
+    </script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #050508 0%, #0b0f19 50%, #02040a 100%);
+            --rainbow-grad: linear-gradient(to right, #ff007f, #ff00ff, #7f00ff, #00ffff, #00ff7f, #ffff00, #ff7f00, #ff007f);
+        }
+        
+        body {
+            background: var(--bg-gradient);
+            color: #ffffff; /* Teks Utama Putih Cerah */
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        .text-bright {
+            color: #ffffff !important;
+        }
+        .text-muted-bright {
+            color: #e2e8f0 !important;
+        }
+
+        /* Rainbow Text Effect */
+        .rainbow-text {
+            background: var(--rainbow-grad);
+            background-size: 400% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbowShift 6s linear infinite;
+            font-weight: 800;
+            display: inline-block;
+        }
+
+        @keyframes rainbowShift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 400% 50%; }
+        }
+
+        /* Glowing Modern Navbar */
+        .navbar {
+            background: rgba(11, 15, 25, 0.9) !important;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s ease;
+        }
+        .nav-link {
+            color: #e2e8f0 !important;
+        }
+        .nav-link.active, .nav-link:hover {
+            color: #00ffff !important;
+        }
+
+        /* Section Spacing */
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        /* Modern Colorful Cards */
+        .custom-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 24px;
+            height: 100%;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            backdrop-filter: blur(8px);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .custom-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 20px 40px rgba(0, 242, 254, 0.15);
+            border-color: #00ffff;
+        }
+
+        /* Image Article Container */
+        .article-img-wrapper {
+            width: 100%;
+            height: 180px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            background: #1e293b;
+            position: relative;
+        }
+        .article-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .custom-card:hover .article-img-wrapper img {
+            transform: scale(1.08);
+        }
+
+        /* Scroll Reveal Effect Base */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: all 0.8s ease-out;
+        }
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Rainbow Button */
+        .btn-rainbow {
+            background: linear-gradient(45deg, #ff007f, #7f00ff, #00ffff, #ff007f);
+            background-size: 300% auto;
+            color: white !important;
+            border: none;
+            font-weight: 600;
+            transition: 0.5s ease;
+        }
+        .btn-rainbow:hover {
+            background-position: right center;
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+            transform: scale(1.03);
+        }
+
+        /* Footer links style */
+        .footer-link {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-link:hover {
+            color: #00ffff;
+        }
+
+        /* Custom Slider Styling */
+        .aw-slider-wrapper {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 16px;
+            background: #111;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        #aw-random-slider {
+            display: flex;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .aw-slide-item {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .aw-slide-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.75;
+        }
+        .aw-slide-caption {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 40px 20px 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.95));
+            color: #fff;
+        }
+        .aw-slide-caption a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .slider-prev, .slider-next {
+            position: absolute;
+            top: 50%; transform: translateY(-50%);
+            background: rgba(0, 77, 64, 0.8);
+            color: white; border: none;
+            padding: 8px 12px; cursor: pointer;
+            border-radius: 50%; font-size: 16px; z-index: 10;
+            transition: 0.3s;
+        }
+        .slider-prev:hover, .slider-next:hover { background: #007f66; }
+        .slider-prev { left: 10px; }
+        .slider-next { right: 10px; }
+
+        /* Custom CSE Searchbox */
+        .gsc-control-cse {
+            background-color: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+        }
+        .gsc-input-box {
+            background-color: rgba(255, 255, 255, 0.08) !important;
+            border: 1px solid rgba(255,255,255,0.2) !important;
+            border-radius: 25px !important;
+            overflow: hidden !important;
+        }
+        button.gsc-search-button-v2 {
+            background-color: #004d40 !important;
+            border-color: #004d40 !important;
+            border-radius: 0 25px 25px 0 !important;
+            padding: 10px 18px !important;
+        }
+        input.gsc-input {
+            color: #fff !important;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="https://www.alhikmah.my.id/">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEiW2Sfw5ogSKhZbFiB-VdNXwmZoMGLTGPgx5ZYrTY8859clBvRGxgx-Dwc3i03YiUs1WiiL84uTSAlZ8civ17IWTI5Emt2vXmpuT-yRTzf4620rY_4Ib_vmUEGFfLXjzMiCfmQoWUg1mmj5hQu1IpD1CYguF9GocJ81MhsQTuPgt79-I8uOaPyGT0Qzs00=s200" alt="Icon" width="38" height="38" class="me-2 animate__animated animate__pulse animate__infinite">
+                <span class="rainbow-text fs-4">ALHIKMAH.MY.ID</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center gap-2">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#profil">Profil & Pilar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#artikel">Artikel Terbaru</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#kontribusi">Kontribusi</a></li>
+                    <li class="nav-item">
+                        <a class="btn btn-rainbow btn-sm px-4 py-2 rounded-pill text-white shadow-sm" href="https://app.alhikmah.my.id/" target="_blank">
+                            <i class="bi bi-cpu-fill me-1"></i> Launch App
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="d-flex align-items-center min-vh-100" style="padding-top: 100px;">
+        <div class="container">
+            <div class="row align-items-center text-center text-lg-start g-5">
+                <div class="col-lg-7 animate__animated animate__fadeInLeft">
+                    <span class="badge bg-dark border border-secondary text-info px-3 py-2 rounded-pill mb-3">
+                        <i class="bi bi-globe2 me-1"></i> Official Portal Islami
+                    </span>
+                    <h1 class="display-4 fw-bold mb-3 text-bright">Menyajikan Inspirasi & <br><span class="rainbow-text">Wawasan Islami</span></h1>
+                    <p class="lead text-muted-bright mb-4 fs-5" style="line-height: 1.8;">
+                        Selamat datang di <strong>ALHIKMAH.MY.ID</strong>. Kami merupakan website islami yang menyajikan berbagai informasi berbobot seputar pendidikan, sosial, budaya, peran tokoh-tokoh penting, sejarah, serta referensi berharga untuk kehidupan bermasyarakat dan bernegara.
+                    </p>
+                    <div class="d-grid d-sm-flex gap-3 justify-content-center justify-content-lg-start">
+                        <a href="#artikel" class="btn btn-rainbow btn-lg px-4 rounded-pill">Baca Artikel</a>
+                        <a href="https://app.alhikmah.my.id/" target="_blank" class="btn btn-outline-light btn-lg px-4 rounded-pill">
+                            <i class="bi bi-grid-1x2-fill me-2"></i>Akses App Al-Hikmah
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-5 text-center animate__animated animate__fadeInRight">
+                    <div class="aw-slider-wrapper">
+                        <div id="aw-random-slider">
+                            <div class="loading-slider p-5 text-center">Memuat artikel...</div>
+                        </div>
+                        <button class="slider-prev" onclick="changeSlide(-1)">&#10094;</button>
+                        <button class="slider-next" onclick="changeSlide(1)">&#10095;</button>
+                    </div>
+
+                    <div class="p-3 rounded-4 bg-dark bg-opacity-50 border border-secondary border-opacity-25 mt-3">
+                        <div class="gcse-search" data-adclient="ca-pub-6718454554209533" data-enablehistory="true"></div>
+                        
+                        <div class="d-flex justify-content-center gap-2 align-items-center mt-3 flex-wrap">
+                            <a href="https://www.alhikmah.my.id/p/jadwal-sholat.html" target="_blank" class="btn btn-sm btn-dark border border-secondary text-white rounded-3">
+                                <i class="bi bi-clock me-1 text-warning"></i> Jadwal Sholat
+                            </a>
+                            <iframe frameborder="0" height="35" scrolling="no" src="https://time.wf/widget.php" width="100" style="overflow:hidden;"></iframe>
+                        </div>
+                    </div>
+
+                    <div class="mt-3">
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-6718454554209533"
+                             data-ad-slot="7205994686"
+                             data-ad-format="auto"
+                             data-full-width-responsive="true"></ins>
+                        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="profil" class="scroll-reveal" style="background: rgba(255,255,255,0.01);">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold text-bright">Pilar Utama <span class="rainbow-text">Al-Hikmah</span></h2>
+                <p class="text-muted-bright">Bagaimana ekosistem konten kami dibangun dan dikelola secara kredibel</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="custom-card">
+                        <div class="fs-1 mb-3"><i class="bi bi-person-hearts text-danger"></i></div>
+                        <h4 class="fw-bold text-bright">Pengelola Web</h4>
+                        <p class="text-muted-bright" style="font-size: 0.95rem;">
+                            Situs ini dikelola secara dediktif oleh <strong>Kang Santri Indonesia</strong> yang berkolaborasi aktif dengan pakar tim IT profesional dari <strong>awgroupchannel</strong> guna menyajikan performa situs yang optimal dan modern.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="custom-card">
+                        <div class="fs-1 mb-3"><i class="bi bi-book-half text-info"></i></div>
+                        <h4 class="fw-bold text-bright">Sistem Kajian</h4>
+                        <p class="text-muted-bright" style="font-size: 0.95rem;">
+                            Menyajikan berbagai referensi keagamaan yang valid. Seluruh muatan artikel bersumber terpercaya dari khazanah kitab-kitab muktabar karangan para <strong>Ulama'us Sholihin</strong> serta berbagai referensi valid lainnya.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="custom-card">
+                        <div class="fs-1 mb-3"><i class="bi bi-vector-pen text-warning"></i></div>
+                        <h4 class="fw-bold text-bright">Proses Editing</h4>
+                        <p class="text-muted-bright" style="font-size: 0.95rem;">
+                            Setiap perumusan konten, baik berupa teks artikel, elemen gambar ilustrasi, kompilasi video, maupun desain tata letak, telah melewati beberapa tahapan editing ketat demi menjaga kenyamanan pembaca.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<section id="kitab" class="scroll-reveal" style="background: rgba(255,255,255,0.01);">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold text-white">Khazanah <span class="rainbow-text">Kitab & Teks Referensi</span></h2>
+                <p class="text-muted">Kajian teks, terjemahan, dan panduan keilmuan Islam bersumber dari literatur klasik terpercaya</p>
+            </div>
+            <div class="col-md-12 text-center" >
+            <div class="profile-image img-fluid ">
+            <img src="kitab.png " alt="Kitab-Kuning" class="rounded-circle" style="width: 100px; height: auto;">
+            <h3 class="h5 mt-3 mb-4">KUMPULAN KITAB KUNING LENGKAP</h3>
+            </div>
+            <div> <center>
+            اَ لسَّلَامُ عَلَيْكُمْ وَرَحْمَۃُ اللهِ وَبَرَكَا تُهُ .اَلْحَمْدُ لِلّٰهِ رَبِّ اْلعَالَمِيْنَ وَالصَّلَاۃُ وَالسَّلَامُ عَلَی سَيِّدِنَا مُحَمَّدٍ وَعَلَی اٰلِهِ وَاَصْحَبِهِ اَجْمَعِيْنَ, وَلَاحَوْلَاوَلَاقُوَّۃَاِلَّابِاللّٰهِ الْعَلِيِ الْعَظِيْمِ .اَمَّابَعْدُ
+            </div></center>
+            <center>
+            Kunci untuk mendapat berbagai keistimewaan itu adalah istiqamah dalam keimanan. Istiqamah berasal dari bahasa Arab yang akar katanya terdiri atas huruf qaf, wawu, dan mim, yang bisa berarti 'tegak lurus, sikap teguh pendirian, konsekuen, tetap dalam pendirian, lurus, dan benar'.
+            
+            Namun, ketika kata ini ditambah dengan huruf alif, sin, dan ta' menjadi istiqamah maka akan mengandung makna li al talab, yang berarti 'permohonan yang disertai usaha untuk tetap kuat dalam mempertahankan pendirian'.
+            
+            Kunci Istiqomah 
+            
+            Jadi, istiqamah tidak hanya dikhususkan untuk orang yang sudah kuat dalam pendiriannya tetapi juga mencakup orang yang sedang berusaha untuk menjadi orang yang kuat pendiriannya.
+            
+            Orang yang istiqamah dalam keimanannya adalah orang yang berusaha tetap teguh menjaga keyakinan akan keesaan Allah, tetap kokoh de ngan keyakinannya akan kebenaran agamanya, lalu mengikrarkannya dengan lisan, dan mem prak tikkannya dalam laku perbuatan sehari-hari.
+            
+            Keimanan yang selalu dilanggengkan seperti ini yang Rasulullah ajarkan kepada sahabatnya, Sufyan bin Abdullah al-Tsaqafi ketika memohon, "Wahai Rasulullah, ajarkan kepadaku suatu kalimat (hikmah) tentang ajaran Islam yang membuatku tidak perlu bertanya kepada siapa pun selain engkau." Rasulullah menjawab, "Katakan, 'Aku beriman kepada Allah,' lalu beristiqamahlah." (HR Muslim dan al-Nasai). Wallahualam. 
+            
+            
+            </center>
+            
+            
+            
+            
+            <div>
+            بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+            
+            الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ
+            
+            الرَّحْمَٰنِ الرَّحِيمِ
+            
+            مَالِكِ يَوْمِ الدِّينِ
+            
+            إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ
+            
+            اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ
+            
+            صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ
+            </div>
+            
+            <div>
+            Kitab kuning adalah kitab yang memuat hukum-hukum ibadah, mu'alamalah, nikah, akhlaq, tafsir, sejarah, hadits, sastra Arab, dan lain-lain. Kitab kuning merupakan hasil pemikiran para Ulama yang di ambil referensinya dari Al-Qur'an, As-Sunnah, Ijma', dan Qiyas.
+            </div>
+            <!-- Islami -->
+            
+            <a href="/ada/index.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Adabul Alim Wal Muta'alim</div></a>
+            <a href="/muwatta/index.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Al-Muwatta Imam Malik</div></a>
+            <a href="/alhikam/index.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Al-Hikam Ibnu Athaillah</div></a>
+            <a href="/alfiyah/alfiyah.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Alfiyah Ibnu Malik</div></a>
+            <a href="/amsilah/index.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Amtsilah Tashrif</div></a>
+            <a href="/aqidatul/index.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Aqidatul Awam</div></a>
+            <a href="/arbain/index.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Arbain Nawawi</div></a>
+            <a href="/bidayatul/index.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Bidayatul Hidayah</div></a>
+            <a href="/bulughul/index.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Bulughul Maram</div></a>
+            <a href="/izar/index.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Fathul Izar</div></a>
+            <a href="/qarib/index.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Fathul Qorib</div></a>
+            <a href="/futuhul/index.html" class="text-decoration-none  text-capitalize">
+            <div class="/insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Futuhul Ghaib</div></a>
+            <a href="/jurumiyah/index.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Jurumiyah</div></a>
+            <a href="/sanusiyah/index.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Matan Sanusiyah</div></a>
+            <a href="/imriti/index.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Nadhom Imriti</div></a>
+            <a href="/nashoihul/index.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Nashoihul Ibad</div></a>
+            <a href="uyun/index.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Qurrotul Uyun</div></a>
+            <a href="/riyadhus/index.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Riyadhus Shalihin</div></a>
+            <a href="/safinah/safinah.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Safinatun Najah</div></a>
+            <a href="/muslim/index.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Shahih Muslim</div></a>
+            <a href="/bukhari/index.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Shahih Bukhari</div></a>
+            <a href="/sirul/index.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Sirrul Asror</div></a>
+            <a href="/jalalain/index.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Tafsir Jalalain</div></a>
+            <a href="/taklim/index.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Ta'lim Muta'alim</div></a>
+            <a href="/tuhfatu/index.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Tuhfatul Athfal</div></a>
+            <a href="uqudulujain/index.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Uqudulujain</div></a>
+            <a href="/waso/index.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Washoya</div></a>
+            
+            <a href="/adzkar/index.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Adzkar</div></a>
+            
+            <a href="/sholawat/index.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            Kumpulan Sholawat Lengkap</div></a>
+            
+            
+            <a href="https://www.alhikmah.my.id/" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            AL HIKMAH</div></a>
+            
+            
+            <a href="/app/index.html" class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            AL QUR'AN ONLINE</div></a>
+            
+            <a href="/arabic/index.html " class="text-decoration-none  text-capitalize">
+            <div class="insta-box link-box">
+            <i class="fas fa-book px-2"></i>
+            ARABIC KEYBOARD</div></a>
+            <!-- Islami And -->
+            
+            </div></div></section>
+            
+            <amp-auto-ads type="adsense"
+            data-ad-client="ca-pub-6718454554209533">
+            </amp-auto-ads>
+            
+            
+    <section id="artikel" class="scroll-reveal">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold text-bright">Eksplorasi <span class="rainbow-text">Artikel Ilmiah & Kajian</span></h2>
+                <p class="text-muted-bright">Akses langsung tulisan-tulisan keagamaan teranyar yang diterbitkan di platform kami</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="custom-card">
+                        <div class="article-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=500&auto=format&fit=crop&q=60" alt="Hijriyah">
+                        </div>
+                        <span class="badge bg-danger mb-2 align-self-start">Juni 2026</span>
+                        <h5 class="fw-bold lh-base"><a href="https://www.alhikmah.my.id/2026/06/tahun-baru-hijriyah-1-muharram-sejarah.html" target="_blank" class="rainbow-text text-decoration-none">Tahun Baru Hijriyah 1 Muharram: Sejarah dan Maknanya</a></h5>
+                        <p class="small text-muted-bright">Pelajari tonggak sejarah penetapan kalender Islam dan hikmah besar di balik peristiwa hijrah Rasulullah SAW.</p>
+                        <a href="https://www.alhikmah.my.id/2026/06/tahun-baru-hijriyah-1-muharram-sejarah.html" target="_blank" class="text-info text-decoration-none fw-bold small mt-auto">Baca Selengkapnya <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="custom-card">
+                        <div class="article-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&auto=format&fit=crop&q=60" alt="Umroh">
+                        </div>
+                        <span class="badge bg-primary mb-2 align-self-start" style="background-color: #7f00ff !important;">Juni 2026</span>
+                        <h5 class="fw-bold lh-base"><a href="https://www.alhikmah.my.id/2026/06/menggapai-hakikat-dan-hikmah-umroh.html" target="_blank" class="rainbow-text text-decoration-none">Menggapai Hakikat dan Hikmah Ibadah Umroh</a></h5>
+                        <p class="small text-muted-bright">Ulasan mendalam mengenai rukun, tata cara spiritual, dan transformasi batin saat menjalankan ibadah umroh.</p>
+                        <a href="https://www.alhikmah.my.id/2026/06/menggapai-hakikat-dan-hikmah-umroh.html" target="_blank" class="text-info text-decoration-none fw-bold small mt-auto">Baca Selengkapnya <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="custom-card">
+                        <div class="article-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=500&auto=format&fit=crop&q=60" alt="Hidup Sehat">
+                        </div>
+                        <span class="badge bg-info text-dark mb-2 align-self-start">Mei 2026</span>
+                        <h5 class="fw-bold lh-base"><a href="https://www.alhikmah.my.id/2026/05/pola-hidup-sehat.html" target="_blank" class="rainbow-text text-decoration-none">Pola Hidup Sehat Tuntunan Syariat</a></h5>
+                        <p class="small text-muted-bright">Bagaimana menjaga jasmani dan rohani tetap seimbang melalui pola makan dan kebiasaan sehat Rasulullah.</p>
+                        <a href="https://www.alhikmah.my.id/2026/05/pola-hidup-sehat.html" target="_blank" class="text-info text-decoration-none fw-bold small mt-auto">Baca Selengkapnya <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="custom-card">
+                        <div class="article-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?w=500&auto=format&fit=crop&q=60" alt="Pilar Agama">
+                        </div>
+                        <span class="badge bg-success mb-2 align-self-start">April 2026</span>
+                        <h5 class="fw-bold lh-base"><a href="https://www.alhikmah.my.id/2026/04/tiga-pilar-agama-ad-din-islam-iman-dan.html" target="_blank" class="rainbow-text text-decoration-none">Islam, Iman, dan Ihsan: Tiga Pilar Agama</a></h5>
+                        <p class="small text-muted-bright">Bedah fundamental pondasi beragama berdasarkan Hadits Jibril tentang integrasi iman, islam, dan ihsan.</p>
+                        <a href="https://www.alhikmah.my.id/2026/04/tiga-pilar-agama-ad-din-islam-iman-dan.html" target="_blank" class="text-info text-decoration-none fw-bold small mt-auto">Baca Selengkapnya <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="custom-card">
+                        <div class="article-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?w=500&auto=format&fit=crop&q=60" alt="Kitab Klasik">
+                        </div>
+                        <span class="badge bg-warning text-dark mb-2 align-self-start">Kitab Klasik</span>
+                        <h5 class="fw-bold lh-base"><a href="https://www.alhikmah.my.id/kitab-ta-muta-dan-terjemahan-alhikmah.html" target="_blank" class="rainbow-text text-decoration-none">Kitab Ta'lim Muta'allim & Terjemah</a></h5>
+                        <p class="small text-muted-bright">Panduan etika menuntut ilmu paling legendaris bagi para santri agar ilmu yang didapatkan berkah.</p>
+                        <a href="https://www.alhikmah.my.id/kitab-ta-muta-dan-terjemahan-alhikmah.html" target="_blank" class="text-info text-decoration-none fw-bold small mt-auto">Baca Selengkapnya <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="custom-card">
+                        <div class="article-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=500&auto=format&fit=crop&q=60" alt="Shorof">
+                        </div>
+                        <span class="badge bg-secondary mb-2 align-self-start">Maret 2024</span>
+                        <h5 class="fw-bold lh-base"><a href="https://www.alhikmah.my.id/2024/03/tashrif.html" target="_blank" class="rainbow-text text-decoration-none">Kajian Ilmu Shorof: Skema Tashrif</a></h5>
+                        <p class="small text-muted-bright">Metode dan skema perubahan kata bahasa Arab untuk mempermudah pemahaman makna teks kitab gundul.</p>
+                        <a href="https://www.alhikmah.my.id/2024/03/tashrif.html" target="_blank" class="text-info text-decoration-none fw-bold small mt-auto">Baca Selengkapnya <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontribusi" class="scroll-reveal py-5" style="background: rgba(0, 0, 0, 0.2);">
+        <div class="container my-4 text-center">
+            <div class="p-5 rounded-4 border border-secondary" style="background: radial-gradient(circle at top, rgba(127,0,255,0.1), transparent);">
+                <i class="bi bi-pencil-square display-3 rainbow-text mb-3"></i>
+                <h2 class="fw-bold display-5 text-bright">Mari Berkontribusi Bersama Kami</h2>
+                <p class="lead text-muted-bright max-w-2xl mx-auto mb-4" style="max-width: 700px; margin: 0 auto;">
+                    <strong>ALHIKMAH.MY.ID</strong> membuka kesempatan emas seluas-luasnya untuk Anda ikut andil menulis atau mengirimkan karya ilmiah guna membangun penyebaran informasi Islami yang bermanfaat bagi umat.
+                </p>
+                <a href="https://www.alhikmah.my.id/p/kontak.html" target="_blank" class="btn btn-rainbow btn-lg px-5 rounded-pill">Hubungi Kami via Kontak</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="scroll-reveal py-4 bg-dark border-top border-bottom border-secondary">
+        <div class="container text-center">
+            <span class="text-muted-bright me-3">Layanan ekosistem digital kami:</span>
+            <a href="https://app.alhikmah.my.id/" target="_blank" class="btn btn-sm btn-outline-info rounded-pill px-3 m-1">
+                <i class="bi bi-app-indicator me-1"></i> Web App Server
+            </a>
+            <a href="https://www.alhikmah.my.id/" target="_blank" class="btn btn-sm btn-outline-success rounded-pill px-3 m-1">
+                <i class="bi bi-house-door me-1"></i> Core Website Portal
+            </a>
+        </div>
+    </section>
+
+    <footer class="py-5 bg-black">
+        <div class="container">
+            <div class="row g-4 mb-4 text-center text-md-start">
+                <div class="col-md-5">
+                    <h5 class="fw-bold text-white mb-3"><span class="rainbow-text">ALHIKMAH.MY.ID</span></h5>
+                    <p class="small text-muted-bright" style="line-height: 1.6;">
+                        Media rujukan keagamaan, kebudayaan, dan sosial kemasyarakatan berlandaskan literatur para ulama salafus shalih. Dikelola sinergis oleh Kang Santri & awgroupchannel.
+                    </p>
+                </div>
+                <div class="col-md-7">
+                    <h6 class="text-white fw-bold mb-3 text-md-end">Navigasi Halaman Dokumen Resmi:</h6>
+                   <div class="col-md-7">
+                   <h6 class="text-white fw-bold mb-3 text-md-end">Navigasi Halaman Dokumen Resmi:</h6>
+                   <div class="d-flex flex-wrap justify-content-md-end gap-3 justify-content-center" style="font-size: 0.9rem;">
+                   <a class="footer-link" href="https://www.alhikmah.my.id/p/about-us.html" target="_blank">About Us</a>
+                   <span class="text-muted">|</span>
+                   <a class="footer-link" href="https://www.alhikmah.my.id/p/kontak.html" target="_blank">Kontak Kami</a>
+                   <span class="text-muted">|</span>
+                   <a class="footer-link" href="https://www.alhikmah.my.id/p/privacy.html" target="_blank">Privacy Policy</a>
+                   <span class="text-muted">|</span>
+                   <a class="footer-link" href="https://www.alhikmah.my.id/p/disclaimers.html" target="_blank">Disclaimers</a>
+                   <span class="text-muted">|</span>
+                   <a class="footer-link" href="https://www.alhikmah.my.id/p/sitemap.html" target="_blank">Sitemap</a>
+                   <span class="text-muted">|</span>
+                   <a class="footer-link" href="https://www.alhikmah.my.id/p/terms-conditions-generator.html" target="_blank">Terms & Conditions</a>
+                   <span class="text-muted">|</span>
+                   <a class="footer-link" href="https://www.alhikmah.my.id/p/license.html" target="_blank">License</a>
+                   </div>
+                   </div>
+                   </div>
+            <hr class="border-secondary border-opacity-25 my-4">
+            <div class="text-center text-muted-bright small">
+                &copy; 2026 ALHIKMAH.MY.ID. All Rights Reserved. Powered by awgroupchannel.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://cse.google.com/cse.js?cx=21818a1d7a8af4dbd" async></script>
+
+    <script>
+        // Logika Slider Artikel Real-Time
+        var totalSlides = 5; 
+        var currentIdx = 0;
+        
+        function buildSlider(json) {
+            var entries = json.feed.entry;
+            var sliderContainer = document.getElementById('aw-random-slider');
+            var html = "";
+            if(!entries || entries.length === 0) {
+                sliderContainer.innerHTML = "<div class='p-3 text-white'>Gagal memuat artikel feed.</div>";
+                return;
+            }
+            entries.sort(function() { return 0.5 - Math.random(); });
+            
+            for (var i = 0; i < Math.min(totalSlides, entries.length); i++) {
+                var entry = entries[i];
+                var title = entry.title.$t;
+                var postUrl = "#";
+                for (var k = 0; k < entry.link.length; k++) {
+                    if (entry.link[k].rel == 'alternate') { postUrl = entry.link[k].href; break; }
+                }
+                var imgUrl = ("media$thumbnail" in entry) ? entry.media$thumbnail.url.replace('/s72-c', '/s600') : "https://images.unsplash.com/photo-1542838132-92c53300491e?w=500";
+                
+                html += "<div class='aw-slide-item'>";
+                html += "<img src='" + imgUrl + "' alt='" + title + "' loading='lazy'/>";
+                html += "<div class='aw-slide-caption'><a href='" + postUrl + "'>" + title + "</a></div>";
+                html += "</div>";
+            }
+            sliderContainer.innerHTML = html;
+        }
+        
+        function updateSlider() {
+            var slider = document.getElementById('aw-random-slider');
+            if(slider) slider.style.transform = "translateX(-" + (currentIdx * 100) + "%)";
+        }
+        
+        function changeSlide(direction) {
+            currentIdx = (currentIdx + direction + totalSlides) % totalSlides;
+            updateSlider();
+        }
+        
+        setInterval(function() { changeSlide(1); }, 5000);
+
+        // Intersection Observer untuk animasi Scroll Reveal
+        document.addEventListener("DOMContentLoaded", function() {
+            const revs = document.querySelectorAll('.scroll-reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+            revs.forEach(r => observer.observe(r));
+        });
+    </script>
+    
+    <script src="https://www.alhikmah.my.id/feeds/posts/default?alt=json-in-script&callback=buildSlider&max-results=50" async></script>
+</body>
+</html>
+
+
