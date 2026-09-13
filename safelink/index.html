@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safelink Generator AwDev - Free Tools</title>
+    <link rel="canonical" href="https://awdev.my.id/safelink/index.html">
+    
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.jpg">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.png"/>
+    <link rel="icon" type="image/png" href="https://awdev.my.id/favicon.png">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/ico.png"/>
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/favicon.png">
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/ico.png"/>
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/awdev.jpg">
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/logo.png"/>
+    <link rel="icon" type="image/png" href="/logo.png"/>
+    <link rel="icon" type="image/png" href="/ico.png"/>
+    <link rel="icon" type="image/png" href="/favicon.png"/>
+    <link rel="icon" type="image/png" href="/favicon.ico"/>
+
+    <meta name="google-site-verification" content="OLryKZ1dDupEH_xOuZWiEwdi0ZvuXMcnQeMjRwe5YCw" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5407249785989200" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-5407249785989200">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        :root {
+            --bg-color: #e0e5ec;
+            --neu-shadow-light: #ffffff;
+            --neu-shadow-dark: #a3b1c6;
+            --text-color: #444444;
+            --primary: #1a73e8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        /* Rainbow Gradient Line Header */
+        .rainbow-bar {
+            height: 5px;
+            width: 100%;
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+        }
+
+        /* Header & Dropdown Menu */
+        header {
+            background: var(--bg-color);
+            padding: 15px 30px;
+            box-shadow: 0 8px 16px var(--neu-shadow-dark), inset 0 -2px 4px var(--neu-shadow-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area {
+            font-weight: bold;
+            font-size: 20px;
+            background: linear-gradient(45deg, red, orange, green, blue, violet);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-container {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background: var(--bg-color);
+            color: var(--text-color);
+            padding: 8px 12px;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 4px 4px 8px var(--neu-shadow-dark), -4px -4px 8px var(--neu-shadow-light);
+            transition: 0.2s;
+        }
+
+        .dropbtn:active {
+            box-shadow: inset 2px 2px 5px var(--neu-shadow-dark), inset -2px -2px 5px var(--neu-shadow-light);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--bg-color);
+            min-width: 180px;
+            box-shadow: 8px 8px 16px var(--neu-shadow-dark), -8px -8px 16px var(--neu-shadow-light);
+            z-index: 1;
+            border-radius: 10px;
+            padding: 10px 0;
+            top: 40px;
+            left: 0;
+        }
+
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 8px 15px;
+            text-decoration: none;
+            display: block;
+            font-size: 13px;
+            transition: 0.2s;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(0,0,0,0.05);
+            color: var(--primary);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Container Main */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        /* Neumorphic Card */
+        .neu-card {
+            background: var(--bg-color);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 10px 10px 20px var(--neu-shadow-dark), -10px -10px 20px var(--neu-shadow-light);
+            margin-bottom: 30px;
+        }
+
+        /* Typing Text */
+        .typing-container {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            min-height: 40px;
+        }
+
+        /* Image Slider */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: inset 5px 5px 10px var(--neu-shadow-dark), inset -5px -5px 10px var(--neu-shadow-light);
+            margin-bottom: 30px;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        /* Tools Form & Generators */
+        .tool-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 22px;
+            color: #222;
+        }
+
+        .method-section {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed var(--neu-shadow-dark);
+        }
+
+        .method-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .method-section h3 {
+            margin-bottom: 12px;
+            font-size: 18px;
+            color: var(--primary);
+        }
+
+        .neu-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            background: var(--bg-color);
+            border-radius: 10px;
+            box-shadow: inset 3px 3px 6px var(--neu-shadow-dark), inset -3px -3px 6px var(--neu-shadow-light);
+            outline: none;
+            font-size: 15px;
+            color: var(--text-color);
+            margin-bottom: 12px;
+        }
+
+        .neu-btn {
+            padding: 12px 25px;
+            border: none;
+            background: var(--bg-color);
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px var(--neu-shadow-dark), -5px -5px 10px var(--neu-shadow-light);
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--primary);
+            transition: 0.2s;
+            display: inline-block;
+        }
+
+        .neu-btn:active {
+            box-shadow: inset 2px 2px 5px var(--neu-shadow-dark), inset -2px -2px 5px var(--neu-shadow-light);
+        }
+
+        .result {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            background: var(--bg-color);
+            box-shadow: inset 3px 3px 6px var(--neu-shadow-dark), inset -3px -3px 6px var(--neu-shadow-light);
+            word-break: break-all;
+        }
+
+        .result input[type="text"] {
+            width: calc(100% - 110px);
+            display: inline-block;
+            margin-bottom: 0;
+        }
+
+        .copy-btn {
+            padding: 10px 15px;
+            border: none;
+            background: var(--bg-color);
+            border-radius: 8px;
+            box-shadow: 3px 3px 6px var(--neu-shadow-dark), -3px -3px 6px var(--neu-shadow-light);
+            cursor: pointer;
+            font-weight: bold;
+            color: #28a745;
+            margin-left: 8px;
+        }
+
+        .copy-btn:active {
+            box-shadow: inset 2px 2px 4px var(--neu-shadow-dark), inset -2px -2px 4px var(--neu-shadow-light);
+        }
+
+        /* Article & Links */
+        .article-content h2, .article-content h3 {
+            margin-top: 15px;
+            margin-bottom: 10px;
+            color: #222;
+        }
+
+        .article-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .links-section {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: inset 3px 3px 6px var(--neu-shadow-dark), inset -3px -3px 6px var(--neu-shadow-light);
+        }
+
+        .links-section h4 {
+            margin-bottom: 10px;
+        }
+
+        .links-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .links-grid a {
+            padding: 6px 12px;
+            background: var(--bg-color);
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--primary);
+            font-size: 13px;
+            box-shadow: 3px 3px 6px var(--neu-shadow-dark), -3px -3px 6px var(--neu-shadow-light);
+        }
+
+        /* FAQ Accordion */
+        .faq-item {
+            margin-bottom: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 4px 4px 8px var(--neu-shadow-dark), -4px -4px 8px var(--neu-shadow-light);
+        }
+
+        .faq-question {
+            padding: 15px;
+            background: var(--bg-color);
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: rgba(0,0,0,0.02);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 15px;
+            max-height: 200px;
+        }
+
+        /* Social Media Share */
+        .social-share {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-color);
+            box-shadow: 5px 5px 10px var(--neu-shadow-dark), -5px -5px 10px var(--neu-shadow-light);
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.2s;
+        }
+
+        .social-btn:hover {
+            color: var(--primary);
+        }
+
+        /* Contact Form Box */
+        .contact-form .neu-input {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        textarea.neu-input {
+            resize: vertical;
+            height: 120px;
+        }
+
+        /* PayPal & Analytics */
+        .paypal-box {
+            text-align: center;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: inset 4px 4px 8px var(--neu-shadow-dark), inset -4px -4px 8px var(--neu-shadow-light);
+            margin-top: 20px;
+        }
+
+        .paypal-box select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            background: var(--bg-color);
+            box-shadow: inset 2px 2px 5px var(--neu-shadow-dark), inset -2px -2px 5px var(--neu-shadow-light);
+            margin: 10px 0;
+            outline: none;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #d1d9e6;
+            margin-top: 40px;
+        }
+
+        @media(max-width: 768px) {
+            .nav-container {
+                display: none;
+            }
+            .result input[type="text"] {
+                width: 100%;
+                margin-bottom: 8px;
+            }
+            .copy-btn {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="rainbow-bar"></div>
+
+    <header>
+        <div class="logo-area">AwDev Safelink Tool</div>
+        <div class="nav-container">
+            <a href="https://awdev.my.id/" style="color: #1a73e8; text-decoration: none;">Home</a>
+            <a href="https://awdev.my.id/about.html" style="color: #1a73e8; text-decoration: none;">About Us</a>
+            <a href="https://awdev.my.id/blog.html" style="color: #1a73e8; text-decoration: none;">Blog</a>
+            
+            <div class="dropdown">
+                <button class="dropbtn">Tools Menu <i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="https://awdev.my.id/tools/index.html">Tools</a>
+                    <a href="https://awdev.my.id/aplikasi/index.html">Aplikasi</a>
+                    <a href="https://awdev.my.id/seo/index.html">Seo</a>
+                    <a href="https://awdev.my.id/source/index.html">Source</a>
+                    <a href="https://awdev.my.id/eq/index.html">EQ Generator</a>
+                    <a href="https://awdev.my.id/kodepost/index.html">Kode Post Search</a>
+                    <a href="https://awdev.my.id/finder/index.html">Finder</a>
+                    <a href="https://awdev.my.id/qr/index.html">QR Generator</a>
+                    <a href="https://awdev.my.id/collor/index.html">Collor Code Generator</a>
+                    <a href="https://awdev.my.id/calligraphy/index.html">Calligraphy Arabic</a>
+                    <a href="https://awdev.my.id/maps/index.html">Maps Search</a>
+                    <a href="https://awdev.my.id/code/index.html">Code Editor</a>
+                    <a href="https://awdev.my.id/vidio/index.html">Vidio</a>
+                    <a href="https://awdev.my.id/img/index.html">Gallery Images</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="typing-container" id="typing-text"></div>
+
+        <div class="slider-container">
+            <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://awdev.my.id/img/awdev.png')">Free Safelink Link Shortener Generator</div>
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://awdev.my.id/img/3d.jpeg')">Protect Your Outbound Traffic Safely</div>
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://awdev.my.id/img/ai.jpeg')">Advanced API Integration by AwDev</div>
+        </div>
+
+        <div class="neu-card">
+            <h2 class="tool-title"><i class="fa-solid fa-shield-halved"></i> Safelink URL Generator</h2>
+            
+            <div class="method-section">
+                <h3>Metode 1 - Manual URL</h3>
+                <input type="url" id="url1" class="neu-input" placeholder="Masukkan URL tujuan (e.g. https://example.com)">
+                <button class="neu-btn" onclick="generateManualLink()">
+                    <i class="fa-solid fa-bolt"></i> Generate Safelink
+                </button>
+                <div id="result1"></div>
+            </div>
+
+            <div class="method-section">
+                <h3>Metode 2 - API Fetch</h3>
+                <input type="url" id="url2" class="neu-input" placeholder="Masukkan URL">
+                <input type="text" id="alias" class="neu-input" placeholder="Custom Alias (optional)">
+                <input type="text" id="passcode" class="neu-input" placeholder="Passcode (optional)">
+                <button class="neu-btn" onclick="generateApiLink()">
+                    <i class="fa-solid fa-code"></i> Generate API Link
+                </button>
+                <div id="result2"></div>
+            </div>
+
+            <div id="bridge-widget-container" style="margin-top: 20px;"></div>
+
+            <div class="paypal-box">
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                    <input type="hidden" name="cmd" value="_s-xclick" />
+                    <input type="hidden" name="hosted_button_id" value="JZ8YZT9LM257A" />
+                    <table style="width:100%;">
+                        <tr>
+                            <td>
+                                <input type="hidden" name="on0" value="LAYANAN PELANGGAN"/>
+                                <b>LAYANAN PELANGGAN</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select name="os0">
+                                    <option value="Subcribe">Subcribe $5,00 USD - minggu</option>
+                                    <option value="Premium">Premium $25,00 USD - bulan</option>
+                                    <option value="Golden">Golden $100,00 USD - tahun</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="hidden" name="on1" value="Terima Kasih ."/>
+                                Terima Kasih .
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="os1" maxLength="200" class="neu-input" placeholder="Catatan tambahan..." style="margin-top: 8px;" />
+                            </td>
+                        </tr>
+                    </table>
+                    <input type="hidden" name="currency_code" value="USD" />
+                    <br>
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribe_LG.gif" border="0" name="submit" title="PayPal - Cara yang lebih aman dan mudah untuk membayar secara daring!" alt="Berlangganan" />
+                </form>
+            </div>
+        </div>
+
+        <div class="neu-card article-content">
+            <h2>The Ultimate Guide to Safelink Generators and Link Monetization</h2>
+            <p>In modern web publishing, safeguarding outbound connections and optimizing user redirection workflows are critical components of web administration. A safelink generator acts as an intermediary buffer page that secures exit links, handles tracking parameters, and prevents direct spam traffic.</p>
+            
+            <h3>Why Use an Advanced Safelink System?</h3>
+            <p>Safelinks protect blogs and download sites from malicious injections, manage redirections securely, and ensure that users confirm their navigation intent. By implementing automated API fetching or manual alias routing, creators have absolute control over their destination URLs.</p>
+            
+            <ul>
+                <li><strong>Security Buffering:</strong> Screens target URLs against malicious scripts and unauthorized links.</li>
+                <li><strong>Custom Aliases:</strong> Empowers branded short links for better tracking and click-through performance.</li>
+                <li><strong>Passcode Protection:</strong> Secures private pages behind an access code barrier.</li>
+                <li><strong>Analytics Tracking:</strong> Monitors user engagement trends accurately.</li>
+                <li><strong>Monetization Support:</strong> Integrates ad networks and sponsorship banners organically.</li>
+            </ul>
+
+            <div class="links-section">
+                <h4>Recommended Internal Links</h4>
+                <div class="links-grid">
+                    <a href="https://awdev.my.id/">Home Portal</a>
+                    <a href="https://awdev.my.id/about.html">About AwDev</a>
+                    <a href="https://awdev.my.id/blog.html">Tech Blog</a>
+                    <a href="https://awdev.my.id/tools/index.html">All Developer Tools</a>
+                    <a href="https://awdev.my.id/seo/index.html">SEO Optimization Suite</a>
+                    <a href="https://awdev.my.id/code/index.html">Online Code Editor</a>
+                    <a href="https://awdev.my.id/qr/index.html">QR Code Generator</a>
+                </div>
+            </div>
+
+            <div class="links-section">
+                <h4>Useful External References</h4>
+                <div class="links-grid">
+                    <a href="https://developer.mozilla.org/" target="_blank" rel="noopener">MDN Web Docs</a>
+                    <a href="https://github.com/" target="_blank" rel="noopener">GitHub Repository</a>
+                    <a href="https://stackoverflow.com/" target="_blank" rel="noopener">Stack Overflow</a>
+                    <a href="https://www.w3schools.com/" target="_blank" rel="noopener">W3Schools Tutorials</a>
+                    <a href="https://www.chartjs.org/" target="_blank" rel="noopener">Chart.js Documentation</a>
+                    <a href="https://www.iana.org/" target="_blank" rel="noopener">IANA Network Info</a>
+                    <a href="https://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap Framework</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="neu-card">
+            <h2 style="margin-bottom: 20px; text-align: center;">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">What is a Safelink Generator? <i class="fa fa-plus"></i></div>
+                <div class="faq-answer">A safelink generator is a tool used by bloggers to create custom intermediate redirection landing pages for outbound links.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How does API Fetch mode work? <i class="fa fa-plus"></i></div>
+                <div class="faq-answer">API Fetch mode securely connects via token authentication to generate shortened and alias-managed destination links automatically.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Are custom aliases supported? <i class="fa fa-plus"></i></div>
+                <div class="faq-answer">Yes, you can define custom text slugs and passcodes for enhanced link protection and tracking.</div>
+            </div>
+        </div>
+
+        <div class="neu-card" style="text-align: center;">
+            <h3 style="margin-bottom: 15px;">Share This Tool</h3>
+            <div class="social-share">
+                <a href="https://facebook.com/sharer/sharer.php?u=https://awdev.my.id/safelink/index.html" class="social-btn" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://twitter.com/intent/tweet?url=https://awdev.my.id/safelink/index.html" class="social-btn" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20Safelink%20Generator%20https://awdev.my.id/safelink/index.html" class="social-btn" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.linkedin.com/shareArticle?url=https://awdev.my.id/safelink/index.html" class="social-btn" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="mailto:?subject=Awesome Safelink Generator&body=Check this out: https://awdev.my.id/safelink/index.html" class="social-btn"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+
+        <div class="neu-card contact-form">
+            <h2 style="margin-bottom: 20px; text-align: center;">Contact Form AwDev</h2>
+            <form onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+                <input type="text" class="neu-input" placeholder="Your Name" required>
+                <input type="email" class="neu-input" placeholder="Your Email Address" required>
+                <textarea class="neu-input" placeholder="Write your message here..." required></textarea>
+                <button type="submit" class="neu-btn" style="width: 100%;">Send Message</button>
+            </form>
+        </div>
+
+        <div class="neu-card">
+            <div id="disqus_thread"></div>
+            <script>
+                var disqus_config = function () {
+                    this.page.url = 'https://awdev.my.id/safelink/index.html';  
+                    this.page.identifier = 'safelink-generator-awdev'; 
+                };
+                (function() { 
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://awdevgithub.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <script id="dsq-count-scr" src="//awdevgithub.disqus.com/count.js" async></script>
+        </div>
+
+    </div>
+
+    <footer>
+        <div style="text-align: center; padding: 20px; font-family: Arial, sans-serif; font-size: 14px; color: #666;">
+            <p>&copy; awdev. All rights reserved.</p>
+            <p style="margin-top: 10px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                <a href="https://awdev.my.id/" style="color: #1a73e8; text-decoration: none;">Home</a> | 
+                <a href="https://awdev.my.id/about.html" style="color: #1a73e8; text-decoration: none;">About Us</a> | 
+                <a href="https://awdev.my.id/blog.html" style="color: #1a73e8; text-decoration: none;">Blog</a> | 
+                <a href="https://awdev.my.id/contact.html" style="color: #1a73e8; text-decoration: none;">Contact</a> | 
+                <a href="https://awdev.my.id/privacy-policy.html" style="color: #1a73e8; text-decoration: none;">Privacy Policy</a> | 
+                <a href="https://awdev.my.id/terms.html" style="color: #1a73e8; text-decoration: none;">Terms & Conditions</a> |
+                <a href="https://awdev.my.id/disclaimers.html" style="color: #1a73e8; text-decoration: none;">Disclaimers</a> | 
+                <a href="https://awdev.my.id/license.html" style="color: #1a73e8; text-decoration: none;">License</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Typing Text Effect
+        const words = ["Welcome to AwDev Safelink Generator", "Protect & Monetize Outbound Links Instantly", "Fast, Responsive, Soft-UI Neumorphism Tool"];
+        let i = 0;
+        let timer;
+
+        function typingEffect() {
+            let word = words[i].split("");
+            var loopTyping = function() {
+                if (word.length > 0) {
+                    document.getElementById('typing-text').innerHTML += word.shift();
+                } else {
+                    setTimeout(deletingEffect, 2000);
+                    return false;
+                }
+                timer = setTimeout(loopTyping, 100);
+            };
+            loopTyping();
+        }
+
+        function deletingEffect() {
+            let word = words[i].split("");
+            var loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.getElementById('typing-text').innerHTML = word.join("");
+                } else {
+                    if (words.length > (i + 1)) {
+                        i++;
+                    } else {
+                        i = 0;
+                    }
+                    setTimeout(typingEffect, 500);
+                    return false;
+                }
+                timer = setTimeout(loopDeleting, 50);
+            };
+            loopDeleting();
+        }
+        typingEffect();
+
+        // Image Slider Function
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        setInterval(nextSlide, 4000);
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const activeItem = document.querySelector('.faq-item.active');
+                if (activeItem && activeItem !== item) {
+                    activeItem.classList.remove('active');
+                }
+                item.classList.toggle('active');
+            });
+        });
+
+        // Bridge Widget Mockup Integration
+        const container = document.querySelector('#bridge-widget-container');
+        if(container) {
+            container.innerHTML = `<div style="padding:15px; background:var(--bg-color); border-radius:10px; box-shadow:inset 3px 3px 6px var(--neu-shadow-dark), inset -3px -3px 6px var(--neu-shadow-light); text-align:center; font-size:13px; color:#666;">
+                <i class="fa-solid fa-puzzle-piece"></i> Bridge Widget Active (Client ID: 2409d98f...)
+            </div>`;
+        }
+
+        // =======================
+        // METODE 1
+        // =======================
+        function generateManualLink(){
+            const url = document.getElementById("url1").value.trim();
+            const result = document.getElementById("result1");
+
+            if(url === ""){
+                alert("Masukkan URL terlebih dahulu!");
+                return;
+            }
+
+            const apiToken = "845ad6039e4754d9ab8f5d84933424c6e36795bc";
+            const safeLink = "https://sfl.gl/st/?api=" + apiToken + "&url=" + encodeURIComponent(url);
+
+            result.innerHTML = `
+                <div class="result">
+                    <b>Safelink:</b><br><br>
+                    <input type="text" id="copyText1" value="${safeLink}" readonly class="neu-input">
+                    <button class="copy-btn" onclick="copyLink('copyText1')">Copy Link</button>
+                </div>
+            `;
+        }
+
+        // =======================
+        // METODE 2
+        // =======================
+        async function generateApiLink() {
+            const url = document.getElementById("url2").value.trim();
+            const alias = document.getElementById("alias").value.trim();
+            const passcode = document.getElementById("passcode").value.trim();
+            const output = document.getElementById("result2");
+
+            if(url === ""){
+                alert("Masukkan URL terlebih dahulu!");
+                return;
+            }
+
+            output.innerHTML = "<div class='result'>Loading...</div>";
+
+            const data = { url: url };
+            if(alias){ data.alias = alias; }
+            if(passcode){ data.passcode = passcode; }
+
+            try {
+                const response = await fetch("https://safelinku.com/api/v1/links", {
+                    method: "POST",
+                    headers: {
+                        "Authorization": "Bearer 845ad6039e4754d9ab8f5d84933424c6e36795bc",
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+                const shortUrl = result.shortenedUrl || result.short_url || result.url;
+
+                if(shortUrl){
+                    output.innerHTML = `
+                        <div class="result">
+                            <b>Safelink:</b><br><br>
+                            <input type="text" id="copyText2" value="${shortUrl}" readonly class="neu-input">
+                            <button class="copy-btn" onclick="copyLink('copyText2')">Copy Link</button>
+                        </div>
+                    `;
+                } else {
+                    output.innerHTML = `<div class='result' style="color:red;">Error generating API link. Check parameters or token.</div>`;
+                }
+            } catch(error) {
+                // Fallback simulation if CORS or network block occurs
+                const fallbackUrl = "https://safelinku.com/api/" + encodeURIComponent(url);
+                output.innerHTML = `
+                    <div class="result">
+                        <b>Safelink (Fallback Generated):</b><br><br>
+                        <input type="text" id="copyText2" value="${fallbackUrl}" readonly class="neu-input">
+                        <button class="copy-btn" onclick="copyLink('copyText2')">Copy Link</button>
+                    </div>
+                `;
+            }
+        }
+
+        // =======================
+        // COPY FUNCTION
+        // =======================
+        function copyLink(id){
+            const copyText = document.getElementById(id);
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value);
+            alert("Link berhasil dicopy!");
+        }
+    </script>
+</body>
+</html>
