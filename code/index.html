@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Editor & Web Tools - AWDEV</title>
+    
+    <!-- Canonical Tag -->
+    <link rel="canonical" href="https://awdev.my.id/code/index.html">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.jpg">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.png">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/favicon.png">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/ico.png">
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/favicon.png">
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/ico.png">
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/awdev.jpg">
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/logo.png">
+    <link rel="icon" type="image/png" href="/logo.png">
+    <link rel="icon" type="image/png" href="/ico.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/png" href="/favicon.ico">
+
+    <!-- Google Verification & AdSense -->
+    <meta name="google-site-verification" content="OLryKZ1dDupEH_xOuZWiEwdi0ZvuXMcnQeMjRwe5YCw" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5407249785989200" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-5407249785989200">
+
+    <!-- Neumorphic & Rainbow UI Stylesheet -->
+    <style>
+        :root {
+            --bg-color: #e4ebf5;
+            --shadow-light: #ffffff;
+            --shadow-dark: #c5d9e8;
+            --text-color: #333333;
+            --primary-rainbow: linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb, #ff9ff6, #54a0ff);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Neumorphic Common Styles */
+        .neu-box {
+            background: var(--bg-color);
+            border-radius: 16px;
+            box-shadow: 9px 9px 16px var(--shadow-dark), -9px -9px 16px var(--shadow-light);
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .neu-button {
+            background: var(--bg-color);
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light);
+            cursor: pointer;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .neu-button:active {
+            box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
+        }
+
+        /* Rainbow Accent Border / Text */
+        .rainbow-text {
+            background: var(--primary-rainbow);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .rainbow-border {
+            border: 3px solid transparent;
+            border-image: var(--primary-rainbow) 1;
+        }
+
+        /* Header & Dropdown Menu */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 15px 25px;
+            border-radius: 16px;
+            background: var(--bg-color);
+            box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background: var(--bg-color);
+            padding: 10px 18px;
+            border-radius: 10px;
+            box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--bg-color);
+            min-width: 220px;
+            box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
+            z-index: 99;
+            border-radius: 12px;
+            padding: 10px 0;
+            max-height: 350px;
+            overflow-y: auto;
+        }
+
+        .dropdown-content a {
+            color: #444;
+            padding: 8px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(255, 255, 255, 0.5);
+            color: #ff6b6b;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Typing Effect Area */
+        .typing-container {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0 40px 0;
+            min-height: 40px;
+        }
+
+        /* Image Slider */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light);
+            margin-bottom: 30px;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        /* Menu Bar & Workspace Editor Styles */
+        .menubar {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            background: var(--bg-color);
+            padding: 12px 20px;
+            border-radius: 12px 12px 0 0;
+            box-shadow: inset 2px 2px 5px var(--shadow-dark), inset -2px -2px 5px var(--shadow-light);
+            margin-bottom: 0;
+            align-items: center;
+        }
+
+        .menu-item {
+            background: var(--bg-color);
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 3px 3px 6px var(--shadow-dark), -3px -3px 6px var(--shadow-light);
+        }
+
+        .menu-item:active {
+            box-shadow: inset 2px 2px 4px var(--shadow-dark), inset -2px -2px 4px var(--shadow-light);
+        }
+
+        .workspace {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            background: var(--bg-color);
+            border-radius: 0 0 16px 16px;
+            box-shadow: 9px 9px 16px var(--shadow-dark), -9px -9px 16px var(--shadow-light);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .pane {
+            display: flex;
+            flex-direction: column;
+            height: 450px;
+            border-right: 1px solid var(--shadow-dark);
+        }
+
+        .pane-header {
+            padding: 10px 15px;
+            font-weight: bold;
+            font-size: 14px;
+            background: rgba(0,0,0,0.03);
+            border-bottom: 1px solid var(--shadow-dark);
+        }
+
+        #codeEditor {
+            flex: 1;
+            width: 100%;
+            border: none;
+            padding: 15px;
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: monospace;
+            font-size: 14px;
+            resize: none;
+            outline: none;
+        }
+
+        #previewFrame {
+            flex: 1;
+            width: 100%;
+            border: none;
+            background: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            .workspace {
+                grid-template-columns: 1fr;
+            }
+            .pane {
+                height: 350px;
+                border-right: none;
+                border-bottom: 1px solid var(--shadow-dark);
+            }
+        }
+
+        /* Article & Links */
+        article h2 {
+            margin-bottom: 15px;
+            font-size: 26px;
+        }
+
+        article p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .link-section {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.3);
+        }
+
+        .link-section ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+
+        .link-section li {
+            margin-bottom: 8px;
+        }
+
+        .link-section a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .link-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            background: var(--bg-color);
+            margin-bottom: 15px;
+            border-radius: 12px;
+            box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 15px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            padding: 0 20px 15px 20px;
+            color: #666;
+            display: none;
+        }
+
+        /* Social Share */
+        .social-share {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .share-btn {
+            flex: 1;
+            min-width: 120px;
+            padding: 12px;
+            text-align: center;
+            border-radius: 10px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+            box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+        }
+
+        .btn-fb { background: #3b5998; }
+        .btn-tw { background: #1da1f2; }
+        .btn-wa { background: #25d366; }
+        .btn-rd { background: #ff4500; }
+
+        /* Contact Form Box */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: var(--bg-color);
+            box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+            outline: none;
+            color: var(--text-color);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #666;
+            border-radius: 16px;
+            background: var(--bg-color);
+            box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+            margin-top: 40px;
+        }
+
+        footer .footer-links {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-links a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- Header & Dropdown Menu -->
+        <header>
+            <div class="logo"><span class="rainbow-text">AWDEV</span> Code Editor</div>
+            <div class="dropdown">
+                <div class="dropbtn">Menu Navigation ▼</div>
+                <div class="dropdown-content">
+                    <a href="https://awdev.my.id/">Home</a>
+                    <a href="https://awdev.my.id/about.html">About Us</a>
+                    <a href="https://awdev.my.id/blog.html">Blog</a>
+                    <a href="https://awdev.my.id/tools/index.html">Tools</a>
+                    <a href="https://awdev.my.id/aplikasi/index.html">Aplikasi</a>
+                    <a href="https://awdev.my.id/seo/index.html">Seo</a>
+                    <a href="https://awdev.my.id/source/index.html">Source</a>
+                    <a href="https://awdev.my.id/eq/index.html">EQ Generator</a>
+                    <a href="https://awdev.my.id/kodepost/index.html">Kode Post Search</a>
+                    <a href="https://awdev.my.id/finder/index.html">Finder</a>
+                    <a href="https://awdev.my.id/qr/index.html">QR Generator</a>
+                    <a href="https://awdev.my.id/collor/index.html">Collor Code Generator</a>
+                    <a href="https://awdev.my.id/calligraphy/index.html">Calligraphy Arabic</a>
+                    <a href="https://awdev.my.id/maps/index.html">Maps Search</a>
+                    <a href="https://awdev.my.id/code/index.html">Code Editor</a>
+                    <a href="https://awdev.my.id/vidio/index.html">Vidio</a>
+                    <a href="https://awdev.my.id/img/index.html">Gallery Images</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Typing Effect Section -->
+        <div class="neu-box">
+            <div class="typing-container" id="typingText"></div>
+        </div>
+
+        <!-- Image Slider Section -->
+        <div class="slider-container neu-box" style="padding: 0;">
+            <div class="slide active" style="background: linear-gradient(135deg, #ff6b6b, #ee5253);">Welcome to AWDEV Code Editor</div>
+            <div class="slide" style="background: linear-gradient(135deg, #48dbfb, #0abde3);">Neumorphic UI & Rainbow Design</div>
+            <div class="slide" style="background: linear-gradient(135deg, #1dd1a1, #10ac84);">Fast, Responsive & Professional Tools</div>
+        </div>
+
+        <!-- Menu Bar Lengkap -->
+        <div class="menubar">
+            <div class="menu-item" onclick="newFile()">File</div>
+            <div class="menu-item" onclick="runCode()">Run / Preview</div>
+            <div class="menu-item" onclick="saveCode()">Save</div>
+            <div class="menu-item" onclick="clearEditor()">Clear</div>
+            <div class="menu-item" style="color: #4ec9b0; cursor: default; box-shadow: none;">AWDEV Code Editor</div>
+        </div>
+
+        <!-- Workspace Area -->
+        <div class="workspace">
+            <!-- Text Editor Pane -->
+            <div class="pane">
+                <div class="pane-header">HTML / CSS / JS Source Code</div>
+                <textarea id="codeEditor" placeholder="Tulis atau tempel kode HTML Anda di sini...">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+      body { text-align: center; padding-top: 50px; background: #f0f2f5; font-family: sans-serif; }
+      h1 { color: #007acc; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Halo, Selamat Datang!&lt;/h1&gt;
+  &lt;p&gt;Proyek web Anda berjalan dengan baik di editor ini.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
+            </div>
+
+            <!-- Live Preview Pane -->
+            <div class="pane">
+                <div class="pane-header">Live Preview</div>
+                <iframe id="previewFrame"></iframe>
+            </div>
+        </div>
+
+        <!-- English Article with 7 Internal & 7 External Links -->
+        <article class="neu-box">
+            <h2><span class="rainbow-text">The Evolution of Modern Web Development with Neumorphic Design</span></h2>
+            <p>Web development has witnessed massive shifts in aesthetic trends, transitioning from flat design to rich, tactile interfaces known as Neumorphism (Soft UI). By combining soft drop shadows and clean highlights, developers can build immersive experiences that feel tangible right inside the browser.</p>
+            <p>Whether you are experimenting with live code snippets or testing production scripts, utilizing a reliable browser-based compiler is essential for modern workflow optimization.</p>
+            
+            <div class="link-section">
+                <h3>Recommended Internal Resources (AWDEV Network):</h3>
+                <ul>
+                    <li><a href="https://awdev.my.id/" target="_blank">Explore AWDEV Official Homepage</a></li>
+                    <li><a href="https://awdev.my.id/tools/index.html" target="_blank">Discover Professional Web Development Tools</a></li>
+                    <li><a href="https://awdev.my.id/seo/index.html" target="_blank">Optimize Your Website with Advanced SEO Checkers</a></li>
+                    <li><a href="https://awdev.my.id/collor/index.html" target="_blank">Generate Custom Palettes with Collor Code Generator</a></li>
+                    <li><a href="https://awdev.my.id/qr/index.html" target="_blank">Create Dynamic QR Codes Instantly</a></li>
+                    <li><a href="https://awdev.my.id/blog/index.html" target="_blank">Read Insights on the AWDEV Blog</a></li>
+                    <li><a href="https://awdev.my.id/about.html" target="_blank">Learn More About the AWDEV Team</a></li>
+                </ul>
+            </div>
+
+            <div class="link-section" style="margin-top: 15px;">
+                <h3>External Industry References & Documentation:</h3>
+                <ul>
+                    <li><a href="https://developer.mozilla.org" target="_blank">MDN Web Docs - Comprehensive HTML/CSS/JS Guides</a></li>
+                    <li><a href="https://github.com" target="_blank">GitHub - Version Control and Open Source Collaboration</a></li>
+                    <li><a href="https://stackoverflow.com" target="_blank">Stack Overflow - Developer Community and Troubleshooting</a></li>
+                    <li><a href="https://w3schools.com" target="_blank">W3Schools - Web Tutorials and References</a></li>
+                    <li><a href="https://css-tricks.com" target="_blank">CSS-Tricks - Advanced Styling Techniques and Tips</a></li>
+                    <li><a href="https://netlify.com" target="_blank">Netlify - Modern Web Hosting and Continuous Deployment</a></li>
+                    <li><a href="https://code.visualstudio.com" target="_blank">Visual Studio Code - Industry Standard Code Editor</a></li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- FAQ Section -->
+        <div class="neu-box">
+            <h3 style="margin-bottom: 20px;">Frequently Asked Questions</h3>
+            <div class="faq-item">
+                <div class="faq-question">What is Neumorphism design? <span>+</span></div>
+                <div class="faq-answer">Neumorphism is a visual style that merges skeuomorphism with flat design, utilizing subtle contrasting shadows to give interface elements a pressed or extruded soft plastic appearance.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Is this code editor fully responsive? <span>+</span></div>
+                <div class="faq-answer">Yes, this layout adapts seamlessly to mobile phones, tablets, and desktop computers with fluid CSS grid and flexbox adjustments.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How can I use the rainbow gradient elements? <span>+</span></div>
+                <div class="faq-answer">You can apply the custom CSS classes `.rainbow-text` or `.rainbow-border` to any HTML element to instantly activate vibrant multi-color accents.</div>
+            </div>
+        </div>
+
+        <!-- Social Media Share -->
+        <div class="social-share">
+            <a href="https://facebook.com" target="_blank" class="share-btn btn-fb">Share on Facebook</a>
+            <a href="https://twitter.com" target="_blank" class="share-btn btn-tw">Share on Twitter</a>
+            <a href="https://whatsapp.com" target="_blank" class="share-btn btn-wa">Share on WhatsApp</a>
+            <a href="https://reddit.com" target="_blank" class="share-btn btn-rd">Share on Reddit</a>
+        </div>
+
+        <!-- Contact Form Box -->
+        <div class="neu-box">
+            <h3 style="margin-bottom: 20px;">Get in Touch</h3>
+            <form onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" class="form-control" placeholder="Enter your name..." required>
+                </div>
+                <div class="form-group">
+                    <label>Your Email</label>
+                    <input type="email" class="form-control" placeholder="Enter your email..." required>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea class="form-control" rows="4" placeholder="Write your message here..." required></textarea>
+                </div>
+                <button type="submit" class="neu-button">Send Message</button>
+            </form>
+        </div>
+
+        <!-- Disqus Comment Section -->
+        <div class="neu-box">
+            <div id="disqus_thread"></div>
+            <script>
+                var disqus_config = function () {
+                    this.page.url = 'https://awdev.my.id/code/index.html';
+                    this.page.identifier = 'code_editor_index';
+                };
+                (function() {
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://awdevgithub.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <script id="dsq-count-scr" src="//awdevgithub.disqus.com/count.js" async></script>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; awdev. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="https://awdev.my.id/">Home</a> | 
+                <a href="https://awdev.my.id/about.html">About Us</a> | 
+                <a href="https://awdev.my.id/blog.html">Blog</a> | 
+                <a href="https://awdev.my.id/contact.html">Contact</a> | 
+                <a href="https://awdev.my.id/privacy-policy.html">Privacy Policy</a> | 
+                <a href="https://awdev.my.id/terms.html">Terms & Conditions</a>
+                <a href="https://awdev.my.id/disclaimers.html">Disclaimers</a> | 
+                <a href="https://awdev.my.id/license.html">License</a>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript Interactivity -->
+    <script>
+        // Editor Functions
+        function runCode() {
+            const code = document.getElementById('codeEditor').value;
+            const iframe = document.getElementById('previewFrame');
+            const doc = iframe.contentDocument || iframe.contentWindow.document;
+            doc.open();
+            doc.write(code);
+            doc.close();
+        }
+
+        function clearEditor() {
+            if(confirm('Yakin ingin menghapus semua kode?')) {
+                document.getElementById('codeEditor').value = '';
+                runCode();
+            }
+        }
+
+        function newFile() {
+            document.getElementById('codeEditor').value = '<!DOCTYPE html>\n<html>\n<head>\n    <title>New Page</title>\n</head>\n<body>\n    \n</body>\n</html>';
+            runCode();
+        }
+
+        function saveCode() {
+            const code = document.getElementById('codeEditor').value;
+            const blob = new Blob([code], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'index.html';
+            a.click();
+        }
+
+        // Jalankan pratinjau otomatis saat halaman dimuat
+        window.onload = function() {
+            runCode();
+            typingEffect();
+        };
+        
+        // Auto-refresh preview saat mengetik
+        document.getElementById('codeEditor').addEventListener('input', runCode);
+
+        // Typing Effect Script
+        const words = ["Welcome to AWDEV Code Editor", "Build Modern Neumorphic Web Apps", "Explore Full Tools & Rainbow UI"];
+        let i = 0;
+        let timer;
+
+        function typingEffect() {
+            let word = words[i].split("");
+            var loopTyping = function() {
+                if (word.length > 0) {
+                    document.getElementById('typingText').innerHTML += word.shift();
+                } else {
+                    setTimeout(deletingEffect, 2000);
+                    return false;
+                }
+                timer = setTimeout(loopTyping, 100);
+            };
+            loopTyping();
+        }
+
+        function deletingEffect() {
+            let word = words[i].split("");
+            var loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.getElementById('typingText').innerHTML = word.join("");
+                } else {
+                    if (words.length > (i + 1)) {
+                        i++;
+                    } else {
+                        i = 0;
+                    }
+                    setTimeout(typingEffect, 500);
+                    return false;
+                }
+                timer = setTimeout(loopDeleting, 50);
+            };
+            loopDeleting();
+        }
+
+        // Image Slider Script
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        setInterval(nextSlide, 3500);
+
+        // FAQ Toggle Script
+        const faqs = document.querySelectorAll('.faq-question');
+        faqs.forEach(faq => {
+            faq.addEventListener('click', () => {
+                const answer = faq.nextElementSibling;
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                    faq.querySelector('span').textContent = '+';
+                } else {
+                    answer.style.display = 'block';
+                    faq.querySelector('span').textContent = '-';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
