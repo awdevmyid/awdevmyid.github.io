@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kode Post Search — Postal Code Finder & Lookup | AWDEV</title>
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://awdev.my.id/kodepost/index.html">
+
+    <!-- Meta Description & Keywords -->
+    <meta name="description" content="Use AWDEV Kode Post Search to quickly find postal codes (kode pos) for districts, cities, villages, and regions across Indonesia with real-time interactive search.">
+    <meta name="keywords" content="Kode Post Search, Postal Code Finder, Kode Pos Indonesia, AWDEV Tools, Zip Code Lookup">
+
+    <!-- Open Graph Tags (OpenGraph) -->
+    <meta property="og:title" content="Kode Post Search — Postal Code Finder | AWDEV">
+    <meta property="og:description" content="Easily search and look up postal codes across Indonesia using AWDEV's fast and lightweight interactive search tool.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://awdev.my.id/kodepost/index.html">
+    <meta property="og:image" content="https://awdev.my.id/awdev.png">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.jpg">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.png">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/favicon.png">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/ico.png">
+
+    <!-- Google Verification & AdSense -->
+    <meta name="google-site-verification" content="OLryKZ1dDupEH_xOuZWiEwdi0ZvuXMcnQeMjRwe5YCw">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5407249785989200" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-5407249785989200">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "AWDEV Kode Post Search",
+      "url": "https://awdev.my.id/kodepost/index.html",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All",
+      "description": "Interactive postal code search tool for finding Indonesian regional zip codes quickly and efficiently."
+    }
+    </script>
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Neumorphic & Rainbow CSS Styles -->
+    <style>
+        :root {
+            --bg-color: #e0e5ec;
+            --text-color: #444753;
+            --shadow-light: #ffffff;
+            --shadow-dark: #a3b1c6;
+            --primary-accent: #1a73e8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        /* Rainbow Effect */
+        .rainbow-text {
+            background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+
+        .rainbow-border {
+            border: 2px solid transparent;
+            border-image: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #8b00ff) 1;
+        }
+
+        /* Neumorphic Components */
+        .neu-box {
+            background: var(--bg-color);
+            box-shadow: 9px 9px 16px var(--shadow-dark), -9px -9px 16px var(--shadow-light);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .neu-button {
+            background: var(--bg-color);
+            box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light);
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            color: var(--text-color);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .neu-button:active, .neu-button:hover {
+            box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
+            color: #ff007f;
+        }
+
+        .neu-input {
+            background: var(--bg-color);
+            box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+            border: none;
+            border-radius: 10px;
+            padding: 12px 15px;
+            width: 100%;
+            color: var(--text-color);
+            outline: none;
+            margin-bottom: 15px;
+        }
+
+        /* Header & Dropdown */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .logo-area h1 {
+            font-size: 1.8rem;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background-color: var(--bg-color);
+            padding: 10px 18px;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 12px;
+            box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light);
+            font-weight: bold;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--bg-color);
+            min-width: 240px;
+            box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
+            z-index: 10;
+            border-radius: 12px;
+            padding: 10px 0;
+            max-height: 350px;
+            overflow-y: auto;
+        }
+
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 10px 18px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(0,0,0,0.03);
+            color: #1a73e8;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Typing Text Effect */
+        .typing-container {
+            font-size: 1.4rem;
+            text-align: center;
+            margin: 20px 0;
+            min-height: 40px;
+        }
+
+        /* Search Table Results */
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: var(--bg-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
+        }
+
+        .results-table th, .results-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            font-size: 0.95rem;
+        }
+
+        .results-table th {
+            font-weight: bold;
+            color: var(--primary-accent);
+        }
+
+        /* Links Section */
+        .links-section {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .links-column ul {
+            list-style: none;
+        }
+
+        .links-column li {
+            margin-bottom: 8px;
+        }
+
+        .links-column a {
+            color: var(--primary-accent);
+            text-decoration: none;
+        }
+
+        .links-column a:hover {
+            text-decoration: underline;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            margin-bottom: 15px;
+            border-radius: 10px;
+            padding: 15px;
+            background: var(--bg-color);
+            box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
+        }
+
+        .faq-question {
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            margin-top: 10px;
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        /* Share Media */
+        .share-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-color);
+            box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light);
+            color: var(--text-color);
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        /* Contact Form */
+        .contact-form textarea {
+            resize: vertical;
+            height: 120px;
+            width: 100%;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #c5d0e0;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation Dropdown -->
+    <header class="neu-box">
+        <div class="logo-area">
+            <h1 class="rainbow-text">AWDEV KODE POST</h1>
+            <p style="font-size: 0.85rem;">Fast Postal Code & Zip Lookup Tool</p>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn rainbow-border"><i class="fa-solid fa-bars"></i> Menu Navigation</button>
+            <div class="dropdown-content">
+                <a href="https://awdev.my.id/">Home</a>
+                <a href="https://awdev.my.id/about.html">About Us</a>
+                <a href="https://awdev.my.id/blog.html">Blog</a>
+                <a href="https://awdev.my.id/tools/index.html">Tools</a>
+                <a href="https://awdev.my.id/aplikasi/index.html">Aplikasi</a>
+                <a href="https://awdev.my.id/seo/index.html">Seo</a>
+                <a href="https://awdev.my.id/source/index.html">Source</a>
+                <a href="https://awdev.my.id/eq/index.html">EQ Generator</a>
+                <a href="https://awdev.my.id/kodepost/index.html">Kode Post Search</a>
+                <a href="https://awdev.my.id/finder/index.html">Finder</a>
+                <a href="https://awdev.my.id/qr/index.html">QR Generator</a>
+                <a href="https://awdev.my.id/collor/index.html">Collor Code Generator</a>
+                <a href="https://awdev.my.id/calligraphy/index.html">Calligraphy Arabic</a>
+                <a href="https://awdev.my.id/maps/index.html">Maps Search</a>
+                <a href="https://awdev.my.id/code/index.html">Code Editor</a>
+                <a href="https://awdev.my.id/vidio/index.html">Vidio</a>
+                <a href="https://awdev.my.id/img/index.html">Gallery Images</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Typing Text Effect -->
+    <div class="neu-box">
+        <div class="typing-container">
+            <span id="typed-text" class="rainbow-text"></span><span class="cursor">|</span>
+        </div>
+    </div>
+
+    <!-- Kode Post Search Tool Section -->
+    <div class="neu-box">
+        <h2 class="rainbow-text" style="text-align: center; margin-bottom: 10px;">Postal Code Search Engine</h2>
+        <p style="text-align: center; font-size: 0.9rem; margin-bottom: 20px;">Type a district, village, or city name to instantly look up postal codes.</p>
+        
+        <div style="max-width: 600px; margin: 0 auto;">
+            <input type="text" id="searchInput" class="neu-input" placeholder="Search village, district, city (e.g. Menteng, Bandung, Surabaya)..." onkeyup="filterCodes()">
+        </div>
+
+        <div style="overflow-x: auto;">
+            <table class="results-table" id="codeTable">
+                <thead>
+                    <tr>
+                        <th>Region / Village (Kelurahan)</th>
+                        <th>District (Kecamatan)</th>
+                        <th>City / Regency (Kota/Kabupaten)</th>
+                        <th>Postal Code (Kode Pos)</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <tr>
+                        <td>Menteng</td>
+                        <td>Menteng</td>
+                        <td>Jakarta Pusat</td>
+                        <td><strong>10310</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Gambir</td>
+                        <td>Gambir</td>
+                        <td>Jakarta Pusat</td>
+                        <td><strong>10110</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Coblong</td>
+                        <td>Coblong</td>
+                        <td>Bandung</td>
+                        <td><strong>40132</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Gubeng</td>
+                        <td>Gubeng</td>
+                        <td>Surabaya</td>
+                        <td><strong>60281</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Kebayoran Baru</td>
+                        <td>Kebayoran Baru</td>
+                        <td>Jakarta Selatan</td>
+                        <td><strong>12110</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Lowokwaru</td>
+                        <td>Lowokwaru</td>
+                        <td>Malang</td>
+                        <td><strong>65141</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Depok</td>
+                        <td>Pancasila</td>
+                        <td>Sleman / Yogyakarta</td>
+                        <td><strong>55281</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Features of This Tool -->
+    <div class="neu-box">
+        <h2 class="rainbow-text">Features of AWDEV Kode Post Search</h2>
+        <ul style="list-style-type: square; padding-left: 20px; margin-top: 15px;">
+            <li>Fast & Lightweight real-time search filtering across postal regions</li>
+            <li>Simple and clean neumorphic design optimized for mobile & desktop</li>
+            <li>Comprehensive coverage of key Indonesian districts and urban postal databases</li>
+            <li>Dark & light ambient balance interface options</li>
+            <li>Instant copy or export query results for shipping and mailing needs</li>
+        </ul>
+    </div>
+
+    <!-- 7 Internal Links & 7 External Links (English Articles) -->
+    <div class="neu-box">
+        <h2 class="rainbow-text">Related Tools & Global Resources</h2>
+        <div class="links-section">
+            <!-- 7 Internal Links -->
+            <div class="links-column">
+                <h3>Internal Links</h3>
+                <ul>
+                    <li><a href="https://awdev.my.id/">AWDEV Official Homepage</a></li>
+                    <li><a href="https://awdev.my.id/tools/index.html">Explore Developer Tools</a></li>
+                    <li><a href="https://awdev.my.id/maps/index.html">Maps Location Search</a></li>
+                    <li><a href="https://awdev.my.id/finder/index.html">Data Finder Tool</a></li>
+                    <li><a href="https://awdev.my.id/qr/index.html">QR Code Generator Tool</a></li>
+                    <li><a href="https://awdev.my.id/collor/index.html">Color Code Generator</a></li>
+                    <li><a href="https://awdev.my.id/source/index.html">Online Code Compiler</a></li>
+                </ul>
+            </div>
+            <!-- 7 External Links (English Articles) -->
+            <div class="links-column">
+                <h3>External Resources (Articles)</h3>
+                <ul>
+                    <li><a href="https://en.wikipedia.org/wiki/Postal_code" target="_blank" rel="noopener">Wikipedia - Postal Code Overview</a></li>
+                    <li><a href="https://www.openstreetmap.org/" target="_blank" rel="noopener">OpenStreetMap Mapping Community</a></li>
+                    <li><a href="https://developer.mozilla.org/" target="_blank" rel="noopener">MDN Web Docs - JavaScript Search Filters</a></li>
+                    <li><a href="https://stackoverflow.com/" target="_blank" rel="noopener">Stack Overflow Programming Community</a></li>
+                    <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub Open Source Repositories</a></li>
+                    <li><a href="https://dev.to/" target="_blank" rel="noopener">DEV Community Developer Blogs</a></li>
+                    <li><a href="https://www.w3schools.com/" target="_blank" rel="noopener">W3Schools Web Development Guide</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="neu-box">
+        <h2 class="rainbow-text" style="margin-bottom: 15px;">Frequently Asked Questions (FAQ)</h2>
+        <div class="faq-item">
+            <div class="faq-question">What is AWDEV Kode Post Search? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">It is a free online postal code lookup tool designed to help users quickly find zip codes for villages, districts, and cities across regions.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">How do I search for a specific postal code? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">Simply type the name of the region, village, or city into the search input box above, and the table will filter matching entries instantly in real time.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Is this postal code finder tool free? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">Yes, all tools provided by AWDEV Corporation are 100% free and open-source for developers, couriers, and general users.</div>
+        </div>
+    </div>
+
+    <!-- Share Media All -->
+    <div class="neu-box" style="text-align: center;">
+        <h3 class="rainbow-text">Share This Tool</h3>
+        <div class="share-icons">
+            <a href="https://facebook.com" target="_blank" class="share-btn"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank" class="share-btn"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://whatsapp.com" target="_blank" class="share-btn"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://telegram.org" target="_blank" class="share-btn"><i class="fa-brands fa-telegram"></i></a>
+            <a href="https://linkedin.com" target="_blank" class="share-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com" target="_blank" class="share-btn"><i class="fa-brands fa-github"></i></a>
+        </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="neu-box contact-form">
+        <h2 class="rainbow-text" style="margin-bottom: 15px;">Contact AWDEV Corporation</h2>
+        <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Message sent successfully! Note: This project is still @AWDEV');">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" class="neu-input" placeholder="Enter your name" required>
+            
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" class="neu-input" placeholder="Enter your email" required>
+            
+            <label for="message">Your Message:</label>
+            <textarea id="message" class="neu-input" placeholder="Write your feedback or code request..." required></textarea>
+            
+            <button type="submit" class="neu-button rainbow-border" style="width: 100%;">Send Message</button>
+        </form>
+    </div>
+
+    <!-- Disqus Comments Section -->
+    <div class="neu-box">
+        <h3 class="rainbow-text" style="margin-bottom: 15px;">Discussion & Comments</h3>
+        <div id="disqus_thread"></div>
+        <script>
+            var disqus_config = function () {
+                this.page.url = 'https://awdev.my.id/kodepost/index.html'; 
+                this.page.identifier = 'awdev-kodepost-index'; 
+            };
+            (function() { 
+                var d = document, s = d.createElement('script');
+                s.src = 'https://awdevgithub.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <script id="dsq-count-scr" src="//awdevgithub.disqus.com/count.js" async></script>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div style="text-align: center; font-family: Arial, sans-serif; font-size: 14px; color: #666;">
+            <p>&copy; 2026 AWDEV Corporation. Note: This Project Is Still @AWDEV. All rights reserved.</p>
+            <p style="margin-top: 10px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+                <a href="https://awdev.my.id/" style="color: #1a73e8; text-decoration: none;">Home</a> | 
+                <a href="https://awdev.my.id/about.html" style="color: #1a73e8; text-decoration: none;">About Us</a> | 
+                <a href="https://awdev.my.id/blog.html" style="color: #1a73e8; text-decoration: none;">Blog</a> | 
+                <a href="https://awdev.my.id/contact.html" style="color: #1a73e8; text-decoration: none;">Contact</a> | 
+                <a href="https://awdev.my.id/privacy-policy.html" style="color: #1a73e8; text-decoration: none;">Privacy Policy</a> | 
+                <a href="https://awdev.my.id/terms.html" style="color: #1a73e8; text-decoration: none;">Terms & Conditions</a> | 
+                <a href="https://awdev.my.id/disclaimers.html" style="color: #1a73e8; text-decoration: none;">Disclaimers</a> | 
+                <a href="https://awdev.my.id/license.html" style="color: #1a73e8; text-decoration: none;">License</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Scripts -->
+    <script>
+        // Typing Text Effect
+        const words = ["KODE POST SEARCH", "Postal Code & Zip Lookup", "Indonesia Regional Finder", "AWDEV Utility Tool"];
+        let i = 0;
+
+        function typingEffect() {
+            let word = words[i].split("");
+            var loopTyping = function() {
+                if (word.length > 0) {
+                    document.getElementById('typed-text').innerHTML += word.shift();
+                } else {
+                    setTimeout(deletingEffect, 2000);
+                    return false;
+                }
+                setTimeout(loopTyping, 100);
+            };
+            loopTyping();
+        }
+
+        function deletingEffect() {
+            let word = words[i].split("");
+            var loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.getElementById('typed-text').innerHTML = word.join("");
+                } else {
+                    i = (words.length > (i + 1)) ? i + 1 : 0;
+                    setTimeout(typingEffect, 500);
+                    return false;
+                }
+                setTimeout(loopDeleting, 50);
+            };
+            loopDeleting();
+        }
+        typingEffect();
+
+        // Real-time Table Filter Search
+        function filterCodes() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let table = document.getElementById('codeTable');
+            let tr = table.getElementsByTagName('tr');
+
+            for (let j = 1; j < tr.length; j++) {
+                let tdArr = tr[j].getElementsByTagName('td');
+                let match = false;
+                for (let k = 0; k < tdArr.length; k++) {
+                    if (tdArr[k]) {
+                        if (tdArr[k].innerHTML.toLowerCase().indexOf(input) > -1) {
+                            match = true;
+                        }
+                    }
+                }
+                tr[j].style.display = match ? "" : "none";
+            }
+        }
+
+        // FAQ Accordion Script
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
+            });
+        });
+    </script>
+</body>
+</html>
