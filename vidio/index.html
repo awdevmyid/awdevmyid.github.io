@@ -1,1 +1,647 @@
-vidio
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Gallery & Embed Hub - AWDEV CORPORATION</title>
+    
+    <!-- Meta SEO & Open Graph -->
+    <meta name="description" content="Explore and embed cinematic video assets from AWDEV CORPORATION. Copy video URLs, embed iframe codes, and download high-quality videos instantly.">
+    <meta name="keywords" content="AWDEV Videos, Video Embed, MP4 Download, Borobudur Video, Dubai Video, Istanbul Video">
+    <meta name="author" content="AWDEV Corporation">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://awdev.my.id/vidio/">
+    <meta property="og:title" content="Video Gallery & Embed Hub - AWDEV CORPORATION">
+    <meta property="og:description" content="Browse video assets, get embed codes, and download video links easily.">
+    <meta property="og:image" content="https://awdev.my.id/img/awdev.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://awdev.my.id/vidio/">
+    <meta property="twitter:title" content="Video Gallery & Embed Hub - AWDEV CORPORATION">
+    <meta property="twitter:description" content="Browse video assets, get embed codes, and download video links easily.">
+    <meta property="twitter:image" content="https://awdev.my.id/img/awdev.png">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.jpg">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.png">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/favicon.png">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/ico.png">
+
+    <!-- Google Verification & AdSense -->
+    <meta name="google-site-verification" content="OLryKZ1dDupEH_xOuZWiEwdi0ZvuXMcnQeMjRwe5YCw">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5407249785989200" crossorigin="anonymous"></script>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Video Gallery - AWDEV CORPORATION",
+      "url": "https://awdev.my.id/vidio/",
+      "description": "Video collection gallery with copy url, embed iframe code, and download links.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "AWDEV CORPORATION",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://awdev.my.id/img/awdev.png"
+        }
+      }
+    }
+    </script>
+
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Neumorphic & Rainbow CSS Styling -->
+    <style>
+        :root {
+            --bg-color: #e4ebf5;
+            --neu-shadow-dark: #c5d1e0;
+            --neu-shadow-light: #ffffff;
+            --text-color: #333333;
+            --primary: #1a73e8;
+            --rainbow-gradient: linear-gradient(135deg, #ff3366, #ff9933, #33cc66, #3399ff, #9933ff);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            padding: 20px;
+        }
+
+        .rainbow-bar {
+            height: 6px;
+            width: 100%;
+            background: var(--rainbow-gradient);
+            border-radius: 3px;
+            margin-bottom: 20px;
+        }
+
+        .neu-box {
+            background: var(--bg-color);
+            box-shadow: 8px 8px 16px var(--neu-shadow-dark), -8px -8px 16px var(--neu-shadow-light);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .neu-inset {
+            background: var(--bg-color);
+            box-shadow: inset 4px 4px 8px var(--neu-shadow-dark), inset -4px -4px 8px var(--neu-shadow-light);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .neu-button {
+            background: var(--bg-color);
+            box-shadow: 4px 4px 8px var(--neu-shadow-dark), -4px -4px 8px var(--neu-shadow-light);
+            border: none;
+            border-radius: 8px;
+            padding: 8px 14px;
+            cursor: pointer;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .neu-button:hover {
+            box-shadow: inset 2px 2px 4px var(--neu-shadow-dark), inset -2px -2px 4px var(--neu-shadow-light);
+            color: #ff3366;
+        }
+
+        .neu-button.primary-btn {
+            color: var(--primary);
+        }
+
+        /* Header & Navigation Dropdown */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 4px 4px 8px var(--neu-shadow-dark), -4px -4px 8px var(--neu-shadow-light);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background: var(--bg-color);
+            box-shadow: 5px 5px 10px var(--neu-shadow-dark), -5px -5px 10px var(--neu-shadow-light);
+            padding: 10px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            color: var(--primary);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--bg-color);
+            min-width: 240px;
+            box-shadow: 8px 8px 16px var(--neu-shadow-dark), -8px -8px 16px var(--neu-shadow-light);
+            z-index: 100;
+            border-radius: 12px;
+            padding: 10px 0;
+            max-height: 350px;
+            overflow-y: auto;
+        }
+
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            font-size: 13px;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(0,0,0,0.03);
+            color: #ff3366;
+            padding-left: 25px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Video Gallery Content */
+        h1 {
+            font-size: 2.2rem;
+            text-align: center;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .video-card {
+            background: var(--bg-color);
+            box-shadow: 6px 6px 12px var(--neu-shadow-dark), -6px -6px 12px var(--neu-shadow-light);
+            border-radius: 14px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .video-preview {
+            width: 100%;
+            height: 180px;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: inset 3px 3px 6px rgba(0,0,0,0.3);
+            margin-bottom: 15px;
+        }
+
+        .video-preview video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-info h3 {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .video-time {
+            font-size: 0.8rem;
+            color: #777;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .video-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+            border-top: 1px solid rgba(0,0,0,0.06);
+            padding-top: 12px;
+        }
+
+        /* Notification Toast Popup */
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 12px;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            font-size: 14px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+        }
+
+        #toast.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @keyframes fadein {
+            from { bottom: 0; opacity: 0; }
+            to { bottom: 30px; opacity: 1; }
+        }
+
+        @keyframes fadeout {
+            from { bottom: 30px; opacity: 1; }
+            to { bottom: 0; opacity: 0; }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 40px;
+        }
+
+        footer .footer-links {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-links a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer .footer-links a:hover {
+            text-decoration: underline;
+            color: #ff3366;
+        }
+    </style>
+
+    <!-- JavaScript Actions for Copy and Notifications -->
+    <script>
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            toast.textContent = message;
+            toast.className = "show";
+            setTimeout(() => {
+                toast.className = toast.className.replace("show", "");
+            }, 3000);
+        }
+
+        function copyToClipboard(text, type) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast(`${type} copied to clipboard!`);
+            }, (err) => {
+                showToast('Failed to copy text.');
+                console.error('Async: Could not copy text: ', err);
+            });
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Rainbow Accent Top Bar -->
+    <div class="rainbow-bar"></div>
+
+    <!-- Header & Navigation Dropdown -->
+    <header class="neu-box">
+        <div class="logo-area">
+            <img src="https://awdev.my.id/img/awdev.png" alt="AWDEV Corporation Logo" class="logo-img">
+            <span class="logo-text">AWDEV CORP</span>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn"><i class="fas fa-bars"></i> Navigation Menu</button>
+            <div class="dropdown-content">
+                <a href="https://awdev.my.id/"><i class="fas fa-home"></i> Home</a>
+                <a href="https://awdev.my.id/about.html"><i class="fas fa-info-circle"></i> About Us</a>
+                <a href="https://awdev.my.id/blog.html"><i class="fas fa-blog"></i> Blog</a>
+                <a href="https://awdev.my.id/tools/index.html"><i class="fas fa-tools"></i> Tools</a>
+                <a href="https://awdev.my.id/aplikasi/index.html"><i class="fas fa-mobile-alt"></i> Aplikasi</a>
+                <a href="https://awdev.my.id/seo/index.html"><i class="fas fa-search-dollar"></i> Seo</a>
+                <a href="https://awdev.my.id/source/index.html"><i class="fas fa-code"></i> Source</a>
+                <a href="https://awdev.my.id/eq/index.html"><i class="fas fa-sliders-h"></i> EQ Generator</a>
+                <a href="https://awdev.my.id/kodepost/index.html"><i class="fas fa-mail-bulk"></i> Kode Post Search</a>
+                <a href="https://awdev.my.id/finder/index.html"><i class="fas fa-compass"></i> Finder</a>
+                <a href="https://awdev.my.id/qr/index.html"><i class="fas fa-qrcode"></i> QR Generator</a>
+                <a href="https://awdev.my.id/collor/index.html"><i class="fas fa-palette"></i> Collor Code Generator</a>
+                <a href="https://awdev.my.id/calligraphy/index.html"><i class="fas fa-feather-alt"></i> Calligraphy Arabic</a>
+                <a href="https://awdev.my.id/maps/index.html"><i class="fas fa-map-marked-alt"></i> Maps Search</a>
+                <a href="https://awdev.my.id/code/index.html"><i class="fas fa-laptop-code"></i> Code Editor</a>
+                <a href="https://awdev.my.id/vidio/index.html"><i class="fas fa-video"></i> Vidio</a>
+                <a href="https://awdev.my.id/img/index.html"><i class="fas fa-images"></i> Gallery Images</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="neu-box">
+        <h1>Cinematic Video Hub</h1>
+        <p class="subtitle">Browse professional video assets, copy direct URLs, get iframe embed codes, or download files instantly.</p>
+
+        <div class="video-grid">
+            
+            <!-- Video 1 -->
+            <div class="video-card">
+                <div>
+                    <div class="video-preview">
+                        <video src="https://awdev.my.id/vidio/borobudur.mp4" controls preload="metadata"></video>
+                    </div>
+                    <div class="video-info">
+                        <h3>borobudur.mp4</h3>
+                        <div class="video-time"><i class="far fa-clock"></i> 3 minutes ago</div>
+                        <p style="font-size: 0.85rem; color: #555;">Cinematic aerial view of the historic Borobudur temple heritage site.</p>
+                    </div>
+                </div>
+                <div class="video-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/vidio/borobudur.mp4', 'Video URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;iframe src=&quot;https://awdev.my.id/vidio/borobudur.mp4&quot; width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;', 'Embed Code')"><i class="fas fa-code"></i> Copy Embed</button>
+                    <a href="https://awdev.my.id/vidio/borobudur.mp4" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- Video 2 -->
+            <div class="video-card">
+                <div>
+                    <div class="video-preview">
+                        <video src="https://awdev.my.id/vidio/dubai.mp4" controls preload="metadata"></video>
+                    </div>
+                    <div class="video-info">
+                        <h3>dubai.mp4</h3>
+                        <div class="video-time"><i class="far fa-clock"></i> 5 minutes ago</div>
+                        <p style="font-size: 0.85rem; color: #555;">Modern architectural showcase of Dubai skyscrapers and city skyline.</p>
+                    </div>
+                </div>
+                <div class="video-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/vidio/dubai.mp4', 'Video URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;iframe src=&quot;https://awdev.my.id/vidio/dubai.mp4&quot; width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;', 'Embed Code')"><i class="fas fa-code"></i> Copy Embed</button>
+                    <a href="https://awdev.my.id/vidio/dubai.mp4" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- Video 3 -->
+            <div class="video-card">
+                <div>
+                    <div class="video-preview">
+                        <video src="https://awdev.my.id/vidio/index.html" controls preload="metadata"></video>
+                    </div>
+                    <div class="video-info">
+                        <h3>index.html</h3>
+                        <div class="video-time"><i class="far fa-clock"></i> 6 minutes ago</div>
+                        <p style="font-size: 0.85rem; color: #555;">Core system template video asset for AWDEV interface rendering.</p>
+                    </div>
+                </div>
+                <div class="video-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/vidio/index.html', 'Video URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;iframe src=&quot;https://awdev.my.id/vidio/index.html&quot; width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;', 'Embed Code')"><i class="fas fa-code"></i> Copy Embed</button>
+                    <a href="https://awdev.my.id/vidio/index.html" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- Video 4 -->
+            <div class="video-card">
+                <div>
+                    <div class="video-preview">
+                        <video src="https://awdev.my.id/vidio/istambul.mp4" controls preload="metadata"></video>
+                    </div>
+                    <div class="video-info">
+                        <h3>istambul.mp4</h3>
+                        <div class="video-time"><i class="far fa-clock"></i> 5 minutes ago</div>
+                        <p style="font-size: 0.85rem; color: #555;">Cultural scenery and gorgeous historical landscape views of Istanbul.</p>
+                    </div>
+                </div>
+                <div class="video-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/vidio/istambul.mp4', 'Video URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;iframe src=&quot;https://awdev.my.id/vidio/istambul.mp4&quot; width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;', 'Embed Code')"><i class="fas fa-code"></i> Copy Embed</button>
+                    <a href="https://awdev.my.id/vidio/istambul.mp4" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- Video 5 -->
+            <div class="video-card">
+                <div>
+                    <div class="video-preview">
+                        <video src="https://awdev.my.id/vidio/italia.mp4" controls preload="metadata"></video>
+                    </div>
+                    <div class="video-info">
+                        <h3>italia.mp4</h3>
+                        <div class="video-time"><i class="far fa-clock"></i> 3 minutes ago</div>
+                        <p style="font-size: 0.85rem; color: #555;">Scenic European visual captures across classic Italian architecture and towns.</p>
+                    </div>
+                </div>
+                <div class="video-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/vidio/italia.mp4', 'Video URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;iframe src=&quot;https://awdev.my.id/vidio/italia.mp4&quot; width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;', 'Embed Code')"><i class="fas fa-code"></i> Copy Embed</button>
+                    <a href="https://awdev.my.id/vidio/italia.mp4" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- Video 6 -->
+            <div class="video-card">
+                <div>
+                    <div class="video-preview">
+                        <video src="https://awdev.my.id/vidio/london.mp4" controls preload="metadata"></video>
+                    </div>
+                    <div class="video-info">
+                        <h3>london.mp4</h3>
+                        <div class="video-time"><i class="far fa-clock"></i> 3 minutes ago</div>
+                        <p style="font-size: 0.85rem; color: #555;">Metropolitan views of London city landmarks and river Thames ambiance.</p>
+                    </div>
+                </div>
+                <div class="video-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/vidio/london.mp4', 'Video URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;iframe src=&quot;https://awdev.my.id/vidio/london.mp4&quot; width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;', 'Embed Code')"><i class="fas fa-code"></i> Copy Embed</button>
+                    <a href="https://awdev.my.id/vidio/london.mp4" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- Video 7 -->
+            <div class="video-card">
+                <div>
+                    <div class="video-preview">
+                        <video src="https://awdev.my.id/vidio/madinah.mp4" controls preload="metadata"></video>
+                    </div>
+                    <div class="video-info">
+                        <h3>madinah.mp4</h3>
+                        <div class="video-time"><i class="far fa-clock"></i> 5 minutes ago</div>
+                        <p style="font-size: 0.85rem; color: #555;">Peaceful atmosphere and grand architecture around Al-Masjid an-Nabawi.</p>
+                    </div>
+                </div>
+                <div class="video-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/vidio/madinah.mp4', 'Video URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;iframe src=&quot;https://awdev.my.id/vidio/madinah.mp4&quot; width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;', 'Embed Code')"><i class="fas fa-code"></i> Copy Embed</button>
+                    <a href="https://awdev.my.id/vidio/madinah.mp4" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- Video 8 -->
+            <div class="video-card">
+                <div>
+                    <div class="video-preview">
+                        <video src="https://awdev.my.id/vidio/masjidqatar.mp4" controls preload="metadata"></video>
+                    </div>
+                    <div class="video-info">
+                        <h3>masjidqatar.mp4</h3>
+                        <div class="video-time"><i class="far fa-clock"></i> 5 minutes ago</div>
+                        <p style="font-size: 0.85rem; color: #555;">Magnificent contemporary Islamic architectural design of Qatar mosques.</p>
+                    </div>
+                </div>
+                <div class="video-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/vidio/masjidqatar.mp4', 'Video URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;iframe src=&quot;https://awdev.my.id/vidio/masjidqatar.mp4&quot; width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;', 'Embed Code')"><i class="fas fa-code"></i> Copy Embed</button>
+                    <a href="https://awdev.my.id/vidio/masjidqatar.mp4" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- Video 9 -->
+            <div class="video-card">
+                <div>
+                    <div class="video-preview">
+                        <video src="https://awdev.my.id/vidio/perahu.mp4" controls preload="metadata"></video>
+                    </div>
+                    <div class="video-info">
+                        <h3>perahu.mp4</h3>
+                        <div class="video-time"><i class="far fa-clock"></i> 5 minutes ago</div>
+                        <p style="font-size: 0.85rem; color: #555;">Relaxing nautical footage featuring boats gliding across serene waters.</p>
+                    </div>
+                </div>
+                <div class="video-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/vidio/perahu.mp4', 'Video URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;iframe src=&quot;https://awdev.my.id/vidio/perahu.mp4&quot; width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;', 'Embed Code')"><i class="fas fa-code"></i> Copy Embed</button>
+                    <a href="https://awdev.my.id/vidio/perahu.mp4" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- Video 10 -->
+            <div class="video-card">
+                <div>
+                    <div class="video-preview">
+                        <video src="https://awdev.my.id/vidio/pesawat.mp4" controls preload="metadata"></video>
+                    </div>
+                    <div class="video-info">
+                        <h3>pesawat.mp4</h3>
+                        <div class="video-time"><i class="far fa-clock"></i> 3 minutes ago</div>
+                        <p style="font-size: 0.85rem; color: #555;">Dynamic aviation video capturing aircraft cruising through the clouds.</p>
+                    </div>
+                </div>
+                <div class="video-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/vidio/pesawat.mp4', 'Video URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;iframe src=&quot;https://awdev.my.id/vidio/pesawat.mp4&quot; width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;', 'Embed Code')"><i class="fas fa-code"></i> Copy Embed</button>
+                    <a href="https://awdev.my.id/vidio/pesawat.mp4" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- Video 11 -->
+            <div class="video-card">
+                <div>
+                    <div class="video-preview">
+                        <video src="https://awdev.my.id/vidio/qatarcity.mp4" controls preload="metadata"></video>
+                    </div>
+                    <div class="video-info">
+                        <h3>qatarcity.mp4</h3>
+                        <div class="video-time"><i class="far fa-clock"></i> 5 minutes ago</div>
+                        <p style="font-size: 0.85rem; color: #555;">Stunning urban landscapes and futuristic futuristic infrastructure of Qatar City.</p>
+                    </div>
+                </div>
+                <div class="video-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/vidio/qatarcity.mp4', 'Video URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;iframe src=&quot;https://awdev.my.id/vidio/qatarcity.mp4&quot; width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;', 'Embed Code')"><i class="fas fa-code"></i> Copy Embed</button>
+                    <a href="https://awdev.my.id/vidio/qatarcity.mp4" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Notification Toast Element -->
+    <div id="toast"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="neu-inset" style="text-align: center; margin: 0;">
+            <p>&copy; 2026 awdev. All rights reserved.</p>
+            <p class="footer-links">
+                <a href="https://awdev.my.id/">Home</a> | 
+                <a href="https://awdev.my.id/about.html">About Us</a> | 
+                <a href="https://awdev.my.id/blog.html">Blog</a> | 
+                <a href="https://awdev.my.id/contact.html">Contact</a> | 
+                <a href="https://awdev.my.id/privacy-policy.html">Privacy Policy</a> | 
+                <a href="https://awdev.my.id/terms.html">Terms & Conditions</a> | 
+                <a href="https://awdev.my.id/disclaimers.html">Disclaimers</a> | 
+                <a href="https://awdev.my.id/license.html">License</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
