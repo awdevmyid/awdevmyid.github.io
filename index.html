@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWDEV CORPORATION - Free Open Source General Tools, Developers, Designers & Programmers</title>
+    
+    <!-- Meta SEO & Open Graph -->
+    <meta name="description" content="AWDEV FREE OPEN SOURCE GENERAL TOOLS PROJECTS DEVELOPER, DESIGNER, AND PROGRAMMER. Explore free tools, applications, source code, gallery images, and videos.">
+    <meta name="keywords" content="AWDEV, Open Source, Developer Tools, Programming, Free Apps, SEO Tools, Web Design, Neumorphism">
+    <meta name="author" content="AWDEV Corporation">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://awdev.my.id/">
+    <meta property="og:title" content="AWDEV CORPORATION - Free Open Source Tools & Projects">
+    <meta property="og:description" content="AWDEV FREE OPEN SOURCE GENERAL TOOLS PROJECTS DEVELOPER, DESIGNER, AND PROGRAMMER.">
+    <meta property="og:image" content="https://awdev.my.id/img/awdev.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://awdev.my.id/">
+    <meta property="twitter:title" content="AWDEV CORPORATION - Free Open Source Tools & Projects">
+    <meta property="twitter:description" content="AWDEV FREE OPEN SOURCE GENERAL TOOLS PROJECTS DEVELOPER, DESIGNER, AND PROGRAMMER.">
+    <meta property="twitter:image" content="https://awdev.my.id/img/awdev.png">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.jpg">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.png">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/favicon.png">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/ico.png">
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/favicon.png">
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/ico.png">
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/awdev.jpg">
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/logo.png">
+
+    <!-- Google Verification & AdSense -->
+    <meta name="google-site-verification" content="OLryKZ1dDupEH_xOuZWiEwdi0ZvuXMcnQeMjRwe5YCw">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5407249785989200" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-5407249785989200">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "AWDEV CORPORATION",
+      "url": "https://awdev.my.id/",
+      "logo": "https://awdev.my.id/img/awdev.png",
+      "sameAs": [
+        "https://github.com/",
+        "https://twitter.com/",
+        "https://linkedin.com/"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "support@awdev.my.id",
+        "contactType": "Customer Support"
+      }
+    }
+    </script>
+
+    <!-- Google Fonts & FontAwesome for Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Neumorphic & Rainbow CSS Styling -->
+    <style>
+        :root {
+            --bg-color: #e4ebf5;
+            --neu-shadow-dark: #c5d1e0;
+            --neu-shadow-light: #ffffff;
+            --text-color: #333333;
+            --primary: #1a73e8;
+            --rainbow-gradient: linear-gradient(135deg, #ff3366, #ff9933, #33cc66, #3399ff, #9933ff);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* Rainbow Header Accent Top Bar */
+        .rainbow-bar {
+            height: 6px;
+            width: 100%;
+            background: var(--rainbow-gradient);
+            border-radius: 3px;
+            margin-bottom: 20px;
+        }
+
+        /* Neumorphic Containers */
+        .neu-box {
+            background: var(--bg-color);
+            box-shadow: 8px 8px 16px var(--neu-shadow-dark), -8px -8px 16px var(--neu-shadow-light);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .neu-inset {
+            background: var(--bg-color);
+            box-shadow: inset 4px 4px 8px var(--neu-shadow-dark), inset -4px -4px 8px var(--neu-shadow-light);
+            border-radius: 12px;
+            padding: 15px;
+        }
+
+        .neu-button {
+            background: var(--bg-color);
+            box-shadow: 5px 5px 10px var(--neu-shadow-dark), -5px -5px 10px var(--neu-shadow-light);
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            cursor: pointer;
+            color: var(--text-color);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .neu-button:hover {
+            box-shadow: inset 3px 3px 6px var(--neu-shadow-dark), inset -3px -3px 6px var(--neu-shadow-light);
+            color: #ff3366;
+        }
+
+        /* Header & Navigation Dropdown */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 4px 4px 8px var(--neu-shadow-dark), -4px -4px 8px var(--neu-shadow-light);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background: var(--bg-color);
+            box-shadow: 5px 5px 10px var(--neu-shadow-dark), -5px -5px 10px var(--neu-shadow-light);
+            padding: 10px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            color: var(--primary);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--bg-color);
+            min-width: 240px;
+            box-shadow: 8px 8px 16px var(--neu-shadow-dark), -8px -8px 16px var(--neu-shadow-light);
+            z-index: 100;
+            border-radius: 12px;
+            padding: 10px 0;
+            max-height: 350px;
+            overflow-y: auto;
+        }
+
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            font-size: 13px;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(0,0,0,0.03);
+            color: #ff3366;
+            padding-left: 25px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Hero Section & Typing Text */
+        .hero-section {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .typing-container {
+            font-size: 1.2rem;
+            font-weight: 600;
+            min-height: 40px;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        /* Slider Section (Image & Video) */
+        .slider-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 16px;
+            background: var(--bg-color);
+            box-shadow: inset 5px 5px 10px var(--neu-shadow-dark), inset -5px -5px 10px var(--neu-shadow-light);
+            padding: 15px;
+        }
+
+        .slide {
+            display: none;
+            text-align: center;
+        }
+
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .slide img, .slide video {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 5px 5px 10px var(--neu-shadow-dark), -5px -5px 10px var(--neu-shadow-light);
+            margin-bottom: 10px;
+        }
+
+        .slide-caption h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-top: 10px;
+        }
+
+        .slide-caption p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            transform: translateY(-50%);
+            padding: 0 10px;
+            pointer-events: none;
+        }
+
+        .slider-nav button {
+            pointer-events: auto;
+            background: var(--bg-color);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            box-shadow: 4px 4px 8px var(--neu-shadow-dark), -4px -4px 8px var(--neu-shadow-light);
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0.4; }
+            to { opacity: 1; }
+        }
+
+        /* Article Section with Internal & External Links */
+        .article-section h2 {
+            margin-bottom: 15px;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .article-section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .link-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .link-card {
+            padding: 15px;
+            background: var(--bg-color);
+            box-shadow: 5px 5px 10px var(--neu-shadow-dark), -5px -5px 10px var(--neu-shadow-light);
+            border-radius: 10px;
+        }
+
+        .link-card h4 {
+            margin-bottom: 8px;
+            font-size: 1rem;
+            color: var(--primary);
+        }
+
+        .link-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .link-card li {
+            margin-bottom: 6px;
+        }
+
+        .link-card a {
+            text-decoration: none;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .link-card a:hover {
+            color: #ff3366;
+            text-decoration: underline;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            padding-bottom: 10px;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            margin-top: 8px;
+            font-size: 0.95rem;
+            color: #555;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Social Share Media */
+        .social-share {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-color);
+            box-shadow: 5px 5px 10px var(--neu-shadow-dark), -5px -5px 10px var(--neu-shadow-light);
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .social-btn:hover {
+            box-shadow: inset 3px 3px 6px var(--neu-shadow-dark), inset -3px -3px 6px var(--neu-shadow-light);
+            color: #ff3366;
+        }
+
+        /* Contact Form */
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            background: var(--bg-color);
+            box-shadow: inset 4px 4px 8px var(--neu-shadow-dark), inset -4px -4px 8px var(--neu-shadow-light);
+            border-radius: 8px;
+            outline: none;
+            color: var(--text-color);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 40px;
+        }
+
+        footer .footer-links {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-links a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer .footer-links a:hover {
+            text-decoration: underline;
+            color: #ff3366;
+        }
+
+        @media(max-width: 768px) {
+            .hero-title { font-size: 1.8rem; }
+            .slide img, .slide video { height: 250px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Rainbow Accent Bar -->
+    <div class="rainbow-bar"></div>
+
+    <!-- Header & Dropdown Navigation -->
+    <header class="neu-box">
+        <div class="logo-area">
+            <img src="https://awdev.my.id/img/awdev.png" alt="AWDEV Corporation Logo" class="logo-img">
+            <span class="logo-text">AWDEV CORP</span>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn"><i class="fas fa-bars"></i> Navigation Menu</button>
+            <div class="dropdown-content">
+                <a href="https://awdev.my.id/"><i class="fas fa-home"></i> Home</a>
+                <a href="https://awdev.my.id/about.html"><i class="fas fa-info-circle"></i> About Us</a>
+                <a href="https://awdev.my.id/blog.html"><i class="fas fa-blog"></i> Blog</a>
+                <a href="https://awdev.my.id/tools/index.html"><i class="fas fa-tools"></i> Tools</a>
+                <a href="https://awdev.my.id/aplikasi/index.html"><i class="fas fa-mobile-alt"></i> Aplikasi</a>
+                <a href="https://awdev.my.id/seo/index.html"><i class="fas fa-search-dollar"></i> Seo</a>
+                <a href="https://awdev.my.id/source/index.html"><i class="fas fa-code"></i> Source</a>
+                <a href="https://awdev.my.id/eq/index.html"><i class="fas fa-sliders-h"></i> EQ Generator</a>
+                <a href="https://awdev.my.id/kodepost/index.html"><i class="fas fa-mail-bulk"></i> Kode Post Search</a>
+                <a href="https://awdev.my.id/finder/index.html"><i class="fas fa-compass"></i> Finder</a>
+                <a href="https://awdev.my.id/qr/index.html"><i class="fas fa-qrcode"></i> QR Generator</a>
+                <a href="https://awdev.my.id/collor/index.html"><i class="fas fa-palette"></i> Collor Code Generator</a>
+                <a href="https://awdev.my.id/calligraphy/index.html"><i class="fas fa-feather-alt"></i> Calligraphy Arabic</a>
+                <a href="https://awdev.my.id/maps/index.html"><i class="fas fa-map-marked-alt"></i> Maps Search</a>
+                <a href="https://awdev.my.id/code/index.html"><i class="fas fa-laptop-code"></i> Code Editor</a>
+                <a href="https://awdev.my.id/vidio/index.html"><i class="fas fa-video"></i> Vidio</a>
+                <a href="https://awdev.my.id/img/index.html"><i class="fas fa-images"></i> Gallery Images</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section & Typing Text -->
+    <section class="neu-box hero-section">
+        <h1 class="hero-title">AWDEV CORPORATION</h1>
+        <div class="typing-container" id="typing-text"></div>
+        <p style="color: #555; max-width: 600px; margin: 0 auto 20px auto;">
+            AWDEV FREE OPEN SOURCE GENERAL TOOLS PROJECTS DEVELOPER, DESIGNER, AND PROGRAMMER. Explore our cutting-edge open-source software, stunning images, and global cinematic video showcases.
+        </p>
+        <a href="#demo" class="neu-button">View Demo &raquo;</a>
+    </section>
+
+    <!-- Slider Image & Video Section -->
+    <section class="neu-box" id="demo">
+        <h2 style="text-align: center; margin-bottom: 20px; background: var(--rainbow-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Interactive Image & Video Showcase</h2>
+        
+        <div class="slider-container">
+            <!-- Slide 1: Image -->
+            <div class="slide active">
+                <img src="https://awdev.my.id/img/awdev.png" alt="AWDEV Official Logo and Branding Identity">
+                <div class="slide-caption">
+                    <h3>AWDEV Official Brand Logo</h3>
+                    <p>The core emblem representing open-source innovation and general programming excellence.</p>
+                </div>
+            </div>
+
+            <!-- Slide 2: Image -->
+            <div class="slide">
+                <img src="https://awdev.my.id/img/Angular-18.png" alt="Angular 18 Framework Development & UI Components">
+                <div class="slide-caption">
+                    <h3>Angular 18 Framework Tools</h3>
+                    <p>Modern reactive web application development made fast and efficient.</p>
+                </div>
+            </div>
+
+            <!-- Slide 3: Image -->
+            <div class="slide">
+                <img src="https://awdev.my.id/img/3d.jpeg" alt="3D Graphics and Neumorphism UI Design Concept">
+                <div class="slide-caption">
+                    <h3>3D & Neumorphism Design</h3>
+                    <p>Merging tactile soft UI aesthetics with futuristic three-dimensional graphics.</p>
+                </div>
+            </div>
+
+            <!-- Slide 4: Video -->
+            <div class="slide">
+                <video controls muted>
+                    <source src="https://awdev.my.id/vidio/borobudur.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="slide-caption">
+                    <h3>Borobudur Heritage Cinematic View</h3>
+                    <p>Stunning architectural wonder captured in high-definition video streaming.</p>
+                </div>
+            </div>
+
+            <!-- Slide 5: Video -->
+            <div class="slide">
+                <video controls muted>
+                    <source src="https://awdev.my.id/vidio/dubai.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="slide-caption">
+                    <h3>Dubai Skyline & Urban Architecture</h3>
+                    <p>Explore breathtaking modern skyscrapers and technological landscapes.</p>
+                </div>
+            </div>
+
+            <!-- Slider Navigation Buttons -->
+            <div class="slider-nav">
+                <button onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+                <button onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- English Article Section with 7 Internal & 7 External Links -->
+    <section class="neu-box article-section">
+        <h2>Empowering Global Developers: The Evolution of Open Source Tools</h2>
+        <p>
+            In the rapidly evolving digital landscape, open-source projects serve as the backbone of modern software engineering. AWDEV Corporation is committed to providing comprehensive developer resources, empowering programmers and designers worldwide. By leveraging modern frameworks like <strong>Angular 18</strong>, integrating robust SEO strategies, and utilizing innovative color code generators, developers can accelerate their workflow exponentially.
+        </p>
+        <p>
+            Whether you are building interactive web applications, exploring Arabic calligraphy generators, or designing clean Neumorphism interfaces, having access to versatile tools is paramount. Our platform bridges the gap between creativity and technical execution, offering everything from custom QR generators to high-resolution gallery assets and cinematic video libraries.
+        </p>
+
+        <div class="link-list">
+            <!-- Internal Links Card -->
+            <div class="link-card">
+                <h4><i class="fas fa-link"></i> 7 Internal Links</h4>
+                <ul>
+                    <li><a href="https://awdev.my.id/"><i class="fas fa-angle-right"></i> AWDEV Home Portal</a></li>
+                    <li><a href="https://awdev.my.id/about.html"><i class="fas fa-angle-right"></i> About Us & Mission</a></li>
+                    <li><a href="https://awdev.my.id/blog.html"><i class="fas fa-angle-right"></i> Developer Blog Articles</a></li>
+                    <li><a href="https://awdev.my.id/tools/index.html"><i class="fas fa-angle-right"></i> General Development Tools</a></li>
+                    <li><a href="https://awdev.my.id/aplikasi/index.html"><i class="fas fa-angle-right"></i> Free Web Applications</a></li>
+                    <li><a href="https://awdev.my.id/collor/index.html"><i class="fas fa-angle-right"></i> Rainbow Color Code Generator</a></li>
+                    <li><a href="https://awdev.my.id/vidio/index.html"><i class="fas fa-angle-right"></i> Cinematic Video Collection</a></li>
+                </ul>
+            </div>
+
+            <!-- External Links Card -->
+            <div class="link-card">
+                <h4><i class="fas fa-external-link-alt"></i> 7 External Links</h4>
+                <ul>
+                    <li><a href="https://github.com/" target="_blank" rel="noopener"><i class="fas fa-angle-right"></i> GitHub Open Source Repository</a></li>
+                    <li><a href="https://developer.mozilla.org/" target="_blank" rel="noopener"><i class="fas fa-angle-right"></i> MDN Web Docs (JavaScript & CSS)</a></li>
+                    <li><a href="https://angular.io/" target="_blank" rel="noopener"><i class="fas fa-angle-right"></i> Angular Official Framework</a></li>
+                    <li><a href="https://fonts.google.com/" target="_blank" rel="noopener"><i class="fas fa-angle-right"></i> Google Fonts Typography</a></li>
+                    <li><a href="https://fontawesome.com/" target="_blank" rel="noopener"><i class="fas fa-angle-right"></i> FontAwesome Icon Library</a></li>
+                    <li><a href="https://schema.org/" target="_blank" rel="noopener"><i class="fas fa-angle-right"></i> Schema.org Structured Data</a></li>
+                    <li><a href="https://stackoverflow.com/" target="_blank" rel="noopener"><i class="fas fa-angle-right"></i> Stack Overflow Developer Community</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="neu-box">
+        <h2 style="margin-bottom: 20px; background: var(--rainbow-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Frequently Asked Questions (FAQ)</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">What is AWDEV Corporation? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">AWDEV is a free open-source project initiative providing general tools, utilities, images, and videos for developers, designers, and programmers worldwide.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Are all tools on AWDEV free to use? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">Yes! All developer tools, color generators, QR generators, and source codes provided on our platform are 100% free and open source.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How can I contribute to AWDEV projects? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">You can explore our repositories, report bugs, or submit feature requests through our official website and GitHub links.</div>
+        </div>
+    </section>
+
+    <!-- Social Media Share -->
+    <section class="neu-box" style="text-align: center;">
+        <h3 style="margin-bottom: 15px;">Share This Project</h3>
+        <div class="social-share">
+            <a href="https://facebook.com/sharer/sharer.php?u=https://awdev.my.id/" target="_blank" class="social-btn" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/intent/tweet?url=https://awdev.my.id/&text=Check%20out%20AWDEV%20Open%20Source%20Tools!" target="_blank" class="social-btn" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://api.whatsapp.com/send?text=Explore%20AWDEV%20Corporation%20https://awdev.my.id/" target="_blank" class="social-btn" title="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://awdev.my.id/" target="_blank" class="social-btn" title="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="mailto:?subject=AWDEV Tools&body=Check this out: https://awdev.my.id/" class="social-btn" title="Share via Email"><i class="fas fa-envelope"></i></a>
+        </div>
+    </section>
+
+    <!-- Contact Form Box -->
+    <section class="neu-box contact-form">
+        <h3 style="margin-bottom: 15px; background: var(--rainbow-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Get In Touch With Us</h3>
+        <form onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent successfully.');">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email Address" required>
+            <textarea rows="4" placeholder="Your Message..." required></textarea>
+            <button type="submit" class="neu-button" style="width: 100%;">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Disqus Comments Section -->
+    <section class="neu-box">
+        <div id="disqus_thread"></div>
+        <script>
+            var disqus_config = function () {
+                this.page.url = "https://awdev.my.id/"; 
+                this.page.identifier = "awdev-index-home"; 
+            };
+            (function() { 
+                var d = document, s = d.createElement('script');
+                s.src = 'https://awdevgithub.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <script id="dsq-count-scr" src="//awdevgithub.disqus.com/count.js" async></script>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="neu-inset" style="text-align: center;">
+            <p>&copy; 2026 awdev. All rights reserved.</p>
+            <p class="footer-links">
+                <a href="https://awdev.my.id/">Home</a> | 
+                <a href="https://awdev.my.id/about.html">About Us</a> | 
+                <a href="https://awdev.my.id/blog.html">Blog</a> | 
+                <a href="https://awdev.my.id/contact.html">Contact</a> | 
+                <a href="https://awdev.my.id/privacy-policy.html">Privacy Policy</a> | 
+                <a href="https://awdev.my.id/terms.html">Terms & Conditions</a> | 
+                <a href="https://awdev.my.id/disclaimers.html">Disclaimers</a> | 
+                <a href="https://awdev.my.id/license.html">License</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Typing effect, Slider, and FAQ toggle -->
+    <script>
+        // Typing Effect
+        const words = [
+            "AWDEV FREE OPEN SOURCE GENERAL TOOLS",
+            "PROJECTS FOR DEVELOPER, DESIGNER, & PROGRAMMER",
+            "Explore Images, Videos, & Rainbow Color Codes"
+        ];
+        let i = 0;
+        let timer;
+
+        function typingEffect() {
+            let word = words[i].split("");
+            let loopTyping = function() {
+                if (word.length > 0) {
+                    document.getElementById('typing-text').innerHTML += word.shift();
+                } else {
+                    setTimeout(deletingEffect, 2000);
+                    return;
+                }
+                timer = setTimeout(loopTyping, 70);
+            };
+            loopTyping();
+        }
+
+        function deletingEffect() {
+            let word = words[i].split("");
+            let loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.getElementById('typing-text').innerHTML = word.join("");
+                } else {
+                    if (words.length > (i + 1)) {
+                        i++;
+                    } else {
+                        i = 0;
+                    }
+                    setTimeout(typingEffect, 500);
+                    return;
+                }
+                timer = setTimeout(loopDeleting, 40);
+            };
+            loopDeleting();
+        }
+        typingEffect();
+
+        // Image & Video Slider Script
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+                const vid = slide.querySelector('video');
+                if(vid) vid.pause();
+            });
+            if (index >= slides.length) slideIndex = 0;
+            if (index < 0) slideIndex = slides.length - 1;
+            slides[slideIndex].classList.add('active');
+        }
+
+        function changeSlide(n) {
+            slideIndex += n;
+            showSlide(slideIndex);
+        }
+
+        // Auto slide interval (every 6 seconds)
+        setInterval(() => {
+            slideIndex++;
+            showSlide(slideIndex);
+        }, 6000);
+
+        // FAQ Toggle Script
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
