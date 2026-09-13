@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & Tech Insights - AWDEV CORPORATION</title>
+    
+    <!-- Meta SEO & Open Graph -->
+    <meta name="description" content="Read the latest articles, tutorials, and insights on web development, programming, AI tools, and software engineering from AWDEV CORPORATION.">
+    <meta name="keywords" content="AWDEV Blog, Tech Articles, Web Development Tutorials, Programming Insights, Software Engineering">
+    <meta name="author" content="AWDEV Corporation">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://awdev.my.id/blog.html">
+    <meta property="og:title" content="Blog & Tech Insights - AWDEV CORPORATION">
+    <meta property="og:description" content="Explore insightful tutorials, programming guides, and tech articles by AWDEV CORPORATION.">
+    <meta property="og:image" content="https://awdev.my.id/img/awdev.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://awdev.my.id/blog.html">
+    <meta property="twitter:title" content="Blog & Tech Insights - AWDEV CORPORATION">
+    <meta property="twitter:description" content="Explore insightful tutorials, programming guides, and tech articles by AWDEV CORPORATION.">
+    <meta property="twitter:image" content="https://awdev.my.id/img/awdev.png">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.jpg">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.png">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/favicon.png">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/ico.png">
+
+    <!-- Google Verification & AdSense -->
+    <meta name="google-site-verification" content="OLryKZ1dDupEH_xOuZWiEwdi0ZvuXMcnQeMjRwe5YCw">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5407249785989200" crossorigin="anonymous"></script>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "AWDEV CORPORATION Blog",
+      "url": "https://awdev.my.id/blog.html",
+      "description": "Tutorials, insights, and updates on software development and web applications.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "AWDEV CORPORATION",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://awdev.my.id/img/awdev.png"
+        }
+      }
+    }
+    </script>
+
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Neumorphic & Rainbow CSS Styling -->
+    <style>
+        :root {
+            --bg-color: #e4ebf5;
+            --neu-shadow-dark: #c5d1e0;
+            --neu-shadow-light: #ffffff;
+            --text-color: #333333;
+            --primary: #1a73e8;
+            --rainbow-gradient: linear-gradient(135deg, #ff3366, #ff9933, #33cc66, #3399ff, #9933ff);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            padding: 20px;
+        }
+
+        .rainbow-bar {
+            height: 6px;
+            width: 100%;
+            background: var(--rainbow-gradient);
+            border-radius: 3px;
+            margin-bottom: 20px;
+        }
+
+        .neu-box {
+            background: var(--bg-color);
+            box-shadow: 8px 8px 16px var(--neu-shadow-dark), -8px -8px 16px var(--neu-shadow-light);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .neu-inset {
+            background: var(--bg-color);
+            box-shadow: inset 4px 4px 8px var(--neu-shadow-dark), inset -4px -4px 8px var(--neu-shadow-light);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .neu-button {
+            background: var(--bg-color);
+            box-shadow: 4px 4px 8px var(--neu-shadow-dark), -4px -4px 8px var(--neu-shadow-light);
+            border: none;
+            border-radius: 8px;
+            padding: 8px 16px;
+            cursor: pointer;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .neu-button:hover {
+            box-shadow: inset 2px 2px 4px var(--neu-shadow-dark), inset -2px -2px 4px var(--neu-shadow-light);
+            color: #ff3366;
+        }
+
+        .neu-button.primary-btn {
+            color: var(--primary);
+        }
+
+        /* Header & Navigation Dropdown */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 4px 4px 8px var(--neu-shadow-dark), -4px -4px 8px var(--neu-shadow-light);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background: var(--bg-color);
+            box-shadow: 5px 5px 10px var(--neu-shadow-dark), -5px -5px 10px var(--neu-shadow-light);
+            padding: 10px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            color: var(--primary);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--bg-color);
+            min-width: 240px;
+            box-shadow: 8px 8px 16px var(--neu-shadow-dark), -8px -8px 16px var(--neu-shadow-light);
+            z-index: 100;
+            border-radius: 12px;
+            padding: 10px 0;
+            max-height: 350px;
+            overflow-y: auto;
+        }
+
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            font-size: 13px;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(0,0,0,0.03);
+            color: #ff3366;
+            padding-left: 25px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Blog Specific Content */
+        h1 {
+            font-size: 2.2rem;
+            text-align: center;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        /* Search Bar */
+        .search-container {
+            max-width: 500px;
+            margin: 0 auto 30px auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-input {
+            flex: 1;
+            background: var(--bg-color);
+            box-shadow: inset 3px 3px 6px var(--neu-shadow-dark), inset -3px -3px 6px var(--neu-shadow-light);
+            border: none;
+            border-radius: 10px;
+            padding: 12px 20px;
+            font-size: 0.95rem;
+            color: var(--text-color);
+            outline: none;
+        }
+
+        /* Blog Grid Layout */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .blog-card {
+            background: var(--bg-color);
+            box-shadow: 6px 6px 12px var(--neu-shadow-dark), -6px -6px 12px var(--neu-shadow-light);
+            border-radius: 14px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .blog-thumb {
+            width: 100%;
+            height: 180px;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: inset 3px 3px 6px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .blog-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blog-meta {
+            font-size: 0.8rem;
+            color: #777;
+            margin-bottom: 8px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .blog-card h3 {
+            font-size: 1.15rem;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .blog-card p {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .blog-footer {
+            border-top: 1px solid rgba(0,0,0,0.06);
+            padding-top: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 40px;
+        }
+
+        footer .footer-links {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-links a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer .footer-links a:hover {
+            text-decoration: underline;
+            color: #ff3366;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Rainbow Accent Top Bar -->
+    <div class="rainbow-bar"></div>
+
+    <!-- Header & Navigation Dropdown -->
+    <header class="neu-box">
+        <div class="logo-area">
+            <img src="https://awdev.my.id/img/awdev.png" alt="AWDEV Corporation Logo" class="logo-img">
+            <span class="logo-text">AWDEV CORP</span>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn"><i class="fas fa-bars"></i> Navigation Menu</button>
+            <div class="dropdown-content">
+                <a href="https://awdev.my.id/"><i class="fas fa-home"></i> Home</a>
+                <a href="https://awdev.my.id/about.html"><i class="fas fa-info-circle"></i> About Us</a>
+                <a href="https://awdev.my.id/blog.html"><i class="fas fa-blog"></i> Blog</a>
+                <a href="https://awdev.my.id/tools/index.html"><i class="fas fa-tools"></i> Tools</a>
+                <a href="https://awdev.my.id/aplikasi/index.html"><i class="fas fa-mobile-alt"></i> Aplikasi</a>
+                <a href="https://awdev.my.id/seo/index.html"><i class="fas fa-search-dollar"></i> Seo</a>
+                <a href="https://awdev.my.id/source/index.html"><i class="fas fa-code"></i> Source</a>
+                <a href="https://awdev.my.id/eq/index.html"><i class="fas fa-sliders-h"></i> EQ Generator</a>
+                <a href="https://awdev.my.id/kodepost/index.html"><i class="fas fa-mail-bulk"></i> Kode Post Search</a>
+                <a href="https://awdev.my.id/finder/index.html"><i class="fas fa-compass"></i> Finder</a>
+                <a href="https://awdev.my.id/qr/index.html"><i class="fas fa-qrcode"></i> QR Generator</a>
+                <a href="https://awdev.my.id/collor/index.html"><i class="fas fa-palette"></i> Collor Code Generator</a>
+                <a href="https://awdev.my.id/calligraphy/index.html"><i class="fas fa-feather-alt"></i> Calligraphy Arabic</a>
+                <a href="https://awdev.my.id/maps/index.html"><i class="fas fa-map-marked-alt"></i> Maps Search</a>
+                <a href="https://awdev.my.id/code/index.html"><i class="fas fa-laptop-code"></i> Code Editor</a>
+                <a href="https://awdev.my.id/vidio/index.html"><i class="fas fa-video"></i> Vidio</a>
+                <a href="https://awdev.my.id/img/index.html"><i class="fas fa-images"></i> Gallery Images</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Blog Section -->
+    <main class="neu-box">
+        <h1>AWDEV Tech Blog</h1>
+        <p class="subtitle">Discover in-depth programming tutorials, software development insights, and cutting-edge tech guides.</p>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search blog articles..." id="blogSearch" onkeyup="filterBlogs()">
+        </div>
+
+        <div class="blog-grid" id="blogGrid">
+            
+            <!-- Article 1 -->
+            <div class="blog-card" data-title="Membangun Aplikasi Web Modern dengan Angular 18">
+                <div>
+                    <div class="blog-thumb">
+                        <img src="https://awdev.my.id/img/Angular-18.png" alt="Angular 18" loading="lazy">
+                    </div>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar-alt"></i> October 12, 2026</span>
+                        <span><i class="far fa-user"></i> AWDEV Team</span>
+                    </div>
+                    <h3>Membangun Aplikasi Web Modern dengan Angular 18</h3>
+                    <p>Pelajari fitur terbaru di Angular 18, termasuk peningkatan performa SSR, manajemen state yang lebih ringkas, dan optimasi komponen reaktif.</p>
+                </div>
+                <div class="blog-footer">
+                    <span style="font-size: 0.8rem; color: #1a73e8; font-weight: 600;">#WebDev #Angular</span>
+                    <a href="https://awdev.my.id/blog.html" class="neu-button primary-btn">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Article 2 -->
+            <div class="blog-card" data-title="Penerapan Kaligrafi Kuffi dan Seni Digital Islamik">
+                <div>
+                    <div class="blog-thumb">
+                        <img src="https://awdev.my.id/img/Arabic_language_-_kuffi.png" alt="Kaligrafi Kuffi" loading="lazy">
+                    </div>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar-alt"></i> October 08, 2026</span>
+                        <span><i class="far fa-user"></i> AWDEV Team</span>
+                    </div>
+                    <h3>Penerapan Kaligrafi Kuffi dan Seni Digital Islamik</h3>
+                    <p>Eksplorasi estetika dan sejarah kaligrafi jenis Kuffi serta bagaimana memanfaatkannya dalam desain antarmuka web modern bernuansa Islami.</p>
+                </div>
+                <div class="blog-footer">
+                    <span style="font-size: 0.8rem; color: #1a73e8; font-weight: 600;">#Design #Art</span>
+                    <a href="https://awdev.my.id/blog.html" class="neu-button primary-btn">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Article 3 -->
+            <div class="blog-card" data-title="Optimasi SEO Website untuk Mesin Pencari Global">
+                <div>
+                    <div class="blog-thumb">
+                        <img src="https://awdev.my.id/img/search.png" alt="SEO Optimization" loading="lazy">
+                    </div>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar-alt"></i> September 29, 2026</span>
+                        <span><i class="far fa-user"></i> AWDEV Team</span>
+                    </div>
+                    <h3>Optimasi SEO Website untuk Mesin Pencari Global</h3>
+                    <p>Strategi komprehensif meningkatkan peringkat situs web di hasil pencarian Google menggunakan struktur Schema.org, meta tag, dan optimasi kecepatan.</p>
+                </div>
+                <div class="blog-footer">
+                    <span style="font-size: 0.8rem; color: #1a73e8; font-weight: 600;">#SEO #Marketing</span>
+                    <a href="https://awdev.my.id/blog.html" class="neu-button primary-btn">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Article 4 -->
+            <div class="blog-card" data-title="Mengenal Pemrograman Alat Musik dan Rumus Frekuensi Audio">
+                <div>
+                    <div class="blog-thumb">
+                        <img src="https://awdev.my.id/img/rumusmusic.png" alt="Rumus Music" loading="lazy">
+                    </div>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar-alt"></i> September 21, 2026</span>
+                        <span><i class="far fa-user"></i> AWDEV Team</span>
+                    </div>
+                    <h3>Mengenal Pemrograman Alat Musik dan Rumus Frekuensi Audio</h3>
+                    <p>Bagaimana gelombang suara dan perhitungan matematis frekuensi nada digunakan untuk merancang generator equalizer serta alat musik digital.</p>
+                </div>
+                <div class="blog-footer">
+                    <span style="font-size: 0.8rem; color: #1a73e8; font-weight: 600;">#Audio #Programming</span>
+                    <a href="https://awdev.my.id/blog.html" class="neu-button primary-btn">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Article 5 -->
+            <div class="blog-card" data-title="Membuat Sistem TTS (Text-to-Speech) dan Pengenalan Suara">
+                <div>
+                    <div class="blog-thumb">
+                        <img src="https://awdev.my.id/img/tts.png" alt="TTS and Voice" loading="lazy">
+                    </div>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar-alt"></i> September 15, 2026</span>
+                        <span><i class="far fa-user"></i> AWDEV Team</span>
+                    </div>
+                    <h3>Membuat Sistem TTS (Text-to-Speech) dan Pengenalan Suara</h3>
+                    <p>Panduan implementasi Web Speech API untuk mengonversi teks ke suara secara real-time langsung dari peramban web Anda.</p>
+                </div>
+                <div class="blog-footer">
+                    <span style="font-size: 0.8rem; color: #1a73e8; font-weight: 600;">#AI #JavaScript</span>
+                    <a href="https://awdev.my.id/blog.html" class="neu-button primary-btn">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Article 6 -->
+            <div class="blog-card" data-title="Eksplorasi Budaya Nusantara: Keyboard Aksara Jawa & Wayang">
+                <div>
+                    <div class="blog-thumb">
+                        <img src="https://awdev.my.id/img/wayang.png" alt="Budaya Nusantara" loading="lazy">
+                    </div>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar-alt"></i> September 05, 2026</span>
+                        <span><i class="far fa-user"></i> AWDEV Team</span>
+                    </div>
+                    <h3>Eksplorasi Budaya Nusantara: Keyboard Aksara Jawa & Wayang</h3>
+                    <p>Mendokumentasikan warisan budaya lokal digital melalui pengembangan alat input huruf Jawa interaktif dan galeri visual wayang tradisional.</p>
+                </div>
+                <div class="blog-footer">
+                    <span style="font-size: 0.8rem; color: #1a73e8; font-weight: 600;">#Culture #Tech</span>
+                    <a href="https://awdev.my.id/blog.html" class="neu-button primary-btn">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Simple Filter Script -->
+    <script>
+        function filterBlogs() {
+            let input = document.getElementById('blogSearch').value.toLowerCase();
+            let cards = document.getElementsByClassName('blog-card');
+
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].getAttribute('data-title').toLowerCase();
+                if (title.includes(input)) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <div class="neu-inset" style="text-align: center; margin: 0;">
+            <p>&copy; 2026 awdev. All rights reserved.</p>
+            <p class="footer-links">
+                <a href="https://awdev.my.id/">Home</a> | 
+                <a href="https://awdev.my.id/about.html">About Us</a> | 
+                <a href="https://awdev.my.id/blog.html">Blog</a> | 
+                <a href="https://awdev.my.id/contact.html">Contact</a> | 
+                <a href="https://awdev.my.id/privacy-policy.html">Privacy Policy</a> | 
+                <a href="https://awdev.my.id/terms.html">Terms & Conditions</a> | 
+                <a href="https://awdev.my.id/disclaimers.html">Disclaimers</a> | 
+                <a href="https://awdev.my.id/license.html">License</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
