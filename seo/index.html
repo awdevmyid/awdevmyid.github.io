@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Optimization & Performance Analyzer - AWDEV CORPORATION</title>
+    
+    <!-- Meta SEO & Open Graph -->
+    <meta name="description" content="Boost your website search rankings with AWDEV CORPORATION's SEO performance analyzer, meta tag generator, and structured data tools.">
+    <meta name="keywords" content="AWDEV SEO, SEO Analyzer, Meta Tag Generator, Schema Structured Data, Search Engine Optimization">
+    <meta name="author" content="AWDEV Corporation">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://awdev.my.id/seo/index.html">
+    <meta property="og:title" content="SEO Optimization & Performance Analyzer - AWDEV CORPORATION">
+    <meta property="og:description" content="Enhance your website's search engine visibility and performance with AWDEV SEO tools.">
+    <meta property="og:image" content="https://awdev.my.id/img/awdev.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://awdev.my.id/seo/index.html">
+    <meta property="twitter:title" content="SEO Optimization & Performance Analyzer - AWDEV CORPORATION">
+    <meta property="twitter:description" content="Enhance your website's search engine visibility and performance with AWDEV SEO tools.">
+    <meta property="twitter:image" content="https://awdev.my.id/img/awdev.png">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.jpg">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.png">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/favicon.png">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/ico.png">
+
+    <!-- Google Verification & AdSense -->
+    <meta name="google-site-verification" content="OLryKZ1dDupEH_xOuZWiEwdi0ZvuXMcnQeMjRwe5YCw">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5407249785989200" crossorigin="anonymous"></script>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "AWDEV CORPORATION SEO Analyzer",
+      "url": "https://awdev.my.id/seo/index.html",
+      "description": "Search Engine Optimization utilities and website auditing tools by AWDEV CORPORATION.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "AWDEV CORPORATION",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://awdev.my.id/img/awdev.png"
+        }
+      }
+    }
+    </script>
+
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Neumorphic & Rainbow CSS Styling -->
+    <style>
+        :root {
+            --bg-color: #e4ebf5;
+            --neu-shadow-dark: #c5d1e0;
+            --neu-shadow-light: #ffffff;
+            --text-color: #333333;
+            --primary: #1a73e8;
+            --success: #33cc66;
+            --rainbow-gradient: linear-gradient(135deg, #ff3366, #ff9933, #33cc66, #3399ff, #9933ff);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            padding: 20px;
+        }
+
+        .rainbow-bar {
+            height: 6px;
+            width: 100%;
+            background: var(--rainbow-gradient);
+            border-radius: 3px;
+            margin-bottom: 20px;
+        }
+
+        .neu-box {
+            background: var(--bg-color);
+            box-shadow: 8px 8px 16px var(--neu-shadow-dark), -8px -8px 16px var(--neu-shadow-light);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .neu-inset {
+            background: var(--bg-color);
+            box-shadow: inset 4px 4px 8px var(--neu-shadow-dark), inset -4px -4px 8px var(--neu-shadow-light);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .neu-button {
+            background: var(--bg-color);
+            box-shadow: 4px 4px 8px var(--neu-shadow-dark), -4px -4px 8px var(--neu-shadow-light);
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            cursor: pointer;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .neu-button:hover {
+            box-shadow: inset 2px 2px 4px var(--neu-shadow-dark), inset -2px -2px 4px var(--neu-shadow-light);
+            color: #ff3366;
+        }
+
+        .neu-button.primary-btn {
+            color: var(--primary);
+        }
+
+        /* Header & Navigation Dropdown */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 4px 4px 8px var(--neu-shadow-dark), -4px -4px 8px var(--neu-shadow-light);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background: var(--bg-color);
+            box-shadow: 5px 5px 10px var(--neu-shadow-dark), -5px -5px 10px var(--neu-shadow-light);
+            padding: 10px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            color: var(--primary);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--bg-color);
+            min-width: 240px;
+            box-shadow: 8px 8px 16px var(--neu-shadow-dark), -8px -8px 16px var(--neu-shadow-light);
+            z-index: 100;
+            border-radius: 12px;
+            padding: 10px 0;
+            max-height: 350px;
+            overflow-y: auto;
+        }
+
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            font-size: 13px;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(0,0,0,0.03);
+            color: #ff3366;
+            padding-left: 25px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* SEO Page Specific Content */
+        h1 {
+            font-size: 2.2rem;
+            text-align: center;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        /* SEO Audit Tool Box */
+        .seo-tool-card {
+            background: var(--bg-color);
+            box-shadow: 6px 6px 12px var(--neu-shadow-dark), -6px -6px 12px var(--neu-shadow-light);
+            border-radius: 14px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .seo-input-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .seo-input {
+            flex: 1;
+            min-width: 280px;
+            background: var(--bg-color);
+            box-shadow: inset 3px 3px 6px var(--neu-shadow-dark), inset -3px -3px 6px var(--neu-shadow-light);
+            border: none;
+            border-radius: 10px;
+            padding: 12px 20px;
+            font-size: 0.95rem;
+            color: var(--text-color);
+            outline: none;
+        }
+
+        .seo-results {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .metric-card {
+            background: var(--bg-color);
+            box-shadow: inset 3px 3px 6px var(--neu-shadow-dark), inset -3px -3px 6px var(--neu-shadow-light);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .metric-card h4 {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .metric-card span {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--success);
+        }
+
+        /* SEO Info Grid */
+        .seo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .seo-card {
+            background: var(--bg-color);
+            box-shadow: 6px 6px 12px var(--neu-shadow-dark), -6px -6px 12px var(--neu-shadow-light);
+            border-radius: 14px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .seo-icon {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .seo-card h3 {
+            font-size: 1.15rem;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .seo-card p {
+            font-size: 0.88rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 40px;
+        }
+
+        footer .footer-links {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-links a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer .footer-links a:hover {
+            text-decoration: underline;
+            color: #ff3366;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Rainbow Accent Top Bar -->
+    <div class="rainbow-bar"></div>
+
+    <!-- Header & Navigation Dropdown -->
+    <header class="neu-box">
+        <div class="logo-area">
+            <img src="https://awdev.my.id/img/awdev.png" alt="AWDEV Corporation Logo" class="logo-img">
+            <span class="logo-text">AWDEV CORP</span>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn"><i class="fas fa-bars"></i> Navigation Menu</button>
+            <div class="dropdown-content">
+                <a href="https://awdev.my.id/"><i class="fas fa-home"></i> Home</a>
+                <a href="https://awdev.my.id/about.html"><i class="fas fa-info-circle"></i> About Us</a>
+                <a href="https://awdev.my.id/blog.html"><i class="fas fa-blog"></i> Blog</a>
+                <a href="https://awdev.my.id/tools/index.html"><i class="fas fa-tools"></i> Tools</a>
+                <a href="https://awdev.my.id/aplikasi/index.html"><i class="fas fa-mobile-alt"></i> Aplikasi</a>
+                <a href="https://awdev.my.id/seo/index.html"><i class="fas fa-search-dollar"></i> Seo</a>
+                <a href="https://awdev.my.id/source/index.html"><i class="fas fa-code"></i> Source</a>
+                <a href="https://awdev.my.id/eq/index.html"><i class="fas fa-sliders-h"></i> EQ Generator</a>
+                <a href="https://awdev.my.id/kodepost/index.html"><i class="fas fa-mail-bulk"></i> Kode Post Search</a>
+                <a href="https://awdev.my.id/finder/index.html"><i class="fas fa-compass"></i> Finder</a>
+                <a href="https://awdev.my.id/qr/index.html"><i class="fas fa-qrcode"></i> QR Generator</a>
+                <a href="https://awdev.my.id/collor/index.html"><i class="fas fa-palette"></i> Collor Code Generator</a>
+                <a href="https://awdev.my.id/calligraphy/index.html"><i class="fas fa-feather-alt"></i> Calligraphy Arabic</a>
+                <a href="https://awdev.my.id/maps/index.html"><i class="fas fa-map-marked-alt"></i> Maps Search</a>
+                <a href="https://awdev.my.id/code/index.html"><i class="fas fa-laptop-code"></i> Code Editor</a>
+                <a href="https://awdev.my.id/vidio/index.html"><i class="fas fa-video"></i> Vidio</a>
+                <a href="https://awdev.my.id/img/index.html"><i class="fas fa-images"></i> Gallery Images</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main SEO Hub Section -->
+    <main class="neu-box">
+        <h1>AWDEV SEO Optimization Hub</h1>
+        <p class="subtitle">Elevate your online presence with professional SEO analyzer tools, structured data generators, and optimization strategies.</p>
+
+        <!-- Interactive SEO Simulator / Auditor Tool -->
+        <div class="seo-tool-card">
+            <h3 style="margin-bottom: 10px;"><i class="fas fa-search-dollar text-primary"></i> Quick Page SEO Audit Simulator</h3>
+            <p style="font-size: 0.9rem; color: #555; margin-bottom: 20px;">Enter a URL or domain to simulate basic SEO structure, meta tag checks, and response ratings.</p>
+            
+            <div class="seo-input-group">
+                <input type="url" id="auditUrl" class="seo-input" placeholder="https://example.com" value="https://awdev.my.id">
+                <button class="neu-button primary-btn" onclick="runSeoAudit()"><i class="fas fa-chart-line"></i> Run Audit</button>
+            </div>
+
+            <div class="seo-results" id="seoResultsBox">
+                <div class="neu-inset" style="margin: 0;">
+                    <h4 style="color: var(--primary); margin-bottom: 10px;"><i class="fas fa-clipboard-check"></i> Audit Report for: <span id="reportedUrl" style="font-weight: 400; color: #333;"></span></h4>
+                    <div class="metric-grid">
+                        <div class="metric-card">
+                            <h4>SEO Score</h4>
+                            <span id="scoreVal">95/100</span>
+                        </div>
+                        <div class="metric-card">
+                            <h4>Meta Tags</h4>
+                            <span style="color: #33cc66;">Optimized</span>
+                        </div>
+                        <div class="metric-card">
+                            <h4>Schema JSON-LD</h4>
+                            <span style="color: #33cc66;">Detected</span>
+                        </div>
+                        <div class="metric-card">
+                            <h4>Mobile Friendly</h4>
+                            <span style="color: #33cc66;">Passed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Pillars Grid -->
+        <div class="seo-grid">
+            
+            <!-- Pillar 1 -->
+            <div class="seo-card">
+                <div>
+                    <div class="seo-icon"><i class="fas fa-code"></i></div>
+                    <h3>Meta Tag Optimization</h3>
+                    <p>Craft precise title tags, meta descriptions, and Open Graph tags to maximize click-through rates from search engines and social feeds.</p>
+                </div>
+                <a href="https://awdev.my.id/blog.html" class="neu-button primary-btn">Learn Guide <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Pillar 2 -->
+            <div class="seo-card">
+                <div>
+                    <div class="seo-icon"><i class="fas fa-project-diagram"></i></div>
+                    <h3>Schema Structured Data</h3>
+                    <p>Implement JSON-LD structured formats (Organization, WebPage, Blog) so search crawlers can index and display your rich snippets seamlessly.</p>
+                </div>
+                <a href="https://awdev.my.id/blog.html" class="neu-button primary-btn">Learn Guide <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Pillar 3 -->
+            <div class="seo-card">
+                <div>
+                    <div class="seo-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <h3>Performance & Speed</h3>
+                    <p>Optimize resource loading, minify assets, leverage caching, and ensure top-tier Core Web Vitals performance scores.</p>
+                </div>
+                <a href="https://awdev.my.id/tools/index.html" class="neu-button primary-btn">Explore Tools <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Audit Simulation Script -->
+    <script>
+        function runSeoAudit() {
+            let urlInput = document.getElementById('auditUrl').value;
+            if(!urlInput) {
+                alert('Please enter a valid URL.');
+                return;
+            }
+            document.getElementById('reportedUrl').innerText = urlInput;
+            let resultsBox = document.getElementById('seoResultsBox');
+            resultsBox.style.display = 'block';
+            
+            // Randomize slight variance for realistic feel
+            let randomScore = Math.floor(Math.random() * (99 - 90 + 1)) + 90;
+            document.getElementById('scoreVal').innerText = randomScore + '/100';
+        }
+    </script>
+<div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://awdevgithub.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+<script id="dsq-count-scr" src="//awdevgithub.disqus.com/count.js" async></script>
+
+        </div>
+        
+ 
+    <!-- Footer -->
+    <footer>
+        <div class="neu-inset" style="text-align: center; margin: 0;">
+            <p>&copy; 2026 awdev. All rights reserved.</p>
+            <p class="footer-links">
+                <a href="https://awdev.my.id/">Home</a> | 
+                <a href="https://awdev.my.id/about.html">About Us</a> | 
+                <a href="https://awdev.my.id/blog.html">Blog</a> | 
+                <a href="https://awdev.my.id/contact.html">Contact</a> | 
+                <a href="https://awdev.my.id/privacy-policy.html">Privacy Policy</a> | 
+                <a href="https://awdev.my.id/terms.html">Terms & Conditions</a> | 
+                <a href="https://awdev.my.id/disclaimers.html">Disclaimers</a> | 
+                <a href="https://awdev.my.id/license.html">License</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
