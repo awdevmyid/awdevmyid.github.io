@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Maps & Location Search - AWDEV CORPORATION</title>
+    
+    <!-- Meta SEO & Open Graph -->
+    <meta name="description" content="Explore interactive geographical maps, look up coordinates, and search locations effortlessly with AWDEV CORPORATION's maps utility.">
+    <meta name="keywords" content="AWDEV Maps, Location Search, Coordinates Finder, Geographic Utility, AWDEV Corporation">
+    <meta name="author" content="AWDEV Corporation">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://awdev.my.id/maps/index.html">
+    <meta property="og:title" content="Interactive Maps & Location Search - AWDEV CORPORATION">
+    <meta property="og:description" content="Find geographical locations and explore interactive maps quickly using AWDEV Maps utility.">
+    <meta property="og:image" content="https://awdev.my.id/img/awdev.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://awdev.my.id/maps/index.html">
+    <meta property="twitter:title" content="Interactive Maps & Location Search - AWDEV CORPORATION">
+    <meta property="twitter:description" content="Find geographical locations and explore interactive maps quickly using AWDEV Maps utility.">
+    <meta property="twitter:image" content="https://awdev.my.id/img/awdev.png">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.jpg">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.png">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/favicon.png">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/ico.png">
+
+    <!-- Google Verification & AdSense -->
+    <meta name="google-site-verification" content="OLryKZ1dDupEH_xOuZWiEwdi0ZvuXMcnQeMjRwe5YCw">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5407249785989200" crossorigin="anonymous"></script>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "AWDEV CORPORATION Maps Search",
+      "url": "https://awdev.my.id/maps/index.html",
+      "description": "Interactive map search tool and geographic utilities by AWDEV CORPORATION.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "AWDEV CORPORATION",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://awdev.my.id/img/awdev.png"
+        }
+      }
+    }
+    </script>
+
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Neumorphic & Rainbow CSS Styling -->
+    <style>
+        :root {
+            --bg-color: #e4ebf5;
+            --neu-shadow-dark: #c5d1e0;
+            --neu-shadow-light: #ffffff;
+            --text-color: #333333;
+            --primary: #1a73e8;
+            --rainbow-gradient: linear-gradient(135deg, #ff3366, #ff9933, #33cc66, #3399ff, #9933ff);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            padding: 20px;
+        }
+
+        .rainbow-bar {
+            height: 6px;
+            width: 100%;
+            background: var(--rainbow-gradient);
+            border-radius: 3px;
+            margin-bottom: 20px;
+        }
+
+        .neu-box {
+            background: var(--bg-color);
+            box-shadow: 8px 8px 16px var(--neu-shadow-dark), -8px -8px 16px var(--neu-shadow-light);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .neu-inset {
+            background: var(--bg-color);
+            box-shadow: inset 4px 4px 8px var(--neu-shadow-dark), inset -4px -4px 8px var(--neu-shadow-light);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .neu-button {
+            background: var(--bg-color);
+            box-shadow: 4px 4px 8px var(--neu-shadow-dark), -4px -4px 8px var(--neu-shadow-light);
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            cursor: pointer;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .neu-button:hover {
+            box-shadow: inset 2px 2px 4px var(--neu-shadow-dark), inset -2px -2px 4px var(--neu-shadow-light);
+            color: #ff3366;
+        }
+
+        .neu-button.primary-btn {
+            color: var(--primary);
+        }
+
+        /* Header & Navigation Dropdown */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 4px 4px 8px var(--neu-shadow-dark), -4px -4px 8px var(--neu-shadow-light);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background: var(--bg-color);
+            box-shadow: 5px 5px 10px var(--neu-shadow-dark), -5px -5px 10px var(--neu-shadow-light);
+            padding: 10px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            color: var(--primary);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--bg-color);
+            min-width: 240px;
+            box-shadow: 8px 8px 16px var(--neu-shadow-dark), -8px -8px 16px var(--neu-shadow-light);
+            z-index: 100;
+            border-radius: 12px;
+            padding: 10px 0;
+            max-height: 350px;
+            overflow-y: auto;
+        }
+
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            font-size: 13px;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(0,0,0,0.03);
+            color: #ff3366;
+            padding-left: 25px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Maps Page Specific Content */
+        h1 {
+            font-size: 2.2rem;
+            text-align: center;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .map-search-box {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .map-input {
+            flex: 1;
+            min-width: 280px;
+            background: var(--bg-color);
+            box-shadow: inset 3px 3px 6px var(--neu-shadow-dark), inset -3px -3px 6px var(--neu-shadow-light);
+            border: none;
+            border-radius: 10px;
+            padding: 12px 20px;
+            font-size: 0.95rem;
+            color: var(--text-color);
+            outline: none;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 450px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: inset 4px 4px 8px var(--neu-shadow-dark), inset -4px -4px 8px var(--neu-shadow-light);
+            background: #fff;
+            position: relative;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 40px;
+        }
+
+        footer .footer-links {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-links a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer .footer-links a:hover {
+            text-decoration: underline;
+            color: #ff3366;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Rainbow Accent Top Bar -->
+    <div class="rainbow-bar"></div>
+
+    <!-- Header & Navigation Dropdown -->
+    <header class="neu-box">
+        <div class="logo-area">
+            <img src="https://awdev.my.id/img/awdev.png" alt="AWDEV Corporation Logo" class="logo-img">
+            <span class="logo-text">AWDEV CORP</span>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn"><i class="fas fa-bars"></i> Navigation Menu</button>
+            <div class="dropdown-content">
+                <a href="https://awdev.my.id/"><i class="fas fa-home"></i> Home</a>
+                <a href="https://awdev.my.id/about.html"><i class="fas fa-info-circle"></i> About Us</a>
+                <a href="https://awdev.my.id/blog.html"><i class="fas fa-blog"></i> Blog</a>
+                <a href="https://awdev.my.id/tools/index.html"><i class="fas fa-tools"></i> Tools</a>
+                <a href="https://awdev.my.id/aplikasi/index.html"><i class="fas fa-mobile-alt"></i> Aplikasi</a>
+                <a href="https://awdev.my.id/seo/index.html"><i class="fas fa-search-dollar"></i> Seo</a>
+                <a href="https://awdev.my.id/source/index.html"><i class="fas fa-code"></i> Source</a>
+                <a href="https://awdev.my.id/eq/index.html"><i class="fas fa-sliders-h"></i> EQ Generator</a>
+                <a href="https://awdev.my.id/kodepost/index.html"><i class="fas fa-mail-bulk"></i> Kode Post Search</a>
+                <a href="https://awdev.my.id/finder/index.html"><i class="fas fa-compass"></i> Finder</a>
+                <a href="https://awdev.my.id/qr/index.html"><i class="fas fa-qrcode"></i> QR Generator</a>
+                <a href="https://awdev.my.id/collor/index.html"><i class="fas fa-palette"></i> Collor Code Generator</a>
+                <a href="https://awdev.my.id/calligraphy/index.html"><i class="fas fa-feather-alt"></i> Calligraphy Arabic</a>
+                <a href="https://awdev.my.id/maps/index.html"><i class="fas fa-map-marked-alt"></i> Maps Search Utility</a>
+                <a href="https://awdev.my.id/code/index.html"><i class="fas fa-laptop-code"></i> Code Editor</a>
+                <a href="https://awdev.my.id/vidio/index.html"><i class="fas fa-video"></i> Vidio</a>
+                <a href="https://awdev.my.id/img/index.html"><i class="fas fa-images"></i> Gallery Images</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Maps Section -->
+    <main class="neu-box">
+        <h1>AWDEV Interactive Maps Search</h1>
+        <p class="subtitle">Search geographical places, view map coordinates, and explore locations instantly.</p>
+
+        <!-- Search Input Bar -->
+        <div class="map-search-box">
+            <input type="text" id="mapQuery" class="map-input" placeholder="Enter location name, city, or address..." value="Semarang, Central Java">
+            <button class="neu-button primary-btn" onclick="searchLocation()"><i class="fas fa-search"></i> Search Map</button>
+        </div>
+
+        <!-- Embedded Map Display Frame -->
+        <div class="map-container">
+            <iframe id="mapFrame" src="https://maps.google.com/maps?q=Semarang,%20Central%20Java&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </main>
+
+    <!-- Map Search Script -->
+    <script>
+        function searchLocation() {
+            let query = document.getElementById('mapQuery').value.trim();
+            if(!query) {
+                alert('Please enter a location to search.');
+                return;
+            }
+            let encodedQuery = encodeURIComponent(query);
+            let mapFrame = document.getElementById('mapFrame');
+            mapFrame.src = `https://maps.google.com/maps?q=${encodedQuery}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
+        }
+    </script>
+<div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://awdevgithub.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+<script id="dsq-count-scr" src="//awdevgithub.disqus.com/count.js" async></script>
+
+        </div>
+        
+ 
+    <!-- Footer -->
+    <footer>
+        <div class="neu-inset" style="text-align: center; margin: 0;">
+            <p>&copy; 2026 awdev. All rights reserved.</p>
+            <p class="footer-links">
+                <a href="https://awdev.my.id/">Home</a> | 
+                <a href="https://awdev.my.id/about.html">About Us</a> | 
+                <a href="https://awdev.my.id/blog.html">Blog</a> | 
+                <a href="https://awdev.my.id/contact.html">Contact</a> | 
+                <a href="https://awdev.my.id/privacy-policy.html">Privacy Policy</a> | 
+                <a href="https://awdev.my.id/terms.html">Terms & Conditions</a> | 
+                <a href="https://awdev.my.id/disclaimers.html">Disclaimers</a> | 
+                <a href="https://awdev.my.id/license.html">License</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
