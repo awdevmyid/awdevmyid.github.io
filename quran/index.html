@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuranClip Video Studio | AWDev</title>
+    <link rel="canonical" href="https://awdev.my.id/quran/index.html">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.jpg">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.png">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/favicon.png">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/ico.png">
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/favicon.png">
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/ico.png">
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/awdev.jpg">
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/logo.png">
+    
+    <!-- SEO & AdSense -->
+    <meta name="google-site-verification" content="OLryKZ1dDupEH_xOuZWiEwdi0ZvuXMcnQeMjRwe5YCw" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5407249785989200" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-5407249785989200">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #e0e5ec;
+            --light-shadow: #ffffff;
+            --dark-shadow: #a3b1c6;
+            --text-color: #44475a;
+            --primary: #4f46e5;
+            --rainbow-gradient: linear-gradient(135deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        /* Neumorphic Mixins */
+        .neu-box {
+            background: var(--bg-color);
+            box-shadow: 9px 9px 16px var(--dark-shadow), -9px -9px 16px var(--light-shadow);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .neu-inset {
+            background: var(--bg-color);
+            box-shadow: inset 5px 5px 10px var(--dark-shadow), inset -5px -5px 10px var(--light-shadow);
+            border-radius: 12px;
+            padding: 12px;
+            border: none;
+            outline: none;
+            color: var(--text-color);
+        }
+
+        .neu-btn {
+            background: var(--bg-color);
+            box-shadow: 6px 6px 12px var(--dark-shadow), -6px -6px 12px var(--light-shadow);
+            border: none;
+            border-radius: 12px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-color);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .neu-btn:hover {
+            color: var(--primary);
+        }
+
+        .neu-btn:active {
+            box-shadow: inset 4px 4px 8px var(--dark-shadow), inset -4px -4px 8px var(--light-shadow);
+        }
+
+        /* Rainbow Accent Border */
+        .rainbow-border {
+            position: relative;
+            border-radius: 16px;
+        }
+        .rainbow-border::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: var(--rainbow-gradient);
+            border-radius: 18px;
+            z-index: -1;
+            filter: blur(1px);
+            opacity: 0.7;
+        }
+
+        /* Header & Dropdown Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+            padding: 15px 25px;
+        }
+
+        .logo-area {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background: var(--bg-color);
+            padding: 10px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 4px 4px 8px var(--dark-shadow), -4px -4px 8px var(--light-shadow);
+            border: none;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--bg-color);
+            min-width: 220px;
+            box-shadow: 8px 8px 16px var(--dark-shadow), -8px -8px 16px var(--light-shadow);
+            z-index: 100;
+            border-radius: 12px;
+            padding: 10px 0;
+            max-height: 350px;
+            overflow-y: auto;
+        }
+
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 8px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 13px;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(0,0,0,0.05);
+            color: var(--primary);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Typing Effect Banner */
+        .typing-container {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            min-height: 40px;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Image Slider */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: inset 4px 4px 8px var(--dark-shadow), inset -4px -4px 8px var(--light-shadow);
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        /* Studio Workspace Layout */
+        .studio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .studio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .control-group {
+            margin-bottom: 15px;
+        }
+
+        .control-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        select, input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+        }
+
+        /* Preview Workspace */
+        .preview-screen {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 6px 6px 12px rgba(0,0,0,0.5);
+        }
+
+        .preview-screen video, .preview-screen img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .quran-overlay {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(4px);
+            border-radius: 8px;
+            max-width: 90%;
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        /* Sample Asset Grid */
+        .asset-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .chip {
+            padding: 6px 12px;
+            font-size: 12px;
+            border-radius: 8px;
+            background: var(--bg-color);
+            box-shadow: 3px 3px 6px var(--dark-shadow), -3px -3px 6px var(--light-shadow);
+            cursor: pointer;
+        }
+
+        .chip:hover {
+            color: var(--primary);
+        }
+
+        /* FAQ Accordion */
+        .faq-item {
+            margin-bottom: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .faq-question {
+            padding: 12px 18px;
+            cursor: pointer;
+            font-weight: 600;
+            background: var(--bg-color);
+            box-shadow: 4px 4px 8px var(--dark-shadow), -4px -4px 8px var(--light-shadow);
+            border-radius: 10px;
+        }
+        .faq-answer {
+            padding: 12px 18px;
+            display: none;
+            font-size: 14px;
+        }
+
+        /* Social Share & Contact Form */
+        .social-share {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-color);
+            box-shadow: 5px 5px 10px var(--dark-shadow), -5px -5px 10px var(--light-shadow);
+            font-size: 18px;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid var(--dark-shadow);
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Dropdown Menu -->
+    <header class="neu-box rainbow-border">
+        <div class="logo-area">QuranClip Studio</div>
+        <div class="dropdown">
+            <button class="dropbtn"><i class="fa-solid fa-bars"></i> Navigation Menu <i class="fa-solid fa-caret-down"></i></button>
+            <div class="dropdown-content">
+                <a href="https://awdev.my.id/">Home</a>
+                <a href="https://awdev.my.id/about.html">About Us</a>
+                <a href="https://awdev.my.id/blog.html">Blog</a>
+                <a href="https://awdev.my.id/tools/index.html">Tools</a>
+                <a href="https://awdev.my.id/aplikasi/index.html">Aplikasi</a>
+                <a href="https://awdev.my.id/seo/index.html">Seo</a>
+                <a href="https://awdev.my.id/source/index.html">Source</a>
+                <a href="https://awdev.my.id/eq/index.html">EQ Generator</a>
+                <a href="https://awdev.my.id/kodepost/index.html">Kode Post Search</a>
+                <a href="https://awdev.my.id/finder/index.html">Finder</a>
+                <a href="https://awdev.my.id/qr/index.html">QR Generator</a>
+                <a href="https://awdev.my.id/collor/index.html">Collor Code Generator</a>
+                <a href="https://awdev.my.id/calligraphy/index.html">Calligraphy Arabic</a>
+                <a href="https://awdev.my.id/maps/index.html">Maps Search</a>
+                <a href="https://awdev.my.id/code/index.html">Code Editor</a>
+                <a href="https://awdev.my.id/vidio/index.html">Vidio</a>
+                <a href="https://awdev.my.id/img/index.html">Gallery Images</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Teks Ketik (Typing Banner) -->
+    <div class="typing-container" id="typingBanner"></div>
+
+    <!-- Image Slider -->
+    <div class="slider-container neu-box">
+        <img src="https://awdev.my.id/img/awdev.png" class="slide active" alt="AWDev Logo">
+        <img src="https://awdev.my.id/img/3d.jpeg" class="slide" alt="3D Visual">
+        <img src="https://awdev.my.id/img/ai.jpeg" class="slide" alt="AI Visual">
+        <img src="https://awdev.my.id/img/quran.png" class="slide" alt="Quran Visual">
+    </div>
+
+    <!-- Studio Workspace -->
+    <div class="studio-grid">
+        <!-- Controls Panel -->
+        <div class="neu-box">
+            <h3><i class="fa-solid fa-sliders"></i> Studio Controls</h3>
+            <hr style="margin: 15px 0; border:0; border-top: 1px solid var(--dark-shadow);">
+            
+            <div class="control-group">
+                <label>Surah (114 Total)</label>
+                <select class="neu-inset" id="surahSelect">
+                    <option value="1">1. Al-Fatihah (7 Ayat)</option>
+                    <option value="2">2. Al-Baqarah (286 Ayat)</option>
+                    <option value="36">36. Yasin (83 Ayat)</option>
+                    <option value="67">67. Al-Mulk (30 Ayat)</option>
+                    <option value="114">114. An-Nas (6 Ayat)</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label>Translation Language (10 Options)</label>
+                <select class="neu-inset">
+                    <option>🇬🇧 English — Saheeh International</option>
+                    <option>🇮🇩 Indonesian — Kemenag</option>
+                    <option>🇸🇦 Arabic — Tafsir Jalalayn</option>
+                    <option>🇫🇷 French — Hamidullah</option>
+                    <option>🇪🇸 Spanish — Cortés</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label>Calligraphy Font (7 Styles)</label>
+                <select class="neu-inset">
+                    <option>Amiri Classic</option>
+                    <option>Kufi Arabic</option>
+                    <option>Uthmanic Hafs</option>
+                    <option>Scheherazade New</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label><input type="checkbox" id="autoPlay"> 🔄 Enable Continuous Auto-Play</label>
+            </div>
+
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
+                <button class="neu-btn"><i class="fa-solid fa-play"></i> Play</button>
+                <button class="neu-btn"><i class="fa-solid fa-stop"></i> Stop</button>
+                <button class="neu-btn"><i class="fa-solid fa-forward"></i> Next</button>
+                <button class="neu-btn" style="color: red;"><i class="fa-solid fa-circle"></i> Record</button>
+            </div>
+        </div>
+
+        <!-- Live Preview Workspace -->
+        <div class="neu-box">
+            <h3><i class="fa-solid fa-display"></i> Live Preview Workspace</h3>
+            <hr style="margin: 15px 0; border:0; border-top: 1px solid var(--dark-shadow);">
+            
+            <div class="preview-screen" id="previewScreen">
+                <video id="previewVideo" autoplay muted loop style="display: none;"></video>
+                <img id="previewImage" src="https://awdev.my.id/img/awdev.png" style="display: block;">
+                <div class="quran-overlay">
+                    <div class="arabic-text">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+                    <p>In the name of Allah, the Entirely Merciful, the Especially Merciful.</p>
+                </div>
+            </div>
+
+            <!-- Asset Selector Chips -->
+            <div style="margin-top: 15px;">
+                <label style="font-size: 13px; font-weight: 600;">Sample Video Assets:</label>
+                <div class="asset-chips">
+                    <div class="chip" onclick="setVideo('https://awdev.my.id/vidio/borobudur.mp4')">Borobudur</div>
+                    <div class="chip" onclick="setVideo('https://awdev.my.id/vidio/dubai.mp4')">Dubai</div>
+                    <div class="chip" onclick="setVideo('https://awdev.my.id/vidio/madinah.mp4')">Madinah</div>
+                    <div class="chip" onclick="setVideo('https://awdev.my.id/vidio/masjidqatar.mp4')">Masjid Qatar</div>
+                </div>
+
+                <label style="font-size: 13px; font-weight: 600; margin-top: 10px; display:block;">Sample Image Assets:</label>
+                <div class="asset-chips">
+                    <div class="chip" onclick="setImage('https://awdev.my.id/img/3d.jpeg')">3D Visual</div>
+                    <div class="chip" onclick="setImage('https://awdev.my.id/img/ai.jpeg')">AI Visual</div>
+                    <div class="chip" onclick="setImage('https://awdev.my.id/img/quran.png')">Quran Art</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- English Article Section (Internal & External Links) -->
+    <div class="neu-box">
+        <h3><i class="fa-solid fa-book-open"></i> Quran Video Generation & Digital Media Production</h3>
+        <p style="margin-top: 10px; font-size: 14px;">
+            Creating engaging Islamic content and Quranic video clips has never been easier. With our advanced <a href="https://awdev.my.id/tools/index.html" style="color:var(--primary)">AWDev Tools</a>, creators can seamlessly mix audio recitations with breathtaking visuals from cities like <a href="https://awdev.my.id/vidio/index.html" style="color:var(--primary)">Madinah and Dubai</a>. Explore our <a href="https://awdev.my.id/blog.html" style="color:var(--primary)">Blog</a> for tutorials on <a href="https://awdev.my.id/calligraphy/index.html" style="color:var(--primary)">Arabic Calligraphy</a> and <a href="https://awdev.my.id/collor/index.html" style="color:var(--primary)">Color Code Generators</a>. For further reading on digital rendering standards, visit external resources like <a href="https://developer.mozilla.org" target="_blank" rel="nofollow">MDN Web Docs</a>, <a href="https://github.com" target="_blank" rel="nofollow">GitHub</a>, <a href="https://stackoverflow.com" target="_blank" rel="nofollow">Stack Overflow</a>, <a href="https://www.w3.org" target="_blank" rel="nofollow">W3C Standards</a>, <a href="https://css-tricks.com" target="_blank" rel="nofollow">CSS-Tricks</a>, <a href="https://unsplash.com" target="_blank" rel="nofollow">Unsplash</a>, and <a href="https://getbootstrap.com" target="_blank" rel="nofollow">Bootstrap</a>.
+        </p>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="neu-box">
+        <h3><i class="fa-solid fa-circle-question"></i> Frequently Asked Questions</h3>
+        <br>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">How do I record and download video clips?</div>
+            <div class="faq-answer">Simply select your preferred background video or image, choose the Surah and translation, and click the Record button. Once rendered, you can instantly save and download the MP4 file.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">Are all 114 Surahs available with audio?</div>
+            <div class="faq-answer">Yes, complete data and audio streams are integrated across all 114 Surahs with continuous auto-play support.</div>
+        </div>
+    </div>
+
+    <!-- Social Media Share -->
+    <div class="neu-box" style="text-align: center;">
+        <h3>Connect & Share Live Channel</h3>
+        <div class="social-share">
+            <a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+    </div>
+
+    <!-- Contact Form Box -->
+    <div class="neu-box">
+        <h3><i class="fa-solid fa-envelope"></i> Send Us a Message</h3>
+        <form style="margin-top: 15px;" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+            <div style="margin-bottom: 12px;">
+                <input type="text" placeholder="Your Name" class="neu-inset" required>
+            </div>
+            <div style="margin-bottom: 12px;">
+                <input type="text" placeholder="Your Email" class="neu-inset" required>
+            </div>
+            <div style="margin-bottom: 12px;">
+                <textarea placeholder="Your Message" rows="4" class="neu-inset" required></textarea>
+            </div>
+            <button type="submit" class="neu-btn">Submit Form</button>
+        </form>
+    </div>
+
+    <!-- Disqus Comments -->
+    <div class="neu-box">
+        <div id="disqus_thread"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 awdev. All rights reserved.</p>
+        <p style="margin-top: 10px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+            <a href="https://awdev.my.id/" style="color: var(--primary); text-decoration: none;">Home</a> | 
+            <a href="https://awdev.my.id/about.html" style="color: var(--primary); text-decoration: none;">About Us</a> | 
+            <a href="https://awdev.my.id/blog.html" style="color: var(--primary); text-decoration: none;">Blog</a> | 
+            <a href="https://awdev.my.id/contact.html" style="color: var(--primary); text-decoration: none;">Contact</a> | 
+            <a href="https://awdev.my.id/privacy-policy.html" style="color: var(--primary); text-decoration: none;">Privacy Policy</a> | 
+            <a href="https://awdev.my.id/terms.html" style="color: var(--primary); text-decoration: none;">Terms & Conditions</a> |
+            <a href="https://awdev.my.id/disclaimers.html" style="color: var(--primary); text-decoration: none;">Disclaimers</a> | 
+            <a href="https://awdev.my.id/license.html" style="color: var(--primary); text-decoration: none;">License</a>
+        </p>
+    </footer>
+
+    <!-- JavaScript Scripts -->
+    <script>
+        // Typing Effect
+        const words = ["QuranClip Video Studio", "Neumorphic Rainbow Design", "Automatic Ayat Recitation Player", "Live Studio Video Renderer"];
+        let i = 0;
+        let timer;
+        function typingEffect() {
+            let word = words[i].split("");
+            let loopTyping = function() {
+                if (word.length > 0) {
+                    document.getElementById('typingBanner').innerHTML += word.shift();
+                } else {
+                    setTimeout(deletingEffect, 2000);
+                    return;
+                }
+                timer = setTimeout(loopTyping, 100);
+            };
+            loopTyping();
+        }
+        function deletingEffect() {
+            let word = words[i].split("");
+            let loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.getElementById('typingBanner').innerHTML = word.join("");
+                } else {
+                    if (words.length > (i + 1)) {
+                        i++;
+                    } else {
+                        i = 0;
+                    }
+                    setTimeout(typingEffect, 500);
+                    return;
+                }
+                timer = setTimeout(loopDeleting, 50);
+            };
+            loopDeleting();
+        }
+        typingEffect();
+
+        // Image Slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        setInterval(() => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 3500);
+
+        // Preview Video/Image Switcher
+        function setVideo(url) {
+            const v = document.getElementById('previewVideo');
+            const img = document.getElementById('previewImage');
+            v.src = url;
+            v.style.display = 'block';
+            img.style.display = 'none';
+            v.play();
+        }
+
+        function setImage(url) {
+            const v = document.getElementById('previewVideo');
+            const img = document.getElementById('previewImage');
+            v.pause();
+            v.style.display = 'none';
+            img.src = url;
+            img.style.display = 'block';
+        }
+
+        // FAQ Toggle
+        function toggleFaq(el) {
+            const ans = el.nextElementSibling;
+            ans.style.display = ans.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Disqus Integration Script
+        var disqus_config = function () {
+            this.page.url = "https://awdev.my.id/quran/index.html"; 
+            this.page.identifier = "quranclip-studio"; 
+        };
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://awdevgithub.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <script id="dsq-count-scr" src="//awdevgithub.disqus.com/count.js" async></script>
+</body>
+</html>
