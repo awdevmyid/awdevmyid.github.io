@@ -1,1 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery & Asset Hub - AWDEV CORPORATION</title>
+    
+    <!-- Meta SEO & Open Graph -->
+    <meta name="description" content="Explore and embed image assets from AWDEV CORPORATION. Copy image URLs, HTML embed tags, and download high-quality graphics instantly.">
+    <meta name="keywords" content="AWDEV Images, Image Asset Hub, Graphic Gallery, PNG Download, Embed Image Code">
+    <meta name="author" content="AWDEV Corporation">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://awdev.my.id/img/">
+    <meta property="og:title" content="Image Gallery & Asset Hub - AWDEV CORPORATION">
+    <meta property="og:description" content="Browse image assets, get embed codes, and download graphics easily.">
+    <meta property="og:image" content="https://awdev.my.id/img/awdev.png">
 
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://awdev.my.id/img/">
+    <meta property="twitter:title" content="Image Gallery & Asset Hub - AWDEV CORPORATION">
+    <meta property="twitter:description" content="Browse image assets, get embed codes, and download graphics easily.">
+    <meta property="twitter:image" content="https://awdev.my.id/img/awdev.png">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.jpg">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.png">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/favicon.png">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/ico.png">
+
+    <!-- Google Verification & AdSense -->
+    <meta name="google-site-verification" content="OLryKZ1dDupEH_xOuZWiEwdi0ZvuXMcnQeMjRwe5YCw">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5407249785989200" crossorigin="anonymous"></script>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Image Gallery - AWDEV CORPORATION",
+      "url": "https://awdev.my.id/img/",
+      "description": "Image assets collection gallery with copy url, HTML embed code, and download options.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "AWDEV CORPORATION",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://awdev.my.id/img/awdev.png"
+        }
+      }
+    }
+    </script>
+
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Neumorphic & Rainbow CSS Styling -->
+    <style>
+        :root {
+            --bg-color: #e4ebf5;
+            --neu-shadow-dark: #c5d1e0;
+            --neu-shadow-light: #ffffff;
+            --text-color: #333333;
+            --primary: #1a73e8;
+            --rainbow-gradient: linear-gradient(135deg, #ff3366, #ff9933, #33cc66, #3399ff, #9933ff);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            padding: 20px;
+        }
+
+        .rainbow-bar {
+            height: 6px;
+            width: 100%;
+            background: var(--rainbow-gradient);
+            border-radius: 3px;
+            margin-bottom: 20px;
+        }
+
+        .neu-box {
+            background: var(--bg-color);
+            box-shadow: 8px 8px 16px var(--neu-shadow-dark), -8px -8px 16px var(--neu-shadow-light);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .neu-inset {
+            background: var(--bg-color);
+            box-shadow: inset 4px 4px 8px var(--neu-shadow-dark), inset -4px -4px 8px var(--neu-shadow-light);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .neu-button {
+            background: var(--bg-color);
+            box-shadow: 4px 4px 8px var(--neu-shadow-dark), -4px -4px 8px var(--neu-shadow-light);
+            border: none;
+            border-radius: 8px;
+            padding: 8px 14px;
+            cursor: pointer;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .neu-button:hover {
+            box-shadow: inset 2px 2px 4px var(--neu-shadow-dark), inset -2px -2px 4px var(--neu-shadow-light);
+            color: #ff3366;
+        }
+
+        .neu-button.primary-btn {
+            color: var(--primary);
+        }
+
+        /* Header & Navigation Dropdown */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 4px 4px 8px var(--neu-shadow-dark), -4px -4px 8px var(--neu-shadow-light);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background: var(--bg-color);
+            box-shadow: 5px 5px 10px var(--neu-shadow-dark), -5px -5px 10px var(--neu-shadow-light);
+            padding: 10px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            color: var(--primary);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--bg-color);
+            min-width: 240px;
+            box-shadow: 8px 8px 16px var(--neu-shadow-dark), -8px -8px 16px var(--neu-shadow-light);
+            z-index: 100;
+            border-radius: 12px;
+            padding: 10px 0;
+            max-height: 350px;
+            overflow-y: auto;
+        }
+
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            font-size: 13px;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(0,0,0,0.03);
+            color: #ff3366;
+            padding-left: 25px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Gallery Content */
+        h1 {
+            font-size: 2.2rem;
+            text-align: center;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .image-card {
+            background: var(--bg-color);
+            box-shadow: 6px 6px 12px var(--neu-shadow-dark), -6px -6px 12px var(--neu-shadow-light);
+            border-radius: 14px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .image-preview {
+            width: 100%;
+            height: 160px;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: inset 3px 3px 6px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .image-preview img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .image-info h3 {
+            font-size: 1rem;
+            color: var(--text-color);
+            margin-bottom: 3px;
+            font-weight: 600;
+            word-break: break-all;
+        }
+
+        .image-time {
+            font-size: 0.8rem;
+            color: #777;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .image-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+            border-top: 1px solid rgba(0,0,0,0.06);
+            padding-top: 12px;
+        }
+
+        /* Notification Toast Popup */
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 12px;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            font-size: 14px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+        }
+
+        #toast.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @keyframes fadein {
+            from { bottom: 0; opacity: 0; }
+            to { bottom: 30px; opacity: 1; }
+        }
+
+        @keyframes fadeout {
+            from { bottom: 30px; opacity: 1; }
+            to { bottom: 0; opacity: 0; }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 40px;
+        }
+
+        footer .footer-links {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-links a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer .footer-links a:hover {
+            text-decoration: underline;
+            color: #ff3366;
+        }
+    </style>
+
+    <!-- JavaScript Actions for Copy and Notifications -->
+    <script>
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            toast.textContent = message;
+            toast.className = "show";
+            setTimeout(() => {
+                toast.className = toast.className.replace("show", "");
+            }, 3000);
+        }
+
+        function copyToClipboard(text, type) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast(`${type} copied to clipboard!`);
+            }, (err) => {
+                showToast('Failed to copy text.');
+                console.error('Async: Could not copy text: ', err);
+            });
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Rainbow Accent Top Bar -->
+    <div class="rainbow-bar"></div>
+
+    <!-- Header & Navigation Dropdown -->
+    <header class="neu-box">
+        <div class="logo-area">
+            <img src="https://awdev.my.id/img/awdev.png" alt="AWDEV Corporation Logo" class="logo-img">
+            <span class="logo-text">AWDEV CORP</span>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn"><i class="fas fa-bars"></i> Navigation Menu</button>
+            <div class="dropdown-content">
+                <a href="https://awdev.my.id/"><i class="fas fa-home"></i> Home</a>
+                <a href="https://awdev.my.id/about.html"><i class="fas fa-info-circle"></i> About Us</a>
+                <a href="https://awdev.my.id/blog.html"><i class="fas fa-blog"></i> Blog</a>
+                <a href="https://awdev.my.id/tools/index.html"><i class="fas fa-tools"></i> Tools</a>
+                <a href="https://awdev.my.id/aplikasi/index.html"><i class="fas fa-mobile-alt"></i> Aplikasi</a>
+                <a href="https://awdev.my.id/seo/index.html"><i class="fas fa-search-dollar"></i> Seo</a>
+                <a href="https://awdev.my.id/source/index.html"><i class="fas fa-code"></i> Source</a>
+                <a href="https://awdev.my.id/eq/index.html"><i class="fas fa-sliders-h"></i> EQ Generator</a>
+                <a href="https://awdev.my.id/kodepost/index.html"><i class="fas fa-mail-bulk"></i> Kode Post Search</a>
+                <a href="https://awdev.my.id/finder/index.html"><i class="fas fa-compass"></i> Finder</a>
+                <a href="https://awdev.my.id/qr/index.html"><i class="fas fa-qrcode"></i> QR Generator</a>
+                <a href="https://awdev.my.id/collor/index.html"><i class="fas fa-palette"></i> Collor Code Generator</a>
+                <a href="https://awdev.my.id/calligraphy/index.html"><i class="fas fa-feather-alt"></i> Calligraphy Arabic</a>
+                <a href="https://awdev.my.id/maps/index.html"><i class="fas fa-map-marked-alt"></i> Maps Search</a>
+                <a href="https://awdev.my.id/code/index.html"><i class="fas fa-laptop-code"></i> Code Editor</a>
+                <a href="https://awdev.my.id/vidio/index.html"><i class="fas fa-video"></i> Vidio</a>
+                <a href="https://awdev.my.id/img/index.html"><i class="fas fa-images"></i> Gallery Images</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="neu-box">
+        <h1>Image Asset Gallery</h1>
+        <p class="subtitle">Explore official graphic resources, copy direct image URLs, copy HTML embed tags, or download images instantly.</p>
+
+        <div class="image-grid">
+            
+            <!-- 0.png -->
+            <div class="image-card">
+                <div>
+                    <div class="image-preview">
+                        <img src="https://awdev.my.id/img/0.png" alt="0.png" loading="lazy">
+                    </div>
+                    <div class="image-info">
+                        <h3>0.png</h3>
+                        <div class="image-time"><i class="far fa-clock"></i> Recent asset</div>
+                    </div>
+                </div>
+                <div class="image-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/img/0.png', 'Image URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;img src=&quot;https://awdev.my.id/img/0.png&quot; alt=&quot;0.png&quot;&gt;', 'HTML Tag')"><i class="fas fa-code"></i> Copy HTML</button>
+                    <a href="https://awdev.my.id/img/0.png" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- 3d.jpeg -->
+            <div class="image-card">
+                <div>
+                    <div class="image-preview">
+                        <img src="https://awdev.my.id/img/3d.jpeg" alt="3d.jpeg" loading="lazy">
+                    </div>
+                    <div class="image-info">
+                        <h3>3d.jpeg</h3>
+                        <div class="image-time"><i class="far fa-clock"></i> 5 minutes ago</div>
+                    </div>
+                </div>
+                <div class="image-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/img/3d.jpeg', 'Image URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;img src=&quot;https://awdev.my.id/img/3d.jpeg&quot; alt=&quot;3d.jpeg&quot;&gt;', 'HTML Tag')"><i class="fas fa-code"></i> Copy HTML</button>
+                    <a href="https://awdev.my.id/img/3d.jpeg" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- Angular-18.png -->
+            <div class="image-card">
+                <div>
+                    <div class="image-preview">
+                        <img src="https://awdev.my.id/img/Angular-18.png" alt="Angular-18.png" loading="lazy">
+                    </div>
+                    <div class="image-info">
+                        <h3>Angular-18.png</h3>
+                        <div class="image-time"><i class="far fa-clock"></i> 5 minutes ago</div>
+                    </div>
+                </div>
+                <div class="image-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/img/Angular-18.png', 'Image URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;img src=&quot;https://awdev.my.id/img/Angular-18.png&quot; alt=&quot;Angular-18.png&quot;&gt;', 'HTML Tag')"><i class="fas fa-code"></i> Copy HTML</button>
+                    <a href="https://awdev.my.id/img/Angular-18.png" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- Arabic_language_-_kuffi.png -->
+            <div class="image-card">
+                <div>
+                    <div class="image-preview">
+                        <img src="https://awdev.my.id/img/Arabic_language_-_kuffi.png" alt="Arabic_language_-_kuffi.png" loading="lazy">
+                    </div>
+                    <div class="image-info">
+                        <h3>Arabic_language_-_kuffi.png</h3>
+                        <div class="image-time"><i class="far fa-clock"></i> 5 minutes ago</div>
+                    </div>
+                </div>
+                <div class="image-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/img/Arabic_language_-_kuffi.png', 'Image URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;img src=&quot;https://awdev.my.id/img/Arabic_language_-_kuffi.png&quot; alt=&quot;Arabic_language_-_kuffi.png&quot;&gt;', 'HTML Tag')"><i class="fas fa-code"></i> Copy HTML</button>
+                    <a href="https://awdev.my.id/img/Arabic_language_-_kuffi.png" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- ai.jpeg -->
+            <div class="image-card">
+                <div>
+                    <div class="image-preview">
+                        <img src="https://awdev.my.id/img/ai.jpeg" alt="ai.jpeg" loading="lazy">
+                    </div>
+                    <div class="image-info">
+                        <h3>ai.jpeg</h3>
+                        <div class="image-time"><i class="far fa-clock"></i> 5 minutes ago</div>
+                    </div>
+                </div>
+                <div class="image-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/img/ai.jpeg', 'Image URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;img src=&quot;https://awdev.my.id/img/ai.jpeg&quot; alt=&quot;ai.jpeg&quot;&gt;', 'HTML Tag')"><i class="fas fa-code"></i> Copy HTML</button>
+                    <a href="https://awdev.my.id/img/ai.jpeg" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- awdev.png -->
+            <div class="image-card">
+                <div>
+                    <div class="image-preview">
+                        <img src="https://awdev.my.id/img/awdev.png" alt="awdev.png" loading="lazy">
+                    </div>
+                    <div class="image-info">
+                        <h3>awdev.png</h3>
+                        <div class="image-time"><i class="far fa-clock"></i> 7 minutes ago</div>
+                    </div>
+                </div>
+                <div class="image-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/img/awdev.png', 'Image URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;img src=&quot;https://awdev.my.id/img/awdev.png&quot; alt=&quot;awdev.png&quot;&gt;', 'HTML Tag')"><i class="fas fa-code"></i> Copy HTML</button>
+                    <a href="https://awdev.my.id/img/awdev.png" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- bing.png -->
+            <div class="image-card">
+                <div>
+                    <div class="image-preview">
+                        <img src="https://awdev.my.id/img/bing.png" alt="bing.png" loading="lazy">
+                    </div>
+                    <div class="image-info">
+                        <h3>bing.png</h3>
+                        <div class="image-time"><i class="far fa-clock"></i> 7 minutes ago</div>
+                    </div>
+                </div>
+                <div class="image-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/img/bing.png', 'Image URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;img src=&quot;https://awdev.my.id/img/bing.png&quot; alt=&quot;bing.png&quot;&gt;', 'HTML Tag')"><i class="fas fa-code"></i> Copy HTML</button>
+                    <a href="https://awdev.my.id/img/bing.png" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- calendar.jpeg -->
+            <div class="image-card">
+                <div>
+                    <div class="image-preview">
+                        <img src="https://awdev.my.id/img/calendar.jpeg" alt="calendar.jpeg" loading="lazy">
+                    </div>
+                    <div class="image-info">
+                        <h3>calendar.jpeg</h3>
+                        <div class="image-time"><i class="far fa-clock"></i> 5 minutes ago</div>
+                    </div>
+                </div>
+                <div class="image-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/img/calendar.jpeg', 'Image URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;img src=&quot;https://awdev.my.id/img/calendar.jpeg&quot; alt=&quot;calendar.jpeg&quot;&gt;', 'HTML Tag')"><i class="fas fa-code"></i> Copy HTML</button>
+                    <a href="https://awdev.my.id/img/calendar.jpeg" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- enjhine.png -->
+            <div class="image-card">
+                <div>
+                    <div class="image-preview">
+                        <img src="https://awdev.my.id/img/enjhine.png" alt="enjhine.png" loading="lazy">
+                    </div>
+                    <div class="image-info">
+                        <h3>enjhine.png</h3>
+                        <div class="image-time"><i class="far fa-clock"></i> 7 minutes ago</div>
+                    </div>
+                </div>
+                <div class="image-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/img/enjhine.png', 'Image URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;img src=&quot;https://awdev.my.id/img/enjhine.png&quot; alt=&quot;enjhine.png&quot;&gt;', 'HTML Tag')"><i class="fas fa-code"></i> Copy HTML</button>
+                    <a href="https://awdev.my.id/img/enjhine.png" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- ico.png -->
+            <div class="image-card">
+                <div>
+                    <div class="image-preview">
+                        <img src="https://awdev.my.id/img/ico.png" alt="ico.png" loading="lazy">
+                    </div>
+                    <div class="image-info">
+                        <h3>ico.png</h3>
+                        <div class="image-time"><i class="far fa-clock"></i> 7 minutes ago</div>
+                    </div>
+                </div>
+                <div class="image-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/img/ico.png', 'Image URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;img src=&quot;https://awdev.my.id/img/ico.png&quot; alt=&quot;ico.png&quot;&gt;', 'HTML Tag')"><i class="fas fa-code"></i> Copy HTML</button>
+                    <a href="https://awdev.my.id/img/ico.png" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- ip.png -->
+            <div class="image-card">
+                <div>
+                    <div class="image-preview">
+                        <img src="https://awdev.my.id/img/ip.png" alt="ip.png" loading="lazy">
+                    </div>
+                    <div class="image-info">
+                        <h3>ip.png</h3>
+                        <div class="image-time"><i class="far fa-clock"></i> 5 minutes ago</div>
+                    </div>
+                </div>
+                <div class="image-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/img/ip.png', 'Image URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;img src=&quot;https://awdev.my.id/img/ip.png&quot; alt=&quot;ip.png&quot;&gt;', 'HTML Tag')"><i class="fas fa-code"></i> Copy HTML</button>
+                    <a href="https://awdev.my.id/img/ip.png" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- keyboard-jawa.png -->
+            <div class="image-card">
+                <div>
+                    <div class="image-preview">
+                        <img src="https://awdev.my.id/img/keyboard-jawa.png" alt="keyboard-jawa.png" loading="lazy">
+                    </div>
+                    <div class="image-info">
+                        <h3>keyboard-jawa.png</h3>
+                        <div class="image-time"><i class="far fa-clock"></i> 5 minutes ago</div>
+                    </div>
+                </div>
+                <div class="image-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/img/keyboard-jawa.png', 'Image URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;img src=&quot;https://awdev.my.id/img/keyboard-jawa.png&quot; alt=&quot;keyboard-jawa.png&quot;&gt;', 'HTML Tag')"><i class="fas fa-code"></i> Copy HTML</button>
+                    <a href="https://awdev.my.id/img/keyboard-jawa.png" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- logo.jpg -->
+            <div class="image-card">
+                <div>
+                    <div class="image-preview">
+                        <img src="https://awdev.my.id/img/logo.jpg" alt="logo.jpg" loading="lazy">
+                    </div>
+                    <div class="image-info">
+                        <h3>logo.jpg</h3>
+                        <div class="image-time"><i class="far fa-clock"></i> 7 minutes ago</div>
+                    </div>
+                </div>
+                <div class="image-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/img/logo.jpg', 'Image URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;img src=&quot;https://awdev.my.id/img/logo.jpg&quot; alt=&quot;logo.jpg&quot;&gt;', 'HTML Tag')"><i class="fas fa-code"></i> Copy HTML</button>
+                    <a href="https://awdev.my.id/img/logo.jpg" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- macapat.jpeg -->
+            <div class="image-card">
+                <div>
+                    <div class="image-preview">
+                        <img src="https://awdev.my.id/img/macapat.jpeg" alt="macapat.jpeg" loading="lazy">
+                    </div>
+                    <div class="image-info">
+                        <h3>macapat.jpeg</h3>
+                        <div class="image-time"><i class="far fa-clock"></i> 5 minutes ago</div>
+                    </div>
+                </div>
+                <div class="image-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/img/macapat.jpeg', 'Image URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;img src=&quot;https://awdev.my.id/img/macapat.jpeg&quot; alt=&quot;macapat.jpeg&quot;&gt;', 'HTML Tag')"><i class="fas fa-code"></i> Copy HTML</button>
+                    <a href="https://awdev.my.id/img/macapat.jpeg" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- maps.jpeg -->
+            <div class="image-card">
+                <div>
+                    <div class="image-preview">
+                        <img src="https://awdev.my.id/img/maps.jpeg" alt="maps.jpeg" loading="lazy">
+                    </div>
+                    <div class="image-info">
+                        <h3>maps.jpeg</h3>
+                        <div class="image-time"><i class="far fa-clock"></i> 5 minutes ago</div>
+                    </div>
+                </div>
+                <div class="image-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/img/maps.jpeg', 'Image URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;img src=&quot;https://awdev.my.id/img/maps.jpeg&quot; alt=&quot;maps.jpeg&quot;&gt;', 'HTML Tag')"><i class="fas fa-code"></i> Copy HTML</button>
+                    <a href="https://awdev.my.id/img/maps.jpeg" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- quran.png -->
+            <div class="image-card">
+                <div>
+                    <div class="image-preview">
+                        <img src="https://awdev.my.id/img/quran.png" alt="quran.png" loading="lazy">
+                    </div>
+                    <div class="image-info">
+                        <h3>quran.png</h3>
+                        <div class="image-time"><i class="far fa-clock"></i> 6 minutes ago</div>
+                    </div>
+                </div>
+                <div class="image-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/img/quran.png', 'Image URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;img src=&quot;https://awdev.my.id/img/quran.png&quot; alt=&quot;quran.png&quot;&gt;', 'HTML Tag')"><i class="fas fa-code"></i> Copy HTML</button>
+                    <a href="https://awdev.my.id/img/quran.png" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- rumusmusic.png -->
+            <div class="image-card">
+                <div>
+                    <div class="image-preview">
+                        <img src="https://awdev.my.id/img/rumusmusic.png" alt="rumusmusic.png" loading="lazy">
+                    </div>
+                    <div class="image-info">
+                        <h3>rumusmusic.png</h3>
+                        <div class="image-time"><i class="far fa-clock"></i> 8 minutes ago</div>
+                    </div>
+                </div>
+                <div class="image-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/img/rumusmusic.png', 'Image URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;img src=&quot;https://awdev.my.id/img/rumusmusic.png&quot; alt=&quot;rumusmusic.png&quot;&gt;', 'HTML Tag')"><i class="fas fa-code"></i> Copy HTML</button>
+                    <a href="https://awdev.my.id/img/rumusmusic.png" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- search.png -->
+            <div class="image-card">
+                <div>
+                    <div class="image-preview">
+                        <img src="https://awdev.my.id/img/search.png" alt="search.png" loading="lazy">
+                    </div>
+                    <div class="image-info">
+                        <h3>search.png</h3>
+                        <div class="image-time"><i class="far fa-clock"></i> 6 minutes ago</div>
+                    </div>
+                </div>
+                <div class="image-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/img/search.png', 'Image URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;img src=&quot;https://awdev.my.id/img/search.png&quot; alt=&quot;search.png&quot;&gt;', 'HTML Tag')"><i class="fas fa-code"></i> Copy HTML</button>
+                    <a href="https://awdev.my.id/img/search.png" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- tts.png -->
+            <div class="image-card">
+                <div>
+                    <div class="image-preview">
+                        <img src="https://awdev.my.id/img/tts.png" alt="tts.png" loading="lazy">
+                    </div>
+                    <div class="image-info">
+                        <h3>tts.png</h3>
+                        <div class="image-time"><i class="far fa-clock"></i> 6 minutes ago</div>
+                    </div>
+                </div>
+                <div class="image-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/img/tts.png', 'Image URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;img src=&quot;https://awdev.my.id/img/tts.png&quot; alt=&quot;tts.png&quot;&gt;', 'HTML Tag')"><i class="fas fa-code"></i> Copy HTML</button>
+                    <a href="https://awdev.my.id/img/tts.png" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- voice.png -->
+            <div class="image-card">
+                <div>
+                    <div class="image-preview">
+                        <img src="https://awdev.my.id/img/voice.png" alt="voice.png" loading="lazy">
+                    </div>
+                    <div class="image-info">
+                        <h3>voice.png</h3>
+                        <div class="image-time"><i class="far fa-clock"></i> 6 minutes ago</div>
+                    </div>
+                </div>
+                <div class="image-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/img/voice.png', 'Image URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;img src=&quot;https://awdev.my.id/img/voice.png&quot; alt=&quot;voice.png&quot;&gt;', 'HTML Tag')"><i class="fas fa-code"></i> Copy HTML</button>
+                    <a href="https://awdev.my.id/img/voice.png" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- wa.png -->
+            <div class="image-card">
+                <div>
+                    <div class="image-preview">
+                        <img src="https://awdev.my.id/img/wa.png" alt="wa.png" loading="lazy">
+                    </div>
+                    <div class="image-info">
+                        <h3>wa.png</h3>
+                        <div class="image-time"><i class="far fa-clock"></i> 6 minutes ago</div>
+                    </div>
+                </div>
+                <div class="image-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/img/wa.png', 'Image URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;img src=&quot;https://awdev.my.id/img/wa.png&quot; alt=&quot;wa.png&quot;&gt;', 'HTML Tag')"><i class="fas fa-code"></i> Copy HTML</button>
+                    <a href="https://awdev.my.id/img/wa.png" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- wayang.png -->
+            <div class="image-card">
+                <div>
+                    <div class="image-preview">
+                        <img src="https://awdev.my.id/img/wayang.png" alt="wayang.png" loading="lazy">
+                    </div>
+                    <div class="image-info">
+                        <h3>wayang.png</h3>
+                        <div class="image-time"><i class="far fa-clock"></i> 6 minutes ago</div>
+                    </div>
+                </div>
+                <div class="image-actions">
+                    <button class="neu-button primary-btn" onclick="copyToClipboard('https://awdev.my.id/img/wayang.png', 'Image URL')"><i class="fas fa-link"></i> Copy URL</button>
+                    <button class="neu-button" onclick="copyToClipboard('&lt;img src=&quot;https://awdev.my.id/img/wayang.png&quot; alt=&quot;wayang.png&quot;&gt;', 'HTML Tag')"><i class="fas fa-code"></i> Copy HTML</button>
+                    <a href="https://awdev.my.id/img/wayang.png" class="neu-button" download target="_blank"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Notification Toast Element -->
+    <div id="toast"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="neu-inset" style="text-align: center; margin: 0;">
+            <p>&copy; 2026 awdev. All rights reserved.</p>
+            <p class="footer-links">
+                <a href="https://awdev.my.id/">Home</a> | 
+                <a href="https://awdev.my.id/about.html">About Us</a> | 
+                <a href="https://awdev.my.id/blog.html">Blog</a> | 
+                <a href="https://awdev.my.id/contact.html">Contact</a> | 
+                <a href="https://awdev.my.id/privacy-policy.html">Privacy Policy</a> | 
+                <a href="https://awdev.my.id/terms.html">Terms & Conditions</a> | 
+                <a href="https://awdev.my.id/disclaimers.html">Disclaimers</a> | 
+                <a href="https://awdev.my.id/license.html">License</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
