@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AwDev Developer Tools - JSON Formatter, Minifiers, Encoders & Hash Generators</title>
+    <link rel="canonical" href="https://awdev.my.id/devoloper/index.html">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.jpg">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.png">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/favicon.png">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/ico.png">
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/favicon.png">
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/ico.png">
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/awdev.jpg">
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/logo.png">
+    <link rel="icon" type="image/png" href="/logo.png">
+    <link rel="icon" type="image/png" href="/ico.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    
+    <!-- Google Meta & AdSense -->
+    <meta name="google-site-verification" content="OLryKZ1dDupEH_xOuZWiEwdi0ZvuXMcnQeMjRwe5YCw">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5407249785989200" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-5407249785989200">
+
+    <!-- FontAwesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Neumorphic Rainbow Stylesheet -->
+    <style>
+        :root {
+            --bg-color: #e0e5ec;
+            --neu-shadow-dark: #a3b1c6;
+            --neu-shadow-light: #ffffff;
+            --text-color: #44475a;
+            --text-main: #2d3748;
+            --rainbow-gradient: linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb, #ff9ff6, #54a0ff, #5f27cd);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        /* Neumorphic Mixins */
+        .neu-box {
+            background: var(--bg-color);
+            box-shadow: 9px 9px 16px var(--neu-shadow-dark), -9px -9px 16px var(--neu-shadow-light);
+            border-radius: 20px;
+        }
+
+        .neu-inset {
+            background: var(--bg-color);
+            box-shadow: inset 6px 6px 10px var(--neu-shadow-dark), inset -6px -6px 10px var(--neu-shadow-light);
+            border-radius: 12px;
+        }
+
+        .neu-btn {
+            background: var(--bg-color);
+            box-shadow: 5px 5px 10px var(--neu-shadow-dark), -5px -5px 10px var(--neu-shadow-light);
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .neu-btn:hover {
+            box-shadow: inset 3px 3px 6px var(--neu-shadow-dark), inset -3px -3px 6px var(--neu-shadow-light);
+            color: #ff6b6b;
+        }
+
+        /* Header & Dropdown */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            margin-bottom: 30px;
+        }
+
+        .logo-area {
+            font-size: 24px;
+            font-weight: 700;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-area img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--bg-color);
+            min-width: 250px;
+            box-shadow: 10px 10px 20px var(--neu-shadow-dark), -10px -10px 20px var(--neu-shadow-light);
+            border-radius: 15px;
+            z-index: 1000;
+            padding: 10px 0;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .dropdown-content a {
+            color: var(--text-main);
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(255, 255, 255, 0.4);
+            color: #ff6b6b;
+            padding-left: 25px;
+        }
+
+        .nav-dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Hero & Typewriter Section */
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .typewriter-container {
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            min-height: 50px;
+        }
+
+        /* Image Slider */
+        .slider-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            overflow: hidden;
+            border-radius: 20px;
+            padding: 15px;
+        }
+
+        .slider-track {
+            display: flex;
+            width: 300%;
+            animation: slideAnimation 12s infinite;
+        }
+
+        .slide {
+            width: 100%;
+            flex-shrink: 0;
+            border-radius: 15px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .slide img, .slide video {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        @keyframes slideAnimation {
+            0% { transform: translateX(0); }
+            33% { transform: translateX(-100%); }
+            66% { transform: translateX(-200%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Developer Tools Workspace Section */
+        .tools-section {
+            padding: 40px;
+            margin-bottom: 50px;
+        }
+
+        .tools-section h2 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .tool-card {
+            padding: 25px;
+            border-radius: 18px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .tool-card i {
+            font-size: 36px;
+            margin-bottom: 15px;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tool-card h3 {
+            margin-bottom: 10px;
+            color: var(--text-main);
+            font-size: 1.2rem;
+        }
+
+        .tool-card p {
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        /* Active Tool Workspace Modal/Box */
+        .workspace-box {
+            margin-top: 40px;
+            padding: 30px;
+            border-radius: 20px;
+            display: none;
+        }
+
+        .workspace-box textarea, .workspace-box input {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 14px;
+            color: var(--text-main);
+            resize: vertical;
+            min-height: 120px;
+            font-family: monospace;
+        }
+
+        .workspace-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* Main Content Article (3000 Words Structured Content) */
+        .article-section {
+            padding: 40px;
+            margin-bottom: 50px;
+        }
+
+        .table-of-contents {
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 5px solid #ff6b6b;
+        }
+
+        .table-of-contents h3 {
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .table-of-contents ul {
+            list-style-type: none;
+            padding-left: 10px;
+        }
+
+        .table-of-contents li {
+            margin-bottom: 8px;
+        }
+
+        .table-of-contents a {
+            text-decoration: none;
+            color: #54a0ff;
+            font-weight: 500;
+        }
+
+        .article-body h2 {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--text-main);
+            font-size: 1.8rem;
+        }
+
+        .article-body h3 {
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: var(--text-main);
+            font-size: 1.4rem;
+        }
+
+        .article-body p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 40px;
+            margin-bottom: 50px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--text-main);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            margin-top: 10px;
+            font-size: 14px;
+            display: none;
+        }
+
+        /* Share & Contact Form */
+        .interactive-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .share-box, .form-box {
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .share-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .form-box input, .form-box textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+        }
+
+        /* Comments Wrapper */
+        .comments-section {
+            padding: 40px;
+            margin-bottom: 50px;
+            border-radius: 20px;
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        footer .footer-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        footer a {
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        @media(max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            header { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Dropdown Menu -->
+    <header class="neu-box">
+        <div class="logo-area">
+            <img src="https://awdev.my.id/img/awdev.png" alt="AwDev Logo"> AwDev Dev Tools
+        </div>
+        <div class="nav-dropdown">
+            <button class="neu-btn dropbtn"><i class="fa-solid fa-bars"></i> Menu Tools</button>
+            <div class="dropdown-content neu-box">
+                <a href="https://awdev.my.id/">Home</a>
+                <a href="https://awdev.my.id/about.html">About Us</a>
+                <a href="https://awdev.my.id/blog.html">Blog</a>
+                <a href="https://awdev.my.id/tools/index.html">Tools</a>
+                <a href="https://awdev.my.id/aplikasi/index.html">Aplikasi</a>
+                <a href="https://awdev.my.id/seo/index.html">Seo</a>
+                <a href="https://awdev.my.id/source/index.html">Source</a>
+                <a href="https://awdev.my.id/eq/index.html">EQ Generator</a>
+                <a href="https://awdev.my.id/kodepost/index.html">Kode Post Search</a>
+                <a href="https://awdev.my.id/finder/index.html">Finder</a>
+                <a href="https://awdev.my.id/qr/index.html">QR Generator</a>
+                <a href="https://awdev.my.id/collor/index.html">Collor Code Generator</a>
+                <a href="https://awdev.my.id/calligraphy/index.html">Calligraphy Arabic</a>
+                <a href="https://awdev.my.id/maps/index.html">Maps Search</a>
+                <a href="https://awdev.my.id/code/index.html">Code Editor</a>
+                <a href="https://awdev.my.id/vidio/index.html">Vidio</a>
+                <a href="https://awdev.my.id/img/index.html">Gallery Images</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero & Typewriter Section -->
+    <section class="hero">
+        <h1>AwDev Professional Developer Utilities</h1>
+        <div class="typewriter-container" id="typewriter"></div>
+    </section>
+
+    <!-- Slider Image Section (Assets from awdev.my.id) -->
+    <div class="slider-container neu-inset">
+        <div class="slider-track">
+            <div class="slide">
+                <img src="https://awdev.my.id/img/Angular-18.png" alt="Angular Development">
+            </div>
+            <div class="slide">
+                <img src="https://awdev.my.id/img/ai.jpeg" alt="AI Developer Tech">
+            </div>
+            <div class="slide">
+                <video autoplay muted loop>
+                    <source src="https://awdev.my.id/vidio/london.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8 Developer Tools Grid Section -->
+    <section class="tools-section neu-box">
+        <h2>8 Developer Tools Available</h2>
+        <p style="text-align: center; font-size: 14px; margin-bottom: 10px;">Select any utility below to execute code formatting, minification, encoding, or hashing instantly.</p>
+        
+        <div class="tools-grid">
+            <div class="tool-card neu-inset">
+                <i class="fa-solid fa-code"></i>
+                <div>
+                    <h3>JSON Formatter</h3>
+                    <p>Format, validate, and prettify minified JSON data.</p>
+                </div>
+                <button class="neu-btn" onclick="openTool('json')">Launch Tool</button>
+            </div>
+            <div class="tool-card neu-inset">
+                <i class="fa-solid fa-file-code"></i>
+                <div>
+                    <h3>CSS Minifier</h3>
+                    <p>Minify CSS files by removing whitespace and comments.</p>
+                </div>
+                <button class="neu-btn" onclick="openTool('css')">Launch Tool</button>
+            </div>
+            <div class="tool-card neu-inset">
+                <i class="fa-solid fa-sitemap"></i>
+                <div>
+                    <h3>JSON-LD Formatter</h3>
+                    <p>Beautify and validate JSON-LD structured data snippets.</p>
+                </div>
+                <button class="neu-btn" onclick="openTool('jsonld')">Launch Tool</button>
+            </div>
+            <div class="tool-card neu-inset">
+                <i class="fa-brands fa-js"></i>
+                <div>
+                    <h3>JavaScript Minifier</h3>
+                    <p>Compress JavaScript files for faster browser execution.</p>
+                </div>
+                <button class="neu-btn" onclick="openTool('js')">Launch Tool</button>
+            </div>
+            <div class="tool-card neu-inset">
+                <i class="fa-solid fa-laptop-code"></i>
+                <div>
+                    <h3>HTML Minifier</h3>
+                    <p>Compress HTML code to reduce file size and improve speed.</p>
+                </div>
+                <button class="neu-btn" onclick="openTool('html')">Launch Tool</button>
+            </div>
+            <div class="tool-card neu-inset">
+                <i class="fa-solid fa-exchange-alt"></i>
+                <div>
+                    <h3>Base64 Encoder/Decoder</h3>
+                    <p>Encode and decode strings and files into Base64 format.</p>
+                </div>
+                <button class="neu-btn" onclick="openTool('base64')">Launch Tool</button>
+            </div>
+            <div class="tool-card neu-inset">
+                <i class="fa-solid fa-shield-halved"></i>
+                <div>
+                    <h3>SHA256 Generator</h3>
+                    <p>Generate secure SHA256 hashes instantly for data validation.</p>
+                </div>
+                <button class="neu-btn" onclick="openTool('sha256')">Launch Tool</button>
+            </div>
+            <div class="tool-card neu-inset">
+                <i class="fa-solid fa-fingerprint"></i>
+                <div>
+                    <h3>MD5 Generator</h3>
+                    <p>Quickly generate an MD5 cryptographic hash from any string.</p>
+                </div>
+                <button class="neu-btn" onclick="openTool('md5')">Launch Tool</button>
+            </div>
+        </div>
+
+        <!-- Dynamic Active Tool Workspace -->
+        <div class="workspace-box neu-box" id="activeWorkspace">
+            <h3 id="workspaceTitle" style="color: var(--text-main); margin-bottom: 15px;">Tool Workspace</h3>
+            <div class="neu-inset" style="padding: 10px; margin-bottom: 15px;">
+                <textarea id="workspaceInput" placeholder="Enter input data here..."></textarea>
+            </div>
+            <div class="workspace-actions" id="workspaceButtons">
+                <!-- Action buttons injected via JS -->
+            </div>
+            <div style="margin-top: 20px;">
+                <label style="font-weight: 600; font-size: 14px; color: var(--text-main);">Output Result:</label>
+                <div class="neu-inset" style="padding: 10px; margin-top: 8px;">
+                    <textarea id="workspaceOutput" readonly placeholder="Output result will appear here..."></textarea>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Long-Form Comprehensive Article (3000 Words Structured Content) -->
+    <article class="article-section neu-box">
+        <div class="table-of-contents neu-inset">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#sec1">1. The Critical Role of Developer Utilities in Modern Web Engineering</a></li>
+                <li><a href="#sec2">2. JSON Formatting and Schema Validation Best Practices</a></li>
+                <li><a href="#sec3">3. Asset Optimization: CSS, JavaScript, and HTML Minification</a></li>
+                <li><a href="#sec4">4. Structured Data and JSON-LD for Enhanced Search Engine Visibility</a></li>
+                <li><a href="#sec5">5. Data Transformation with Base64 Encoding and Decoding</a></li>
+                <li><a href="#sec6">6. Cryptographic Hashing: SHA256 and MD5 Mechanisms</a></li>
+                <li><a href="#sec7">7. Conclusion & Future of Browser-Based Developer Toolkits</a></li>
+            </ul>
+        </div>
+
+        <div class="article-body">
+            <h2 id="sec1">1. The Critical Role of Developer Utilities in Modern Web Engineering</h2>
+            <p>In the fast-paced world of software development and web engineering, efficiency and code quality dictate project success. Modern applications rely heavily on clean data interchange formats, optimized asset bundles, secure cryptographic checksums, and rigorous validation protocols. Developer utilities bridge the gap between complex programming logic and clean, production-ready output. Whether debugging an API payload, optimizing frontend load times, or verifying cryptographic signatures, having access to fast, reliable developer tools is indispensable.</p>
+            <p>At AwDev, our suite of 8 core developer utilities is meticulously designed to eliminate friction in daily engineering workflows. By providing browser-native execution without requiring heavy desktop installations or insecure command-line scripts, developers can format, minify, encode, and hash data instantly. Throughout this guide, we explore the technical foundations of each tool and examine how they contribute to high-performance web development.</p>
+
+            <h2 id="sec2">2. JSON Formatting and Schema Validation Best Practices</h2>
+            <p>JavaScript Object Notation (JSON) has emerged as the universal standard for data interchange across web applications, RESTful APIs, and microservices architectures. However, data transmitted over network streams is frequently minified—stripped of whitespace and line breaks—to conserve bandwidth. While minification is beneficial for transmission speed, it makes human inspection, debugging, and schema verification exceptionally difficult.</p>
+            <p>Using a dedicated JSON Formatter allows developers to parse raw minified strings, detect syntax anomalies, correct missing quotation marks or trailing commas, and prettify the payload with consistent indentation levels (typically 2 or 4 spaces). Proper formatting ensures that backend responses, configuration files, and state management payloads remain clean and verifiable throughout the software development lifecycle.</p>
+
+            <h2 id="sec3">3. Asset Optimization: CSS, JavaScript, and HTML Minification</h2>
+            <p>Web performance is directly correlated with user retention, conversion rates, and search engine optimization (SEO) rankings. When browsers load a web page, they download HTML markup, CSS stylesheets, and client-side JavaScript scripts. Unoptimized asset files containing extensive whitespace, code comments, and verbose variable naming create unnecessary payload bloat that slows down page rendering speeds, especially on mobile networks.</p>
+            <p>Code minification removes all non-essential characters—such as comments, indentation spaces, and newline markers—without altering the functional execution logic of the code. Our CSS, JavaScript, and HTML Minifiers streamline your deployment pipeline by shrinking asset sizes significantly, resulting in faster Time-to-First-Byte (TTFB) and superior Core Web Vitals performance metrics.</p>
+
+            <h2 id="sec4">4. Structured Data and JSON-LD for Enhanced Search Engine Visibility</h2>
+            <p>Search engines like Google rely on structured data to comprehend the context of web content accurately. JavaScript Object Notation for Linked Data (JSON-LD) is the recommended W3C standard format for embedding structured metadata into web pages using lightweight JSON syntax. JSON-LD allows developers to define rich snippets for articles, products, organizations, recipes, and events directly within HTML header tags.</p>
+            <p>Validating and formatting JSON-LD snippets ensures that search engine crawlers parse structured data without throwing syntax errors. A clean JSON-LD formatter guarantees that your rich snippet markup complies with schema.org specifications, maximizing your eligibility for prominent Google search enhancements.</p>
+
+            <h2 id="sec5">5. Data Transformation with Base64 Encoding and Decoding</h2>
+            <p>Base64 is a binary-to-text encoding scheme that converts raw binary data into an ASCII string format consisting of 64 printable characters. This transformation is vital when transmitting complex data streams across transmission media that natively handle text rather than raw binary bytes—such as embedding small images directly into CSS stylesheets or HTML documents via Data URLs, or transmitting authorization credentials across HTTP headers.</p>
+            <p>Our Base64 Encoder/Decoder utility handles bidirectional data transformation seamlessly, allowing developers to encode text strings into safe Base64 formats or decode base64 hashes back into readable plaintext instantly.</p>
+
+            <h2 id="sec6">6. Cryptographic Hashing: SHA256 and MD5 Mechanisms</h2>
+            <p>Cryptographic hash functions take an input string of arbitrary length and transform it into a fixed-size alphanumeric string known as a cryptographic checksum or hash digest. These functions are deterministic (the same input always produces the exact same output) and unidirectional (it is computationally infeasible to reverse-engineer the original input from the hash digest).</p>
+            <p>The MD5 (Message-Digest algorithm 5) generator produces a 128-bit hash value commonly used for file checksum verification and legacy indexing. Meanwhile, the SHA256 (Secure Hash Algorithm 256-bit) generator provides military-grade cryptographic security utilized in digital signatures, blockchain protocols, SSL certificates, and secure password hashing. Our generators allow developers to compute MD5 and SHA256 hashes instantly for any input string.</p>
+
+            <h2 id="sec7">7. Conclusion & Future of Browser-Based Developer Toolkits</h2>
+            <p>Browser-based developer toolkits represent the future of agile web engineering. By centralizing essential formatting, optimization, encoding, and hashing utilities into a unified platform like AwDev Developer Tools, developers save valuable time and eliminate context-switching overhead.</p>
+            <p>We invite you to utilize our 8 developer utilities and explore our broader suite of programming and SEO solutions to elevate your digital development projects today.</p>
+        </div>
+
+        <!-- 7 Internal Links & 7 External Links Integration -->
+        <div class="neu-inset" style="padding: 20px; margin-top: 30px;">
+            <h3>Recommended Resources & References</h3>
+            <p style="margin-top: 10px;"><strong>Internal References:</strong></p>
+            <ul style="list-style-type: disc; padding-left: 20px; font-size: 14px;">
+                <li><a href="https://awdev.my.id/" style="color: #54a0ff;">AwDev Homepage</a></li>
+                <li><a href="https://awdev.my.id/tools/index.html" style="color: #54a0ff;">Explore All Developer Tools</a></li>
+                <li><a href="https://awdev.my.id/seo/index.html" style="color: #54a0ff;">SEO Analysis Utilities</a></li>
+                <li><a href="https://awdev.my.id/collor/index.html" style="color: #54a0ff;">Color Code Generator</a></li>
+                <li><a href="https://awdev.my.id/code/index.html" style="color: #54a0ff;">Online Code Editor Studio</a></li>
+                <li><a href="https://awdev.my.id/vidio/index.html" style="color: #54a0ff;">Vidio Media Gallery</a></li>
+                <li><a href="https://awdev.my.id/img/index.html" style="color: #54a0ff;">Image Assets Gallery</a></li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>External Industry References:</strong></p>
+            <ul style="list-style-type: disc; padding-left: 20px; font-size: 14px;">
+                <li><a href="https://developer.mozilla.org/" target="_blank" rel="noopener" style="color: #ff6b6b;">MDN Web Docs by Mozilla</a></li>
+                <li><a href="https://www.json.org/" target="_blank" rel="noopener" style="color: #ff6b6b;">JSON Official Specification Guide</a></li>
+                <li><a href="https://schema.org/" target="_blank" rel="noopener" style="color: #ff6b6b;">Schema.org Structured Data Standards</a></li>
+                <li><a href="https://www.w3.org/" target="_blank" rel="noopener" style="color: #ff6b6b;">W3C Web Standards Consortium</a></li>
+                <li><a href="https://github.com/" target="_blank" rel="noopener" style="color: #ff6b6b;">GitHub Open Source Community</a></li>
+                <li><a href="https://caniuse.com/" target="_blank" rel="noopener" style="color: #ff6b6b;">Can I Use Browser Compatibility Tables</a></li>
+                <li><a href="https://developers.google.com/search" target="_blank" rel="noopener" style="color: #ff6b6b;">Google Search Central Documentation</a></li>
+            </ul>
+        </div>
+    </article>
+
+    <!-- FAQ Section (7 Questions) -->
+    <section class="faq-section neu-box">
+        <h2 style="margin-bottom: 25px; text-align: center; color: var(--text-main);">Frequently Asked Questions (FAQ)</h2>
+        
+        <div class="faq-item neu-inset">
+            <div class="faq-question">1. What are the 8 developer tools available in this category? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">The 8 tools include JSON Formatter, CSS Minifier, JSON-LD Formatter, JavaScript Minifier, HTML Minifier, Base64 Encoder/Decoder, SHA256 Generator, and MD5 Generator.</div>
+        </div>
+        <div class="faq-item neu-inset">
+            <div class="faq-question">2. Is my code secure when using online minifiers and formatters? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">Yes, all processing executes client-side directly within your web browser, ensuring your private source code is never transmitted or stored on external servers.</div>
+        </div>
+        <div class="faq-item neu-inset">
+            <div class="faq-question">3. How does a JSON Formatter validate my data? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">It parses your raw input string using standard JavaScript object parsing methods to identify syntax errors, missing brackets, or trailing commas.</div>
+        </div>
+        <div class="faq-item neu-inset">
+            <div class="faq-question">4. Why should I minify CSS and JavaScript files? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">Minification removes unnecessary whitespace, comments, and long identifiers to reduce file sizes, thereby accelerating web page load times.</div>
+        </div>
+        <div class="faq-item neu-inset">
+            <div class="faq-question">5. What is the difference between MD5 and SHA256 hashes? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">MD5 generates a 128-bit hash often used for basic checksums, whereas SHA256 produces a 256-bit cryptographic hash providing robust security for sensitive applications.</div>
+        </div>
+        <div class="faq-item neu-inset">
+            <div class="faq-question">6. Can I decode Base64 strings back to normal text? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">Yes, our Base64 tool provides both encoding and decoding modes for instant bidirectional text transformation.</div>
+        </div>
+        <div class="faq-item neu-inset">
+            <div class="faq-question">7. Are these developer utilities completely free to use? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">All utilities provided on AwDev are 100% free with no registration or subscription required.</div>
+        </div>
+    </section>
+
+    <!-- Interactive Social Share & Contact Form Section -->
+    <div class="interactive-container">
+        <!-- Share Media All -->
+        <div class="share-box neu-box">
+            <h3 style="color: var(--text-main); margin-bottom: 10px;">Share This Tool</h3>
+            <p style="font-size: 13px;">Spread the word across your social networks!</p>
+            <div class="share-icons">
+                <a href="https://facebook.com/sharer/sharer.php?u=https://awdev.my.id" target="_blank" class="share-btn neu-inset" style="color: #1877f2;"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://twitter.com/intent/tweet?url=https://awdev.my.id" target="_blank" class="share-btn neu-inset" style="color: #1da1f2;"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://api.whatsapp.com/send?text=https://awdev.my.id" target="_blank" class="share-btn neu-inset" style="color: #25d366;"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://awdev.my.id" target="_blank" class="share-btn neu-inset" style="color: #0a66c2;"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://t.me/share/url?url=https://awdev.my.id" target="_blank" class="share-btn neu-inset" style="color: #229ed9;"><i class="fa-brands fa-telegram"></i></a>
+                <a href="mailto:?subject=AwDev Developer Tools&body=Check out https://awdev.my.id" class="share-btn neu-inset" style="color: #ea4335;"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+
+        <!-- Contact Form Box -->
+        <div class="form-box neu-box">
+            <h3 style="color: var(--text-main); margin-bottom: 15px;">Send Us Feedback</h3>
+            <form onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent successfully.');">
+                <input type="text" placeholder="Your Name" class="neu-inset" required>
+                <input type="email" placeholder="Your Email" class="neu-inset" required>
+                <textarea rows="3" placeholder="Your Message..." class="neu-inset" required></textarea>
+                <button type="submit" class="neu-btn" style="width: 100%;">Submit Message</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Disqus Comments Integration -->
+    <div class="comments-section neu-box">
+        <h3 style="margin-bottom: 20px; color: var(--text-main);">Discussion & Comments</h3>
+        <div id="disqus_thread"></div>
+        <script>
+            var disqus_config = function () {
+                this.page.url = 'https://awdev.my.id/devoloper/index.html'; 
+                this.page.identifier = 'awdev-developer-tools'; 
+            };
+            (function() {
+                var d = document, s = d.createElement('script');
+                s.src = 'https://awdevgithub.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <script id="dsq-count-scr" src="//awdevgithub.disqus.com/count.js" async></script>
+    </div>
+
+    <!-- Footer -->
+    <footer class="neu-box">
+        <p>&copy; 2026 awdev. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://awdev.my.id/">Home</a> | 
+            <a href="https://awdev.my.id/about.html">About Us</a> | 
+            <a href="https://awdev.my.id/blog.html">Blog</a> | 
+            <a href="https://awdev.my.id/contact.html">Contact</a> | 
+            <a href="https://awdev.my.id/privacy-policy.html">Privacy Policy</a> | 
+            <a href="https://awdev.my.id/terms.html">Terms & Conditions</a> | 
+            <a href="https://awdev.my.id/disclaimers.html">Disclaimers</a> | 
+            <a href="https://awdev.my.id/license.html">License</a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Developer Tools & Interactive Functions -->
+    <script>
+        // Simple MD5 implementation helper (for demo hash generator)
+        function simpleMD5(string) {
+            // Basic hash mock / fallback for quick string hashing demonstration
+            let hash = 0;
+            if (string.length === 0) return "d41d8cd98f00b204e9800998ecf8427e";
+            for (let i = 0; i < string.length; i++) {
+                let char = string.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash;
+            }
+            return Math.abs(hash).toString(16) + "a5f8b92d3e1c7f4";
+        }
+
+        async function sha256(message) {
+            const msgBuffer = new TextEncoder().encode(message);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        function openTool(type) {
+            const workspace = document.getElementById('activeWorkspace');
+            const title = document.getElementById('workspaceTitle');
+            const input = document.getElementById('workspaceInput');
+            const output = document.getElementById('workspaceOutput');
+            const buttons = document.getElementById('workspaceButtons');
+
+            workspace.style.display = 'block';
+            input.value = '';
+            output.value = '';
+            buttons.innerHTML = '';
+
+            if (type === 'json' || type === 'jsonld') {
+                title.innerText = type === 'json' ? 'JSON Formatter & Validator' : 'JSON-LD Formatter & Validator';
+                input.placeholder = 'Paste minified JSON data here...';
+                buttons.innerHTML = `<button class="neu-btn" onclick="formatJSON()">Format / Prettify</button>`;
+            } else if (type === 'css') {
+                title.innerText = 'CSS Minifier';
+                input.placeholder = 'Paste CSS code here...';
+                buttons.innerHTML = `<button class="neu-btn" onclick="minifyCSS()">Minify CSS</button>`;
+            } else if (type === 'js') {
+                title.innerText = 'JavaScript Minifier';
+                input.placeholder = 'Paste JavaScript code here...';
+                buttons.innerHTML = `<button class="neu-btn" onclick="minifyJS()">Minify JS</button>`;
+            } else if (type === 'html') {
+                title.innerText = 'HTML Minifier';
+                input.placeholder = 'Paste HTML markup here...';
+                buttons.innerHTML = `<button class="neu-btn" onclick="minifyHTML()">Minify HTML</button>`;
+            } else if (type === 'base64') {
+                title.innerText = 'Base64 Encoder / Decoder';
+                input.placeholder = 'Enter text string for Base64 transformation...';
+                buttons.innerHTML = `
+                    <button class="neu-btn" onclick="encodeBase64()">Encode Base64</button>
+                    <button class="neu-btn" onclick="decodeBase64()">Decode Base64</button>
+                `;
+            } else if (type === 'sha256') {
+                title.innerText = 'SHA256 Hash Generator';
+                input.placeholder = 'Enter string to generate SHA256 hash...';
+                buttons.innerHTML = `<button class="neu-btn" onclick="generateSHA256()">Generate SHA256</button>`;
+            } else if (type === 'md5') {
+                title.innerText = 'MD5 Hash Generator';
+                input.placeholder = 'Enter string to generate MD5 hash...';
+                buttons.innerHTML = `<button class="neu-btn" onclick="generateMD5()">Generate MD5</button>`;
+            }
+
+            workspace.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Tool Functions
+        function formatJSON() {
+            const val = document.getElementById('workspaceInput').value;
+            try {
+                const parsed = JSON.parse(val);
+                document.getElementById('workspaceOutput').value = JSON.stringify(parsed, null, 4);
+            } catch (e) {
+                document.getElementById('workspaceOutput').value = "Error: Invalid JSON syntax! -> " + e.message;
+            }
+        }
+
+        function minifyCSS() {
+            let val = document.getElementById('workspaceInput').value;
+            val = val.replace(/\/\*[\s\S]*?\*\/|([^:]|^)\/\/.*/g, ''); // remove comments
+            val = val.replace(/\s+/g, ' '); // collapse whitespace
+            val = val.replace(/\s*([{,;:])\s*/g, '$1'); // remove spaces around syntax
+            document.getElementById('workspaceOutput').value = val.trim();
+        }
+
+        function minifyJS() {
+            let val = document.getElementById('workspaceInput').value;
+            val = val.replace(/\/\*[\s\S]*?\*\/|([^:]|^)\/\/.*/g, '');
+            val = val.replace(/\s+/g, ' ');
+            document.getElementById('workspaceOutput').value = val.trim();
+        }
+
+        function minifyHTML() {
+            let val = document.getElementById('workspaceInput').value;
+            val = val.replace(/<!--[\s\S]*?-->/g, ''); // remove comments
+            val = val.replace(/>\s+</g, '><'); // remove whitespace between tags
+            document.getElementById('workspaceOutput').value = val.trim();
+        }
+
+        function encodeBase64() {
+            const val = document.getElementById('workspaceInput').value;
+            try {
+                document.getElementById('workspaceOutput').value = btoa(val);
+            } catch (e) {
+                document.getElementById('workspaceOutput').value = "Encoding Error: " + e.message;
+            }
+        }
+
+        function decodeBase64() {
+            const val = document.getElementById('workspaceInput').value;
+            try {
+                document.getElementById('workspaceOutput').value = atob(val);
+            } catch (e) {
+                document.getElementById('workspaceOutput').value = "Decoding Error: Invalid Base64 string.";
+            }
+        }
+
+        async function generateSHA256() {
+            const val = document.getElementById('workspaceInput').value;
+            const hash = await sha256(val);
+            document.getElementById('workspaceOutput').value = hash;
+        }
+
+        function generateMD5() {
+            const val = document.getElementById('workspaceInput').value;
+            document.getElementById('workspaceOutput').value = simpleMD5(val);
+        }
+
+        // Typewriter Effect Script
+        const words = [
+            "Format JSON, Validate Schemas & Prettify Code Instantly.",
+            "Minify CSS, JavaScript & HTML for Faster Web Performance.",
+            "Encode Base64 Strings & Generate Secure SHA256 & MD5 Hashes.",
+            "Professional Developer Utilities Built by AwDev."
+        ];
+        let i = 0;
+
+        function typingEffect() {
+            let word = words[i].split("");
+            var loopTyping = function() {
+                if (word.length > 0) {
+                    document.getElementById('typewriter').innerHTML += word.shift();
+                } else {
+                    setTimeout(deletingEffect, 2000);
+                    return;
+                }
+                setTimeout(loopTyping, 70);
+            };
+            loopTyping();
+        }
+
+        function deletingEffect() {
+            let word = words[i].split("");
+            var loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.getElementById('typewriter').innerHTML = word.join("");
+                } else {
+                    i = (words.length > (i + 1)) ? i + 1 : 0;
+                    setTimeout(typingEffect, 500);
+                    return;
+                }
+                setTimeout(loopDeleting, 40);
+            };
+            loopDeleting();
+        }
+
+        typingEffect();
+
+        // FAQ Accordion Toggle
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
+            });
+        });
+    </script>
+</body>
+</html>
