@@ -1,0 +1,10 @@
+{
+  "owner": {
+    "username": "awdevmyid",
+    "email": "admin@awdev.my.id"
+  },
+  "record": {
+    "type": "CNAME",
+    "value": "awdevmyid.github.io"
+  }
+}
