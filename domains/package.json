@@ -1,0 +1,9 @@
+{
+  "name": "awdev-subdomains",
+  "version": "1.0.0",
+  "description": "Free developer subdomains automation",
+  "scripts": {
+    "sync": "node scripts/sync-dns.js"
+  },
+  "dependencies": {}
+}
