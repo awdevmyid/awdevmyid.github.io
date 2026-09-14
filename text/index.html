@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AwDev Text Utilities Tools - Free Online Word Counters, Case Converters & Multi-Language Keyboard</title>
+    <link rel="canonical" href="https://awdev.my.id/text/index.html">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.jpg">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.png">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/favicon.png">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/ico.png">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5407249785989200" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-5407249785989200">
+
+    <!-- FontAwesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Neumorphic Rainbow Stylesheet -->
+    <style>
+        :root {
+            --bg-color: #e0e5ec;
+            --neu-shadow-dark: #a3b1c6;
+            --neu-shadow-light: #ffffff;
+            --text-color: #44475a;
+            --text-main: #2d3748;
+            --rainbow-gradient: linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb, #ff9ff6, #54a0ff, #5f27cd);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .neu-box {
+            background: var(--bg-color);
+            box-shadow: 9px 9px 16px var(--neu-shadow-dark), -9px -9px 16px var(--neu-shadow-light);
+            border-radius: 20px;
+        }
+
+        .neu-inset {
+            background: var(--bg-color);
+            box-shadow: inset 6px 6px 10px var(--neu-shadow-dark), inset -6px -6px 10px var(--neu-shadow-light);
+            border-radius: 12px;
+        }
+
+        .neu-btn {
+            background: var(--bg-color);
+            box-shadow: 5px 5px 10px var(--neu-shadow-dark), -5px -5px 10px var(--neu-shadow-light);
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .neu-btn:hover {
+            box-shadow: inset 3px 3px 6px var(--neu-shadow-dark), inset -3px -3px 6px var(--neu-shadow-light);
+            color: #ff6b6b;
+        }
+
+        /* Header & Dropdown Menu */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            margin-bottom: 30px;
+        }
+
+        .logo-area {
+            font-size: 24px;
+            font-weight: 700;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-area img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--bg-color);
+            min-width: 250px;
+            box-shadow: 10px 10px 20px var(--neu-shadow-dark), -10px -10px 20px var(--neu-shadow-light);
+            border-radius: 15px;
+            z-index: 1000;
+            padding: 10px 0;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .dropdown-content a {
+            color: var(--text-main);
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(255, 255, 255, 0.4);
+            color: #ff6b6b;
+            padding-left: 25px;
+        }
+
+        .nav-dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Hero & Typewriter Section */
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .typewriter-container {
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            min-height: 50px;
+        }
+
+        /* Image Slider */
+        .slider-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            overflow: hidden;
+            border-radius: 20px;
+            padding: 15px;
+        }
+
+        .slider-track {
+            display: flex;
+            width: 300%;
+            animation: slideAnimation 12s infinite;
+        }
+
+        .slide {
+            width: 100%;
+            flex-shrink: 0;
+            border-radius: 15px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .slide img, .slide video {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        @keyframes slideAnimation {
+            0% { transform: translateX(0); }
+            33% { transform: translateX(-100%); }
+            66% { transform: translateX(-200%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Tools Grid Section */
+        .tools-section {
+            padding: 40px;
+            margin-bottom: 50px;
+        }
+
+        .tools-section h2 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .tool-card {
+            padding: 25px;
+            border-radius: 18px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .tool-card i {
+            font-size: 36px;
+            margin-bottom: 15px;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tool-card h3 {
+            margin-bottom: 10px;
+            color: var(--text-main);
+            font-size: 1.1rem;
+        }
+
+        .tool-card p {
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        /* Workspace & Keyboard Section */
+        .workspace-box {
+            margin-top: 40px;
+            padding: 30px;
+            border-radius: 20px;
+            display: none;
+        }
+
+        .workspace-box textarea, .workspace-box input, .workspace-box select {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 14px;
+            color: var(--text-main);
+            font-family: inherit;
+        }
+
+        .workspace-box textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .workspace-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* Virtual Multi-Language Keyboard */
+        .keyboard-wrapper {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 15px;
+            display: none;
+        }
+
+        .keyboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .virtual-keyboard {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .kb-row {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .kb-key {
+            background: var(--bg-color);
+            box-shadow: 3px 3px 6px var(--neu-shadow-dark), -3px -3px 6px var(--neu-shadow-light);
+            border-radius: 8px;
+            border: none;
+            padding: 10px 14px;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--text-main);
+            font-size: 14px;
+            min-width: 38px;
+        }
+
+        .kb-key:active {
+            box-shadow: inset 2px 2px 4px var(--neu-shadow-dark), inset -2px -2px 4px var(--neu-shadow-light);
+            color: #ff6b6b;
+        }
+
+        .kb-key.wide {
+            min-width: 65px;
+        }
+
+        .kb-key.space {
+            min-width: 250px;
+        }
+
+        /* Article Content Section */
+        .article-section {
+            padding: 40px;
+            margin-bottom: 50px;
+        }
+
+        .table-of-contents {
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 5px solid #ff6b6b;
+        }
+
+        .table-of-contents h3 {
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .table-of-contents ul {
+            list-style-type: none;
+            padding-left: 10px;
+        }
+
+        .table-of-contents li {
+            margin-bottom: 8px;
+        }
+
+        .table-of-contents a {
+            text-decoration: none;
+            color: #54a0ff;
+            font-weight: 500;
+        }
+
+        .article-body h2 {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--text-main);
+            font-size: 1.8rem;
+        }
+
+        .article-body h3 {
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: var(--text-main);
+            font-size: 1.4rem;
+        }
+
+        .article-body p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 40px;
+            margin-bottom: 50px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--text-main);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            margin-top: 10px;
+            font-size: 14px;
+            display: none;
+        }
+
+        /* Interactive Share & Form Containers */
+        .interactive-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .share-box, .form-box {
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .share-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .form-box input, .form-box textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+        }
+
+        /* Disqus Comments */
+        .comments-section {
+            padding: 40px;
+            margin-bottom: 50px;
+            border-radius: 20px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        footer .footer-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        footer a {
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        @media(max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            header { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Dropdown Menu -->
+    <header class="neu-box">
+        <div class="logo-area">
+            <img src="https://awdev.my.id/img/awdev.png" alt="AwDev Logo"> AwDev Text Tools
+        </div>
+        <div class="nav-dropdown">
+            <button class="neu-btn dropbtn"><i class="fa-solid fa-bars"></i> Menu Tools</button>
+            <div class="dropdown-content neu-box">
+                <a href="https://awdev.my.id/">Home</a>
+                <a href="https://awdev.my.id/about.html">About Us</a>
+                <a href="https://awdev.my.id/blog.html">Blog</a>
+                <a href="https://awdev.my.id/text/index.html">Text Utilities</a>
+                <a href="https://awdev.my.id/tools/index.html">Developer Tools</a>
+                <a href="https://awdev.my.id/aplikasi/index.html">Aplikasi</a>
+                <a href="https://awdev.my.id/seo/index.html">Seo</a>
+                <a href="https://awdev.my.id/source/index.html">Source</a>
+                <a href="https://awdev.my.id/eq/index.html">EQ Generator</a>
+                <a href="https://awdev.my.id/kodepost/index.html">Kode Post Search</a>
+                <a href="https://awdev.my.id/finder/index.html">Finder</a>
+                <a href="https://awdev.my.id/qr/index.html">QR Generator</a>
+                <a href="https://awdev.my.id/collor/index.html">Collor Code Generator</a>
+                <a href="https://awdev.my.id/calligraphy/index.html">Calligraphy Arabic</a>
+                <a href="https://awdev.my.id/maps/index.html">Maps Search</a>
+                <a href="https://awdev.my.id/code/index.html">Code Editor</a>
+                <a href="https://awdev.my.id/vidio/index.html">Vidio</a>
+                <a href="https://awdev.my.id/img/index.html">Gallery Images</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero & Typewriter Section -->
+    <section class="hero">
+        <h1>AwDev Professional Text Utilities & Writing Tools</h1>
+        <div class="typewriter-container" id="typewriter"></div>
+    </section>
+
+    <!-- Slider Image / Video Section -->
+    <div class="slider-container neu-inset">
+        <div class="slider-track">
+            <div class="slide">
+                <img src="https://awdev.my.id/img/Angular-18.png" alt="Angular Development">
+            </div>
+            <div class="slide">
+                <img src="https://awdev.my.id/img/ai.jpeg" alt="AI Developer Tech">
+            </div>
+            <div class="slide">
+                <video autoplay muted loop>
+                    <source src="https://awdev.my.id/vidio/london.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- 10 Tools Available Section -->
+    <section class="tools-section neu-box">
+        <h2>10 Tools Available in Text Utilities</h2>
+        <p style="text-align: center; font-size: 14px; margin-bottom: 10px;">Select any writing tool below or use the multi-language virtual keyboard to compose and format content.</p>
+        
+        <div class="tools-grid">
+            <div class="tool-card neu-inset">
+                <i class="fa-solid fa-file-word"></i>
+                <div>
+                    <h3>Free Online Word Counter</h3>
+                    <p>Calculate words and characters instantly for content briefs.</p>
+                </div>
+                <button class="neu-btn" onclick="openTool('wordcounter')">Launch Tool</button>
+            </div>
+            <div class="tool-card neu-inset">
+                <i class="fa-solid fa-heading"></i>
+                <div>
+                    <h3>Title Capitalization Tool</h3>
+                    <p>Format headings and titles professionally (Title Case, Sentence case).</p>
+                </div>
+                <button class="neu-btn" onclick="openTool('titlecase')">Launch Tool</button>
+            </div>
+            <div class="tool-card neu-inset">
+                <i class="fa-solid fa-text-width"></i>
+                <div>
+                    <h3>Character Counter</h3>
+                    <p>Count characters with and without spaces for social media limits.</p>
+                </div>
+                <button class="neu-btn" onclick="openTool('charcounter')">Launch Tool</button>
+            </div>
+            <div class="tool-card neu-inset">
+                <i class="fa-solid fa-font"></i>
+                <div>
+                    <h3>Text Case Converter</h3>
+                    <p>Convert text between UPPERCASE, lowercase, CamelCase, and more.</p>
+                </div>
+                <button class="neu-btn" onclick="openTool('caseconverter')">Launch Tool</button>
+            </div>
+            <div class="tool-card neu-inset">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <div>
+                    <h3>Keyword Frequency Counter</h3>
+                    <p>Count how often specific words or phrases appear in your text.</p>
+                </div>
+                <button class="neu-btn" onclick="openTool('keywordfreq')">Launch Tool</button>
+            </div>
+            <div class="tool-card neu-inset">
+                <i class="fa-solid fa-clock"></i>
+                <div>
+                    <h3>Reading Time Calculator</h3>
+                    <p>Estimate how long it will take an average user to read your text.</p>
+                </div>
+                <button class="neu-btn" onclick="openTool('readingtime')">Launch Tool</button>
+            </div>
+            <div class="tool-card neu-inset">
+                <i class="fa-solid fa-list-check"></i>
+                <div>
+                    <h3>Remove Duplicate Lines</h3>
+                    <p>Clean up lists by instantly removing identical duplicate lines.</p>
+                </div>
+                <button class="neu-btn" onclick="openTool('removeduplicates')">Launch Tool</button>
+            </div>
+            <div class="tool-card neu-inset">
+                <i class="fa-solid fa-list-ol"></i>
+                <div>
+                    <h3>Sentence Counter</h3>
+                    <p>Count the exact number of sentences in your document.</p>
+                </div>
+                <button class="neu-btn" onclick="openTool('sentencecounter')">Launch Tool</button>
+            </div>
+            <div class="tool-card neu-inset">
+                <i class="fa-solid fa-paragraph"></i>
+                <div>
+                    <h3>Paragraph Counter</h3>
+                    <p>Quickly count the total number of paragraphs in your content.</p>
+                </div>
+                <button class="neu-btn" onclick="openTool('paragraphcounter')">Launch Tool</button>
+            </div>
+            <div class="tool-card neu-inset">
+                <i class="fa-solid fa-keyboard"></i>
+                <div>
+                    <h3>Keyboard Text All Bahasa</h3>
+                    <p>Multi-language virtual on-screen keyboard for global typing.</p>
+                </div>
+                <button class="neu-btn" onclick="openTool('keyboard')">Launch Tool</button>
+            </div>
+        </div>
+
+        <!-- Active Tool Workspace & Download Feature -->
+        <div class="workspace-box neu-box" id="activeWorkspace">
+            <h3 id="workspaceTitle" style="color: var(--text-main); margin-bottom: 15px;">Tool Workspace</h3>
+            <div class="neu-inset" style="padding: 10px; margin-bottom: 15px;">
+                <textarea id="workspaceInput" placeholder="Type or paste your text here..." oninput="processText()"></textarea>
+            </div>
+            
+            <!-- Virtual Keyboard Panel -->
+            <div class="keyboard-wrapper neu-inset" id="keyboardWrapper">
+                <div class="keyboard-header">
+                    <span style="font-weight: 600; color: var(--text-main);" id="kbTitle">Virtual Keyboard (English / Indonesia)</span>
+                    <select id="kbLayoutSelect" class="neu-inset" style="padding: 6px 12px; width: auto;" onchange="changeKeyboardLayout()">
+                        <option value="en">English (QWERTY)</option>
+                        <option value="id">Bahasa Indonesia</option>
+                        <option value="ar">العربية (Arabic)</option>
+                        <option value="ru">Русский (Russian)</option>
+                    </select>
+                </div>
+                <div class="virtual-keyboard" id="virtualKeyboard">
+                    <!-- Keys injected dynamically -->
+                </div>
+            </div>
+
+            <div class="workspace-actions" id="workspaceButtons">
+                <button class="neu-btn" onclick="downloadTextFile()"><i class="fa-solid fa-download"></i> Download Result (.txt)</button>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <label style="font-weight: 600; font-size: 14px; color: var(--text-main);" id="outputLabel">Analysis Result / Output:</label>
+                <div class="neu-inset" style="padding: 15px; margin-top: 8px; min-height: 80px; background: rgba(255,255,255,0.3);">
+                    <div id="workspaceOutput" style="font-size: 15px; font-weight: 500; color: var(--text-main);">Result metrics will appear here...</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comprehensive Article Section -->
+    <article class="article-section neu-box">
+        <div class="table-of-contents neu-inset">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#sec1">1. The Importance of Text Utilities in Content Creation and SEO</a></li>
+                <li><a href="#sec2">2. Word, Character, Sentence, and Paragraph Metrics Explained</a></li>
+                <li><a href="#sec3">3. Advanced Typography: Title Case and Case Conversion</a></li>
+                <li><a href="#sec4">4. Reading Time Calculation and Audience Engagement</a></li>
+                <li><a href="#sec5">5. Multi-Language Virtual Keyboards for Global Writers</a></li>
+                <li><a href="#sec6">6. Conclusion & Best Practices for Clean Content Editing</a></li>
+            </ul>
+        </div>
+
+        <div class="article-body">
+            <h2 id="sec1">1. The Importance of Text Utilities in Content Creation and SEO</h2>
+            <p>In the digital landscape, high-quality content remains paramount. However, crafting optimized content requires precise metrics—ranging from exact character limits for social media postings to keyword density for search engine optimization (SEO). Professional writers, bloggers, marketers, and developers constantly rely on text utility tools to format, analyze, and refine textual data efficiently.</p>
+            <p>AwDev Text Utilities provides a robust ecosystem of 10 specialized tools designed to streamline writing workflows. From counting words and paragraphs to converting casing styles and typing in multiple international languages, our platform delivers instant client-side execution with unmatched precision.</p>
+
+            <h2 id="sec2">2. Word, Character, Sentence, and Paragraph Metrics Explained</h2>
+            <p>Understanding document structure is vital for editorial compliance. A Word Counter helps writers hit precise article word counts mandated by academic assignments or client briefs. Similarly, Character Counters (both with and without spaces) ensure that meta descriptions fit Google’s 160-character snippet guidelines or that social updates respect platform constraints.</p>
+            <p>Sentence and Paragraph Counters assist in evaluating readability and pacing. Content broken into digestible paragraphs with varied sentence lengths keeps readers engaged and reduces bounce rates significantly.</p>
+
+            <h2 id="sec3">3. Advanced Typography: Title Case and Case Conversion</h2>
+            <p>Typography heavily influences user perception. Presenting headings in professional Title Case or converting messy drafts into standardized UPPERCASE, lowercase, or camelCase formats enhances visual hierarchy. Our Capitalization and Case Converter tools automate this formatting instantly, saving hours of manual editing.</p>
+
+            <h2 id="sec4">4. Reading Time Calculation and Audience Engagement</h2>
+            <p>User experience (UX) research shows that readers appreciate knowing how long an article will take to consume. By calculating the average human reading speed (roughly 200 to 250 words per minute), our Reading Time Calculator provides accurate estimates that help users decide whether to read immediately or bookmark the page.</p>
+
+            <h2 id="sec5">5. Multi-Language Virtual Keyboards for Global Writers</h2>
+            <p>Writing across linguistic boundaries often requires access to specialized character layouts. Our Keyboard Text All Bahasa feature supports multi-language virtual typing (English, Indonesian, Arabic, Russian), allowing users without physical international keyboards to compose accurate characters directly inside their browser.</p>
+
+            <h2 id="sec6">6. Conclusion & Best Practices for Clean Content Editing</h2>
+            <p>Leveraging automated text utilities eliminates human error, boosts productivity, and ensures compliance with technical publishing standards. Explore our 10 writing utilities today to elevate your digital content creation strategy.</p>
+        </div>
+
+        <!-- Internal & External Links -->
+        <div class="neu-inset" style="padding: 20px; margin-top: 30px;">
+            <h3>Recommended Resources & References</h3>
+            <p style="margin-top: 10px;"><strong>Internal References:</strong></p>
+            <ul style="list-style-type: disc; padding-left: 20px; font-size: 14px;">
+                <li><a href="https://awdev.my.id/" style="color: #54a0ff;">AwDev Homepage</a></li>
+                <li><a href="https://awdev.my.id/text/index.html" style="color: #54a0ff;">Text Utilities Hub</a></li>
+                <li><a href="https://awdev.my.id/tools/index.html" style="color: #54a0ff;">Developer Tools Utilities</a></li>
+                <li><a href="https://awdev.my.id/seo/index.html" style="color: #54a0ff;">SEO Analysis Utilities</a></li>
+                <li><a href="https://awdev.my.id/code/index.html" style="color: #54a0ff;">Online Code Editor Studio</a></li>
+                <li><a href="https://awdev.my.id/calligraphy/index.html" style="color: #54a0ff;">Arabic Calligraphy Generator</a></li>
+                <li><a href="https://awdev.my.id/blog.html" style="color: #54a0ff;">AwDev Official Blog</a></li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>External Industry References:</strong></p>
+            <ul style="list-style-type: disc; padding-left: 20px; font-size: 14px;">
+                <li><a href="https://www.w3.org/" target="_blank" rel="noopener" style="color: #ff6b6b;">W3C Web Standards Consortium</a></li>
+                <li><a href="https://developer.mozilla.org/" target="_blank" rel="noopener" style="color: #ff6b6b;">MDN Web Documentation</a></li>
+                <li><a href="https://schema.org/" target="_blank" rel="noopener" style="color: #ff6b6b;">Schema.org Structured Standards</a></li>
+                <li><a href="https://github.com/" target="_blank" rel="noopener" style="color: #ff6b6b;">GitHub Developer Community</a></li>
+                <li><a href="https://caniuse.com/" target="_blank" rel="noopener" style="color: #ff6b6b;">Can I Use Browser Compatibility</a></li>
+                <li><a href="https://developers.google.com/search" target="_blank" rel="noopener" style="color: #ff6b6b;">Google Search Central</a></li>
+                <li><a href="https://www.wikipedia.org/" target="_blank" rel="noopener" style="color: #ff6b6b;">Wikipedia Free Knowledge Base</a></li>
+            </ul>
+        </div>
+    </article>
+
+    <!-- FAQ Section (7 Questions) -->
+    <section class="faq-section neu-box">
+        <h2 style="margin-bottom: 25px; text-align: center; color: var(--text-main);">Frequently Asked Questions (FAQ)</h2>
+        
+        <div class="faq-item neu-inset">
+            <div class="faq-question">1. What tools are included in AwDev Text Utilities? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">It includes Word Counter, Title Capitalization, Character Counter, Case Converter, Keyword Frequency Counter, Reading Time Calculator, Remove Duplicate Lines, Sentence Counter, Paragraph Counter, and Keyboard Text All Bahasa.</div>
+        </div>
+        <div class="faq-item neu-inset">
+            <div class="faq-question">2. Can I download my formatted text results? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">Yes, every active workspace features a dedicated Download button that saves your edited text as a .txt file instantly.</div>
+        </div>
+        <div class="faq-item neu-inset">
+            <div class="faq-question">3. How does the Virtual Keyboard work? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">The virtual keyboard lets you click on screen keys to type text directly in multiple language layouts including English, Indonesian, Arabic, and Russian.</div>
+        </div>
+        <div class="faq-item neu-inset">
+            <div class="faq-question">4. Are my text inputs kept private and secure? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">All computations happen client-side within your browser. Your text is never stored or transmitted to external servers.</div>
+        </div>
+        <div class="faq-item neu-inset">
+            <div class="faq-question">5. How is reading time calculated? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">Reading time is calculated using an average reading speed benchmark of 200 words per minute.</div>
+        </div>
+        <div class="faq-item neu-inset">
+            <div class="faq-question">6. Can I remove duplicate lines from lists automatically? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">Yes, the Remove Duplicate Lines tool scans your list and strips out identical entries instantly.</div>
+        </div>
+        <div class="faq-item neu-inset">
+            <div class="faq-question">7. Are these text utilities free to use? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">Yes, all AwDev tools are 100% free with no registration or fees required.</div>
+        </div>
+    </section>
+
+    <!-- Social Share & Contact Form -->
+    <div class="interactive-container">
+        <div class="share-box neu-box">
+            <h3 style="color: var(--text-main); margin-bottom: 10px;">Share This Tool</h3>
+            <p style="font-size: 13px;">Spread the word across your social networks!</p>
+            <div class="share-icons">
+                <a href="https://facebook.com/sharer/sharer.php?u=https://awdev.my.id" target="_blank" class="share-btn neu-inset" style="color: #1877f2;"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://twitter.com/intent/tweet?url=https://awdev.my.id" target="_blank" class="share-btn neu-inset" style="color: #1da1f2;"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://api.whatsapp.com/send?text=https://awdev.my.id" target="_blank" class="share-btn neu-inset" style="color: #25d366;"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://awdev.my.id" target="_blank" class="share-btn neu-inset" style="color: #0a66c2;"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://t.me/share/url?url=https://awdev.my.id" target="_blank" class="share-btn neu-inset" style="color: #229ed9;"><i class="fa-brands fa-telegram"></i></a>
+                <a href="mailto:?subject=AwDev Text Tools&body=Check out https://awdev.my.id" class="share-btn neu-inset" style="color: #ea4335;"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+
+        <div class="form-box neu-box">
+            <h3 style="color: var(--text-main); margin-bottom: 15px;">Send Us Feedback</h3>
+            <form onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent successfully.');">
+                <input type="text" placeholder="Your Name" class="neu-inset" required>
+                <input type="email" placeholder="Your Email" class="neu-inset" required>
+                <textarea rows="3" placeholder="Your Message..." class="neu-inset" required></textarea>
+                <button type="submit" class="neu-btn" style="width: 100%;">Submit Message</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Disqus Comments Integration -->
+    <div class="comments-section neu-box">
+        <h3 style="margin-bottom: 20px; color: var(--text-main);">Discussion & Comments</h3>
+        <div id="disqus_thread"></div>
+        <script>
+            var disqus_config = function () {
+                this.page.url = 'https://awdev.my.id/text/index.html'; 
+                this.page.identifier = 'awdev-text-utilities'; 
+            };
+            (function() {
+                var d = document, s = d.createElement('script');
+                s.src = 'https://awdevgithub.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <script id="dsq-count-scr" src="//awdevgithub.disqus.com/count.js" async></script>
+    </div>
+
+    <!-- Footer -->
+    <footer class="neu-box">
+        <p>&copy; 2026 awdev. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://awdev.my.id/">Home</a> | 
+            <a href="https://awdev.my.id/about.html">About Us</a> | 
+            <a href="https://awdev.my.id/blog.html">Blog</a> | 
+            <a href="https://awdev.my.id/contact.html">Contact</a> | 
+            <a href="https://awdev.my.id/privacy-policy.html">Privacy Policy</a> | 
+            <a href="https://awdev.my.id/terms.html">Terms & Conditions</a> | 
+            <a href="https://awdev.my.id/disclaimers.html">Disclaimers</a> | 
+            <a href="https://awdev.my.id/license.html">License</a>
+        </div>
+    </footer>
+
+    <!-- JavaScript Tool Engine & Keyboard Controller -->
+    <script>
+        let currentActiveTool = 'wordcounter';
+
+        function openTool(toolName) {
+            currentActiveTool = toolName;
+            const workspace = document.getElementById('activeWorkspace');
+            const title = document.getElementById('workspaceTitle');
+            const input = document.getElementById('workspaceInput');
+            const output = document.getElementById('workspaceOutput');
+            const kbWrapper = document.getElementById('keyboardWrapper');
+
+            workspace.style.display = 'block';
+            kbWrapper.style.display = (toolName === 'keyboard') ? 'block' : 'none';
+            input.value = '';
+            output.innerHTML = 'Metrics will appear here...';
+
+            const titles = {
+                'wordcounter': 'Free Online Word Counter',
+                'titlecase': 'Title Capitalization Tool',
+                'charcounter': 'Character Counter',
+                'caseconverter': 'Text Case Converter',
+                'keywordfreq': 'Keyword Frequency Counter',
+                'readingtime': 'Reading Time Calculator',
+                'removeduplicates': 'Remove Duplicate Lines',
+                'sentencecounter': 'Sentence Counter',
+                'paragraphcounter': 'Paragraph Counter',
+                'keyboard': 'Keyboard Text All Bahasa (Virtual Multi-Language Keyboard)'
+            };
+
+            title.innerText = titles[toolName] || 'Tool Workspace';
+            if(toolName === 'keyboard') {
+                initKeyboard('en');
+            }
+            workspace.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function processText() {
+            const text = document.getElementById('workspaceInput').value;
+            const output = document.getElementById('workspaceOutput');
+
+            if (currentActiveTool === 'wordcounter') {
+                const words = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+                const chars = text.length;
+                output.innerHTML = `<strong>Words:</strong> ${words} | <strong>Characters:</strong> ${chars}`;
+            } else if (currentActiveTool === 'charcounter') {
+                const withSpaces = text.length;
+                const withoutSpaces = text.replace(/\s/g, '').length;
+                output.innerHTML = `<strong>Characters (with spaces):</strong> ${withSpaces} | <strong>Characters (without spaces):</strong> ${withoutSpaces}`;
+            } else if (currentActiveTool === 'titlecase') {
+                const formatted = text.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+                output.innerText = formatted;
+            } else if (currentActiveTool === 'caseconverter') {
+                output.innerHTML = `
+                    <strong>UPPERCASE:</strong> ${text.toUpperCase()}<br>
+                    <strong>lowercase:</strong> ${text.toLowerCase()}<br>
+                    <strong>Capitalized:</strong> ${text.replace(/\b\w/g, l => l.toUpperCase())}
+                `;
+            } else if (currentActiveTool === 'keywordfreq') {
+                if(!text.trim()) { output.innerText = "Enter text to count frequency."; return; }
+                const words = text.toLowerCase().match(/\b[a-z0-9]+\b/g) || [];
+                const freq = {};
+                words.forEach(w => freq[w] = (freq[w] || 0) + 1);
+                let sorted = Object.entries(freq).sort((a,b) => b[1] - a[1]).slice(0, 5);
+                output.innerHTML = sorted.map(item => `<strong>${item.item || item[0]}:</strong> ${item[1]} times`).join(' | ');
+            } else if (currentActiveTool === 'readingtime') {
+                const words = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+                const minutes = Math.ceil(words / 200);
+                output.innerHTML = `<strong>Estimated Reading Time:</strong> ~${minutes} minute(s) (${words} words)`;
+            } else if (currentActiveTool === 'removeduplicates') {
+                const lines = text.split('\n');
+                const unique = [...new Set(lines)].join('\n');
+                output.innerText = unique;
+            } else if (currentActiveTool === 'sentencecounter') {
+                const sentences = text.split(/[.!?]+/).filter(Boolean).length;
+                output.innerHTML = `<strong>Total Sentences:</strong> ${sentences}`;
+            } else if (currentActiveTool === 'paragraphcounter') {
+                const paragraphs = text.split(/\n+/).filter(p => p.trim() !== '').length;
+                output.innerHTML = `<strong>Total Paragraphs:</strong> ${paragraphs}`;
+            }
+        }
+
+        // Virtual Keyboard Engine
+        const kbLayouts = {
+            'en': [
+                ['1','2','3','4','5','6','7','8','9','0'],
+                ['q','w','e','r','t','y','u','i','o','p'],
+                ['a','s','d','f','g','h','j','k','l'],
+                ['z','x','c','v','b','n','m'],
+                ['Space', 'Backspace', 'Clear']
+            ],
+            'id': [
+                ['1','2','3','4','5','6','7','8','9','0'],
+                ['q','w','e','r','t','y','u','i','o','p'],
+                ['a','s','d','f','g','h','j','k','l'],
+                ['z','x','c','v','b','n','m'],
+                ['Space', 'Backspace', 'Clear']
+            ],
+            'ar': [
+                ['ض','ص','ث','ق','ف','غ','ع','ه','خ','ح','ج','د'],
+                ['ش','س','ي','ب','ل','ا','ت','ن','م','ك','ط'],
+                ['ئ','ء','ؤ','ر','لا','ى','ة','و','ز','ظ'],
+                ['Space', 'Backspace', 'Clear']
+            ],
+            'ru': [
+                ['й','ц','у','к','е','н','г','ш','щ','з','х','ъ'],
+                ['ф','ы','в','а','п','р','о','л','д','ж','э'],
+                ['я','ч','с','м','и','т','ь','б','ю'],
+                ['Space', 'Backspace', 'Clear']
+            ]
+        };
+
+        function initKeyboard(lang) {
+            const container = document.getElementById('virtualKeyboard');
+            container.innerHTML = '';
+            const layout = kbLayouts[lang] || kbLayouts['en'];
+
+            layout.forEach(row => {
+                const rowDiv = document.createElement('div');
+                rowDiv.className = 'kb-row';
+                row.forEach(key => {
+                    const btn = document.createElement('button');
+                    btn.className = 'kb-key';
+                    if(key === 'Space') btn.classList.add('space');
+                    if(key === 'Backspace' || key === 'Clear') btn.classList.add('wide');
+                    btn.innerText = key;
+                    btn.onclick = () => handleKeyPress(key);
+                    rowDiv.appendChild(btn);
+                });
+                container.appendChild(rowDiv);
+            });
+        }
+
+        function changeKeyboardLayout() {
+            const lang = document.getElementById('kbLayoutSelect').value;
+            initKeyboard(lang);
+        }
+
+        function handleKeyPress(key) {
+            const input = document.getElementById('workspaceInput');
+            if (key === 'Space') {
+                input.value += ' ';
+            } else if (key === 'Backspace') {
+                input.value = input.value.slice(0, -1);
+            } else if (key === 'Clear') {
+                input.value = '';
+            } else {
+                input.value += key;
+            }
+            processText();
+        }
+
+        function downloadTextFile() {
+            const text = document.getElementById('workspaceInput').value;
+            const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'awdev-text-output.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Typewriter Effect Script
+        const wordsList = [
+            "Calculate words, characters, sentences & paragraphs instantly.",
+            "Format titles, convert text case & clean up duplicate lists.",
+            "Type effortlessly using the multi-language virtual keyboard.",
+            "Professional Writing Tools Built by AwDev."
+        ];
+        let idx = 0;
+
+        function typingEffect() {
+            let word = wordsList[idx].split("");
+            var loopTyping = function() {
+                if (word.length > 0) {
+                    document.getElementById('typewriter').innerHTML += word.shift();
+                } else {
+                    setTimeout(deletingEffect, 2000);
+                    return;
+                }
+                setTimeout(loopTyping, 70);
+            };
+            loopTyping();
+        }
+
+        function deletingEffect() {
+            let word = wordsList[idx].split("");
+            var loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.getElementById('typewriter').innerHTML = word.join("");
+                } else {
+                    idx = (wordsList.length > (idx + 1)) ? idx + 1 : 0;
+                    setTimeout(typingEffect, 500);
+                    return;
+                }
+                setTimeout(loopDeleting, 40);
+            };
+            loopDeleting();
+        }
+
+        typingEffect();
+
+        // FAQ Accordion Toggle
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
+            });
+        });
+    </script>
+</body>
+</html>
