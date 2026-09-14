@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>awdev.my.id - Premium Neumorphism Developer Portal & Free Subdomains</title>
+    
+    <!-- Favicon Links -->
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.jpg">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.png">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/favicon.png">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/ico.png">
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/favicon.png">
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/ico.png">
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/awdev.jpg">
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/logo.png">
+    <link rel="icon" type="image/png" href="/logo.png">
+    <link rel="icon" type="image/png" href="/ico.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/png" href="/favicon.ico">
+
+    <!-- Google Verification & AdSense -->
+    <meta name="google-site-verification" content="OLryKZ1dDupEH_xOuZWiEwdi0ZvuXMcnQeMjRwe5YCw" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5407249785989200" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-5407249785989200">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Neumorphism Styles & Rainbow Accents -->
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f0f3f8;
+            color: #2d3748;
+        }
+
+        /* Neumorphic Soft UI Utilities */
+        .neu-base {
+            background: #f0f3f8;
+            box-shadow: 9px 9px 16px #d1d9e6, -9px -9px 16px #ffffff;
+        }
+
+        .neu-inset {
+            background: #f0f3f8;
+            box-shadow: inset 6px 6px 10px #d1d9e6, inset -6px -6px 10px #ffffff;
+        }
+
+        .neu-btn {
+            background: linear-gradient(145deg, #ffffff, #d8e0ed);
+            box-shadow: 6px 6px 12px #cbD4E2, -6px -6px 12px #ffffff;
+            transition: all 0.2s ease;
+        }
+
+        .neu-btn:hover {
+            box-shadow: inset 3px 3px 6px #cbD4E2, inset -3px -3px 6px #ffffff;
+        }
+
+        .neu-card {
+            background: #f0f3f8;
+            box-shadow: 12px 12px 24px #cbD4E2, -12px -12px 24px #ffffff;
+            border-radius: 1.5rem;
+        }
+
+        /* Rainbow Gradient Accents */
+        .rainbow-gradient {
+            background: linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb, #ff9ff6, #54a0ff, #5f27cd);
+        }
+
+        .rainbow-text {
+            background: linear-gradient(135deg, #ff4757, #ffa502, #2ed573, #1e90ff, #9b59b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f0f3f8;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-purple-500 selection:text-white">
+
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-[#f0f3f8]/80 border-b border-white/50 px-4 sm:px-8 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <!-- Brand Logo -->
+            <a href="https://awdev.my.id/" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl neu-base flex items-center justify-center p-2 group-hover:scale-105 transition">
+                    <img src="https://awdev.my.id/awdev.png" alt="Logo" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/40x40/f0f3f8/6366f1?text=AW'">
+                </div>
+                <span class="font-extrabold tracking-tight text-xl rainbow-text">awdev.my.id</span>
+            </a>
+
+            <!-- Desktop Nav & Dropdown -->
+            <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-600">
+                <a href="https://awdev.my.id/" class="hover:text-indigo-600 transition">Home</a>
+                <a href="https://awdev.my.id/about.html" class="hover:text-indigo-600 transition">About Us</a>
+                <a href="https://awdev.my.id/blog.html" class="hover:text-indigo-600 transition">Blog</a>
+                
+                <!-- Dropdown Menu -->
+                <div class="relative group">
+                    <button class="flex items-center gap-1 hover:text-indigo-600 transition py-2">
+                        <span>Tools & Services</span>
+                        <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </button>
+                    <div class="absolute top-full left-0 w-64 p-3 rounded-2xl neu-card hidden group-hover:block transition-all duration-300 shadow-xl grid grid-cols-1 gap-2 mt-2 bg-[#f0f3f8] border border-white">
+                        <a href="https://awdev.my.id/tools/index.html" class="px-3 py-2 rounded-xl hover:bg-white/80 transition flex items-center gap-2 text-xs"><i class="fa-solid fa-toolbox text-indigo-500"></i> Tools</a>
+                        <a href="https://awdev.my.id/aplikasi/index.html" class="px-3 py-2 rounded-xl hover:bg-white/80 transition flex items-center gap-2 text-xs"><i class="fa-solid fa-mobile-screen text-pink-500"></i> Aplikasi</a>
+                        <a href="https://awdev.my.id/seo/index.html" class="px-3 py-2 rounded-xl hover:bg-white/80 transition flex items-center gap-2 text-xs"><i class="fa-solid fa-chart-line text-green-500"></i> Seo</a>
+                        <a href="https://awdev.my.id/source/index.html" class="px-3 py-2 rounded-xl hover:bg-white/80 transition flex items-center gap-2 text-xs"><i class="fa-solid fa-code text-blue-500"></i> Source Code</a>
+                        <a href="https://awdev.my.id/eq/index.html" class="px-3 py-2 rounded-xl hover:bg-white/80 transition flex items-center gap-2 text-xs"><i class="fa-solid fa-sliders text-purple-500"></i> EQ Generator</a>
+                        <a href="https://awdev.my.id/kodepost/index.html" class="px-3 py-2 rounded-xl hover:bg-white/80 transition flex items-center gap-2 text-xs"><i class="fa-solid fa-magnifying-glass text-yellow-500"></i> Kode Post Search</a>
+                        <a href="https://awdev.my.id/finder/index.html" class="px-3 py-2 rounded-xl hover:bg-white/80 transition flex items-center gap-2 text-xs"><i class="fa-solid fa-compass text-red-500"></i> Finder</a>
+                        <a href="https://awdev.my.id/qr/index.html" class="px-3 py-2 rounded-xl hover:bg-white/80 transition flex items-center gap-2 text-xs"><i class="fa-solid fa-qrcode text-indigo-600"></i> QR Generator</a>
+                        <a href="https://awdev.my.id/collor/index.html" class="px-3 py-2 rounded-xl hover:bg-white/80 transition flex items-center gap-2 text-xs"><i class="fa-solid fa-palette text-pink-600"></i> Collor Code Generator</a>
+                        <a href="https://awdev.my.id/calligraphy/index.html" class="px-3 py-2 rounded-xl hover:bg-white/80 transition flex items-center gap-2 text-xs"><i class="fa-solid fa-pen-nib text-teal-600"></i> Calligraphy Arabic</a>
+                        <a href="https://awdev.my.id/maps/index.html" class="px-3 py-2 rounded-xl hover:bg-white/80 transition flex items-center gap-2 text-xs"><i class="fa-solid fa-map-location-dot text-orange-500"></i> Maps Search</a>
+                        <a href="https://awdev.my.id/code/index.html" class="px-3 py-2 rounded-xl hover:bg-white/80 transition flex items-center gap-2 text-xs"><i class="fa-solid fa-laptop-code text-cyan-600"></i> Code Editor</a>
+                        <a href="https://awdev.my.id/vidio/index.html" class="px-3 py-2 rounded-xl hover:bg-white/80 transition flex items-center gap-2 text-xs"><i class="fa-solid fa-video text-rose-500"></i> Vidio</a>
+                        <a href="https://awdev.my.id/img/index.html" class="px-3 py-2 rounded-xl hover:bg-white/80 transition flex items-center gap-2 text-xs"><i class="fa-solid fa-images text-violet-500"></i> Gallery Images</a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-btn" class="lg:hidden w-10 h-10 rounded-xl neu-btn flex items-center justify-center text-slate-700">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-menu" class="hidden lg:hidden mt-4 pt-4 border-t border-slate-200 flex flex-col gap-2 max-h-96 overflow-y-auto px-2">
+            <a href="https://awdev.my.id/" class="p-2 rounded-xl hover:bg-slate-200/50 text-sm font-medium">Home</a>
+            <a href="https://awdev.my.id/about.html" class="p-2 rounded-xl hover:bg-slate-200/50 text-sm font-medium">About Us</a>
+            <a href="https://awdev.my.id/blog.html" class="p-2 rounded-xl hover:bg-slate-200/50 text-sm font-medium">Blog</a>
+            <a href="https://awdev.my.id/tools/index.html" class="p-2 rounded-xl hover:bg-slate-200/50 text-sm font-medium">Tools</a>
+            <a href="https://awdev.my.id/aplikasi/index.html" class="p-2 rounded-xl hover:bg-slate-200/50 text-sm font-medium">Aplikasi</a>
+            <a href="https://awdev.my.id/seo/index.html" class="p-2 rounded-xl hover:bg-slate-200/50 text-sm font-medium">Seo</a>
+            <a href="https://awdev.my.id/source/index.html" class="p-2 rounded-xl hover:bg-slate-200/50 text-sm font-medium">Source</a>
+            <a href="https://awdev.my.id/eq/index.html" class="p-2 rounded-xl hover:bg-slate-200/50 text-sm font-medium">EQ Generator</a>
+            <a href="https://awdev.my.id/kodepost/index.html" class="p-2 rounded-xl hover:bg-slate-200/50 text-sm font-medium">Kode Post Search</a>
+            <a href="https://awdev.my.id/finder/index.html" class="p-2 rounded-xl hover:bg-slate-200/50 text-sm font-medium">Finder</a>
+            <a href="https://awdev.my.id/qr/index.html" class="p-2 rounded-xl hover:bg-slate-200/50 text-sm font-medium">QR Generator</a>
+            <a href="https://awdev.my.id/collor/index.html" class="p-2 rounded-xl hover:bg-slate-200/50 text-sm font-medium">Collor Code Generator</a>
+            <a href="https://awdev.my.id/calligraphy/index.html" class="p-2 rounded-xl hover:bg-slate-200/50 text-sm font-medium">Calligraphy Arabic</a>
+            <a href="https://awdev.my.id/maps/index.html" class="p-2 rounded-xl hover:bg-slate-200/50 text-sm font-medium">Maps Search</a>
+            <a href="https://awdev.my.id/code/index.html" class="p-2 rounded-xl hover:bg-slate-200/50 text-sm font-medium">Code Editor</a>
+            <a href="https://awdev.my.id/vidio/index.html" class="p-2 rounded-xl hover:bg-slate-200/50 text-sm font-medium">Vidio</a>
+            <a href="https://awdev.my.id/img/index.html" class="p-2 rounded-xl hover:bg-slate-200/50 text-sm font-medium">Gallery Images</a>
+        </div>
+    </header>
+
+    <main class="max-w-6xl w-full mx-auto px-4 sm:px-6 py-12 flex flex-col gap-16">
+        
+        <!-- Hero Header -->
+        <section class="text-center max-w-3xl mx-auto flex flex-col items-center">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full neu-inset text-xs font-semibold text-indigo-600 mb-6">
+                <span class="w-2.5 h-2.5 rounded-full rainbow-gradient animate-pulse"></span>
+                Clean White Neumorphism & Rainbow Accents
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6 text-slate-800 leading-tight">
+                Claim <span id="typing-text" class="rainbow-text border-r-2 border-indigo-500 pr-1"></span><br>in seconds.
+            </h1>
+            
+            <p class="text-slate-600 text-lg mb-10 leading-relaxed">
+                Experience the futuristic design of clean white soft UI paired with vibrant rainbow highlights. Get a free developer subdomain instantly and point it anywhere.
+            </p>
+
+            <!-- Claim Form Box -->
+            <div id="claim" class="neu-card p-6 w-full max-w-xl">
+                <form onsubmit="handleClaim(event)" class="flex flex-col sm:flex-row gap-3">
+                    <div class="relative flex-1">
+                        <input type="text" id="subdomain" placeholder="username" required
+                            class="w-full neu-inset border-none rounded-xl px-4 py-3.5 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition">
+                    </div>
+                    <div class="flex items-center justify-center neu-inset rounded-xl px-4 py-3.5 text-slate-500 text-sm font-medium">
+                        .awdev.my.id
+                    </div>
+                    <button type="submit" class="neu-btn text-slate-800 font-bold px-6 py-3.5 rounded-xl cursor-pointer hover:text-indigo-600 transition">
+                        Claim Now
+                    </button>
+                </form>
+                <div id="result" class="mt-4 text-sm hidden text-left p-3 rounded-xl neu-inset"></div>
+            </div>
+        </section>
+
+        <!-- Image Slider / Carousel Section -->
+        <section class="w-full max-w-4xl mx-auto">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-slate-800">Interactive Gallery & Preview Slider</h2>
+                <p class="text-sm text-slate-500">Explore our ecosystem highlights in high-definition clean UI.</p>
+            </div>
+            <div class="neu-card p-4 relative overflow-hidden group">
+                <div id="slider-container" class="relative h-64 sm:h-96 rounded-xl overflow-hidden flex items-center justify-center bg-slate-100">
+                    <!-- Slide 1 -->
+                    <div class="slider-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-100 flex flex-col items-center justify-center p-8 text-center bg-gradient-to-br from-indigo-50 to-pink-50">
+                        <div class="w-16 h-16 rounded-2xl neu-base flex items-center justify-center text-3xl text-indigo-600 mb-4 shadow-lg">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">High-Performance Subdomain Manager</h3>
+                        <p class="text-slate-600 text-sm max-w-md">Easily configure DNS records, CNAME targets, and GitHub pages integration seamlessly.</p>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="slider-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 flex flex-col items-center justify-center p-8 text-center bg-gradient-to-br from-purple-50 to-cyan-50">
+                        <div class="w-16 h-16 rounded-2xl neu-base flex items-center justify-center text-3xl text-purple-600 mb-4 shadow-lg">
+                            <i class="fa-solid fa-palette"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Neumorphic Color Code Generators</h3>
+                        <p class="text-slate-600 text-sm max-w-md">Generate gorgeous soft UI color palettes, hex codes, and rainbow gradients instantly.</p>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="slider-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 flex flex-col items-center justify-center p-8 text-center bg-gradient-to-br from-yellow-50 to-emerald-50">
+                        <div class="w-16 h-16 rounded-2xl neu-base flex items-center justify-center text-3xl text-emerald-600 mb-4 shadow-lg">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Developer Tools Suite</h3>
+                        <p class="text-slate-600 text-sm max-w-md">Everything from QR code generators to Arabic calligraphy tools right at your fingertips.</p>
+                    </div>
+                </div>
+
+                <!-- Slider Controls -->
+                <button onclick="prevSlide()" class="absolute left-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full neu-btn flex items-center justify-center text-slate-700 hover:scale-110 transition z-10">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button onclick="nextSlide()" class="absolute right-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full neu-btn flex items-center justify-center text-slate-700 hover:scale-110 transition z-10">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <!-- Dots -->
+                <div class="flex justify-center gap-2 mt-4">
+                    <button onclick="setCurrentSlide(0)" class="slider-dot w-3 h-3 rounded-full neu-inset bg-indigo-500 transition"></button>
+                    <button onclick="setCurrentSlide(1)" class="slider-dot w-3 h-3 rounded-full neu-base transition"></button>
+                    <button onclick="setCurrentSlide(2)" class="slider-dot w-3 h-3 rounded-full neu-base transition"></button>
+                </div>
+            </div>
+        </section>
+
+        <article class="neu-card p-6 sm:p-12 text-slate-700 leading-relaxed">
+            <div class="border-b border-slate-200 pb-6 mb-8">
+                <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 mb-2 block">Comprehensive Guide</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4">The Complete Guide to Neumorphism, Modern Web Development, and Free Subdomain Management in 2026</h2>
+                <p class="text-slate-500 text-sm">Published by awdev.my.id Engineering Team · 15 min read · Updated for 2026 Standards</p>
+            </div>
+
+            <!-- Table of Contents -->
+            <div class="neu-inset p-6 rounded-2xl mb-8">
+                <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-list-ul text-indigo-500"></i> Table of Contents
+                </h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
+                    <li><a href="#section-1" class="hover:text-indigo-600 transition flex items-center gap-2"><span class="text-indigo-500 font-bold">1.</span> Introduction to Neumorphism & Clean UI</a></li>
+                    <li><a href="#section-2" class="hover:text-indigo-600 transition flex items-center gap-2"><span class="text-indigo-500 font-bold">2.</span> Evolution of Web Interfaces & Soft Shadows</a></li>
+                    <li><a href="#section-3" class="hover:text-indigo-600 transition flex items-center gap-2"><span class="text-indigo-500 font-bold">3.</span> Integrating Rainbow Gradients with Soft Neutrals</a></li>
+                    <li><a href="#section-4" class="hover:text-indigo-600 transition flex items-center gap-2"><span class="text-indigo-500 font-bold">4.</span> Free Subdomains for Developers: How It Works</a></li>
+                    <li><a href="#section-5" class="hover:text-indigo-600 transition flex items-center gap-2"><span class="text-indigo-500 font-bold">5.</span> Optimizing Performance and SEO Best Practices</a></li>
+                    <li><a href="#section-6" class="hover:text-indigo-600 transition flex items-center gap-2"><span class="text-indigo-500 font-bold">6.</span> Developer Toolkit & Open-Source Contributions</a></li>
+                    <li><a href="#section-7" class="hover:text-indigo-600 transition flex items-center gap-2"><span class="text-indigo-500 font-bold">7.</span> Future Trends in Web Component Design</a></li>
+                </ul>
+            </div>
+
+            <!-- Article Sections -->
+            <div class="space-y-10 text-justify">
+                <section id="section-1">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4">1. Introduction to Neumorphism & Clean UI</h3>
+                    <p class="mb-4">Neumorphism, or soft UI, represents a harmonious synthesis of skeuomorphism and flat design. By utilizing subtle dual drop shadows—light shadows on top-left highlights and dark shadows on bottom-right depths—interfaces take on a tangible, embossed tactile quality. When executed on a clean white or off-white canvas, it provides a distraction-free, professional atmosphere that pleases the human eye.</p>
+                    <p>Developers worldwide are embracing this design paradigm because it transforms ordinary web forms and cards into tactile interactive elements. Combined with modern CSS frameworks like Tailwind CSS, creating responsive neumorphic websites has never been easier or more reliable.</p>
+                </section>
+
+                <section id="section-2">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4">2. Evolution of Web Interfaces & Soft Shadows</h3>
+                    <p class="mb-4">The web has evolved from rigid tables and primitive HTML tags to dynamic, fluid applications. In the early days, styling was limited, and depth was simulated using harsh borders or basic gradients. As CSS3 introduced box-shadow and border-radius properties, designers experimented with extreme skeuomorphism, followed by an aggressive shift toward ultra-flat material design.</p>
+                    <p>Neumorphism bridges the gap between tactile familiarity and modern minimalism. To dive deeper into modern design standards, you can explore external resources like <a href="https://developer.mozilla.org" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline font-medium">MDN Web Docs</a>, <a href="https://css-tricks.com" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline font-medium">CSS-Tricks</a>, and <a href="https://web.dev" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline font-medium">Google Web.dev</a>. For platform references, check out <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline font-medium">GitHub Open Source</a>, <a href="https://stackoverflow.com" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline font-medium">Stack Overflow Community</a>, <a href="https://www.w3.org" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline font-medium">W3C Standards</a>, and <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline font-medium">Netlify Cloud Platform</a>.</p>
+                </section>
+
+                <section id="section-3">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4">3. Integrating Rainbow Gradients with Soft Neutrals</h3>
+                    <p class="mb-4">While soft white and gray tones form the bedrock of neumorphic design, monochromatic interfaces can sometimes feel sterile or lacking in energy. This is where rainbow gradient accents play a pivotal role. By injecting vibrant splashes of multi-color gradients into active buttons, badges, and glowing borders, designers infuse life and modern flair into the layout.</p>
+                    <p>This careful balance ensures that the interface remains clean and readable while still offering eye-catching focal points that guide user interaction effortlessly across mobile and desktop devices.</p>
+                </section>
+
+                <section id="section-4">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4">4. Free Subdomains for Developers: How It Works</h3>
+                    <p class="mb-4">Infrastructure shouldn't be a barrier to innovation. Platforms like <a href="https://awdev.my.id/" class="text-indigo-600 underline font-medium">awdev.my.id Home</a> empower developers to secure custom subdomains instantly without complex configuration fees. Whether you are hosting a personal portfolio, documentation site, or experimental web app, our automated JSON registration pipeline via GitHub makes deployment effortless.</p>
+                    <p>To understand more about our ecosystem, visit our <a href="https://awdev.my.id/about.html" class="text-indigo-600 underline font-medium">About Us Page</a>, explore our curated <a href="https://awdev.my.id/blog.html" class="text-indigo-600 underline font-medium">Developer Blog</a>, test out our interactive <a href="https://awdev.my.id/tools/index.html" class="text-indigo-600 underline font-medium">Tools Suite</a>, discover practical utility apps on our <a href="https://awdev.my.id/aplikasi/index.html" class="text-indigo-600 underline font-medium">Aplikasi Portal</a>, read our optimization guides on <a href="https://awdev.my.id/seo/index.html" class="text-indigo-600 underline font-medium">SEO Strategies</a>, or check our open-source repositories via the <a href="https://awdev.my.id/source/index.html" class="text-indigo-600 underline font-medium">Source Directory</a>.</p>
+                </section>
+
+                <section id="section-5">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4">5. Optimizing Performance and SEO Best Practices</h3>
+                    <p class="mb-4">Performance is critical for user retention and search engine rankings. A visually stunning neumorphic website must also load instantly. By leveraging optimized CSS, minimal JavaScript bundles, asynchronous script loading for AdSense and analytics, and proper meta tags, developers ensure lightning-fast Core Web Vitals scores.</p>
+                    <p>Proper semantic HTML structure, alt tags on all images, and mobile-first responsive design principles further enhance search engine crawlability and accessibility across assistive technologies.</p>
+                </section>
+
+                <section id="section-6">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4">6. Developer Toolkit & Open-Source Contributions</h3>
+                    <p class="mb-4">The open-source community thrives on collaboration. Our platform offers specialized utilities including the <a href="https://awdev.my.id/eq/index.html" class="text-indigo-600 underline font-medium">EQ Generator</a>, <a href="https://awdev.my.id/kodepost/index.html" class="text-indigo-600 underline font-medium">Kode Post Search</a>, <a href="https://awdev.my.id/finder/index.html" class="text-indigo-600 underline font-medium">Finder Utility</a>, <a href="https://awdev.my.id/qr/index.html" class="text-indigo-600 underline font-medium">QR Generator</a>, <a href="https://awdev.my.id/collor/index.html" class="text-indigo-600 underline font-medium">Collor Code Generator</a>, <a href="https://awdev.my.id/calligraphy/index.html" class="text-indigo-600 underline font-medium">Calligraphy Arabic</a>, <a href="https://awdev.my.id/maps/index.html" class="text-indigo-600 underline font-medium">Maps Search</a>, <a href="https://awdev.my.id/code/index.html" class="text-indigo-600 underline font-medium">Code Editor</a>, <a href="https://awdev.my.id/vidio/index.html" class="text-indigo-600 underline font-medium">Vidio Portal</a>, and our stunning <a href="https://awdev.my.id/img/index.html" class="text-indigo-600 underline font-medium">Gallery Images</a> collection.</p>
+                    <p>Developers are encouraged to contribute new tools, report bugs, and submit pull requests directly through our public GitHub repository.</p>
+                </section>
+
+                <section id="section-7">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4">7. Future Trends in Web Component Design</h3>
+                    <p class="mb-4">As web standards continue to mature, the integration of design systems with automated CI/CD pipelines will become standard practice. Neumorphism will evolve with dynamic lighting adjustments based on ambient environment sensors and user preferences.</p>
+                    <p>By staying at the forefront of these design and engineering methodologies, awdev.my.id remains committed to providing top-tier resources, tools, and subdomains for the global developer community for years to come.</p>
+                </section>
+            </div>
+        </article>
+
+        <section class="max-w-4xl mx-auto w-full">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-slate-800">Frequently Asked Questions</h2>
+                <p class="text-slate-500 text-sm mt-2">Got questions about subdomains, neumorphism, or our tools? We've got answers.</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="neu-card p-4 transition">
+                    <button onclick="toggleFaq(1)" class="w-full flex justify-between items-center text-left font-bold text-slate-800 py-2">
+                        <span>1. What is awdev.my.id and how do I claim a free subdomain?</span>
+                        <i id="faq-icon-1" class="fa-solid fa-plus text-indigo-500 transition-transform"></i>
+                    </button>
+                    <div id="faq-content-1" class="hidden text-sm text-slate-600 mt-3 pt-3 border-t border-slate-200">
+                        awdev.my.id provides free subdomains for developers. Simply enter your desired subdomain name in our claim box, and our system will automatically redirect you to GitHub to create your JSON configuration file in the repository.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="neu-card p-4 transition">
+                    <button onclick="toggleFaq(2)" class="w-full flex justify-between items-center text-left font-bold text-slate-800 py-2">
+                        <span>2. What is clean white neumorphism style?</span>
+                        <i id="faq-icon-2" class="fa-solid fa-plus text-indigo-500 transition-transform"></i>
+                    </button>
+                    <div id="faq-content-2" class="hidden text-sm text-slate-600 mt-3 pt-3 border-t border-slate-200">
+                        Neumorphism (or soft UI) uses subtle dual shadows on a clean off-white background (#f0f3f8) to create tactile, embossed elements that look like physical buttons and cards molded into the screen.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="neu-card p-4 transition">
+                    <button onclick="toggleFaq(3)" class="w-full flex justify-between items-center text-left font-bold text-slate-800 py-2">
+                        <span>3. Are all tools on awdev.my.id completely free to use?</span>
+                        <i id="faq-icon-3" class="fa-solid fa-plus text-indigo-500 transition-transform"></i>
+                    </button>
+                    <div id="faq-content-3" class="hidden text-sm text-slate-600 mt-3 pt-3 border-t border-slate-200">
+                        Yes! All our developer tools, EQ generators, QR code creators, color code generators, code editors, and image galleries are 100% free and open for public access.
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="neu-card p-4 transition">
+                    <button onclick="toggleFaq(4)" class="w-full flex justify-between items-center text-left font-bold text-slate-800 py-2">
+                        <span>4. How do I point my claimed subdomain to my hosting provider?</span>
+                        <i id="faq-icon-4" class="fa-solid fa-plus text-indigo-500 transition-transform"></i>
+                    </button>
+                    <div id="faq-content-4" class="hidden text-sm text-slate-600 mt-3 pt-3 border-t border-slate-200">
+                        When you register your subdomain via GitHub, you can specify your CNAME record target (such as your GitHub Pages URL, Vercel, or Netlify deployment link) in the JSON file.
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="neu-card p-4 transition">
+                    <button onclick="toggleFaq(5)" class="w-full flex justify-between items-center text-left font-bold text-slate-800 py-2">
+                        <span>5. Can I contribute to the awdev.my.id source code?</span>
+                        <i id="faq-icon-5" class="fa-solid fa-plus text-indigo-500 transition-transform"></i>
+                    </button>
+                    <div id="faq-content-5" class="hidden text-sm text-slate-600 mt-3 pt-3 border-t border-slate-200">
+                        Absolutely! Our project is open-source. You can visit our GitHub repository to submit pull requests, suggest new features, or report any bugs.
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="neu-card p-4 transition">
+                    <button onclick="toggleFaq(6)" class="w-full flex justify-between items-center text-left font-bold text-slate-800 py-2">
+                        <span>6. How do I use the Color Code Generator and EQ tools?</span>
+                        <i id="faq-icon-6" class="fa-solid fa-plus text-indigo-500 transition-transform"></i>
+                    </button>
+                    <div id="faq-content-6" class="hidden text-sm text-slate-600 mt-3 pt-3 border-t border-slate-200">
+                        Simply navigate to our Tools section in the dropdown menu to access the dedicated color palette generator and audio equalizer tools designed for modern web creators.
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="neu-card p-4 transition">
+                    <button onclick="toggleFaq(7)" class="w-full flex justify-between items-center text-left font-bold text-slate-800 py-2">
+                        <span>7. Who can I contact for technical support or inquiries?</span>
+                        <i id="faq-icon-7" class="fa-solid fa-plus text-indigo-500 transition-transform"></i>
+                    </button>
+                    <div id="faq-content-7" class="hidden text-sm text-slate-600 mt-3 pt-3 border-t border-slate-200">
+                        You can reach out to us using the contact form below on this page or leave a comment in our Disqus community section.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-4xl mx-auto w-full text-center">
+            <h3 class="text-xl font-bold text-slate-800 mb-4">Share This Portal With Developers</h3>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="https://api.whatsapp.com/send?text=Check%20out%20awdev.my.id%20-%20Free%20subdomains%20and%20neumorphism%20tools!" target="_blank" class="neu-btn px-4 py-2.5 rounded-xl text-emerald-600 font-semibold text-sm flex items-center gap-2 hover:scale-105 transition">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp
+                </a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://awdev.my.id" target="_blank" class="neu-btn px-4 py-2.5 rounded-xl text-blue-600 font-semibold text-sm flex items-center gap-2 hover:scale-105 transition">
+                    <i class="fa-brands fa-facebook text-lg"></i> Facebook
+                </a>
+                <a href="https://twitter.com/intent/tweet?url=https://awdev.my.id&text=Free%20subdomains%20for%20developers!" target="_blank" class="neu-btn px-4 py-2.5 rounded-xl text-sky-500 font-semibold text-sm flex items-center gap-2 hover:scale-105 transition">
+                    <i class="fa-brands fa-twitter text-lg"></i> Twitter / X
+                </a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://awdev.my.id" target="_blank" class="neu-btn px-4 py-2.5 rounded-xl text-blue-700 font-semibold text-sm flex items-center gap-2 hover:scale-105 transition">
+                    <i class="fa-brands fa-linkedin text-lg"></i> LinkedIn
+                </a>
+                <a href="https://t.me/share/url?url=https://awdev.my.id&text=Free%20Developer%20Subdomains" target="_blank" class="neu-btn px-4 py-2.5 rounded-xl text-sky-600 font-semibold text-sm flex items-center gap-2 hover:scale-105 transition">
+                    <i class="fa-brands fa-telegram text-lg"></i> Telegram
+                </a>
+                <a href="https://reddit.com/submit?url=https://awdev.my.id&title=Free%20Subdomains%20and%20Tools" target="_blank" class="neu-btn px-4 py-2.5 rounded-xl text-orange-600 font-semibold text-sm flex items-center gap-2 hover:scale-105 transition">
+                    <i class="fa-brands fa-reddit text-lg"></i> Reddit
+                </a>
+                <a href="mailto:?subject=Check%20awdev.my.id&body=Explore%20free%20subdomains%20and%20developer%20tools%20at%20https://awdev.my.id" class="neu-btn px-4 py-2.5 rounded-xl text-rose-600 font-semibold text-sm flex items-center gap-2 hover:scale-105 transition">
+                    <i class="fa-solid fa-envelope text-lg"></i> Email
+                </a>
+            </div>
+        </section>
+
+        <section class="max-w-xl mx-auto w-full neu-card p-8">
+            <div class="text-center mb-6">
+                <h3 class="text-2xl font-bold text-slate-800">Get in Touch</h3>
+                <p class="text-sm text-slate-500">Send us a message and our team will respond shortly.</p>
+            </div>
+            <form onsubmit="handleContact(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-600 uppercase mb-1">Your Name</label>
+                    <input type="text" id="contact-name" required placeholder="John Doe" class="w-full neu-inset border-none rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-600 uppercase mb-1">Email Address</label>
+                    <input type="email" id="contact-email" required placeholder="john@domain.com" class="w-full neu-inset border-none rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-600 uppercase mb-1">Message</label>
+                    <textarea id="contact-msg" rows="4" required placeholder="How can we help you?" class="w-full neu-inset border-none rounded-xl p-4 text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-400"></textarea>
+                </div>
+                <button type="submit" class="w-full neu-btn py-3.5 rounded-xl font-bold text-slate-800 hover:text-indigo-600 transition cursor-pointer">
+                    Send Message
+                </button>
+            </form>
+            <div id="contact-success" class="hidden mt-4 p-3 rounded-xl neu-inset text-emerald-600 text-sm text-center font-medium">
+                Thank you! Your message has been sent successfully.
+            </div>
+        </section>
+
+        <section class="max-w-4xl mx-auto w-full neu-card p-6 sm:p-8">
+            <h3 class="text-2xl font-bold text-slate-800 mb-4">Community Discussion</h3>
+            <div id="disqus_thread"></div>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </section>
+
+    </main>
+
+    <footer class="max-w-6xl w-full mx-auto p-6 text-center text-xs text-slate-500 border-t border-slate-200 mt-12 flex flex-col gap-4">
+        <p>&copy; 2026 awdev. All rights reserved.</p>
+        <div class="flex flex-wrap justify-center gap-3 font-medium text-slate-600">
+            <a href="https://awdev.my.id/" class="hover:text-indigo-600 transition">Home</a> |
+            <a href="https://awdev.my.id/about.html" class="hover:text-indigo-600 transition">About Us</a> |
+            <a href="https://awdev.my.id/blog.html" class="hover:text-indigo-600 transition">Blog</a> |
+            <a href="https://awdev.my.id/contact.html" class="hover:text-indigo-600 transition">Contact</a> |
+            <a href="https://awdev.my.id/privacy-policy.html" class="hover:text-indigo-600 transition">Privacy Policy</a> |
+            <a href="https://awdev.my.id/terms.html" class="hover:text-indigo-600 transition">Terms & Conditions</a> |
+            <a href="https://awdev.my.id/disclaimers.html" class="hover:text-indigo-600 transition">Disclaimers</a> |
+            <a href="https://awdev.my.id/license.html" class="hover:text-indigo-600 transition">License</a>
+        </div>
+    </footer>
+
+    <script>
+        /* Mobile Menu Toggle */
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        /* Typing Effect in Hero */
+        const words = ["yourname", "developer", "portfolio", "startup", "project"];
+        let i = 0;
+        let timer;
+        function typingEffect() {
+            let word = words[i].split("");
+            let loopTyping = function() {
+                if (word.length > 0) {
+                    document.getElementById('typing-text').innerHTML += word.shift();
+                } else {
+                    setTimeout(deletingEffect, 2000);
+                    return;
+                }
+                timer = setTimeout(loopTyping, 150);
+            };
+            loopTyping();
+        }
+        function deletingEffect() {
+            let word = words[i].split("");
+            let loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.getElementById('typing-text').innerHTML = word.join("");
+                } else {
+                    if (words.length > (i + 1)) {
+                        i++;
+                    } else {
+                        i = 0;
+                    }
+                    setTimeout(typingEffect, 500);
+                    return;
+                }
+                timer = setTimeout(loopDeleting, 100);
+            };
+            loopDeleting();
+        }
+        typingEffect();
+
+        /* Image Carousel / Slider Logic */
+        let currentSlideIdx = 0;
+        const slides = document.querySelectorAll('.slider-slide');
+        const dots = document.querySelectorAll('.slider-dot');
+
+        function updateSlide(idx) {
+            slides.forEach((slide, index) => {
+                slide.style.opacity = index === idx ? '1' : '0';
+            });
+            dots.forEach((dot, index) => {
+                if (index === idx) {
+                    dot.classList.remove('neu-base');
+                    dot.classList.add('neu-inset', 'bg-indigo-500');
+                } else {
+                    dot.classList.remove('neu-inset', 'bg-indigo-500');
+                    dot.classList.add('neu-base');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlideIdx = (currentSlideIdx + 1) % slides.length;
+            updateSlide(currentSlideIdx);
+        }
+
+        function prevSlide() {
+            currentSlideIdx = (currentSlideIdx - 1 + slides.length) % slides.length;
+            updateSlide(currentSlideIdx);
+        }
+
+        function setCurrentSlide(idx) {
+            currentSlideIdx = idx;
+            updateSlide(currentSlideIdx);
+        }
+
+        // Auto slide every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        /* Claim Form Handler */
+        function handleClaim(e) {
+            e.preventDefault();
+            const sub = document.getElementById('subdomain').value.trim().toLowerCase();
+            const regex = /^[a-z0-9-]+$/;
+            if (!regex.test(sub)) {
+                alertBox("Subdomain can only contain lowercase letters, numbers, and hyphens (-).");
+                return;
+            }
+
+            const fileName = sub + '.json';
+            const fileContent = encodeURIComponent(JSON.stringify({
+                "owner": {
+                    "username": "Ganti_Dengan_Username_GitHub_Anda",
+                    "email": "emailanda@domain.com"
+                },
+                "record": {
+                    "type": "CNAME",
+                    "value": "masukkan-tujuan-cname.github.io"
+                }
+            }, null, 2));
+
+            const githubUrl = `https://github.com/awdevmyid/awdevmyid.github.io/new/main/domains?filename=${fileName}&value=${fileContent}`;
+            
+            const resultDiv = document.getElementById('result');
+            resultDiv.classList.remove('hidden');
+            resultDiv.innerHTML = `
+                <p class="text-indigo-600 font-medium mb-2">Redirecting to GitHub to register <strong>${sub}.awdev.my.id</strong>...</p>
+                <a href="${githubUrl}" target="_blank" class="inline-block neu-btn text-slate-800 px-4 py-2 rounded-xl text-xs font-bold transition">
+                    Click here if not redirected automatically &rarr;
+                </a>
+            `;
+
+            window.location.href = githubUrl;
+        }
+
+        /* FAQ Accordion Toggle */
+        function toggleFaq(id) {
+            const content = document.getElementById(`faq-content-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            content.classList.toggle('hidden');
+            if (content.classList.contains('hidden')) {
+                icon.classList.remove('fa-minus', 'rotate-180');
+                icon.classList.add('fa-plus');
+            } else {
+                icon.classList.remove('fa-plus');
+                icon.classList.add('fa-minus', 'rotate-180');
+            }
+        }
+
+        /* Contact Form Handler */
+        function handleContact(e) {
+            e.preventDefault();
+            document.getElementById('contact-success').classList.remove('hidden');
+            e.target.reset();
+            setTimeout(() => {
+                document.getElementById('contact-success').classList.add('hidden');
+            }, 4000);
+        }
+
+        /* Custom alert replacement */
+        function alertBox(msg) {
+            const res = document.getElementById('result');
+            res.classList.remove('hidden');
+            res.innerHTML = `<p class="text-rose-600 font-medium">${msg}</p>`;
+        }
+
+        /* Disqus Integration */
+        var disqus_config = function () {
+            this.page.url = window.location.href;
+            this.page.identifier = "awdev-neumorphism-portal";
+        };
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://awdevgithub.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <script id="dsq-count-scr" src="//awdevgithub.disqus.com/count.js" async></script>
+</body>
+</html>
