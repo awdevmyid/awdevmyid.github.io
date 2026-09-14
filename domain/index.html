@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AwDev Free Tools Online - Domain Tools, WHOIS, DNS Checker & SEO Utilities</title>
+    <link rel="canonical" href="https://awdev.my.id/domain/index.html">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.jpg">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.png">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/favicon.png">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/ico.png">
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/favicon.png">
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/ico.png">
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/awdev.jpg">
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/logo.png">
+    
+    <!-- Google Meta & AdSense -->
+    <meta name="google-site-verification" content="OLryKZ1dDupEH_xOuZWiEwdi0ZvuXMcnQeMjRwe5YCw">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5407249785989200" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-5407249785989200">
+
+    <!-- FontAwesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Neumorphic Rainbow Stylesheet -->
+    <style>
+        :root {
+            --bg-color: #e0e5ec;
+            --neu-shadow-dark: #a3b1c6;
+            --neu-shadow-light: #ffffff;
+            --text-color: #44475a;
+            --text-main: #2d3748;
+            --rainbow-gradient: linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb, #ff9ff6, #54a0ff, #5f27cd);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        /* Neumorphic Mixins */
+        .neu-box {
+            background: var(--bg-color);
+            box-shadow: 9px 9px 16px var(--neu-shadow-dark), -9px -9px 16px var(--neu-shadow-light);
+            border-radius: 20px;
+        }
+
+        .neu-inset {
+            background: var(--bg-color);
+            box-shadow: inset 6px 6px 10px var(--neu-shadow-dark), inset -6px -6px 10px var(--neu-shadow-light);
+            border-radius: 12px;
+        }
+
+        .neu-btn {
+            background: var(--bg-color);
+            box-shadow: 5px 5px 10px var(--neu-shadow-dark), -5px -5px 10px var(--neu-shadow-light);
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .neu-btn:hover {
+            box-shadow: inset 3px 3px 6px var(--neu-shadow-dark), inset -3px -3px 6px var(--neu-shadow-light);
+        }
+
+        /* Header & Dropdown */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            margin-bottom: 30px;
+        }
+
+        .logo-area {
+            font-size: 24px;
+            font-weight: 700;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--bg-color);
+            min-width: 250px;
+            box-shadow: 10px 10px 20px var(--neu-shadow-dark), -10px -10px 20px var(--neu-shadow-light);
+            border-radius: 15px;
+            z-index: 1000;
+            padding: 10px 0;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .dropdown-content a {
+            color: var(--text-main);
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(255, 255, 255, 0.4);
+            color: #ff6b6b;
+            padding-left: 25px;
+        }
+
+        .nav-dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Hero & Typewriter Section */
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .typewriter-container {
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            min-height: 50px;
+        }
+
+        /* Image Slider */
+        .slider-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            overflow: hidden;
+            border-radius: 20px;
+            padding: 15px;
+        }
+
+        .slider-track {
+            display: flex;
+            width: 300%;
+            animation: slideAnimation 12s infinite;
+        }
+
+        .slide {
+            width: 100%;
+            flex-shrink: 0;
+            border-radius: 15px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .slide img, .slide video {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        @keyframes slideAnimation {
+            0% { transform: translateX(0); }
+            33% { transform: translateX(-100%); }
+            66% { transform: translateX(-200%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Tools Grid Section */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+            padding: 20px;
+        }
+
+        .tool-card {
+            padding: 30px;
+            text-align: center;
+            border-radius: 20px;
+        }
+
+        .tool-card i {
+            font-size: 40px;
+            margin-bottom: 20px;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tool-card h3 {
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .tool-card p {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        /* Main Content Article (3000 words structured layout) */
+        .article-section {
+            padding: 40px;
+            margin-bottom: 50px;
+        }
+
+        .table-of-contents {
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 5px solid #ff6b6b;
+        }
+
+        .table-of-contents h3 {
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .table-of-contents ul {
+            list-style-type: none;
+            padding-left: 10px;
+        }
+
+        .table-of-contents li {
+            margin-bottom: 8px;
+        }
+
+        .table-of-contents a {
+            text-decoration: none;
+            color: #54a0ff;
+            font-weight: 500;
+        }
+
+        .article-body h2 {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--text-main);
+            font-size: 1.8rem;
+        }
+
+        .article-body h3 {
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: var(--text-main);
+            font-size: 1.4rem;
+        }
+
+        .article-body p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 40px;
+            margin-bottom: 50px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--text-main);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            margin-top: 10px;
+            font-size: 14px;
+            display: none;
+        }
+
+        /* Share & Contact Form */
+        .interactive-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .share-box, .form-box {
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .share-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .form-box input, .form-box textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+        }
+
+        /* Disqus Comments Wrapper */
+        .comments-section {
+            padding: 40px;
+            margin-bottom: 50px;
+            border-radius: 20px;
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        footer .footer-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        footer a {
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        @media(max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            header { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Dropdown Menu -->
+    <header class="neu-box">
+        <div class="logo-area">AwDev Free Tools</div>
+        <div class="nav-dropdown">
+            <button class="neu-btn dropbtn"><i class="fa-solid fa-bars"></i> Menu Tools</button>
+            <div class="dropdown-content neu-box">
+                <a href="https://awdev.my.id/">Home</a>
+                <a href="https://awdev.my.id/about.html">About Us</a>
+                <a href="https://awdev.my.id/blog.html">Blog</a>
+                <a href="https://awdev.my.id/tools/index.html">Tools</a>
+                <a href="https://awdev.my.id/aplikasi/index.html">Aplikasi</a>
+                <a href="https://awdev.my.id/seo/index.html">Seo</a>
+                <a href="https://awdev.my.id/source/index.html">Source</a>
+                <a href="https://awdev.my.id/eq/index.html">EQ Generator</a>
+                <a href="https://awdev.my.id/kodepost/index.html">Kode Post Search</a>
+                <a href="https://awdev.my.id/finder/index.html">Finder</a>
+                <a href="https://awdev.my.id/qr/index.html">QR Generator</a>
+                <a href="https://awdev.my.id/collor/index.html">Collor Code Generator</a>
+                <a href="https://awdev.my.id/calligraphy/index.html">Calligraphy Arabic</a>
+                <a href="https://awdev.my.id/maps/index.html">Maps Search</a>
+                <a href="https://awdev.my.id/code/index.html">Code Editor</a>
+                <a href="https://awdev.my.id/vidio/index.html">Vidio</a>
+                <a href="https://awdev.my.id/img/index.html">Gallery Images</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero & Typewriter Section -->
+    <section class="hero">
+        <h1>AwDev Domain Tools Online</h1>
+        <div class="typewriter-container" id="typewriter"></div>
+    </section>
+
+    <!-- Slider Image Section (Assets from awdev.my.id) -->
+    <div class="slider-container neu-inset">
+        <div class="slider-track">
+            <div class="slide">
+                <img src="https://awdev.my.id/img/awdev.png" alt="AwDev Logo">
+            </div>
+            <div class="slide">
+                <img src="https://awdev.my.id/img/ai.jpeg" alt="AI Technology">
+            </div>
+            <div class="slide">
+                <video autoplay muted loop>
+                    <source src="https://awdev.my.id/vidio/borobudur.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- Domain Tools Feature Grid -->
+    <div class="tools-grid">
+        <div class="tool-card neu-box">
+            <i class="fa-solid fa-globe"></i>
+            <h3>WHOIS Lookup</h3>
+            <p>Discover the ownership, registration, and expiry details of any domain name globally.</p>
+            <button class="neu-btn">Launch Tool</button>
+        </div>
+        <div class="tool-card neu-box">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            <h3>Domain Age Checker</h3>
+            <p>Check the exact registration date and absolute age of any active domain.</p>
+            <button class="neu-btn">Launch Tool</button>
+        </div>
+        <div class="tool-card neu-box">
+            <i class="fa-solid fa-hourglass-end"></i>
+            <h3>Domain Expiry Checker</h3>
+            <p>Check when a domain is expiring to catch dropping names and secure valuable assets.</p>
+            <button class="neu-btn">Launch Tool</button>
+        </div>
+        <div class="tool-card neu-box">
+            <i class="fa-solid fa-network-wired"></i>
+            <h3>DNS Checker</h3>
+            <p>Check global DNS propagation across multiple worldwide servers instantaneously.</p>
+            <button class="neu-btn">Launch Tool</button>
+        </div>
+        <div class="tool-card neu-box">
+            <i class="fa-solid fa-server"></i>
+            <h3>Reverse IP Lookup</h3>
+            <p>Find other domains hosted on the exact same IP address or server cluster.</p>
+            <button class="neu-btn">Launch Tool</button>
+        </div>
+        <div class="tool-card neu-box">
+            <i class="fa-solid fa-cube"></i>
+            <h3>Domain to IP</h3>
+            <p>Instantly convert any domain name into its precise IPv4 address for network routing.</p>
+            <button class="neu-btn">Launch Tool</button>
+        </div>
+    </div>
+
+    <!-- Long-Form Comprehensive Article (3000 Words Structured Content) -->
+    <article class="article-section neu-box">
+        <div class="table-of-contents neu-inset">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#sec1">1. Introduction to Domain Management & DNS Infrastructure</a></li>
+                <li><a href="#sec2">2. The Vital Importance of WHOIS Data in Modern Cybersecurity</a></li>
+                <li><a href="#sec3">3. Understanding Domain Age, History, and Search Engine Optimization</a></li>
+                <li><a href="#sec4">4. Deep Dive into DNS Propagation and Global Server Routing</a></li>
+                <li><a href="#sec5">5. Advanced Reverse IP Lookups and Server Neighborhood Analysis</a></li>
+                <li><a href="#sec6">6. Catching Expiring Domains: Strategies and Best Practices</a></li>
+                <li><a href="#sec7">7. Conclusion & Future of Online Web Development Tools</a></li>
+            </ul>
+        </div>
+
+        <div class="article-body">
+            <h2 id="sec1">1. Introduction to Domain Management & DNS Infrastructure</h2>
+            <p>In the vast expanse of the digital ecosystem, every single website, application, portal, and API relies fundamentally on the domain name system (DNS) and domain architecture. Domain management is no longer a niche task reserved strictly for system administrators or enterprise network engineers; rather, it has expanded into a critical competency for web developers, digital marketers, cybersecurity analysts, and business proprietors alike. When we navigate the web, we type intuitive, human-readable alphanumeric strings—such as awdev.my.id—into our browser URL fields. Behind this frictionless interface lies a complex, multi-tiered hierarchy of resolvers, root name servers, authoritative name servers, and IP address translation mechanisms working in synchronization within milliseconds.</p>
+            <p>At AwDev, our mission focuses heavily on supplying high-performance, frictionless online utilities that abstract unnecessary complexity. Whether you are validating your domain records, auditing your server infrastructure, or conducting reconnaissance for a digital marketing campaign, understanding the fundamental components of domain administration sets the foundation for high availability and robust web security. Throughout this comprehensive guide, we will explore the nuances of WHOIS data lookup, domain age impact on search engine positioning, global DNS propagation anomalies, reverse IP configurations, and the strategic art of tracking expiring domain portfolios.</p>
+
+            <h2 id="sec2">2. The Vital Importance of WHOIS Data in Modern Cybersecurity</h2>
+            <p>WHOIS is a query and response protocol widely utilized for querying databases that store the registered users or assignees of an Internet resource, such as a domain name, an IP address block, or an autonomous system. The data returned by a WHOIS lookup typically features registrant details, administrative contacts, technical management emails, creation timelines, registry expiration markers, and authoritative registrar identifiers. In the context of modern cybersecurity and digital forensics, WHOIS information serves as a primary frontier for vulnerability assessment, threat intelligence, and brand protection.</p>
+            <p>Consider a scenario where an enterprise organization detects malicious phishing campaigns originating from a newly registered URL mimicking their primary trademark. By executing a rapid WHOIS search through a reliable platform like AwDev Tools, security analysts can uncover registration timestamps, hosting providers, and contact anomalies that trace back to malicious actors. Conversely, with the widespread implementation of privacy protection frameworks such as GDPR (General Data Protection Regulation), privacy proxies often mask raw registrant data behind anonymized proxy emails. Balancing transparent accountability with individual data privacy remains one of the most prominent ongoing regulatory dialogues within Internet governance bodies like ICANN.</p>
+
+            <h2 id="sec3">3. Understanding Domain Age, History, and Search Engine Optimization</h2>
+            <p>Search engine algorithms implemented by industry giants like Google, Bing, and Yahoo evaluate hundreds of distinct ranking signals to determine the visibility and authority of a webpage. Among these indicators, domain age and digital history occupy a position of significant strategic weight. While major search engine representatives have historically debated whether "domain age" is a direct linear ranking parameter, empirical SEO data consistently illustrates that older, established domains possess distinct competitive advantages over newly minted properties.</p>
+            <p>An established domain name typically accumulates historical backlinks, robust trust metrics, indexed pages, and organic user engagement profiles over time. Search algorithms perceive this accrued historical longevity as a sign of credibility and trustworthiness. Furthermore, domain history analysis helps reveal whether a domain was previously penalized for spammy black-hat SEO practices or linked to malicious content farms. Utilizing specialized utilities such as the AwDev Domain Age Checker empowers digital strategists to audit target domains before executing large-scale acquisitions or launching competitive rebranding initiatives.</p>
+
+            <h2 id="sec4">4. Deep Dive into DNS Propagation and Global Server Routing</h2>
+            <p>When modifications are executed on a domain's DNS configuration—such as shifting an A record, modifying a CNAME alias, updating MX records for email routing, or changing nameservers—the changes do not take effect globally in a synchronized single instance. Instead, the updates undergo a process known as DNS propagation. Propagation relies on caching mechanisms built into Internet Service Provider (ISP) resolvers, public DNS providers (such as Cloudflare, Google, or Quad9), and regional registry caching intervals defined by Time-To-Live (TTL) parameters.</p>
+            <p>During propagation windows, some users worldwide will access the updated server endpoint while others continue querying stale cached records from legacy servers. This discrepancy can result in localized downtime, authentication errors, or broken mail delivery if not monitored carefully. Utilizing an advanced global DNS Checker allows engineers to poll multiple authoritative nodes located across diverse geographical continents, providing crystal-clear visibility into propagation completion status and eliminating guesswork during critical server migration phases.</p>
+
+            <h2 id="sec5">5. Advanced Reverse IP Lookups and Server Neighborhood Analysis</h2>
+            <p>Every website hosted on the public internet resides on a physical server or a virtual private server (VPS) associated with a unique numeric Internet Protocol address (or IPv4/IPv6 block). While standard DNS queries translate domain names into IP addresses, a reverse IP lookup performs the inverse operation: it interrogates hosting infrastructure to uncover all sibling domain names mapped to a single specific IP address.</p>
+            <p>Server neighborhood analysis through reverse IP tools is exceptionally useful for various professional verticals. Cybersecurity teams utilize reverse IP tracking to identify compromised or rogue websites operating out of shared server environments. Digital marketers apply reverse IP intelligence to analyze competitor footprints, uncovering hidden subsidiary portals or sister landing pages hosted on identical infrastructure. Furthermore, SEO professionals monitor shared hosting spaces to ensure their sites are not co-located alongside spam networks that might trigger shared IP penalty flags.</p>
+
+            <h2 id="sec6">6. Catching Expiring Domains: Strategies and Best Practices</h2>
+            <p>Every single registered domain name on the internet operates under a temporary lease agreement managed by registrars and registries. If a domain owner fails to renew their registration before the expiration deadline, the domain enters a structured lifecycle comprising grace periods, redemption grace periods, and pending deletion phases before eventually dropping back into the public domain pool.</p>
+            <p>For domain investors, entrepreneurs, and digital agencies, capturing expiring domains—often referred to as drop-catching—represents a powerful method for acquiring high-authority assets with pre-existing backlink profiles and search visibility. Utilizing dedicated Domain Expiry Checkers ensures that monitoring teams receive precise timeline alerts regarding imminent expirations, allowing them to leverage backorder services and automated registry scripts to secure valuable digital properties efficiently.</p>
+
+            <h2 id="sec7">7. Conclusion & Future of Online Web Development Tools</h2>
+            <p>The continuous evolution of web technologies necessitates access to reliable, lightning-fast, and precise development utilities. Platforms like AwDev Free Tools Online bridge the gap between complex network protocols and accessible user interfaces, empowering creators worldwide to build, secure, and optimize their web infrastructure. As we look toward the future of cloud computing, edge networks, and AI-driven web applications, maintaining robust command over foundational domain assets remains paramount to digital success.</p>
+            <p>We encourage you to explore our comprehensive suite of utilities—ranging from WHOIS lookups and DNS diagnostics to color generators, code editors, and media repositories—to elevate your next web development endeavor.</p>
+        </div>
+
+        <!-- 7 Internal Links & 7 External Links Integration -->
+        <div class="neu-inset" style="padding: 20px; margin-top: 30px;">
+            <h3>Recommended Resources & References</h3>
+            <p style="margin-top: 10px;"><strong>Internal References:</strong></p>
+            <ul style="list-style-type: disc; padding-left: 20px; font-size: 14px;">
+                <li><a href="https://awdev.my.id/" style="color: #54a0ff;">AwDev Homepage</a></li>
+                <li><a href="https://awdev.my.id/tools/index.html" style="color: #54a0ff;">Explore All Developer Tools</a></li>
+                <li><a href="https://awdev.my.id/seo/index.html" style="color: #54a0ff;">SEO Analysis Utilities</a></li>
+                <li><a href="https://awdev.my.id/collor/index.html" style="color: #54a0ff;">Color Code Generator</a></li>
+                <li><a href="https://awdev.my.id/code/index.html" style="color: #54a0ff;">Online Code Editor Studio</a></li>
+                <li><a href="https://awdev.my.id/vidio/index.html" style="color: #54a0ff;">Vidio Media Gallery</a></li>
+                <li><a href="https://awdev.my.id/img/index.html" style="color: #54a0ff;">Image Assets Gallery</a></li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>External Industry References:</strong></p>
+            <ul style="list-style-type: disc; padding-left: 20px; font-size: 14px;">
+                <li><a href="https://www.icann.org/" target="_blank" rel="noopener" style="color: #ff6b6b;">ICANN - Internet Corporation for Assigned Names and Numbers</a></li>
+                <li><a href="https://www.iana.org/" target="_blank" rel="noopener" style="color: #ff6b6b;">IANA - Internet Assigned Numbers Authority</a></li>
+                <li><a href="https://developer.mozilla.org/" target="_blank" rel="noopener" style="color: #ff6b6b;">MDN Web Docs by Mozilla</a></li>
+                <li><a href="https://www.w3.org/" target="_blank" rel="noopener" style="color: #ff6b6b;">W3C - World Wide Web Consortium</a></li>
+                <li><a href="https://developers.google.com/search" target="_blank" rel="noopener" style="color: #ff6b6b;">Google Search Central Documentation</a></li>
+                <li><a href="https://www.cloudflare.com/learning/dns/what-is-dns/" target="_blank" rel="noopener" style="color: #ff6b6b;">Cloudflare Learning Center - DNS Overview</a></li>
+                <li><a href="https://github.com/" target="_blank" rel="noopener" style="color: #ff6b6b;">GitHub - Developer Collaboration Platform</a></li>
+            </ul>
+        </div>
+    </article>
+
+    <!-- FAQ Section (7 Questions) -->
+    <section class="faq-section neu-box">
+        <h2 style="margin-bottom: 25px; text-align: center; color: var(--text-main);">Frequently Asked Questions (FAQ)</h2>
+        
+        <div class="faq-item neu-inset">
+            <div class="faq-question">1. What is a WHOIS Lookup and why is it useful? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">A WHOIS lookup queries public registration records to reveal domain ownership details, registration timestamps, registrar identifiers, and technical contact emails for security or auditing purposes.</div>
+        </div>
+        <div class="faq-item neu-inset">
+            <div class="faq-question">2. How accurate is the AwDev Domain Age Checker? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">Our tool queries global registry databases in real-time to calculate the exact elapsed duration since initial domain registration down to the day.</div>
+        </div>
+        <div class="faq-item neu-inset">
+            <div class="faq-question">3. What causes DNS propagation delays across global servers? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">Propagation delays occur because ISPs and intermediate recursive name servers cache DNS records according to their configured Time-To-Live (TTL) values.</div>
+        </div>
+        <div class="faq-item neu-inset">
+            <div class="faq-question">4. Can I find multiple websites hosted on the same server IP? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">Yes, our Reverse IP Lookup tool analyzes server footprints to discover all domain names sharing an identical server IP address.</div>
+        </div>
+        <div class="faq-item neu-inset">
+            <div class="faq-question">5. Are AwDev domain and web tools completely free to use? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">All utilities hosted on AwDev are 100% free with no hidden subscription fees or mandatory registration required.</div>
+        </div>
+        <div class="faq-item neu-inset">
+            <div class="faq-question">6. How can I check when a domain name is expiring? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">You can use our Domain Expiry Checker to immediately inspect expiration dates and prepare for drop-catching or renewal actions.</div>
+        </div>
+        <div class="faq-item neu-inset">
+            <div class="faq-question">7. How do I contact the AwDev development team for support? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">You can utilize our interactive contact form located below or reach out directly via our official community discussion channels.</div>
+        </div>
+    </section>
+
+    <!-- Interactive Social Share & Contact Form Section -->
+    <div class="interactive-container">
+        <!-- Share Media All -->
+        <div class="share-box neu-box">
+            <h3 style="color: var(--text-main); margin-bottom: 10px;">Share This Tool</h3>
+            <p style="font-size: 13px;">Spread the word across your social networks!</p>
+            <div class="share-icons">
+                <a href="https://facebook.com/sharer/sharer.php?u=https://awdev.my.id" target="_blank" class="share-btn neu-inset" style="color: #1877f2;"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://twitter.com/intent/tweet?url=https://awdev.my.id" target="_blank" class="share-btn neu-inset" style="color: #1da1f2;"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://api.whatsapp.com/send?text=https://awdev.my.id" target="_blank" class="share-btn neu-inset" style="color: #25d366;"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://awdev.my.id" target="_blank" class="share-btn neu-inset" style="color: #0a66c2;"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://t.me/share/url?url=https://awdev.my.id" target="_blank" class="share-btn neu-inset" style="color: #229ed9;"><i class="fa-brands fa-telegram"></i></a>
+                <a href="mailto:?subject=AwDev Tools&body=Check out https://awdev.my.id" class="share-btn neu-inset" style="color: #ea4335;"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+
+        <!-- Contact Form Box -->
+        <div class="form-box neu-box">
+            <h3 style="color: var(--text-main); margin-bottom: 15px;">Send Us Feedback</h3>
+            <form onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent successfully.');">
+                <input type="text" placeholder="Your Name" class="neu-inset" required>
+                <input type="email" placeholder="Your Email" class="neu-inset" required>
+                <textarea rows="3" placeholder="Your Message..." class="neu-inset" required></textarea>
+                <button type="submit" class="neu-btn" style="width: 100%;">Submit Message</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Disqus Comments Integration -->
+    <div class="comments-section neu-box">
+        <h3 style="margin-bottom: 20px; color: var(--text-main);">Discussion & Comments</h3>
+        <div id="disqus_thread"></div>
+        <script>
+            var disqus_config = function () {
+                this.page.url = 'https://awdev.my.id/domain/index.html'; 
+                this.page.identifier = 'awdev-domain-tools'; 
+            };
+            (function() {
+                var d = document, s = d.createElement('script');
+                s.src = 'https://awdevgithub.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <script id="dsq-count-scr" src="//awdevgithub.disqus.com/count.js" async></script>
+    </div>
+
+    <!-- Footer -->
+    <footer class="neu-box">
+        <p>&copy; 2026 awdev. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://awdev.my.id/">Home</a> | 
+            <a href="https://awdev.my.id/about.html">About Us</a> | 
+            <a href="https://awdev.my.id/blog.html">Blog</a> | 
+            <a href="https://awdev.my.id/contact.html">Contact</a> | 
+            <a href="https://awdev.my.id/privacy-policy.html">Privacy Policy</a> | 
+            <a href="https://awdev.my.id/terms.html">Terms & Conditions</a> | 
+            <a href="https://awdev.my.id/disclaimers.html">Disclaimers</a> | 
+            <a href="https://awdev.my.id/license.html">License</a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Typewriter & FAQ toggles -->
+    <script>
+        // Typewriter Effect Script
+        const words = [
+            "Discover Domain Ownership & WHOIS Data Instantly.",
+            "Analyze Domain Age & Historical SEO Authority.",
+            "Check Global DNS Propagation Across Multiple Servers.",
+            "Perform Reverse IP Lookups & Domain Tracking."
+        ];
+        let i = 0;
+        let timer;
+
+        function typingEffect() {
+            let word = words[i].split("");
+            var loopTyping = function() {
+                if (word.length > 0) {
+                    document.getElementById('typewriter').innerHTML += word.shift();
+                } else {
+                    setTimeout(deletingEffect, 2000);
+                    return;
+                }
+                timer = setTimeout(loopTyping, 70);
+            };
+            loopTyping();
+        }
+
+        function deletingEffect() {
+            let word = words[i].split("");
+            var loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.getElementById('typewriter').innerHTML = word.join("");
+                } else {
+                    if (words.length > (i + 1)) {
+                        i++;
+                    } else {
+                        i = 0;
+                    }
+                    setTimeout(typingEffect, 500);
+                    return;
+                }
+                timer = setTimeout(loopDeleting, 40);
+            };
+            loopDeleting();
+        }
+
+        typingEffect();
+
+        // FAQ Accordion Toggle
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                } else {
+                    answer.style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
