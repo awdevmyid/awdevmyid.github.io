@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AwDev Live Utilities - Online Timer, Calendar, Weather, Maps & Compass</title>
+    <link rel="canonical" href="https://awdev.my.id/utilities/index.html">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.jpg">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.png">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5407249785989200" crossorigin="anonymous"></script>
+
+    <!-- FontAwesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Neumorphic Rainbow Stylesheet -->
+    <style>
+        :root {
+            --bg-color: #e0e5ec;
+            --neu-shadow-dark: #a3b1c6;
+            --neu-shadow-light: #ffffff;
+            --text-color: #44475a;
+            --text-main: #2d3748;
+            --rainbow-gradient: linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb, #ff9ff6, #54a0ff, #5f27cd);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .neu-box {
+            background: var(--bg-color);
+            box-shadow: 9px 9px 16px var(--neu-shadow-dark), -9px -9px 16px var(--neu-shadow-light);
+            border-radius: 20px;
+        }
+
+        .neu-inset {
+            background: var(--bg-color);
+            box-shadow: inset 6px 6px 10px var(--neu-shadow-dark), inset -6px -6px 10px var(--neu-shadow-light);
+            border-radius: 12px;
+        }
+
+        .neu-btn {
+            background: var(--bg-color);
+            box-shadow: 5px 5px 10px var(--neu-shadow-dark), -5px -5px 10px var(--neu-shadow-light);
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .neu-btn:hover {
+            box-shadow: inset 3px 3px 6px var(--neu-shadow-dark), inset -3px -3px 6px var(--neu-shadow-light);
+            color: #ff6b6b;
+        }
+
+        /* Header & Dropdown Menu */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            margin-bottom: 30px;
+        }
+
+        .logo-area {
+            font-size: 24px;
+            font-weight: 700;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-area img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--bg-color);
+            min-width: 250px;
+            box-shadow: 10px 10px 20px var(--neu-shadow-dark), -10px -10px 20px var(--neu-shadow-light);
+            border-radius: 15px;
+            z-index: 1000;
+            padding: 10px 0;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .dropdown-content a {
+            color: var(--text-main);
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(255, 255, 255, 0.4);
+            color: #ff6b6b;
+            padding-left: 25px;
+        }
+
+        .nav-dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 15px;
+        }
+
+        /* Utilities Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .utility-card {
+            padding: 25px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .utility-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: var(--text-main);
+            font-size: 1.2rem;
+        }
+
+        .utility-card h3 i {
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* 1. Timer & StopWatch */
+        .timer-display {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin: 15px 0;
+            color: var(--text-main);
+            letter-spacing: 2px;
+        }
+        .timer-btns, .stopwatch-btns {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        /* 2. Calendar */
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            text-align: center;
+            font-size: 13px;
+        }
+        .calendar-day-name {
+            font-weight: 600;
+            color: #ff6b6b;
+            padding-bottom: 5px;
+        }
+        .calendar-date {
+            padding: 8px;
+            border-radius: 8px;
+        }
+        .calendar-date.active {
+            background: var(--rainbow-gradient);
+            color: white;
+            font-weight: 600;
+        }
+
+        /* 3. Weather */
+        .weather-info {
+            text-align: center;
+            padding: 15px 0;
+        }
+        .weather-temp {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        /* 4. Maps & Location */
+        .map-frame {
+            width: 100%;
+            height: 220px;
+            border-radius: 12px;
+            border: none;
+            margin-top: 10px;
+        }
+
+        /* 5. Compass */
+        .compass-container {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            margin: 20px auto;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .compass-needle {
+            width: 6px;
+            height: 90px;
+            background: linear-gradient(to bottom, #ff6b6b 50%, #48dbfb 50%);
+            border-radius: 3px;
+            position: absolute;
+            transform: rotate(0deg);
+            transition: transform 0.5s ease;
+        }
+
+        /* 6. Timezone */
+        .timezone-box {
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: center;
+            margin: 15px 0;
+            color: var(--text-main);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        footer .footer-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        footer a {
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        @media(max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            header { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Dropdown Menu -->
+    <header class="neu-box">
+        <div class="logo-area">
+            <img src="https://awdev.my.id/img/awdev.png" alt="AwDev Logo"> AwDev Live Utilities
+        </div>
+        <div class="nav-dropdown">
+            <button class="neu-btn dropbtn"><i class="fa-solid fa-bars"></i> Menu Tools</button>
+            <div class="dropdown-content neu-box">
+                <a href="https://awdev.my.id/">Home</a>
+                <a href="https://awdev.my.id/text/index.html">Text Utilities</a>
+                <a href="https://awdev.my.id/utilities/index.html">Live Utilities (Timer, Weather, Maps)</a>
+                <a href="https://awdev.my.id/tools/index.html">Developer Tools</a>
+                <a href="https://awdev.my.id/maps/index.html">Maps Search</a>
+                <a href="https://awdev.my.id/qr/index.html">QR Generator</a>
+                <a href="https://awdev.my.id/collor/index.html">Color Code Generator</a>
+                <a href="https://awdev.my.id/blog.html">Blog</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero neu-box">
+        <h1>AwDev Live Utilities & Geo-Tools</h1>
+        <p>Real-time Online Timer, Interactive Calendar, Weather Conditions, GPS Maps, Compass, and Timezone Zones.</p>
+    </section>
+
+    <!-- Dashboard Grid Container -->
+    <div class="dashboard-grid">
+
+        <!-- 1. Online Timer & Stopwatch -->
+        <div class="utility-card neu-box">
+            <h3><i class="fa-solid fa-stopwatch"></i> Online Stopwatch & Timer</h3>
+            <div class="timer-display neu-inset" id="stopwatchDisplay">00:00:00</div>
+            <div class="stopwatch-btns">
+                <button class="neu-btn" onclick="startStopwatch()"><i class="fa-solid fa-play"></i> Start</button>
+                <button class="neu-btn" onclick="pauseStopwatch()"><i class="fa-solid fa-pause"></i> Pause</button>
+                <button class="neu-btn" onclick="resetStopwatch()"><i class="fa-solid fa-rotate-right"></i> Reset</button>
+            </div>
+        </div>
+
+        <!-- 2. Interactive Calendar -->
+        <div class="utility-card neu-box">
+            <h3><i class="fa-solid fa-calendar-days"></i> Live Calendar</h3>
+            <div class="calendar-header">
+                <button class="neu-btn" onclick="changeMonth(-1)" style="padding: 5px 12px;"><i class="fa-solid fa-chevron-left"></i></button>
+                <span id="calendarMonthYear">Month Year</span>
+                <button class="neu-btn" onclick="changeMonth(1)" style="padding: 5px 12px;"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+            <div class="calendar-grid neu-inset" style="padding: 10px;" id="calendarBody">
+                <!-- Injected via JavaScript -->
+            </div>
+        </div>
+
+        <!-- 3. Weather Forecast Integration -->
+        <div class="utility-card neu-box">
+            <h3><i class="fa-solid fa-cloud-sun"></i> Live Weather Forecast</h3>
+            <div class="weather-info">
+                <p id="weatherLocation" style="font-weight: 600; color: var(--text-main);">Detecting Location...</p>
+                <div class="weather-temp" id="weatherTemp">--°C</div>
+                <p id="weatherDesc" style="font-size: 14px; margin-top: 5px;">Fetching weather status...</p>
+            </div>
+            <button class="neu-btn" style="width: 100%; margin-top: 10px;" onclick="fetchWeather()"><i class="fa-solid fa-arrows-rotate"></i> Refresh Weather</button>
+        </div>
+
+        <!-- 4. Maps & Location Tracker -->
+        <div class="utility-card neu-box">
+            <h3><i class="fa-solid fa-map-location-dot"></i> Peta Lokasi (GPS Maps)</h3>
+            <p id="coordsText" style="font-size: 12px; margin-bottom: 5px;">Lat/Lng: Loading...</p>
+            <div class="neu-inset" style="padding: 5px;">
+                <iframe id="mapFrame" class="map-frame" src="https://maps.google.com/maps?q=Semarang&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+            </div>
+        </div>
+
+        <!-- 5. Digital Compass -->
+        <div class="utility-card neu-box">
+            <h3><i class="fa-solid fa-compass"></i> Online Digital Compass</h3>
+            <div class="compass-container neu-inset">
+                <div class="compass-needle" id="compassNeedle"></div>
+                <span style="position: absolute; top: 5px; font-weight: bold; font-size: 12px;">N</span>
+                <span style="position: absolute; bottom: 5px; font-weight: bold; font-size: 12px;">S</span>
+                <span style="position: absolute; left: 8px; font-weight: bold; font-size: 12px;">W</span>
+                <span style="position: absolute; right: 8px; font-weight: bold; font-size: 12px;">E</span>
+            </div>
+            <p id="compassHeading" style="text-align: center; font-size: 14px; font-weight: 600;">Heading: 0° (North)</p>
+        </div>
+
+        <!-- 6. Timezone Zones -->
+        <div class="utility-card neu-box">
+            <h3><i class="fa-solid fa-globe"></i> World Timezones</h3>
+            <div class="timezone-box neu-inset" id="timezoneDisplay">
+                Loading timezones...
+            </div>
+            <div style="font-size: 13px; display: flex; flex-direction: column; gap: 5px;">
+                <div><strong>WIB (UTC+7):</strong> <span id="wibTime">--:--:--</span></div>
+                <div><strong>WITA (UTC+8):</strong> <span id="witaTime">--:--:--</span></div>
+                <div><strong>WIT (UTC+9):</strong> <span id="witTime">--:--:--</span></div>
+                <div><strong>London (GMT):</strong> <span id="londonTime">--:--:--</span></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="neu-box">
+        <p>&copy; 2026 awdev. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://awdev.my.id/">Home</a> | 
+            <a href="https://awdev.my.id/text/index.html">Text Utilities</a> | 
+            <a href="https://awdev.my.id/tools/index.html">Developer Tools</a> | 
+            <a href="https://awdev.my.id/privacy-policy.html">Privacy Policy</a>
+        </div>
+    </footer>
+
+    <!-- JavaScript Engines -->
+    <script>
+        // 1. Stopwatch Logic
+        let stopwatchTimer = null;
+        let totalSeconds = 0;
+
+        function startStopwatch() {
+            if (stopwatchTimer) return;
+            stopwatchTimer = setInterval(() => {
+                totalSeconds++;
+                let hrs = Math.floor(totalSeconds / 3600);
+                let mins = Math.floor((totalSeconds % 3600) / 60);
+                let secs = totalSeconds % 60;
+                document.getElementById('stopwatchDisplay').innerText = 
+                    (hrs < 10 ? "0" + hrs : hrs) + ":" + 
+                    (mins < 10 ? "0" + mins : mins) + ":" + 
+                    (secs < 10 ? "0" + secs : secs);
+            }, 1000);
+        }
+
+        function pauseStopwatch() {
+            clearInterval(stopwatchTimer);
+            stopwatchTimer = null;
+        }
+
+        function resetStopwatch() {
+            pauseStopwatch();
+            totalSeconds = 0;
+            document.getElementById('stopwatchDisplay').innerText = "00:00:00";
+        }
+
+        // 2. Calendar Logic
+        let navDate = new Date();
+        function renderCalendar() {
+            const year = navDate.getFullYear();
+            const month = navDate.getMonth();
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            document.getElementById('calendarMonthYear').innerText = `${months[month]} ${year}`;
+
+            const firstDay = new Date(year, month, 1).getDay();
+            const totalDays = new Date(year, month + 1, 0).getDate();
+            const calBody = document.getElementById('calendarBody');
+            calBody.innerHTML = '';
+
+            const dayNames = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+            dayNames.forEach(d => {
+                const div = document.createElement('div');
+                div.className = 'calendar-day-name';
+                div.innerText = d;
+                calBody.appendChild(div);
+            });
+
+            for (let i = 0; i < firstDay; i++) {
+                const emptyDiv = document.createElement('div');
+                calBody.appendChild(emptyDiv);
+            }
+
+            const today = new Date();
+            for (let day = 1; day <= totalDays; day++) {
+                const dayDiv = document.createElement('div');
+                dayDiv.className = 'calendar-date';
+                dayDiv.innerText = day;
+                if (day === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
+                    dayDiv.classList.add('active');
+                }
+                calBody.appendChild(dayDiv);
+            }
+        }
+
+        function changeMonth(direction) {
+            navDate.setMonth(navDate.getMonth() + direction);
+            renderCalendar();
+        }
+        renderCalendar();
+
+        // 3 & 4. Geolocation, Weather & Maps
+        function initGeoServices() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    document.getElementById('coordsText').innerText = `Lat: ${lat.toFixed(4)}, Lng: ${lon.toFixed(4)}`;
+                    
+                    // Update Map frame
+                    document.getElementById('mapFrame').src = `https://maps.google.com/maps?q=${lat},${lon}&t=&z=14&ie=UTF8&iwloc=&output=embed`;
+                    
+                    // Fetch Open-Meteo Weather data (Free API, No Key Required)
+                    fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`)
+                        .then(res => res.json())
+                        .then(data => {
+                            if(data.current_weather) {
+                                document.getElementById('weatherTemp').innerText = `${data.current_weather.temperature}°C`;
+                                document.getElementById('weatherLocation').innerText = `Location (Lat: ${lat.toFixed(2)}, Lon: ${lon.toFixed(2)})`;
+                                document.getElementById('weatherDesc').innerText = `Wind Speed: ${data.current_weather.windspeed} km/h`;
+                            }
+                        })
+                        .catch(() => {
+                            document.getElementById('weatherDesc').innerText = "Unable to load weather data.";
+                        });
+                }, () => {
+                    document.getElementById('weatherLocation').innerText = "Location permission denied.";
+                });
+            } else {
+                document.getElementById('weatherLocation').innerText = "Geolocation not supported.";
+            }
+        }
+
+        function fetchWeather() {
+            initGeoServices();
+        }
+        initGeoServices();
+
+        // 5. Compass Orientation API (jika didukung perangkat mobile)
+        if (window.DeviceOrientationEvent) {
+            window.addEventListener('deviceorientation', event => {
+                let alpha = event.alpha; // kompas heading
+                if (alpha !== null) {
+                    document.getElementById('compassNeedle').style.transform = `rotate(${alpha}deg)`;
+                    document.getElementById('compassHeading').innerText = `Heading: ${Math.round(alpha)}°`;
+                }
+            }, true);
+        }
+
+        // 6. World Timezones Live Clock
+        function updateTimezones() {
+            const now = new Date();
+            
+            // Format waktu berdasarkan zona
+            document.getElementById('wibTime').innerText = now.toLocaleTimeString('en-GB', { timeZone: 'Asia/Jakarta' });
+            document.getElementById('witaTime').innerText = now.toLocaleTimeString('en-GB', { timeZone: 'Asia/Makassar' });
+            document.getElementById('witTime').innerText = now.toLocaleTimeString('en-GB', { timeZone: 'Asia/Jayapura' });
+            document.getElementById('londonTime').innerText = now.toLocaleTimeString('en-GB', { timeZone: 'Europe/London' });
+            
+            document.getElementById('timezoneDisplay').innerText = `Local Time: ${now.toLocaleTimeString()}`;
+        }
+        setInterval(updateTimezones, 1000);
+        updateTimezones();
+    </script>
+</body>
+</html>
