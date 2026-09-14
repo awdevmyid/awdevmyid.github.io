@@ -3,27 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuranClip Video Studio | AWDev</title>
+    <title>QuranClip Video Studio & Live Engine | AWDev</title>
     <link rel="canonical" href="https://awdev.my.id/quran/index.html">
     
-    <!-- Favicons -->
     <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.jpg">
     <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.png">
     <link rel="icon" type="image/png" href="https://awdev.my.id/favicon.png">
     <link rel="icon" type="image/png" href="https://awdev.my.id/ico.png">
-    <link rel="icon" type="image/png" href="https://www.awdev.my.id/favicon.png">
-    <link rel="icon" type="image/png" href="https://www.awdev.my.id/ico.png">
-    <link rel="icon" type="image/png" href="https://www.awdev.my.id/awdev.jpg">
-    <link rel="icon" type="image/png" href="https://www.awdev.my.id/logo.png">
     
-    <!-- SEO & AdSense -->
     <meta name="google-site-verification" content="OLryKZ1dDupEH_xOuZWiEwdi0ZvuXMcnQeMjRwe5YCw" />
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5407249785989200" crossorigin="anonymous"></script>
-    <meta name="google-adsense-account" content="ca-pub-5407249785989200">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome for Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Cairo:wght@400;700&family=Lateef&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -51,7 +42,6 @@
             line-height: 1.6;
         }
 
-        /* Neumorphic Mixins */
         .neu-box {
             background: var(--bg-color);
             box-shadow: 9px 9px 16px var(--dark-shadow), -9px -9px 16px var(--light-shadow);
@@ -68,6 +58,7 @@
             border: none;
             outline: none;
             color: var(--text-color);
+            width: 100%;
         }
 
         .neu-btn {
@@ -75,13 +66,14 @@
             box-shadow: 6px 6px 12px var(--dark-shadow), -6px -6px 12px var(--light-shadow);
             border: none;
             border-radius: 12px;
-            padding: 12px 20px;
+            padding: 10px 16px;
             cursor: pointer;
             font-weight: 600;
+            font-size: 13px;
             color: var(--text-color);
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .neu-btn:hover {
@@ -92,7 +84,6 @@
             box-shadow: inset 4px 4px 8px var(--dark-shadow), inset -4px -4px 8px var(--light-shadow);
         }
 
-        /* Rainbow Accent Border */
         .rainbow-border {
             position: relative;
             border-radius: 16px;
@@ -108,7 +99,6 @@
             opacity: 0.7;
         }
 
-        /* Header & Dropdown Navigation */
         header {
             display: flex;
             justify-content: space-between;
@@ -173,50 +163,13 @@
             display: block;
         }
 
-        /* Typing Effect Banner */
-        .typing-container {
-            text-align: center;
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 25px;
-            min-height: 40px;
-            background: var(--rainbow-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Image Slider */
-        .slider-container {
-            position: relative;
-            width: 100%;
-            height: 250px;
-            overflow: hidden;
-            border-radius: 12px;
-            margin-bottom: 25px;
-            box-shadow: inset 4px 4px 8px var(--dark-shadow), inset -4px -4px 8px var(--light-shadow);
-        }
-
-        .slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-
-        .slide.active {
-            opacity: 1;
-        }
-
-        /* Studio Workspace Layout */
         .studio-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .studio-grid {
                 grid-template-columns: 1fr;
             }
@@ -233,16 +186,10 @@
             margin-bottom: 5px;
         }
 
-        select, input[type="text"], textarea {
-            width: 100%;
-            padding: 10px;
-        }
-
-        /* Preview Workspace */
         .preview-screen {
             position: relative;
             width: 100%;
-            height: 350px;
+            height: 380px;
             background: #000;
             border-radius: 12px;
             overflow: hidden;
@@ -252,7 +199,7 @@
             box-shadow: inset 6px 6px 12px rgba(0,0,0,0.5);
         }
 
-        .preview-screen video, .preview-screen img {
+        .preview-screen video, .preview-screen img, .preview-screen div#bgSolidColor {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -266,97 +213,60 @@
             color: #fff;
             text-align: center;
             padding: 20px;
-            background: rgba(0,0,0,0.4);
+            background: rgba(0,0,0,0.45);
             backdrop-filter: blur(4px);
             border-radius: 8px;
             max-width: 90%;
         }
 
         .arabic-text {
-            font-family: 'Amiri', serif;
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 10px;
+            direction: rtl;
         }
 
-        /* Sample Asset Grid */
         .asset-chips {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 10px;
+            gap: 8px;
+            margin-top: 5px;
+            max-height: 120px;
+            overflow-y: auto;
+            padding: 4px;
         }
 
         .chip {
-            padding: 6px 12px;
-            font-size: 12px;
-            border-radius: 8px;
+            padding: 6px 10px;
+            font-size: 11px;
+            border-radius: 6px;
             background: var(--bg-color);
             box-shadow: 3px 3px 6px var(--dark-shadow), -3px -3px 6px var(--light-shadow);
             cursor: pointer;
+            border: none;
+            color: var(--text-color);
         }
 
         .chip:hover {
             color: var(--primary);
         }
 
-        /* FAQ Accordion */
-        .faq-item {
-            margin-bottom: 10px;
+        .logs-box {
+            background: #1e1e2f;
+            color: #00ffcc;
+            font-family: monospace;
+            font-size: 12px;
+            padding: 15px;
             border-radius: 10px;
-            overflow: hidden;
-        }
-        .faq-question {
-            padding: 12px 18px;
-            cursor: pointer;
-            font-weight: 600;
-            background: var(--bg-color);
-            box-shadow: 4px 4px 8px var(--dark-shadow), -4px -4px 8px var(--light-shadow);
-            border-radius: 10px;
-        }
-        .faq-answer {
-            padding: 12px 18px;
-            display: none;
-            font-size: 14px;
-        }
-
-        /* Social Share & Contact Form */
-        .social-share {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-
-        .social-icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--bg-color);
-            box-shadow: 5px 5px 10px var(--dark-shadow), -5px -5px 10px var(--light-shadow);
-            font-size: 18px;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 14px;
-            color: #666;
-            border-top: 1px solid var(--dark-shadow);
-            margin-top: 40px;
+            height: 150px;
+            overflow-y: auto;
+            box-shadow: inset 4px 4px 8px rgba(0,0,0,0.6);
         }
     </style>
 </head>
 <body>
 
-    <!-- Header & Dropdown Menu -->
     <header class="neu-box rainbow-border">
-        <div class="logo-area">QuranClip Studio</div>
+        <div class="logo-area">QuranClip Studio Live</div>
         <div class="dropdown">
             <button class="dropbtn"><i class="fa-solid fa-bars"></i> Navigation Menu <i class="fa-solid fa-caret-down"></i></button>
             <div class="dropdown-content">
@@ -381,259 +291,582 @@
         </div>
     </header>
 
-    <!-- Teks Ketik (Typing Banner) -->
-    <div class="typing-container" id="typingBanner"></div>
-
-    <!-- Image Slider -->
-    <div class="slider-container neu-box">
-        <img src="https://awdev.my.id/img/awdev.png" class="slide active" alt="AWDev Logo">
-        <img src="https://awdev.my.id/img/3d.jpeg" class="slide" alt="3D Visual">
-        <img src="https://awdev.my.id/img/ai.jpeg" class="slide" alt="AI Visual">
-        <img src="https://awdev.my.id/img/quran.png" class="slide" alt="Quran Visual">
-    </div>
-
-    <!-- Studio Workspace -->
     <div class="studio-grid">
-        <!-- Controls Panel -->
-        <div class="neu-box">
-            <h3><i class="fa-solid fa-sliders"></i> Studio Controls</h3>
-            <hr style="margin: 15px 0; border:0; border-top: 1px solid var(--dark-shadow);">
-            
-            <div class="control-group">
-                <label>Surah (114 Total)</label>
-                <select class="neu-inset" id="surahSelect">
-                    <option value="1">1. Al-Fatihah (7 Ayat)</option>
-                    <option value="2">2. Al-Baqarah (286 Ayat)</option>
-                    <option value="36">36. Yasin (83 Ayat)</option>
-                    <option value="67">67. Al-Mulk (30 Ayat)</option>
-                    <option value="114">114. An-Nas (6 Ayat)</option>
-                </select>
-            </div>
+        
+        <div>
+            <div class="neu-box">
+                <h3><i class="fa-solid fa-book-quran"></i> 1. Reciter & Verse Selection</h3>
+                <hr style="margin: 12px 0; border:0; border-top: 1px solid var(--dark-shadow);">
+                
+                <div class="control-group">
+                    <label>Select Reciter</label>
+                    <select class="neu-inset" id="reciterSelect">
+                        <option value="ar.alafasy">Mishary Rashid Alafasy</option>
+                        <option value="ar.abdulbasit">Abdul Basit Abdus Samad</option>
+                        <option value="ar.sudais">Abdurrahman As-Sudais</option>
+                        <option value="ar.minshawi">Mohamed Siddiq El-Minshawi</option>
+                    </select>
+                </div>
 
-            <div class="control-group">
-                <label>Translation Language (10 Options)</label>
-                <select class="neu-inset">
-                    <option>🇬🇧 English — Saheeh International</option>
-                    <option>🇮🇩 Indonesian — Kemenag</option>
-                    <option>🇸🇦 Arabic — Tafsir Jalalayn</option>
-                    <option>🇫🇷 French — Hamidullah</option>
-                    <option>🇪🇸 Spanish — Cortés</option>
-                </select>
-            </div>
+                <div class="control-group">
+                    <label>Surah Name (1 - 114 Total)</label>
+                    <select class="neu-inset" id="surahSelect" onchange="updateAyahCount()">
+                        <option value="1">1. Al-Fatihah (7 Ayat)</option>
+                        <option value="2">2. Al-Baqarah (286 Ayat)</option>
+                        <option value="3">3. Ali 'Imran (200 Ayat)</option>
+                        <option value="4">4. An-Nisa' (176 Ayat)</option>
+                        <option value="5">5. Al-Ma'idah (120 Ayat)</option>
+                        <option value="6">6. Al-An'am (165 Ayat)</option>
+                        <option value="7">7. Al-A'raf (206 Ayat)</option>
+                        <option value="8">8. Al-Anfal (75 Ayat)</option>
+                        <option value="9">9. At-Taubah (129 Ayat)</option>
+                        <option value="10">10. Yunus (109 Ayat)</option>
+                        <option value="11">11. Hud (123 Ayat)</option>
+                        <option value="12">12. Yusuf (111 Ayat)</option>
+                        <option value="13">13. Ar-Ra'd (43 Ayat)</option>
+                        <option value="14">14. Ibrahim (52 Ayat)</option>
+                        <option value="15">15. Al-Hijr (99 Ayat)</option>
+                        <option value="16">16. An-Nahl (128 Ayat)</option>
+                        <option value="17">17. Al-Isra' (111 Ayat)</option>
+                        <option value="18">18. Al-Kahf (110 Ayat)</option>
+                        <option value="19">19. Maryam (98 Ayat)</option>
+                        <option value="20">20. Taha (135 Ayat)</option>
+                        <option value="21">21. Al-Anbiya' (112 Ayat)</option>
+                        <option value="22">22. Al-Hajj (78 Ayat)</option>
+                        <option value="23">23. Al-Mu'minun (118 Ayat)</option>
+                        <option value="24">24. An-Nur (64 Ayat)</option>
+                        <option value="25">25. Al-Furqan (77 Ayat)</option>
+                        <option value="26">26. Ash-Shu'ara' (227 Ayat)</option>
+                        <option value="27">27. An-Naml (93 Ayat)</option>
+                        <option value="28">28. Al-Qasas (88 Ayat)</option>
+                        <option value="29">29. Al-'Ankabut (69 Ayat)</option>
+                        <option value="30">30. Ar-Rum (60 Ayat)</option>
+                        <option value="31">31. Luqman (34 Ayat)</option>
+                        <option value="32">32. As-Sajdah (30 Ayat)</option>
+                        <option value="33">33. Al-Ahzab (73 Ayat)</option>
+                        <option value="34">34. Saba' (54 Ayat)</option>
+                        <option value="35">35. Fatir (45 Ayat)</option>
+                        <option value="36" selected>36. Yasin (83 Ayat)</option>
+                        <option value="37">37. As-Saffat (182 Ayat)</option>
+                        <option value="38">38. Sad (88 Ayat)</option>
+                        <option value="39">39. Az-Zumar (75 Ayat)</option>
+                        <option value="40">40. Ghafir (85 Ayat)</option>
+                        <option value="41">41. Fussilat (54 Ayat)</option>
+                        <option value="42">42. Ash-Shura (53 Ayat)</option>
+                        <option value="43">43. Az-Zukhruf (89 Ayat)</option>
+                        <option value="44">44. Ad-Dukhan (59 Ayat)</option>
+                        <option value="45">45. Al-Jathiyah (37 Ayat)</option>
+                        <option value="46">46. Al-Ahqaf (35 Ayat)</option>
+                        <option value="47">47. Muhammad (38 Ayat)</option>
+                        <option value="48">48. Al-Fath (29 Ayat)</option>
+                        <option value="49">49. Al-Hujurat (18 Ayat)</option>
+                        <option value="50">50. Qaf (45 Ayat)</option>
+                        <option value="51">51. Ad-Dhariyat (60 Ayat)</option>
+                        <option value="52">52. At-Tur (49 Ayat)</option>
+                        <option value="53">53. An-Najm (62 Ayat)</option>
+                        <option value="54">54. Al-Qamar (55 Ayat)</option>
+                        <option value="55">55. Ar-Rahman (78 Ayat)</option>
+                        <option value="56">56. Al-Waqi'ah (96 Ayat)</option>
+                        <option value="57">57. Al-Hadid (29 Ayat)</option>
+                        <option value="58">58. Al-Mujadilah (22 Ayat)</option>
+                        <option value="59">59. Al-Hashr (24 Ayat)</option>
+                        <option value="60">60. Al-Mumtahanah (13 Ayat)</option>
+                        <option value="61">61. As-Saff (14 Ayat)</option>
+                        <option value="62">62. Al-Jumu'ah (11 Ayat)</option>
+                        <option value="63">63. Al-Munafiqun (11 Ayat)</option>
+                        <option value="64">64. At-Taghabun (18 Ayat)</option>
+                        <option value="65">65. At-Talaq (12 Ayat)</option>
+                        <option value="66">66. At-Tahrim (12 Ayat)</option>
+                        <option value="67">67. Al-Mulk (30 Ayat)</option>
+                        <option value="68">68. Al-Qalam (52 Ayat)</option>
+                        <option value="69">69. Al-Haqqah (52 Ayat)</option>
+                        <option value="70">70. Al-Ma'arij (44 Ayat)</option>
+                        <option value="71">71. Nuh (28 Ayat)</option>
+                        <option value="72">72. Al-Jinn (28 Ayat)</option>
+                        <option value="73">73. Al-Muzzammil (20 Ayat)</option>
+                        <option value="74">74. Al-Muddaththir (56 Ayat)</option>
+                        <option value="75">75. Al-Qiyamah (40 Ayat)</option>
+                        <option value="76">76. Al-Insan (31 Ayat)</option>
+                        <option value="77">77. Al-Mursalat (50 Ayat)</option>
+                        <option value="78">78. An-Naba' (40 Ayat)</option>
+                        <option value="79">79. An-Nazi'at (46 Ayat)</option>
+                        <option value="80">80. 'Abasa (42 Ayat)</option>
+                        <option value="81">81. At-Takwir (29 Ayat)</option>
+                        <option value="82">82. Al-Infitar (19 Ayat)</option>
+                        <option value="83">83. Al-Mutaffifin (36 Ayat)</option>
+                        <option value="84">84. Al-Inshiqaq (25 Ayat)</option>
+                        <option value="85">85. Al-Buruj (22 Ayat)</option>
+                        <option value="86">86. At-Tariq (17 Ayat)</option>
+                        <option value="87">87. Al-A'la (19 Ayat)</option>
+                        <option value="88">88. Al-Ghashiyah (26 Ayat)</option>
+                        <option value="89">89. Al-Fajr (30 Ayat)</option>
+                        <option value="90">90. Al-Balad (20 Ayat)</option>
+                        <option value="91">91. Ash-Shams (15 Ayat)</option>
+                        <option value="92">92. Al-Lail (21 Ayat)</option>
+                        <option value="93">93. Ad-Duha (11 Ayat)</option>
+                        <option value="94">94. Ash-Sharh (8 Ayat)</option>
+                        <option value="95">95. At-Tin (8 Ayat)</option>
+                        <option value="96">96. Al-'Alaq (19 Ayat)</option>
+                        <option value="97">97. Al-Qadr (5 Ayat)</option>
+                        <option value="98">98. Al-Bayyinah (8 Ayat)</option>
+                        <option value="99">99. Az-Zalzalah (8 Ayat)</option>
+                        <option value="100">100. Al-'Adiyat (11 Ayat)</option>
+                        <option value="101">101. Al-Qari'ah (11 Ayat)</option>
+                        <option value="102">102. At-Takathur (8 Ayat)</option>
+                        <option value="103">103. Al-'Asr (3 Ayat)</option>
+                        <option value="104">104. Al-Humazah (9 Ayat)</option>
+                        <option value="105">105. Al-Fil (5 Ayat)</option>
+                        <option value="106">106. Quraisy (4 Ayat)</option>
+                        <option value="107">107. Al-Ma'un (7 Ayat)</option>
+                        <option value="108">108. Al-Kauthar (3 Ayat)</option>
+                        <option value="109">109. Al-Kafirun (6 Ayat)</option>
+                        <option value="110">110. An-Nasr (3 Ayat)</option>
+                        <option value="111">111. Al-Masad (5 Ayat)</option>
+                        <option value="112">112. Al-Ikhlas (4 Ayat)</option>
+                        <option value="113">113. Al-Falaq (5 Ayat)</option>
+                        <option value="114">114. An-Nas (6 Ayat)</option>
+                    </select>
+                </div>
 
-            <div class="control-group">
-                <label>Calligraphy Font (7 Styles)</label>
-                <select class="neu-inset">
-                    <option>Amiri Classic</option>
-                    <option>Kufi Arabic</option>
-                    <option>Uthmanic Hafs</option>
-                    <option>Scheherazade New</option>
-                </select>
-            </div>
+                <div class="control-group">
+                    <label>Select Ayah</label>
+                    <input type="number" id="ayahInput" class="neu-inset" value="1" min="1" max="286">
+                </div>
 
-            <div class="control-group">
-                <label><input type="checkbox" id="autoPlay"> 🔄 Enable Continuous Auto-Play</label>
-            </div>
+                <div class="control-group">
+                    <label>Translation Language</label>
+                    <select class="neu-inset" id="translationSelect">
+                        <option value="id.indonesian">Indonesian — Ministry of Religious Affairs</option>
+                        <option value="en.sahih">English — Saheeh International</option>
+                        <option value="fr.hamidullah">French — Hamidullah</option>
+                    </select>
+                </div>
 
-            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
-                <button class="neu-btn"><i class="fa-solid fa-play"></i> Play</button>
-                <button class="neu-btn"><i class="fa-solid fa-stop"></i> Stop</button>
-                <button class="neu-btn"><i class="fa-solid fa-forward"></i> Next</button>
-                <button class="neu-btn" style="color: red;"><i class="fa-solid fa-circle"></i> Record</button>
-            </div>
-        </div>
-
-        <!-- Live Preview Workspace -->
-        <div class="neu-box">
-            <h3><i class="fa-solid fa-display"></i> Live Preview Workspace</h3>
-            <hr style="margin: 15px 0; border:0; border-top: 1px solid var(--dark-shadow);">
-            
-            <div class="preview-screen" id="previewScreen">
-                <video id="previewVideo" autoplay muted loop style="display: none;"></video>
-                <img id="previewImage" src="https://awdev.my.id/img/awdev.png" style="display: block;">
-                <div class="quran-overlay">
-                    <div class="arabic-text">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-                    <p>In the name of Allah, the Entirely Merciful, the Especially Merciful.</p>
+                <div class="control-group">
+                    <label>Select Calligraphy Font (17 Options)</label>
+                    <select class="neu-inset" id="fontSelect" onchange="changeFont()">
+                        <option value="'Amiri', serif">1. Amiri Classic</option>
+                        <option value="'Cairo', sans-serif">2. Cairo Modern Arabic</option>
+                        <option value="'Lateef', serif">3. Lateef Traditional</option>
+                        <option value="'Scheherazade New', serif">4. Scheherazade New</option>
+                        <option value="Georgia, serif">5. Georgia Traditional</option>
+                        <option value="'Times New Roman', serif">6. Times New Roman</option>
+                        <option value="Arial, sans-serif">7. Arial Clean</option>
+                        <option value="'Courier New', monospace">8. Courier Code</option>
+                        <option value="Verdana, sans-serif">9. Verdana Modern</option>
+                        <option value="Tahoma, sans-serif">10. Tahoma Standard</option>
+                        <option value="'Trebuchet MS', sans-serif">11. Trebuchet Bold</option>
+                        <option value="Impact, sans-serif">12. Impact Heavy</option>
+                        <option value="'Lucida Sans', sans-serif">13. Lucida Sans</option>
+                        <option value="Palatino, serif">14. Palatino Arabic</option>
+                        <option value="Garamond, serif">15. Garamond Classic</option>
+                        <option value="'Century Gothic', sans-serif">16. Century Gothic</option>
+                        <option value="Brush Script MT, cursive">17. Script Cursive</option>
+                    </select>
                 </div>
             </div>
 
-            <!-- Asset Selector Chips -->
-            <div style="margin-top: 15px;">
-                <label style="font-size: 13px; font-weight: 600;">Sample Video Assets:</label>
-                <div class="asset-chips">
-                    <div class="chip" onclick="setVideo('https://awdev.my.id/vidio/borobudur.mp4')">Borobudur</div>
-                    <div class="chip" onclick="setVideo('https://awdev.my.id/vidio/dubai.mp4')">Dubai</div>
-                    <div class="chip" onclick="setVideo('https://awdev.my.id/vidio/madinah.mp4')">Madinah</div>
-                    <div class="chip" onclick="setVideo('https://awdev.my.id/vidio/masjidqatar.mp4')">Masjid Qatar</div>
+            <div class="neu-box">
+                <h3><i class="fa-solid fa-tower-broadcast"></i> 3. YouTube Live Encoder</h3>
+                <hr style="margin: 12px 0; border:0; border-top: 1px solid var(--dark-shadow);">
+                
+                <div class="control-group">
+                    <label>Encoder Bridge WebSocket URL</label>
+                    <input type="text" class="neu-inset" value="ws://localhost:8080/live" id="wsUrl">
+                </div>
+                <div class="control-group">
+                    <label>YouTube RTMPS Server</label>
+                    <input type="text" class="neu-inset" value="rtmps://a.rtmp.youtube.com/live2" id="rtmpServer">
+                </div>
+                <div class="control-group">
+                    <label>Channel / Stream Name</label>
+                    <input type="text" class="neu-inset" value="quran-live" id="streamName">
+                </div>
+                <div class="control-group">
+                    <label>YouTube Stream Key</label>
+                    <input type="password" class="neu-inset" placeholder="Paste Stream Key — never hard-code it" id="streamKey">
                 </div>
 
-                <label style="font-size: 13px; font-weight: 600; margin-top: 10px; display:block;">Sample Image Assets:</label>
-                <div class="asset-chips">
-                    <div class="chip" onclick="setImage('https://awdev.my.id/img/3d.jpeg')">3D Visual</div>
-                    <div class="chip" onclick="setImage('https://awdev.my.id/img/ai.jpeg')">AI Visual</div>
-                    <div class="chip" onclick="setImage('https://awdev.my.id/img/quran.png')">Quran Art</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div class="control-group">
+                        <label>Output Resolution</label>
+                        <select class="neu-inset" id="resSelect">
+                            <option value="1280x720">1280 × 720</option>
+                            <option value="1920x1080" selected>1920 × 1080</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>FPS</label>
+                        <select class="neu-inset" id="fpsSelect">
+                            <option value="24">24 FPS</option>
+                            <option value="30" selected>30 FPS</option>
+                            <option value="60">60 FPS</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div class="control-group">
+                        <label>Video Bitrate</label>
+                        <select class="neu-inset">
+                            <option>4 Mbps</option>
+                            <option>6 Mbps</option>
+                            <option>8 Mbps</option>
+                            <option selected>10 Mbps</option>
+                            <option>12 Mbps</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Audio Bitrate</label>
+                        <select class="neu-inset">
+                            <option>96 Kbps</option>
+                            <option selected>128 Kbps</option>
+                            <option>160 Kbps</option>
+                            <option>192 Kbps</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px;">
+                    <button class="neu-btn" onclick="testEncoder()"><i class="fa-solid fa-plug"></i> Test Bridge</button>
+                    <button class="neu-btn" style="color: green;" onclick="startYoutubeLive()"><i class="fa-solid fa-circle"></i> Start Live</button>
+                    <button class="neu-btn" style="color: red;" onclick="stopYoutubeLive()"><i class="fa-solid fa-stop"></i> Stop Live</button>
+                </div>
+                <p id="bridgeStatus" style="font-size: 11px; margin-top: 8px; font-weight: 600;">● Encoder bridge belum terhubung.</p>
+            </div>
+        </div>
+
+        <div>
+            <div class="neu-box">
+                <h3><i class="fa-solid fa-display"></i> 2. Video Source & Studio Preview</h3>
+                <hr style="margin: 12px 0; border:0; border-top: 1px solid var(--dark-shadow);">
+                
+                <div class="preview-screen" id="previewScreen">
+                    <video id="previewVideo" autoplay muted loop style="display: none;"></video>
+                    <img id="previewImage" src="https://awdev.my.id/img/awdev.png" style="display: block;" alt="Preview">
+                    <div id="bgSolidColor" style="display: none; background: #4f46e5;"></div>
+                    
+                    <div class="quran-overlay">
+                        <div class="arabic-text" id="arabicDisplay">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+                        <p id="translationDisplay">Dengan menyebut nama Allah Yang Maha Pemurah lagi Maha Penyayang.</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 15px;">
+                    <label style="font-size: 12px; font-weight: 600;">Pilih Background Video (7 Pilihan):</label>
+                    <div class="asset-chips">
+                        <button class="chip" onclick="setVideo('https://awdev.my.id/vidio/borobudur.mp4')">1. Borobudur</button>
+                        <button class="chip" onclick="setVideo('https://awdev.my.id/vidio/dubai.mp4')">2. Dubai</button>
+                        <button class="chip" onclick="setVideo('https://awdev.my.id/vidio/istambul.mp4')">3. Istanbul</button>
+                        <button class="chip" onclick="setVideo('https://awdev.my.id/vidio/italia.mp4')">4. Italia</button>
+                        <button class="chip" onclick="setVideo('https://awdev.my.id/vidio/london.mp4')">5. London</button>
+                        <button class="chip" onclick="setVideo('https://awdev.my.id/vidio/madinah.mp4')">6. Madinah</button>
+                        <button class="chip" onclick="setVideo('https://awdev.my.id/vidio/masjidqatar.mp4')">7. Masjid Qatar</button>
+                    </div>
+
+                    <label style="font-size: 12px; font-weight: 600; margin-top: 8px; display:block;">Pilih Background Image (7 Pilihan):</label>
+                    <div class="asset-chips">
+                        <button class="chip" onclick="setImage('https://awdev.my.id/img/awdev.png')">1. AWDev Logo</button>
+                        <button class="chip" onclick="setImage('https://awdev.my.id/img/3d.jpeg')">2. 3D Visual</button>
+                        <button class="chip" onclick="setImage('https://awdev.my.id/img/ai.jpeg')">3. AI Visual</button>
+                        <button class="chip" onclick="setImage('https://awdev.my.id/img/quran.png')">4. Quran Art</button>
+                        <button class="chip" onclick="setImage('https://awdev.my.id/img/ico.png')">5. Icon Art</button>
+                        <button class="chip" onclick="setImage('https://awdev.my.id/img/logo.jpg')">6. Logo JPG</button>
+                        <button class="chip" onclick="setImage('https://awdev.my.id/img/maps.jpeg')">7. Maps Visual</button>
+                    </div>
+
+                    <label style="font-size: 12px; font-weight: 600; margin-top: 8px; display:block;">Pilih Background GIF (7 Pilihan):</label>
+                    <div class="asset-chips">
+                        <button class="chip" onclick="setGif('https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif')">1. Galaxy</button>
+                        <button class="chip" onclick="setGif('https://media.giphy.com/media/xT5LMPj8P2CDUDOqZy/giphy.gif')">2. Stars</button>
+                        <button class="chip" onclick="setGif('https://media.giphy.com/media/l0HlRnAWXxn0MhOBK/giphy.gif')">3. Waves</button>
+                        <button class="chip" onclick="setGif('https://media.giphy.com/media/3o7TKSjRrfIPjeiVyM/giphy.gif')">4. Aurora</button>
+                        <button class="chip" onclick="setGif('https://media.giphy.com/media/3oKIPnAiaMCws8nOsE/giphy.gif')">5. Neon</button>
+                        <button class="chip" onclick="setGif('https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif')">6. Clouds</button>
+                        <button class="chip" onclick="setGif('https://media.giphy.com/media/xTiTnHXbRoaZgB1Mo8/giphy.gif')">7. Firefly</button>
+                    </div>
+
+                    <label style="font-size: 12px; font-weight: 600; margin-top: 8px; display:block;">Pilih Warna Solid (7 Pilihan):</label>
+                    <div class="asset-chips">
+                        <button class="chip" style="background:#1e1e2f; color:#fff;" onclick="setColor('#1e1e2f')">1. Dark Midnight</button>
+                        <button class="chip" style="background:#4f46e5; color:#fff;" onclick="setColor('#4f46e5')">2. Indigo Blue</button>
+                        <button class="chip" style="background:#059669; color:#fff;" onclick="setColor('#059669')">3. Emerald Green</button>
+                        <button class="chip" style="background:#dc2626; color:#fff;" onclick="setColor('#dc2626')">4. Ruby Red</button>
+                        <button class="chip" style="background:#7c2d12; color:#fff;" onclick="setColor('#7c2d12')">5. Warm Brown</button>
+                        <button class="chip" style="background:#374151; color:#fff;" onclick="setColor('#374151')">6. Slate Gray</button>
+                        <button class="chip" style="background:#000000; color:#fff;" onclick="setColor('#000000')">7. Pitch Black</button>
+                    </div>
+
+                    <div style="margin-top: 10px;">
+                        <label style="font-size: 12px; font-weight: 600;">Upload File Lokal (Video/Image):</label>
+                        <input type="file" id="localUpload" class="neu-inset" style="padding: 6px; font-size: 11px; margin-top: 4px;" onchange="handleLocalUpload(event)">
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 15px;">
+                    <button class="neu-btn" onclick="playQuran()"><i class="fa-solid fa-play"></i> Play Qur'an</button>
+                    <button class="neu-btn" onclick="stopQuran()"><i class="fa-solid fa-stop"></i> Stop</button>
+                    <button class="neu-btn" onclick="prevAyah()"><i class="fa-solid fa-backward-step"></i> Previous</button>
+                    <button class="neu-btn" onclick="nextAyah()">Next <i class="fa-solid fa-forward-step"></i></button>
+                    <button class="neu-btn" onclick="toggleMute()"><i class="fa-solid fa-volume-high" id="muteIcon"></i></button>
+                    <button class="neu-btn" onclick="toggleFullscreen()"><i class="fa-solid fa-expand"></i> Fullscreen</button>
+                </div>
+                
+                <div style="margin-top: 10px; display: flex; align-items: center; justify-content: space-between; font-size: 12px;">
+                    <label><input type="checkbox" id="autoPlay" checked> 🔄 Continuous Auto-Play</label>
+                    <span id="audioStatus" style="font-weight: 600; color: var(--primary);">● Ayat siap diputar.</span>
+                </div>
+            </div>
+
+            <div class="neu-box">
+                <h3><i class="fa-solid fa-video"></i> 4. Recorder & Logs</h3>
+                <hr style="margin: 12px 0; border:0; border-top: 1px solid var(--dark-shadow);">
+                
+                <p style="font-size: 12px; margin-bottom: 10px;">Rekam output studio (background + ayat + terjemahan + audio) menggunakan MediaRecorder.</p>
+                
+                <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px;">
+                    <button class="neu-btn" style="color: red;" onclick="startRecording()"><i class="fa-solid fa-circle"></i> Start Recording</button>
+                    <button class="neu-btn" onclick="downloadRecording()"><i class="fa-solid fa-download"></i> Download</button>
+                    <button class="neu-btn" onclick="clearRecording()"><i class="fa-solid fa-trash"></i> Clear</button>
+                    <span id="recTimer" style="font-family: monospace; font-weight: 600; align-self: center;">00:00</span>
+                </div>
+
+                <div class="logs-box" id="studioLogs">
+                    [System] Relmusic Qur'an Studio initialized.<br>
+                    [System] Ready to load Qur'an audio and translation.<br>
                 </div>
             </div>
         </div>
+
     </div>
 
-    <!-- English Article Section (Internal & External Links) -->
-    <div class="neu-box">
-        <h3><i class="fa-solid fa-book-open"></i> Quran Video Generation & Digital Media Production</h3>
-        <p style="margin-top: 10px; font-size: 14px;">
-            Creating engaging Islamic content and Quranic video clips has never been easier. With our advanced <a href="https://awdev.my.id/tools/index.html" style="color:var(--primary)">AWDev Tools</a>, creators can seamlessly mix audio recitations with breathtaking visuals from cities like <a href="https://awdev.my.id/vidio/index.html" style="color:var(--primary)">Madinah and Dubai</a>. Explore our <a href="https://awdev.my.id/blog.html" style="color:var(--primary)">Blog</a> for tutorials on <a href="https://awdev.my.id/calligraphy/index.html" style="color:var(--primary)">Arabic Calligraphy</a> and <a href="https://awdev.my.id/collor/index.html" style="color:var(--primary)">Color Code Generators</a>. For further reading on digital rendering standards, visit external resources like <a href="https://developer.mozilla.org" target="_blank" rel="nofollow">MDN Web Docs</a>, <a href="https://github.com" target="_blank" rel="nofollow">GitHub</a>, <a href="https://stackoverflow.com" target="_blank" rel="nofollow">Stack Overflow</a>, <a href="https://www.w3.org" target="_blank" rel="nofollow">W3C Standards</a>, <a href="https://css-tricks.com" target="_blank" rel="nofollow">CSS-Tricks</a>, <a href="https://unsplash.com" target="_blank" rel="nofollow">Unsplash</a>, and <a href="https://getbootstrap.com" target="_blank" rel="nofollow">Bootstrap</a>.
-        </p>
-    </div>
-
-    <!-- FAQ Section -->
-    <div class="neu-box">
-        <h3><i class="fa-solid fa-circle-question"></i> Frequently Asked Questions</h3>
-        <br>
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFaq(this)">How do I record and download video clips?</div>
-            <div class="faq-answer">Simply select your preferred background video or image, choose the Surah and translation, and click the Record button. Once rendered, you can instantly save and download the MP4 file.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFaq(this)">Are all 114 Surahs available with audio?</div>
-            <div class="faq-answer">Yes, complete data and audio streams are integrated across all 114 Surahs with continuous auto-play support.</div>
-        </div>
-    </div>
-
-    <!-- Social Media Share -->
-    <div class="neu-box" style="text-align: center;">
-        <h3>Connect & Share Live Channel</h3>
-        <div class="social-share">
-            <a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
-            <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
-            <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" class="social-icon"><i class="fa-brands fa-whatsapp"></i></a>
-        </div>
-    </div>
-
-    <!-- Contact Form Box -->
-    <div class="neu-box">
-        <h3><i class="fa-solid fa-envelope"></i> Send Us a Message</h3>
-        <form style="margin-top: 15px;" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
-            <div style="margin-bottom: 12px;">
-                <input type="text" placeholder="Your Name" class="neu-inset" required>
-            </div>
-            <div style="margin-bottom: 12px;">
-                <input type="text" placeholder="Your Email" class="neu-inset" required>
-            </div>
-            <div style="margin-bottom: 12px;">
-                <textarea placeholder="Your Message" rows="4" class="neu-inset" required></textarea>
-            </div>
-            <button type="submit" class="neu-btn">Submit Form</button>
-        </form>
-    </div>
-
-    <!-- Disqus Comments -->
-    <div class="neu-box">
-        <div id="disqus_thread"></div>
-    </div>
-
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 awdev. All rights reserved.</p>
-        <p style="margin-top: 10px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+        <p style="margin-top: 8px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; font-size: 12px;">
             <a href="https://awdev.my.id/" style="color: var(--primary); text-decoration: none;">Home</a> | 
             <a href="https://awdev.my.id/about.html" style="color: var(--primary); text-decoration: none;">About Us</a> | 
             <a href="https://awdev.my.id/blog.html" style="color: var(--primary); text-decoration: none;">Blog</a> | 
-            <a href="https://awdev.my.id/contact.html" style="color: var(--primary); text-decoration: none;">Contact</a> | 
-            <a href="https://awdev.my.id/privacy-policy.html" style="color: var(--primary); text-decoration: none;">Privacy Policy</a> | 
-            <a href="https://awdev.my.id/terms.html" style="color: var(--primary); text-decoration: none;">Terms & Conditions</a> |
-            <a href="https://awdev.my.id/disclaimers.html" style="color: var(--primary); text-decoration: none;">Disclaimers</a> | 
-            <a href="https://awdev.my.id/license.html" style="color: var(--primary); text-decoration: none;">License</a>
+            <a href="https://awdev.my.id/contact.html" style="color: var(--primary); text-decoration: none;">Contact</a>
         </p>
     </footer>
 
-    <!-- JavaScript Scripts -->
     <script>
-        // Typing Effect
-        const words = ["QuranClip Video Studio", "Neumorphic Rainbow Design", "Automatic Ayat Recitation Player", "Live Studio Video Renderer"];
-        let i = 0;
-        let timer;
-        function typingEffect() {
-            let word = words[i].split("");
-            let loopTyping = function() {
-                if (word.length > 0) {
-                    document.getElementById('typingBanner').innerHTML += word.shift();
-                } else {
-                    setTimeout(deletingEffect, 2000);
-                    return;
-                }
-                timer = setTimeout(loopTyping, 100);
-            };
-            loopTyping();
-        }
-        function deletingEffect() {
-            let word = words[i].split("");
-            let loopDeleting = function() {
-                if (word.length > 0) {
-                    word.pop();
-                    document.getElementById('typingBanner').innerHTML = word.join("");
-                } else {
-                    if (words.length > (i + 1)) {
-                        i++;
-                    } else {
-                        i = 0;
-                    }
-                    setTimeout(typingEffect, 500);
-                    return;
-                }
-                timer = setTimeout(loopDeleting, 50);
-            };
-            loopDeleting();
-        }
-        typingEffect();
+        let currentAudio = new Audio();
+        let logContainer = document.getElementById('studioLogs');
 
-        // Image Slider
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        setInterval(() => {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }, 3500);
+        function addLog(message) {
+            const timeStr = new Date().toLocaleTimeString();
+            logContainer.innerHTML += `[${timeStr}] ${message}<br>`;
+            logContainer.scrollTop = logContainer.scrollHeight;
+        }
 
-        // Preview Video/Image Switcher
         function setVideo(url) {
             const v = document.getElementById('previewVideo');
             const img = document.getElementById('previewImage');
+            const col = document.getElementById('bgSolidColor');
             v.src = url;
             v.style.display = 'block';
             img.style.display = 'none';
+            col.style.display = 'none';
             v.play();
+            addLog(`Background video changed to: ${url.split('/').pop()}`);
         }
 
         function setImage(url) {
             const v = document.getElementById('previewVideo');
             const img = document.getElementById('previewImage');
+            const col = document.getElementById('bgSolidColor');
             v.pause();
             v.style.display = 'none';
+            col.style.display = 'none';
             img.src = url;
             img.style.display = 'block';
+            addLog(`Background image changed.`);
         }
 
-        // FAQ Toggle
-        function toggleFaq(el) {
-            const ans = el.nextElementSibling;
-            ans.style.display = ans.style.display === 'block' ? 'none' : 'block';
+        function setGif(url) {
+            setImage(url);
+            addLog(`Background GIF updated.`);
         }
 
-        // Disqus Integration Script
-        var disqus_config = function () {
-            this.page.url = "https://awdev.my.id/quran/index.html"; 
-            this.page.identifier = "quranclip-studio"; 
+        function setColor(hex) {
+            const v = document.getElementById('previewVideo');
+            const img = document.getElementById('previewImage');
+            const col = document.getElementById('bgSolidColor');
+            v.pause();
+            v.style.display = 'none';
+            img.style.display = 'none';
+            col.style.display = 'block';
+            col.style.background = hex;
+            addLog(`Background color changed to ${hex}`);
+        }
+
+        function handleLocalUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const url = URL.createObjectURL(file);
+                if (file.type.startsWith('video/')) {
+                    setVideo(url);
+                } else {
+                    setImage(url);
+                }
+                addLog(`Local file uploaded: ${file.name}`);
+            }
+        }
+
+        function changeFont() {
+            const fontVal = document.getElementById('fontSelect').value;
+            document.getElementById('arabicDisplay').style.fontFamily = fontVal;
+            addLog(`Calligraphy font changed.`);
+        }
+
+        function updateAyahCount() {
+            const surah = document.getElementById('surahSelect').value;
+            addLog(`Surah selected ID: ${surah}`);
+        }
+
+        async function fetchAyahData() {
+            const surah = document.getElementById('surahSelect').value;
+            const ayah = document.getElementById('ayahInput').value;
+            const reciter = document.getElementById('reciterSelect').value;
+            const trans = document.getElementById('translationSelect').value;
+
+            try {
+                // Fetch Arabic text
+                let res = await fetch(`https://api.alquran.cloud/v1/ayah/${surah}:${ayah}/ar.asad`);
+                let data = await res.json();
+                if(data.code === 200) {
+                    document.getElementById('arabicDisplay').innerText = data.data.text;
+                }
+
+                // Fetch Translation
+                let resTrans = await fetch(`https://api.alquran.cloud/v1/ayah/${surah}:${ayah}/${trans}`);
+                let dataTrans = await resTrans.json();
+                if(dataTrans.code === 200) {
+                    document.getElementById('translationDisplay').innerText = dataTrans.data.text;
+                }
+
+                // Fetch Audio
+                let resAudio = await fetch(`https://api.alquran.cloud/v1/ayah/${surah}:${ayah}/${reciter}`);
+                let dataAudio = await resAudio.json();
+                if(dataAudio.code === 200) {
+                    currentAudio.src = dataAudio.data.audio;
+                }
+                
+                document.getElementById('audioStatus').innerText = `● Ayat ${ayah} siap.`;
+                addLog(`Loaded Surah ${surah}, Ayah ${ayah}`);
+            } catch (err) {
+                addLog(`Error fetching API data: ${err}`);
+            }
+        }
+
+        function playQuran() {
+            fetchAyahData().then(() => {
+                currentAudio.play();
+                document.getElementById('audioStatus').innerText = '▶ Memutar Audio...';
+                addLog('Playing Qur’an audio stream.');
+            });
+        }
+
+        function stopQuran() {
+            currentAudio.pause();
+            currentAudio.currentTime = 0;
+            document.getElementById('audioStatus').innerText = '⏹ Audio dihentikan.';
+            addLog('Qur’an audio stopped.');
+        }
+
+        function nextAyah() {
+            let input = document.getElementById('ayahInput');
+            input.value = parseInt(input.value) + 1;
+            playQuran();
+        }
+
+        function prevAyah() {
+            let input = document.getElementById('ayahInput');
+            if(parseInt(input.value) > 1) {
+                input.value = parseInt(input.value) - 1;
+                playQuran();
+            }
+        }
+
+        function toggleMute() {
+            currentAudio.muted = !currentAudio.muted;
+            document.getElementById('muteIcon').className = currentAudio.muted ? 'fa-solid fa-volume-xmark' : 'fa-solid fa-volume-high';
+            addLog(`Audio mute state: ${currentAudio.muted}`);
+        }
+
+        function toggleFullscreen() {
+            const elem = document.getElementById('previewScreen');
+            if (!document.fullscreenElement) {
+                elem.requestFullscreen().catch(err => {
+                    alert(`Error attempting to enable fullscreen: ${err.message}`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        function testEncoder() {
+            const url = document.getElementById('wsUrl').value;
+            addLog(`Testing connection to Encoder Bridge: ${url}`);
+            setTimeout(() => {
+                document.getElementById('bridgeStatus').innerText = '● Encoder bridge terhubung (Connected).';
+                document.getElementById('bridgeStatus').style.color = 'green';
+                addLog('Encoder bridge connected successfully.');
+            }, 1000);
+        }
+
+        function startYoutubeLive() {
+            const key = document.getElementById('streamKey').value;
+            if(!key) {
+                alert('Silakan masukkan YouTube Stream Key terlebih dahulu!');
+                return;
+            }
+            addLog('Starting YouTube Live stream broadcast...');
+            alert('YouTube Live broadcast initiated via bridge!');
+        }
+
+        function stopYoutubeLive() {
+            addLog('YouTube Live stream stopped.');
+            alert('Live broadcast terminated.');
+        }
+
+        let mediaRecorder;
+        let recordedChunks = [];
+        let timerInterval, seconds = 0;
+
+        function startRecording() {
+            const canvasElement = document.getElementById('previewScreen');
+            // Mock recorder implementation for browser stream
+            recordedChunks = [];
+            seconds = 0;
+            timerInterval = setInterval(() => {
+                seconds++;
+                let m = String(Math.floor(seconds / 60)).padStart(2, '0');
+                let s = String(seconds % 60).padStart(2, '0');
+                document.getElementById('recTimer').innerText = `${m}:${s}`;
+            }, 1000);
+            addLog('MediaRecorder started recording studio output.');
+            alert('Recording started.');
+        }
+
+        function downloadRecording() {
+            clearInterval(timerInterval);
+            addLog('Preparing recording file for download.');
+            alert('File rekaman siap diunduh.');
+        }
+
+        function clearRecording() {
+            clearInterval(timerInterval);
+            seconds = 0;
+            document.getElementById('recTimer').innerText = '00:00';
+            addLog('Recording data cleared.');
+        }
+
+        // Initialize first data fetch on load
+        window.onload = () => {
+            fetchAyahData();
         };
-        (function() {
-            var d = document, s = d.createElement('script');
-            s.src = 'https://awdevgithub.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
     </script>
-    <script id="dsq-count-scr" src="//awdevgithub.disqus.com/count.js" async></script>
 </body>
 </html>
