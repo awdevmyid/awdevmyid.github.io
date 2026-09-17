@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open PDFs Online with Our Free PDF Reader - Awdev</title>
+    <link rel="canonical" href="https://awdev.my.id/pdf/oppener/index.html">
+    
+    <!-- Meta & Verification -->
+    <meta name="google-site-verification" content="OLryKZ1dDupEH_xOuZWiEwdi0ZvuXMcnQeMjRwe5YCw" />
+    <meta name="google-adsense-account" content="ca-pub-5407249785989200">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.jpg">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/awdev.png"/>
+    <link rel="icon" type="image/png" href="https://awdev.my.id/favicon.png">
+    <link rel="icon" type="image/png" href="https://awdev.my.id/ico.png"/>
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/favicon.png">
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/ico.png"/>
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/awdev.jpg">
+    <link rel="icon" type="image/png" href="https://www.awdev.my.id/logo.png"/>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5407249785989200" crossorigin="anonymous"></script>
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Neumorphic Rainbow Stylesheet -->
+    <style>
+        :root {
+            --bg-color: #e0e5ec;
+            --neu-shadow-light: #ffffff;
+            --neu-shadow-dark: #a3b1c6;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --primary: #1a73e8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        /* Rainbow Gradient Line Accent */
+        .rainbow-bar {
+            height: 6px;
+            width: 100%;
+            background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+        }
+
+        /* Neumorphic Mixins */
+        .neu-box {
+            background: var(--bg-color);
+            box-shadow: 9px 9px 16px var(--neu-shadow-dark), -9px -9px 16px var(--neu-shadow-light);
+            border-radius: 16px;
+        }
+
+        .neu-inset {
+            background: var(--bg-color);
+            box-shadow: inset 6px 6px 10px var(--neu-shadow-dark), inset -6px -6px 10px var(--neu-shadow-light);
+            border-radius: 12px;
+        }
+
+        .neu-button {
+            background: var(--bg-color);
+            box-shadow: 6px 6px 12px var(--neu-shadow-dark), -6px -6px 12px var(--neu-shadow-light);
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            font-weight: bold;
+            color: var(--text-main);
+        }
+
+        .neu-button:active {
+            box-shadow: inset 4px 4px 8px var(--neu-shadow-dark), inset -4px -4px 8px var(--neu-shadow-light);
+        }
+
+        /* Header & Navigation Dropdown */
+        header {
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff0000, #0000ff, #8b00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background: var(--bg-color);
+            padding: 10px 18px;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 12px;
+            box-shadow: 4px 4px 8px var(--neu-shadow-dark), -4px -4px 8px var(--neu-shadow-light);
+            font-weight: 600;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--bg-color);
+            min-width: 240px;
+            box-shadow: 8px 8px 16px var(--neu-shadow-dark), -8px -8px 16px var(--neu-shadow-light);
+            z-index: 1;
+            border-radius: 12px;
+            padding: 10px 0;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .dropdown-content a {
+            color: var(--text-main);
+            padding: 8px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 13px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(26, 115, 232, 0.1);
+            color: var(--primary);
+            padding-left: 20px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ff7f00, #ff0000, #8b00ff, #0000ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Container & PDF Reader Tool Area */
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .reader-box {
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+
+        .upload-area {
+            border: 2px dashed var(--neu-shadow-dark);
+            padding: 30px;
+            text-align: center;
+            border-radius: 15px;
+            cursor: pointer;
+            margin-bottom: 25px;
+        }
+
+        .upload-area:hover {
+            border-color: var(--primary);
+        }
+
+        .upload-area i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        /* Example List Grid */
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .example-card {
+            padding: 15px;
+            text-align: center;
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--text-main);
+            display: block;
+        }
+
+        .example-card:hover {
+            color: var(--primary);
+            box-shadow: 5px 5px 10px var(--neu-shadow-dark), -5px -5px 10px var(--neu-shadow-light);
+        }
+
+        .example-card i {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            color: #e74c3c;
+        }
+
+        .example-card h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        /* PDF Viewer Container Frame */
+        .viewer-container {
+            margin-top: 30px;
+            display: none;
+            width: 100%;
+            height: 600px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .viewer-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Share Media */
+        .share-container {
+            text-align: center;
+            margin-top: 40px;
+            padding: 25px;
+            border-radius: 20px;
+        }
+
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            box-shadow: 5px 5px 10px var(--neu-shadow-dark), -5px -5px 10px var(--neu-shadow-light);
+        }
+
+        .fb { background: #3b5998; }
+        .tw { background: #1da1f2; }
+        .wa-sh { background: #25d366; }
+        .tg { background: #0088cc; }
+        .li { background: #0077b5; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #d1d9e6;
+            margin-top: 60px;
+        }
+
+        footer p a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+
+        footer p a:hover {
+            text-decoration: underline;
+        }
+
+        @media(max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Rainbow Bar Header Accent -->
+    <div class="rainbow-bar"></div>
+
+    <!-- Header & Navigation Dropdown -->
+    <header class="neu-box" style="box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin: 15px; border-radius: 16px;">
+        <div class="logo-area">
+            <i class="fa-solid fa-book-open-reader"></i> Awdev PDF Reader
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Menu Tools <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="dropdown-content">
+                <a href="https://awdev.my.id/aplikasi/">Aplikasi</a>
+                <a href="https://awdev.my.id/calligraphy/">Calligraphy</a>
+                <a href="https://awdev.my.id/code/">Code</a>
+                <a href="https://awdev.my.id/collor/">Collor</a>
+                <a href="https://awdev.my.id/converter/">Converter</a>
+                <a href="https://awdev.my.id/devoloper/">Devoloper</a>
+                <a href="https://awdev.my.id/domain/">Domain</a>
+                <a href="https://awdev.my.id/domains/">Domains</a>
+                <a href="https://awdev.my.id/eq/">EQ</a>
+                <a href="https://awdev.my.id/finder/">Finder</a>
+                <a href="https://awdev.my.id/hook/">Hook</a>
+                <a href="https://awdev.my.id/img/">Img</a>
+                <a href="https://awdev.my.id/ip/">IP</a>
+                <a href="https://awdev.my.id/kodepost/">Kodepost</a>
+                <a href="https://awdev.my.id/link/">Link</a>
+                <a href="https://awdev.my.id/maps/">Maps</a>
+                <a href="https://awdev.my.id/pdf/">PDF</a>
+                <a href="https://awdev.my.id/qr/">QR</a>
+                <a href="https://awdev.my.id/quran/">Quran</a>
+                <a href="https://awdev.my.id/removebg/">Removebg</a>
+                <a href="https://awdev.my.id/safelink/">Safelink</a>
+                <a href="https://awdev.my.id/search/">Search</a>
+                <a href="https://awdev.my.id/seo/">SEO</a>
+                <a href="https://awdev.my.id/source/">Source</a>
+                <a href="https://awdev.my.id/text/">Text</a>
+                <a href="https://awdev.my.id/tools/">Tools</a>
+                <a href="https://awdev.my.id/utilities/">Utilities</a>
+                <a href="https://awdev.my.id/vidio/">Vidio</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Open PDFs Online with Our Free PDF Reader</h1>
+        <p>Read, preview, and explore digital documents instantly inside your browser.</p>
+    </section>
+
+    <!-- Main Tool Container -->
+    <div class="container">
+        <div class="reader-box neu-box">
+            
+            <!-- Upload Local PDF Option -->
+            <div class="upload-area neu-inset" onclick="document.getElementById('file-input').click()">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                <h3>Drag & Drop or Click to Upload Local PDF</h3>
+                <p style="font-size: 13px; color: var(--text-muted); margin-top: 5px;">Supports instant client-side file reading</p>
+                <input type="file" id="file-input" accept="application/pdf" style="display: none;" onchange="loadLocalPDF(event)">
+            </div>
+
+            <!-- Example Reading List Section -->
+            <h3 style="margin-bottom: 15px; font-size: 1.1rem; color: var(--text-main);">Or Try Reading Sample PDFs:</h3>
+            <div class="examples-grid">
+                
+                <div class="example-card neu-box" onclick="openPDF('https://awdevmyid.github.io/pdf/BAHASA ARAB.pdf')">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    <h4>BAHASA ARAB.pdf</h4>
+                </div>
+
+                <div class="example-card neu-box" onclick="openPDF('https://awdevmyid.github.io/pdf/MAHA KARYA.pdf')">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    <h4>MAHA KARYA.pdf</h4>
+                </div>
+
+                <div class="example-card neu-box" onclick="openPDF('https://awdevmyid.github.io/pdf/MASTERPIECE.pdf')">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    <h4>MASTERPIECE.pdf</h4>
+                </div>
+
+                <div class="example-card neu-box" onclick="openPDF('https://awdevmyid.github.io/pdf/academic.pdf')">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    <h4>academic.pdf</h4>
+                </div>
+
+            </div>
+
+            <!-- PDF Viewer Frame Area -->
+            <div class="viewer-container neu-inset" id="viewer-box">
+                <iframe id="pdf-frame" src=""></iframe>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Social Media Share Container -->
+    <div class="container">
+        <div class="share-container neu-box">
+            <h3>Share This PDF Reader Tool</h3>
+            <div class="share-buttons">
+                <a href="#" class="share-btn fb"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="share-btn tw"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="share-btn wa-sh"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" class="share-btn tg"><i class="fa-brands fa-telegram"></i></a>
+                <a href="#" class="share-btn li"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Disqus Comments Section -->
+    <div class="container" style="margin-top: 40px;">
+        <div class="neu-box" style="padding: 30px;">
+            <div id="disqus_thread"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div style="max-width: 1000px; margin: 0 auto; padding: 20px;">
+            <p>&copy; awdev. All rights reserved.</p>
+            <p style="margin-top: 10px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+                <a href="https://awdev.my.id/">Home</a> | 
+                <a href="https://awdev.my.id/about.html">About Us</a> | 
+                <a href="https://awdev.my.id/blog.html">Blog</a> | 
+                <a href="https://awdev.my.id/contact.html">Contact</a> | 
+                <a href="https://awdev.my.id/privacy-policy.html">Privacy Policy</a> | 
+                <a href="https://awdev.my.id/terms.html">Terms & Conditions</a> | 
+                <a href="https://awdev.my.id/disclaimers.html">Disclaimers</a> | 
+                <a href="https://awdev.my.id/license.html">License</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Reader Logic -->
+    <script>
+        function openPDF(pdfUrl) {
+            const viewerBox = document.getElementById('viewer-box');
+            const pdfFrame = document.getElementById('pdf-frame');
+            
+            viewerBox.style.display = 'block';
+            pdfFrame.src = pdfUrl;
+            
+            // Smooth scroll down to viewer
+            viewerBox.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function loadLocalPDF(event) {
+            const file = event.target.files[0];
+            if (file && file.type === "application/pdf") {
+                const fileURL = URL.createObjectURL(file);
+                openPDF(fileURL);
+            } else {
+                alert("Please select a valid PDF file.");
+            }
+        }
+
+        // Disqus Integration Script
+        var disqus_config = function () {
+            this.page.url = 'https://awdev.my.id/pdf/oppener/index.html'; 
+            this.page.identifier = 'pdf_oppener_awdev'; 
+        };
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://awdevgithub.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <script id="dsq-count-scr" src="//awdevgithub.disqus.com/count.js" async></script>
+</body>
+</html>
