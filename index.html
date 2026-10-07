@@ -426,6 +426,56 @@
             color: var(--text-color);
         }
 
+.rainbow-gradient-text {
+      background: var(--rainbow-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+  }
+
+  /* Neumorphic Containers */
+  .neu-raised {
+      background: var(--bg-color);
+      box-shadow: 8px 8px 16px var(--neu-shadow-dark), -8px -8px 16px var(--neu-shadow-light);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 30px;
+  }
+
+  .neu-inset {
+      background: var(--bg-color);
+      box-shadow: inset 4px 4px 8px var(--neu-shadow-dark), inset -4px -4px 8px var(--neu-shadow-light);
+      border-radius: 12px;
+      padding: 15px;
+  }
+
+  .neu-btn {
+      background: var(--bg-color);
+      box-shadow: 5px 5px 10px var(--neu-shadow-dark), -5px -5px 10px var(--neu-shadow-light);
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      cursor: pointer;
+      color: var(--text-color);
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+  }
+
+  .neu-btn:hover {
+      box-shadow: inset 3px 3px 6px var(--neu-shadow-dark), inset -3px -3px 6px var(--neu-shadow-light);
+      color: #ff3366;
+  }
+
+    /* Slider Section */
+    .slider-item {
+        display: none;
+    }
+    .slider-item.active {
+        display: flex;
+    }
+    
         /* Footer */
         footer {
             text-align: center;
@@ -458,6 +508,7 @@
             .hero-title { font-size: 1.8rem; }
             .slide img, .slide video { height: 250px; }
         }
+        
     </style>
 </head>
 <body>
@@ -568,17 +619,249 @@
             </div>
         </div>
     </section>
+<main>
+        <!-- Hero Section -->
+        <section class="neu-raised hero-section space-y-4">
+            <h1 class="text-3xl sm:text-5xl font-black tracking-tight rainbow-gradient-text leading-tight" style="font-size: 2.2rem; margin-bottom: 15px;">
+                Empowering Global Developers with Soft UI & Modern Open Source
+            </h1>
+            <p class="text-base sm:text-lg text-slate-600 leading-relaxed" style="margin-bottom: 20px;">
+                Selamat datang di dokumentasi resmi dan ekosistem templat Neumorphic dari AWDEV Corporation. Artikel komprehensif ini membahas evolusi rekayasa perangkat lunak terbuka, integrasi kerangka kerja canggih seperti <strong>Angular 18</strong>, strategi SEO tingkat lanjut, hingga implementasi antarmuka estetis bersulfur soft shadows.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 15px;">
+                <a href="#toc" class="neu-btn text-pink-500">
+                    <i class="fa-solid fa-compass"></i>
+                    <span>Jelajahi Daftar Isi</span>
+                </a>
+                <a href="#slider-section" class="neu-btn text-blue-500">
+                    <i class="fa-solid fa-images"></i>
+                    <span>Galeri & Video Showcase</span>
+                </a>
+            </div>
+        </section>
 
-    <!-- English Article Section with 7 Internal & 7 External Links -->
-    <section class="neu-box article-section">
-        <h2>Empowering Global Developers: The Evolution of Open Source Tools</h2>
-        <p>
-            In the rapidly evolving digital landscape, open-source projects serve as the backbone of modern software engineering. AWDEV Corporation is committed to providing comprehensive developer resources, empowering programmers and designers worldwide. By leveraging modern frameworks like <strong>Angular 18</strong>, integrating robust SEO strategies, and utilizing innovative color code generators, developers can accelerate their workflow exponentially.
-        </p>
-        <p>
-            Whether you are building interactive web applications, exploring Arabic calligraphy generators, or designing clean Neumorphism interfaces, having access to versatile tools is paramount. Our platform bridges the gap between creativity and technical execution, offering everything from custom QR generators to high-resolution gallery assets and cinematic video libraries.
-        </p>
+        <!-- Table of Contents -->
+        <section id="toc" class="neu-raised">
+            <h3 class="text-xl font-bold mb-6 flex items-center space-x-3 text-pink-500" style="margin-bottom: 20px; color: #ff3366;">
+                <i class="fa-solid fa-list-check"></i> Daftar Isi (Table of Contents)
+            </h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px;">
+                <div class="neu-inset"><a href="#sec-1" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-angle-right text-xs text-pink-500"></i><span>1. Pendahuluan: Fondasi Era Baru</span></a></div>
+                <div class="neu-inset"><a href="#sec-2" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-angle-right text-xs text-pink-500"></i><span>2. Peran Krusial Open Source Global</span></a></div>
+                <div class="neu-inset"><a href="#sec-3" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-angle-right text-xs text-pink-500"></i><span>3. Evolusi Framework: Angular 18</span></a></div>
+                <div class="neu-inset"><a href="#sec-4" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-angle-right text-xs text-pink-500"></i><span>4. Strategi SEO Tingkat Lanjut</span></a></div>
+                <div class="neu-inset"><a href="#sec-5" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-angle-right text-xs text-pink-500"></i><span>5. Inovasi Desain: Neumorphism & UI</span></a></div>
+                <div class="neu-inset"><a href="#sec-6" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-angle-right text-xs text-pink-500"></i><span>6. Integrasi Alat Utilitas & Generator</span></a></div>
+                <div class="neu-inset"><a href="#sec-7" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-angle-right text-xs text-pink-500"></i><span>7. Masa Depan Pengembangan Web</span></a></div>
+                <div class="neu-inset"><a href="#sec-8" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-angle-right text-xs text-pink-500"></i><span>8. Tanya Jawab (FAQ) Lengkap</span></a></div>
+            </div>
+        </section>
 
+        <!-- Image & Video Showcase Slider Section -->
+        <section id="slider-section" class="neu-raised">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
+                <h3 class="text-xl font-bold text-pink-500" style="color: #ff3366;">
+                    <i class="fa-solid fa-photo-film"></i> Galeri & Showcase Visual Interaktif
+                </h3>
+                <div style="display: flex; gap: 10px;">
+                    <button onclick="prevSlide()" class="neu-btn" style="width: 40px; height: 40px; justify-content: center;"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button onclick="nextSlide()" class="neu-btn" style="width: 40px; height: 40px; justify-content: center;"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Slider Container -->
+            <div class="neu-inset" style="position: relative; min-height: 280px; display: flex; align-items: center; justify-content: center;">
+                <!-- Slide 1 -->
+                <div class="slider-item active" style="flex-direction: row; gap: 20px; align-items: center; width: 100%; flex-wrap: wrap;">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="Code Development" style="width: 100%; max-width: 350px; height: 200px; object-fit: cover; border-radius: 12px;">
+                    <div style="flex: 1; min-width: 250px;">
+                        <span style="font-size: 0.75rem; font-weight: bold; padding: 4px 10px; background: #e4ebf5; border-radius: 20px; color: #ff3366;">Slide 01: Arsitektur Kode</span>
+                        <h4 style="font-size: 1.3rem; margin: 10px 0 5px 0;">Pengembangan Perangkat Lunak Skala Besar</h4>
+                        <p style="font-size: 0.9rem; color: #666;">Pemanfaatan struktur repositori bersih dan terstandarisasi untuk memastikan kolaborasi global yang efisien.</p>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="slider-item" style="flex-direction: row; gap: 20px; align-items: center; width: 100%; flex-wrap: wrap;">
+                    <div style="width: 100%; max-width: 350px; height: 200px; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #d6e0ef;">
+                        <i class="fa-solid fa-circle-play" style="font-size: 3rem; color: #ff3366; margin-bottom: 10px;"></i>
+                        <span style="font-weight: bold;">Cinematic UI Showcase</span>
+                    </div>
+                    <div style="flex: 1; min-width: 250px;">
+                        <span style="font-size: 0.75rem; font-weight: bold; padding: 4px 10px; background: #e4ebf5; border-radius: 20px; color: #ff3366;">Slide 02: UI Interaktif</span>
+                        <h4 style="font-size: 1.3rem; margin: 10px 0 5px 0;">Desain Soft UI & Neumorphism Modern</h4>
+                        <p style="font-size: 0.9rem; color: #666;">Penerapan efek bayangan ganda yang memberikan kesan fisik nyata pada elemen antarmuka.</p>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="slider-item" style="flex-direction: row; gap: 20px; align-items: center; width: 100%; flex-wrap: wrap;">
+                    <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80" alt="Team Collaboration" style="width: 100%; max-width: 350px; height: 200px; object-fit: cover; border-radius: 12px;">
+                    <div style="flex: 1; min-width: 250px;">
+                        <span style="font-size: 0.75rem; font-weight: bold; padding: 4px 10px; background: #e4ebf5; border-radius: 20px; color: #ff3366;">Slide 03: Kolaborasi Global</span>
+                        <h4 style="font-size: 1.3rem; margin: 10px 0 5px 0;">Ekosistem Pengembang Komunitas</h4>
+                        <p style="font-size: 0.9rem; color: #666;">Menyatukan para insinyur dari seluruh penjuru dunia untuk menciptakan utilitas web yang cepat.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Article Body Sections -->
+        <div style="display: flex; flex-direction: column; gap: 30px;">
+
+            <!-- Section 1 -->
+            <section id="sec-1" class="neu-raised">
+                <h3 class="text-2xl font-bold text-pink-500" style="color: #ff3366; margin-bottom: 15px;">1. Pendahuluan: Fondasi Era Baru Rekayasa Perangkat Lunak Terbuka</h3>
+                <p style="margin-bottom: 15px; text-align: justify;">
+                    Dalam lanskap digital yang berkembang dengan kecepatan eksponensial, proyek sumber terbuka (<strong>open-source projects</strong>) telah menjadi tulang punggung utama rekayasa perangkat lunak modern. AWDEV Corporation secara konsisten berkomitmen untuk menyediakan sumber daya pengembang yang komprehensif, memberdayakan para programmer, desainer, dan kreator di seluruh dunia. Melalui pemanfaatan kerangka kerja modern seperti <strong>Angular 18</strong>, integrasi strategi SEO yang tangguh, serta pemanfaatan generator kode warna inovatif, para pengembang dapat mengakselerasi alur kerja mereka secara eksponensial.
+                </p>
+                <p style="text-align: justify;">
+                    Pengembangan perangkat lunak saat ini tidak lagi sekadar menulis baris kode untuk menyelesaikan masalah fungsional tunggal, melainkan tentang membangun ekosistem yang berkelanjutan, dapat diskalakan, dan mudah diakses oleh komunitas global. Anda dapat mempelajari lebih lanjut tentang standar rekayasa perangkat lunak global melalui panduan resmi di <a href="https://www.computer.org" target="_blank" rel="noopener" style="color: #ff3366; font-weight: 600;">IEEE Computer Society</a> [1].
+                </p>
+            </section>
+
+            <!-- Section 2 -->
+            <section id="sec-2" class="neu-raised">
+                <h3 class="text-2xl font-bold text-pink-500" style="color: #ff3366; margin-bottom: 15px;">2. Peran Krusial Open Source dalam Lanskap Teknologi Global</h3>
+                <p style="margin-bottom: 15px; text-align: justify;">
+                    Kolaborasi terbuka telah mengubah cara perangkat lunak dibuat, diuji, dan didistribusikan. Repositori kode terbuka memberikan transparansi dan keamanan yang lebih baik karena jutaan mata dapat meninjau dan memperbaiki kerentanan secara real-time. Untuk memahami bagaimana kolaborasi global ini mendorong inovasi, tinjauan mendalam mengenai manajemen repositori kode dapat ditemukan di <a href="https://github.com" target="_blank" rel="noopener" style="color: #ff3366; font-weight: 600;">GitHub</a> [2].
+                </p>
+                <ul style="list-style-type: disc; padding-left: 20px; margin-bottom: 15px; display: flex; flex-direction: column; gap: 8px;">
+                    <li><strong>Transparansi Keamanan:</strong> Kode yang terbuka memungkinkan audit keamanan secara menyeluruh. Rujukan standar keamanan dapat dipelajari di <a href="https://www.owasp.org" target="_blank" rel="noopener" style="color: #ff3366; font-weight: 600;">OWASP Foundation</a> [3].</li>
+                    <li><strong>Akselerasi Inovasi:</strong> Pengembang dapat memanfaatkan pustaka teruji yang dikelola oleh <a href="https://www.npmjs.com" target="_blank" rel="noopener" style="color: #ff3366; font-weight: 600;">NPM Registry</a> [4].</li>
+                    <li><strong>Standarisasi Industri:</strong> Proyek open-source didukung penuh oleh <a href="https://www.linuxfoundation.org" target="_blank" rel="noopener" style="color: #ff3366; font-weight: 600;">The Linux Foundation</a> [5].</li>
+                </ul>
+            </section>
+
+            <!-- Section 3 -->
+            <section id="sec-3" class="neu-raised">
+                <h3 class="text-2xl font-bold text-pink-500" style="color: #ff3366; margin-bottom: 15px;">3. Evolusi Framework Modern: Mengoptimalkan Performa dengan Angular 18</h3>
+                <p style="margin-bottom: 15px; text-align: justify;">
+                    Pemilihan kerangka kerja front-end sangat menentukan performa dan skalabilitas aplikasi web. <strong>Angular 18</strong> hadir dengan berbagai pembaruan revolusioner untuk meningkatkan kecepatan kompilasi. Informasi resmi mengenai pembaruan framework ini dapat disimak langsung melalui <a href="https://angular.io" target="_blank" rel="noopener" style="color: #ff3366; font-weight: 600;">Angular Documentation</a> [7].
+                </p>
+            </section>
+
+            <!-- Section 4 -->
+            <section id="sec-4" class="neu-raised">
+                <h3 class="text-2xl font-bold text-pink-500" style="color: #ff3366; margin-bottom: 15px;">4. Strategi SEO Tingkat Lanjut untuk Pengembang Perangkat Lunak</h3>
+                <p style="margin-bottom: 15px; text-align: justify;">
+                    Optimasi Mesin Pencari (<strong>SEO</strong>) teknis adalah komponen krusial. Panduan komprehensif mengenai praktik terbaik optimasi mesin pencari dapat dipelajari melalui <a href="https://developers.google.com/search" target="_blank" rel="noopener" style="color: #ff3366; font-weight: 600;">Google Search Central</a> [9]. Analisis tren pencarian global dapat ditinjau melalui <a href="https://ahrefs.com" target="_blank" rel="noopener" style="color: #ff3366; font-weight: 600;">Ahrefs</a> [10] atau <a href="https://www.semrush.com" target="_blank" rel="noopener" style="color: #ff3366; font-weight: 600;">Semrush</a> [11].
+                </p>
+            </section>
+
+            <!-- Section 5 -->
+            <section id="sec-5" class="neu-raised">
+                <h3 class="text-2xl font-bold text-pink-500" style="color: #ff3366; margin-bottom: 15px;">5. Inovasi Desain Antarmuka: Dari Neumorphism hingga Estetika Digital</h3>
+                <p style="margin-bottom: 15px; text-align: justify;">
+                    Desain antarmuka pengguna (<strong>UI</strong>) memegang peran sentral. Tren estetika <strong>Neumorphism</strong> memadukan desain datar dengan bayangan realistis. Standar internasional dapat dirujuk melalui <a href="https://www.w3.org" target="_blank" rel="noopener" style="color: #ff3366; font-weight: 600;">W3C</a> [12] dan <a href="https://www.smashingmagazine.com" target="_blank" rel="noopener" style="color: #ff3366; font-weight: 600;">Smashing Magazine</a> [13].
+                </p>
+            </section>
+
+            <!-- Section 6 -->
+            <section id="sec-6" class="neu-raised">
+                <h3 class="text-2xl font-bold text-pink-500" style="color: #ff3366; margin-bottom: 15px;">6. Integrasi Alat Utilitas: Generator Warna, QR Code, dan Kaligrafi Arab</h3>
+                <p style="margin-bottom: 15px; text-align: justify;">
+                    Platform pengembangan modern dituntut untuk menyediakan utilitas serbaguna. Untuk mempelajari standar pengkodean warna digital, Anda dapat merujuk pada standar industri di <a href="https://www.adobe.com" target="_blank" rel="noopener" style="color: #ff3366; font-weight: 600;">Adobe Design Center</a> [14].
+                </p>
+            </section>
+
+            <!-- Section 7 -->
+            <section id="sec-7" class="neu-raised">
+                <h3 class="text-2xl font-bold text-pink-500" style="color: #ff3366; margin-bottom: 15px;">7. Masa Depan Pengembangan Web: Kolaborasi Global dan Efisiensi Alur Kerja</h3>
+                <p style="margin-bottom: 15px; text-align: justify;">
+                    Komunitas global seperti <a href="https://stackoverflow.com" target="_blank" rel="noopener" style="color: #ff3366; font-weight: 600;">Stack Overflow</a> [15] terus menjadi mercusuar bagi jutaan pengembang. Rujukan teknis infrastruktur cloud dapat dipelajari melalui <a href="https://aws.amazon.com" target="_blank" rel="noopener" style="color: #ff3366; font-weight: 600;">AWS Documentation</a> [16] serta <a href="https://gitlab.com" target="_blank" rel="noopener" style="color: #ff3366; font-weight: 600;">GitLab</a> [17].
+                </p>
+            </section>
+
+            <!-- Section 8: FAQ Accordion -->
+            <section id="sec-8" class="neu-raised">
+                <h3 class="text-2xl font-bold text-pink-500" style="color: #ff3366; margin-bottom: 20px;">
+                    <i class="fa-solid fa-circle-question"></i> 8. Tanya Jawab (FAQ) Lengkap seputar Neumorphism & Open Source
+                </h3>
+
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <!-- FAQ 1 -->
+                    <div class="neu-inset" style="cursor: pointer;" onclick="toggleFaq(1)">
+                        <div style="display: flex; justify-content: space-between; align-items: center; font-weight: bold; font-size: 1.05rem;">
+                            <span>Q1: Apa keuntungan utama menggunakan desain Neumorphism?</span>
+                            <i id="faq-icon-1" class="fa-solid fa-chevron-down text-pink-500"></i>
+                        </div>
+                        <div id="faq-content-1" style="display: none; margin-top: 10px; font-size: 0.95rem; color: #555;">
+                            <p>A: Neumorphism memberikan estetika visual yang bersih, futuristik, dan memberikan kesan fisik yang nyata melalui manipulasi bayangan terang dan gelap (soft UI shadows), membuat antarmuka terasa interaktif.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="neu-inset" style="cursor: pointer;" onclick="toggleFaq(2)">
+                        <div style="display: flex; justify-content: space-between; align-items: center; font-weight: bold; font-size: 1.05rem;">
+                            <span>Q2: Mengapa Angular 18 direkomendasikan untuk proyek enterprise?</span>
+                            <i id="faq-icon-2" class="fa-solid fa-chevron-down text-pink-500"></i>
+                        </div>
+                        <div id="faq-content-2" style="display: none; margin-top: 10px; font-size: 0.95rem; color: #555;">
+                            <p>A: Angular 18 menawarkan performa kompilasi yang luar biasa cepat, dukungan TypeScript yang ketat, serta modularitas komponen yang sangat terstruktur untuk aplikasi skala besar.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="neu-inset" style="cursor: pointer;" onclick="toggleFaq(3)">
+                        <div style="display: flex; justify-content: space-between; align-items: center; font-weight: bold; font-size: 1.05rem;">
+                            <span>Q3: Bagaimana cara mengintegrasikan SEO teknis pada aplikasi web?</span>
+                            <i id="faq-icon-3" class="fa-solid fa-chevron-down text-pink-500"></i>
+                        </div>
+                        <div id="faq-content-3" style="display: none; margin-top: 10px; font-size: 0.95rem; color: #555;">
+                            <p>A: Dengan menerapkan struktur HTML semantik yang benar, optimasi kecepatan Core Web Vitals, penyusunan metadata SEO yang akurat, serta sitemap XML.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+  
+    <!-- JavaScript for Slider & FAQ Interactions -->
+    <script>
+        // Slider Logic
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slider-item');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Auto slide every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        // FAQ Accordion Logic
+        function toggleFaq(id) {
+            const content = document.getElementById(`faq-content-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.display = 'block';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+
+    
         <div class="link-list">
             <!-- Internal Links Card -->
             <div class="link-card">
@@ -772,3 +1055,5 @@
     </script>
 </body>
 </html>
+
+            
